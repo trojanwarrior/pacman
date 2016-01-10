@@ -21,9 +21,7 @@ GameManager::~GameManager ()
     delete _root;
 }
 
-void
-GameManager::start
-(GameState* state)
+void GameManager::start(GameState* state)
 {
   // Creación del objeto Ogre::Root.
   _root = new Ogre::Root();
@@ -50,9 +48,7 @@ GameManager::start
   _root->startRendering();
 }
 
-void
-GameManager::changeState
-(GameState* state)
+void GameManager::changeState(GameState* state)
 {
   // Limpieza del estado actual.
   if (!_states.empty()) {
@@ -68,9 +64,7 @@ GameManager::changeState
   _states.top()->enter();
 }
 
-void
-GameManager::pushState
-(GameState* state)
+void GameManager::pushState(GameState* state)
 {
   // Pausa del estado actual.
   if (!_states.empty())
@@ -82,11 +76,11 @@ GameManager::pushState
   _states.top()->enter();
 }
 
-void
-GameManager::popState ()
+void GameManager::popState ()
 {
   // Limpieza del estado actual.
-  if (!_states.empty()) {
+  if (!_states.empty()) 
+  {
     _states.top()->exit();
     _states.pop();
   }
@@ -96,50 +90,50 @@ GameManager::popState ()
     _states.top()->resume();
 }
 
-void
-GameManager::loadResources ()
+void GameManager::loadResources ()
 {
   Ogre::ConfigFile cf;
   cf.load("resources.cfg");
   
   Ogre::ConfigFile::SectionIterator sI = cf.getSectionIterator();
   Ogre::String sectionstr, typestr, datastr;
-  while (sI.hasMoreElements()) {
+  while (sI.hasMoreElements()) 
+  {
     sectionstr = sI.peekNextKey();
     Ogre::ConfigFile::SettingsMultiMap *settings = sI.getNext();
     Ogre::ConfigFile::SettingsMultiMap::iterator i;
-    for (i = settings->begin(); i != settings->end(); ++i) {
-      typestr = i->first;    datastr = i->second;
-      Ogre::ResourceGroupManager::getSingleton().addResourceLocation
-            (datastr, typestr, sectionstr);	
+    for (i = settings->begin(); i != settings->end(); ++i) 
+    {
+      typestr = i->first;    
+      datastr = i->second;
+      Ogre::ResourceGroupManager::getSingleton().addResourceLocation(datastr, typestr, sectionstr);	
     }
   }
 }
 
-bool
-GameManager::configure ()
+bool GameManager::configure ()
 {
-  if (!_root->restoreConfig()) {
-    if (!_root->showConfigDialog()) {
+  if (!_root->restoreConfig())
+  {
+    if (!_root->showConfigDialog())
+    {
       return false;
     }
   }
   
-  _renderWindow = _root->initialise(true, "Game State Example");
+  _renderWindow = _root->initialise(true, "Pacman");
   
   Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
   
   return true;
 }
 
-GameManager*
-GameManager::getSingletonPtr ()
+GameManager* GameManager::getSingletonPtr ()
 {
   return msSingleton;
 }
 
-GameManager&
-GameManager::getSingleton ()
+GameManager& GameManager::getSingleton ()
 {  
   assert(msSingleton);
   return *msSingleton;
@@ -147,56 +141,42 @@ GameManager::getSingleton ()
 
 // Las siguientes funciones miembro delegan
 // el evento en el estado actual.
-bool
-GameManager::frameStarted
-(const Ogre::FrameEvent& evt)
+bool GameManager::frameStarted(const Ogre::FrameEvent& evt)
 {
   _inputMgr->capture();
   return _states.top()->frameStarted(evt);
 }
 
-bool
-GameManager::frameEnded
-(const Ogre::FrameEvent& evt)
+bool GameManager::frameEnded(const Ogre::FrameEvent& evt)
 {
   return _states.top()->frameEnded(evt);
 }
 
-bool
-GameManager::keyPressed 
-(const OIS::KeyEvent &e)
+bool GameManager::keyPressed(const OIS::KeyEvent &e)
 {
   _states.top()->keyPressed(e);
   return true;
 }
 
-bool
-GameManager::keyReleased
-(const OIS::KeyEvent &e)
+bool GameManager::keyReleased(const OIS::KeyEvent &e)
 {
   _states.top()->keyReleased(e);
   return true;
 }
 
-bool
-GameManager::mouseMoved 
-(const OIS::MouseEvent &e)
+bool GameManager::mouseMoved(const OIS::MouseEvent &e)
 {
   _states.top()->mouseMoved(e);
   return true;
 }
 
-bool
-GameManager::mousePressed 
-(const OIS::MouseEvent &e, OIS::MouseButtonID id)
+bool GameManager::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
   _states.top()->mousePressed(e, id);
   return true;
 }
 
-bool
-GameManager::mouseReleased
-(const OIS::MouseEvent &e, OIS::MouseButtonID id)
+bool GameManager::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
   _states.top()->mouseReleased(e, id);
   return true;
