@@ -30,7 +30,16 @@ void IntroState::enter ()
     _camera = _sceneMgr->createCamera("IntroCamera");
   }
   
-  _viewport = _root->getAutoCreatedWindow()->addViewport(_camera);
+  try
+  {
+    _viewport = _root->getAutoCreatedWindow()->addViewport(_camera);      
+  }
+  catch(...)
+  {
+    _viewport = _root->getAutoCreatedWindow()->getViewport(0);
+  }
+  
+  
   //El fondo del pacman siempre es negro
   _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 0.0));
 
