@@ -23,13 +23,18 @@
 
 #include <Ogre.h>
 #include <OIS/OIS.h>
+#include <string>
 
 #include "GameState.h"
+
+using namespace std;
+using namespace Ogre;
 
 class PlayState : public Ogre::Singleton<PlayState>, public GameState
 {
  public:
   PlayState () {}
+  ~PlayState();
 
   void enter ();
   void exit ();
@@ -57,6 +62,14 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   Ogre::Camera* _camera;
 
   bool _exitGame;
+  
+  
+private:
+  private:
+  Ogre::Rectangle2D* _rect; // Para mostrar un fondo
+  void mostrarFondo();
+  Ogre::TextureUnitState* CreateTextureFromImgWithoutStretch(const String& texName, Real texSize, const String& imgName);
+  
 };
 
 #endif

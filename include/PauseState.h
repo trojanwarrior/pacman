@@ -26,6 +26,9 @@
 
 #include "GameState.h"
 
+using namespace std;
+using namespace Ogre;
+
 class PauseState : public Ogre::Singleton<PauseState>, public GameState
 {
  public:
@@ -57,6 +60,10 @@ class PauseState : public Ogre::Singleton<PauseState>, public GameState
   Ogre::Camera* _camera;
 
   bool _exitGame;
+  
+ private:
+  void mostrarPausa();
+  
 };
 
 #endif

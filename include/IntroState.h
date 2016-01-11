@@ -26,10 +26,14 @@
 
 #include "GameState.h"
 
+using namespace std;
+using namespace Ogre;
+
 class IntroState : public Ogre::Singleton<IntroState>, public GameState
 {
  public:
   IntroState() {}
+  ~IntroState();
 
   void enter ();
   void exit ();
@@ -57,6 +61,13 @@ class IntroState : public Ogre::Singleton<IntroState>, public GameState
   Ogre::Camera* _camera;
 
   bool _exitGame;
+  
+private:
+  Ogre::Rectangle2D* _rect; // Para mostrar un fondo
+ 
+  void mostrarFondo();
+  TextureUnitState* CreateTextureFromImgWithoutStretch(const String& texName, Real texSize, const String& imgName);
+  
 };
 
 #endif

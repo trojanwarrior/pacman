@@ -17,12 +17,12 @@ CXX := g++
 
 # Flags de compilación -----------------------------------------------
 #CXXFLAGS := -I$(DIRHEA) -I$(DIRHEACEGUI1) -I$(DIRHEACEGUI2) -Wall `pkg-config --cflags OIS OGRE`  
-CXXFLAGS := -I$(DIRHEA) -Wall `pkg-config --cflags OIS OGRE` 
+CXXFLAGS := -I$(DIRHEA) -Wall `pkg-config --cflags OIS OGRE OGRE-Overlay` 
 
 # Flags del linker ---------------------------------------------------
 LDFLAGS := `pkg-config --libs-only-L OGRE`
 #LDLIBS := `pkg-config --libs-only-l gl OIS OGRE xerces-c` -lstdc++ -lboost_system -l$(LIBCEGUIBASE) -l$(LIBCEGUIOGRERENDERER)
-LDLIBS := `pkg-config --libs-only-l gl OIS OGRE xerces-c` -lstdc++ -lboost_system
+LDLIBS := `pkg-config --libs-only-l gl OIS OGRE OGRE-Overlay xerces-c` -lstdc++ -lboost_system
 
 # Modo de compilación (-mode=release -mode=debug) --------------------
 ifeq ($(mode), release) 

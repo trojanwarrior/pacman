@@ -3,6 +3,7 @@
 #include "PlayState.h"
 
 using namespace std;
+using namespace Ogre;
 
 template<> IntroState* Ogre::Singleton<IntroState>::msSingleton = 0;
 
@@ -42,10 +43,21 @@ void IntroState::enter ()
   
   //El fondo del pacman siempre es negro
   _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 0.0));
+  
+  //Configuramos la camara
+  double width = _viewport->getActualWidth ();
+  double height = _viewport->getActualHeight ();
+  _camera->setAspectRatio (width / height);
+  _camera->setPosition (Vector3 (0,12,18));
+  _camera->lookAt (_sceneMgr->getRootSceneNode()->getPosition());
+  _camera->setNearClipDistance (0.1);
+  _camera->setFarClipDistance (100);
+
 
   // TODO
   // crear interfaz y mostrarla.
   // En los eventos de teclado, ratón, gamepad cambiaríamos de estado
+  mostrarFondo();
 
   _exitGame = false;
 }
@@ -122,4 +134,78 @@ IntroState& IntroState::getSingleton ()
 { 
   assert(msSingleton);
   return *msSingleton;
+}
+
+IntroState::~IntroState()
+{
+    // Don't forget to delete the Rectangle2D in the destructor of your application:
+    delete _rect;
+
+}
+
+// Function to put a non-power 2 size image in the upper left corner of a larger size texture
+TextureUnitState* IntroState::CreateTextureFromImgWithoutStretch(const String& texName, Real texSize, const String& imgName)
+{
+    TexturePtr tex = TextureManager::getSingleton().createManual(
+        texName,
+        "General",
+        TEX_TYPE_2D,
+        texSize, texSize,
+        1, PF_R8G8B8);
+
+    // get image
+    Image img;
+    img.load(imgName, "General");
+
+    // Copy image to the upper left corner of the texture.
+    tex->getBuffer(0,0)->blitFromMemory(img.getPixelBox(0,0), Image::Box(0, 0, img.getWidth(), img.getHeight()));
+
+    MaterialPtr pmat = MaterialManager::getSingleton().create(texName, 
+                                            ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME); 
+    pmat->getTechnique(0)->getPass(0)->createTextureUnitState(); 
+    pmat->getTechnique(0)->getPass(0)->getTextureUnitState(0)->setTextureName(texName); 
+    pmat->getTechnique(0)->getPass(0)->getTextureUnitState(0)->setTextureFiltering(FO_NONE,FO_NONE,FO_NONE); 
+    pmat->getTechnique(0)->getPass(0)->setDepthCheckEnabled(false);
+    pmat->getTechnique(0)->getPass(0)->setDepthWriteEnabled(false);
+    pmat->getTechnique(0)->getPass(0)->setLightingEnabled(false);
+
+    TextureUnitState* texState= pmat->getTechnique(0)->getPass(0)->getTextureUnitState(0);        
+    
+    // Example of background scrolling
+    //pmat->getTechnique(0)->getPass(0)->getTextureUnitState(0)->setScrollAnimation(-0.25, 0.0);
+
+
+    return texState;    
+}
+
+
+
+void IntroState::mostrarFondo()
+{
+    String texName = "FondoIntro";
+    Real texW = 1024;
+
+    // Create background material
+    Ogre::TexturePtr tex = CreateTextureFromImgWithoutStretch(texName, texW, "pacman_traditional_800x600.jpg")->_getTexturePtr();;
+
+    Real windowW = 800;
+    Real windowH = 600;
+
+    // Create background rectangle covering the whole screen
+    _rect = new Rectangle2D(true);       
+    _rect->setCorners(-1.0, 1.0, texW /windowW*2.0+-1.0, 1.0-texW /windowH*2.0);
+    _rect->setMaterial(texName);
+    
+    // Render the background before everything else
+    _rect->setRenderQueueGroup(Ogre::RENDER_QUEUE_BACKGROUND);
+     
+    // Use infinite AAB to always stay visible
+    Ogre::AxisAlignedBox aabInf;
+    aabInf.setInfinite();
+    _rect->setBoundingBox(aabInf);
+     
+    // Attach background to the scene
+    Ogre::SceneNode* node = _sceneMgr->getRootSceneNode()->createChildSceneNode("Background");
+    node->attachObject(_rect);
+     
 }
