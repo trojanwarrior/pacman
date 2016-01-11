@@ -69,6 +69,7 @@ private:
   Ogre::Rectangle2D* _rect; // Para mostrar un fondo
   void mostrarFondo();
   Ogre::TextureUnitState* CreateTextureFromImgWithoutStretch(const String& texName, Real texSize, const String& imgName);
+  void createScene();
   
 };
 

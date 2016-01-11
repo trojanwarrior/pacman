@@ -21,6 +21,7 @@ void PlayState::enter ()
   _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 1.0));
   
   mostrarFondo();
+  createScene();
 
   _exitGame = false;
 }
@@ -146,8 +147,6 @@ TextureUnitState* PlayState::CreateTextureFromImgWithoutStretch(const String& te
     return texState;    
 }
 
-
-
 void PlayState::mostrarFondo()
 {
     String texName = "FondoPlay";
@@ -178,4 +177,30 @@ void PlayState::mostrarFondo()
      
 }
 
+void PlayState::createScene()
+{
+  Entity* entCereza = _sceneMgr->createEntity("Cereza.mesh");
+  Ogre::SceneNode* nodeCereza = _sceneMgr->createSceneNode("CerezaNode");
+  nodeCereza->attachObject(entCereza);
+  _sceneMgr->getRootSceneNode()->addChild(nodeCereza);
+
+//  Ogre::Plane plane1(Ogre::Vector3::UNIT_Y, -5);
+//  Ogre::MeshManager::getSingleton().createPlane("plane1",
+//    Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME, plane1,
+//    200,200,1,1,true,1,20,20,Ogre::Vector3::UNIT_Z);
+//
+//  Ogre::SceneNode* nodeGround = _sceneMgr->createSceneNode("ground");
+//  Ogre::Entity* groundEnt = _sceneMgr->createEntity("planeEnt", "plane1");
+//  groundEnt->setMaterialName("Ground");
+//  nodeGround->attachObject(groundEnt);
+
+  _sceneMgr->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
+  Ogre::Light* light = _sceneMgr->createLight("Light1");
+  light->setType(Ogre::Light::LT_DIRECTIONAL);
+  light->setDirection(Ogre::Vector3(1,-1,0));
+  //nodeGround->attachObject(light);
+  nodeCereza->attachObject(light);
+
+  //_sceneMgr->getRootSceneNode()->addChild(nodeGround);
+}
 

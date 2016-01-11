@@ -1,0 +1,52 @@
+<scene exported_by="twsh" previous_export_time="1452539226.150672" formatVersion="1.0.1" export_time="1452539258.8555121" >
+  <nodes >
+    <node name="Cereza" >
+      <position y="0.000000" x="0.000000" z="-0.000000" />
+      <rotation qw="1.000000" qz="-0.000000" qy="0.000000" qx="0.000000" />
+      <scale y="1.000000" x="1.000000" z="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <entity mass="1.0" lock_rot_x="False" friction_z="1.0" meshFile="Cereza.mesh" lock_rot_y="False" ghost="False" name="Cereza" velocity_min="0.0" lock_trans_z="False" anisotropic_friction="False" damping_trans="0.03999999910593033" physics_type="STATIC" friction_x="1.0" lock_trans_x="False" lock_rot_z="False" lock_trans_y="False" friction_y="1.0" mass_radius="1.0" velocity_max="0.0" inertia_tensor="0.4000000059604645" damping_rot="0.10000000149011612" actor="False" />
+    </node>
+    <node name="Lamp" >
+      <position y="5.903862" x="4.076245" z="-1.005454" />
+      <rotation qw="0.570947" qz="-0.272171" qy="0.755880" qx="0.169076" />
+      <scale y="1.000000" x="1.000000" z="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <light type="point" shadow="true" powerScale="1.0" name="Lamp" >
+        <position y="5.903862" x="4.076245" z="-1.005454" />
+        <lightAttenuation linear="0.03333335240683057" quadratic="0.0" range="5000" constant="1.0" />
+        <colourDiffuse r="1.0" g="1.0" b="1.0" />
+        <colourSpecular r="1.0" g="1.0" b="1.0" />
+        <colourShadow r="1.0" g="1.0" b="1.0" />
+      </light>
+    </node>
+    <node name="Camera" >
+      <position y="5.343665" x="7.481132" z="6.507640" />
+      <rotation qw="0.781600" qz="-0.212922" qy="0.334251" qx="0.481707" />
+      <scale y="1.000000" x="1.000000" z="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <camera fov="0.5033799435163735" projectionType="perspective" name="Camera" >
+        <clipping nearPlaneDist="0.10000000149011612" near="0.10000000149011612" far="100.0" farPlaneDist="100.0" />
+      </camera>
+    </node>
+  </nodes>
+  <externals >
+    <item type="material" >
+      <file name="/home/twsh/desarrollo/codelite2/pacman/media/MaterialCereza.material" />
+    </item>
+  </externals>
+  <environment >
+    <colourAmbient r="0.0" g="0.0" b="0.0" />
+    <colourDiffuse r="0.05087608844041824" g="0.05087608844041824" b="0.05087608844041824" />
+    <colourBackground r="0.05087608844041824" g="0.05087608844041824" b="0.05087608844041824" />
+  </environment>
+</scene>
