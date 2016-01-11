@@ -1,0 +1,13 @@
+material matPausa
+{
+ technique 
+ {
+   pass 
+   {
+     texture_unit 
+     {
+       texture babypac_ghost.jpg
+     }
+   }
+ }
+}
