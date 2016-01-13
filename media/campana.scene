@@ -1,0 +1,61 @@
+<scene formatVersion="1.0.1" previous_export_time="1452718848.805113" exported_by="twsh" export_time="1452718864.568191" >
+  <nodes >
+    <node name="HuesoCampana" >
+      <position y="0.000000" z="-0.000000" x="0.000000" />
+      <rotation qz="-0.000000" qy="0.000000" qw="1.000000" qx="0.000000" />
+      <scale y="1.000000" z="1.000000" x="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <node name="Campana" >
+        <position y="0.000000" z="-0.000000" x="0.000000" />
+        <rotation qz="-0.000000" qy="0.000000" qw="0.707107" qx="0.707107" />
+        <scale y="1.000000" z="1.000000" x="1.000000" />
+        <game >
+          <sensors />
+          <actuators />
+        </game>
+        <entity velocity_min="0.0" name="Campana" lock_rot_y="False" friction_x="1.0" ghost="False" actor="False" damping_trans="0.03999999910593033" friction_y="1.0" lock_trans_y="False" inertia_tensor="0.4000000059604645" lock_trans_x="False" lock_rot_z="False" mass_radius="1.0" physics_type="STATIC" velocity_max="0.0" friction_z="1.0" damping_rot="0.10000000149011612" meshFile="Campana.mesh" lock_trans_z="False" mass="1.0" lock_rot_x="False" anisotropic_friction="False" />
+      </node>
+    </node>
+    <node name="Lamp" >
+      <position y="1.354457" z="1.308841" x="0.736558" />
+      <rotation qz="-0.272171" qy="0.755880" qw="0.570947" qx="0.169076" />
+      <scale y="1.000000" z="1.000000" x="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <light name="Lamp" type="point" powerScale="1.0" shadow="true" >
+        <position y="1.354457" z="1.308841" x="0.736558" />
+        <lightAttenuation quadratic="0.0" constant="1.0" linear="0.03333335240683057" range="5000" />
+        <colourDiffuse b="1.0" r="1.0" g="1.0" />
+        <colourSpecular b="1.0" r="1.0" g="1.0" />
+        <colourShadow b="1.0" r="1.0" g="1.0" />
+      </light>
+    </node>
+    <node name="Camera" >
+      <position y="5.343665" z="6.507640" x="7.481132" />
+      <rotation qz="-0.212922" qy="0.334251" qw="0.781600" qx="0.481707" />
+      <scale y="1.000000" z="1.000000" x="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <camera projectionType="perspective" name="Camera" fov="0.5033799435163735" >
+        <clipping nearPlaneDist="0.10000000149011612" far="100.0" farPlaneDist="100.0" near="0.10000000149011612" />
+      </camera>
+    </node>
+  </nodes>
+  <externals >
+    <item type="material" >
+      <file name="/home/twsh/desarrollo/codelite2/pacman/media/MaterialCampana.material" />
+    </item>
+  </externals>
+  <environment >
+    <colourAmbient b="0.0" r="0.0" g="0.0" />
+    <colourDiffuse b="0.05087608844041824" r="0.05087608844041824" g="0.05087608844041824" />
+    <colourBackground b="0.05087608844041824" r="0.05087608844041824" g="0.05087608844041824" />
+  </environment>
+</scene>
