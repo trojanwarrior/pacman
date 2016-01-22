@@ -1,50 +1,50 @@
-<scene export_time="1453464301.5415764" exported_by="twsh" previous_export_time="1453463652.8877075" formatVersion="1.0.1" >
+<scene export_time="1453504390.695569" exported_by="twsh" formatVersion="1.0.1" previous_export_time="1453504368.8692737" >
   <nodes >
     <node name="HuesoCereza" >
-      <position z="-0.000000" x="0.000000" y="0.000000" />
-      <rotation qw="1.000000" qy="0.000000" qz="-0.000000" qx="0.000000" />
-      <scale z="1.000000" x="1.000000" y="1.000000" />
+      <position x="0.000000" y="0.000000" z="-0.000000" />
+      <rotation qw="1.000000" qx="0.000000" qy="0.000000" qz="-0.000000" />
+      <scale x="1.000000" y="1.000000" z="1.000000" />
       <game >
         <sensors />
         <actuators />
       </game>
       <node name="Cereza" >
-        <position z="-0.000000" x="0.000000" y="0.000000" />
-        <rotation qw="1.000000" qy="0.000000" qz="-0.000000" qx="0.000000" />
-        <scale z="1.000000" x="1.000000" y="1.000000" />
+        <position x="0.000000" y="0.000000" z="-0.000000" />
+        <rotation qw="0.999001" qx="0.000000" qy="0.044315" qz="0.005804" />
+        <scale x="1.000000" y="1.000000" z="1.000000" />
         <game >
           <sensors />
           <actuators />
         </game>
-        <entity lock_rot_z="False" lock_trans_y="False" velocity_min="0.0" meshFile="Cereza.mesh" lock_trans_x="False" actor="False" inertia_tensor="0.4000000059604645" friction_z="1.0" friction_x="1.0" lock_rot_x="False" damping_trans="0.03999999910593033" physics_type="STATIC" anisotropic_friction="False" lock_rot_y="False" velocity_max="0.0" ghost="False" name="Cereza" mass_radius="1.0" friction_y="1.0" lock_trans_z="False" mass="1.0" damping_rot="0.10000000149011612" />
+        <entity actor="False" anisotropic_friction="False" damping_rot="0.10000000149011612" damping_trans="0.03999999910593033" friction_x="1.0" friction_y="1.0" friction_z="1.0" ghost="False" inertia_tensor="0.4000000059604645" lock_rot_x="False" lock_rot_y="False" lock_rot_z="False" lock_trans_x="False" lock_trans_y="False" lock_trans_z="False" mass="1.0" mass_radius="1.0" meshFile="Cereza.mesh" name="Cereza" physics_type="STATIC" velocity_max="0.0" velocity_min="0.0" />
       </node>
     </node>
     <node name="Lamp" >
-      <position z="2.173599" x="2.848011" y="1.871248" />
-      <rotation qw="0.570947" qy="0.755880" qz="-0.272171" qx="0.169076" />
-      <scale z="1.000000" x="1.000000" y="1.000000" />
+      <position x="2.848011" y="1.871248" z="2.173599" />
+      <rotation qw="0.570947" qx="0.169076" qy="0.755880" qz="-0.272171" />
+      <scale x="1.000000" y="1.000000" z="1.000000" />
       <game >
         <sensors />
         <actuators />
       </game>
-      <light type="point" name="Lamp" shadow="true" powerScale="1.0" >
-        <position z="2.173599" x="2.848011" y="1.871248" />
-        <lightAttenuation constant="1.0" quadratic="0.0" linear="0.03333335240683057" range="5000" />
-        <colourDiffuse r="1.0" b="1.0" g="1.0" />
-        <colourSpecular r="1.0" b="1.0" g="1.0" />
-        <colourShadow r="1.0" b="1.0" g="1.0" />
+      <light name="Lamp" powerScale="1.0" shadow="true" type="point" >
+        <position x="2.848011" y="1.871248" z="2.173599" />
+        <lightAttenuation constant="1.0" linear="0.03333335240683057" quadratic="0.0" range="5000" />
+        <colourDiffuse b="1.0" g="1.0" r="1.0" />
+        <colourSpecular b="1.0" g="1.0" r="1.0" />
+        <colourShadow b="1.0" g="1.0" r="1.0" />
       </light>
     </node>
     <node name="Camera" >
-      <position z="6.507640" x="7.481132" y="5.343665" />
-      <rotation qw="0.781600" qy="0.334251" qz="-0.212922" qx="0.481707" />
-      <scale z="1.000000" x="1.000000" y="1.000000" />
+      <position x="7.481132" y="5.343665" z="6.507640" />
+      <rotation qw="0.781600" qx="0.481707" qy="0.334251" qz="-0.212922" />
+      <scale x="1.000000" y="1.000000" z="1.000000" />
       <game >
         <sensors />
         <actuators />
       </game>
-      <camera name="Camera" projectionType="perspective" fov="0.5033799435163735" >
-        <clipping farPlaneDist="100.0" far="100.0" near="0.10000000149011612" nearPlaneDist="0.10000000149011612" />
+      <camera fov="0.5033799435163735" name="Camera" projectionType="perspective" >
+        <clipping far="100.0" farPlaneDist="100.0" near="0.10000000149011612" nearPlaneDist="0.10000000149011612" />
       </camera>
     </node>
   </nodes>
@@ -54,8 +54,8 @@
     </item>
   </externals>
   <environment >
-    <colourAmbient r="0.0" b="0.0" g="0.0" />
-    <colourBackground r="0.05087608844041824" b="0.05087608844041824" g="0.05087608844041824" />
-    <colourDiffuse r="0.05087608844041824" b="0.05087608844041824" g="0.05087608844041824" />
+    <colourBackground b="0.05087608844041824" g="0.05087608844041824" r="0.05087608844041824" />
+    <colourDiffuse b="0.05087608844041824" g="0.05087608844041824" r="0.05087608844041824" />
+    <colourAmbient b="0.0" g="0.0" r="0.0" />
   </environment>
 </scene>

@@ -179,10 +179,10 @@ void PlayState::mostrarFondo()
 
 void PlayState::createScene()
 {
-//    Entity* entCereza = _sceneMgr->createEntity("Cereza.mesh");
-//    Ogre::SceneNode* nodeCereza = _sceneMgr->createSceneNode("CerezaNode");
-//    nodeCereza->attachObject(entCereza);
-//    _sceneMgr->getRootSceneNode()->addChild(nodeCereza);
+//        Entity* entCereza = _sceneMgr->createEntity("Cereza.mesh");
+//        Ogre::SceneNode* nodeCereza = _sceneMgr->createSceneNode("CerezaNode");
+//        nodeCereza->attachObject(entCereza);
+//        _sceneMgr->getRootSceneNode()->addChild(nodeCereza);
 
     Entity* entPacman = _sceneMgr->createEntity("Pacman.mesh");
     Ogre::SceneNode* nodePacman = _sceneMgr->createSceneNode("PacmanNode");
@@ -206,6 +206,7 @@ void PlayState::createScene()
   light->setDirection(Ogre::Vector3(1,-1,0));
   //nodeGround->attachObject(light);
   //nodeCereza->attachObject(light);
+    nodePacman->attachObject(light);
 
 
   //_sceneMgr->getRootSceneNode()->addChild(nodeGround);
