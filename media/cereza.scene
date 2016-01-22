@@ -1,57 +1,61 @@
-<scene exported_by="twsh" formatVersion="1.0.1" previous_export_time="1452703563.6928797" export_time="1452703729.6225202" >
+<scene export_time="1453464301.5415764" exported_by="twsh" previous_export_time="1453463652.8877075" formatVersion="1.0.1" >
   <nodes >
     <node name="HuesoCereza" >
-      <position x="0.000000" z="-0.000000" y="0.000000" />
-      <rotation qx="0.000000" qy="0.000000" qz="-0.000000" qw="1.000000" />
-      <scale x="1.000000" z="1.000000" y="1.000000" />
+      <position z="-0.000000" x="0.000000" y="0.000000" />
+      <rotation qw="1.000000" qy="0.000000" qz="-0.000000" qx="0.000000" />
+      <scale z="1.000000" x="1.000000" y="1.000000" />
       <game >
         <sensors />
         <actuators />
       </game>
       <node name="Cereza" >
-        <position x="0.000000" z="-0.000000" y="0.000000" />
-        <rotation qx="0.000000" qy="0.000000" qz="-0.000000" qw="1.000000" />
-        <scale x="1.000000" z="1.000000" y="1.000000" />
+        <position z="-0.000000" x="0.000000" y="0.000000" />
+        <rotation qw="1.000000" qy="0.000000" qz="-0.000000" qx="0.000000" />
+        <scale z="1.000000" x="1.000000" y="1.000000" />
         <game >
           <sensors />
           <actuators />
         </game>
-        <entity physics_type="STATIC" name="Cereza" inertia_tensor="0.4000000059604645" actor="False" damping_rot="0.10000000149011612" lock_rot_z="False" friction_z="1.0" friction_x="1.0" mass_radius="1.0" velocity_max="0.0" friction_y="1.0" damping_trans="0.03999999910593033" lock_rot_y="False" meshFile="Cereza.mesh" lock_trans_x="False" anisotropic_friction="False" lock_rot_x="False" lock_trans_z="False" velocity_min="0.0" ghost="False" mass="1.0" lock_trans_y="False" />
+        <entity lock_rot_z="False" lock_trans_y="False" velocity_min="0.0" meshFile="Cereza.mesh" lock_trans_x="False" actor="False" inertia_tensor="0.4000000059604645" friction_z="1.0" friction_x="1.0" lock_rot_x="False" damping_trans="0.03999999910593033" physics_type="STATIC" anisotropic_friction="False" lock_rot_y="False" velocity_max="0.0" ghost="False" name="Cereza" mass_radius="1.0" friction_y="1.0" lock_trans_z="False" mass="1.0" damping_rot="0.10000000149011612" />
       </node>
     </node>
     <node name="Lamp" >
-      <position x="2.848011" z="2.173599" y="1.871248" />
-      <rotation qx="0.169076" qy="0.755880" qz="-0.272171" qw="0.570947" />
-      <scale x="1.000000" z="1.000000" y="1.000000" />
+      <position z="2.173599" x="2.848011" y="1.871248" />
+      <rotation qw="0.570947" qy="0.755880" qz="-0.272171" qx="0.169076" />
+      <scale z="1.000000" x="1.000000" y="1.000000" />
       <game >
         <sensors />
         <actuators />
       </game>
-      <light shadow="true" type="point" name="Lamp" powerScale="1.0" >
-        <position x="2.848011" z="2.173599" y="1.871248" />
-        <lightAttenuation quadratic="0.0" constant="1.0" range="5000" linear="0.03333335240683057" />
-        <colourDiffuse g="1.0" b="1.0" r="1.0" />
-        <colourSpecular g="1.0" b="1.0" r="1.0" />
-        <colourShadow g="1.0" b="1.0" r="1.0" />
+      <light type="point" name="Lamp" shadow="true" powerScale="1.0" >
+        <position z="2.173599" x="2.848011" y="1.871248" />
+        <lightAttenuation constant="1.0" quadratic="0.0" linear="0.03333335240683057" range="5000" />
+        <colourDiffuse r="1.0" b="1.0" g="1.0" />
+        <colourSpecular r="1.0" b="1.0" g="1.0" />
+        <colourShadow r="1.0" b="1.0" g="1.0" />
       </light>
     </node>
     <node name="Camera" >
-      <position x="7.481132" z="6.507640" y="5.343665" />
-      <rotation qx="0.481707" qy="0.334251" qz="-0.212922" qw="0.781600" />
-      <scale x="1.000000" z="1.000000" y="1.000000" />
+      <position z="6.507640" x="7.481132" y="5.343665" />
+      <rotation qw="0.781600" qy="0.334251" qz="-0.212922" qx="0.481707" />
+      <scale z="1.000000" x="1.000000" y="1.000000" />
       <game >
         <sensors />
         <actuators />
       </game>
-      <camera fov="0.5033799435163735" projectionType="perspective" name="Camera" >
-        <clipping nearPlaneDist="0.10000000149011612" near="0.10000000149011612" far="100.0" farPlaneDist="100.0" />
+      <camera name="Camera" projectionType="perspective" fov="0.5033799435163735" >
+        <clipping farPlaneDist="100.0" far="100.0" near="0.10000000149011612" nearPlaneDist="0.10000000149011612" />
       </camera>
     </node>
   </nodes>
-  <externals />
+  <externals >
+    <item type="material" >
+      <file name="/home/twsh/desarrollo/clion/pacman/media/MaterialCereza.material" />
+    </item>
+  </externals>
   <environment >
-    <colourDiffuse g="0.05087608844041824" b="0.05087608844041824" r="0.05087608844041824" />
-    <colourAmbient g="0.0" b="0.0" r="0.0" />
-    <colourBackground g="0.05087608844041824" b="0.05087608844041824" r="0.05087608844041824" />
+    <colourAmbient r="0.0" b="0.0" g="0.0" />
+    <colourBackground r="0.05087608844041824" b="0.05087608844041824" g="0.05087608844041824" />
+    <colourDiffuse r="0.05087608844041824" b="0.05087608844041824" g="0.05087608844041824" />
   </environment>
 </scene>
