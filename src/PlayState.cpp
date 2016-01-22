@@ -21,7 +21,7 @@ void PlayState::enter ()
   _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 1.0));
   
   mostrarFondo();
-  createScene();
+  //createScene();
 
   _exitGame = false;
 }
@@ -153,7 +153,7 @@ void PlayState::mostrarFondo()
     Real texW = 1024;
 
     // Create background material
-    Ogre::TexturePtr tex = CreateTextureFromImgWithoutStretch(texName, texW, "pacman_screen_800x600.jpg")->_getTexturePtr();;
+    Ogre::TexturePtr tex = CreateTextureFromImgWithoutStretch(texName, texW, "pacman_screen_800x600.jpg")->_getTexturePtr();
 
     Real windowW = 800;
     Real windowH = 600;
