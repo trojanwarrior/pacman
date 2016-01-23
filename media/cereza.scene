@@ -1,4 +1,4 @@
-<scene export_time="1453504390.695569" exported_by="twsh" formatVersion="1.0.1" previous_export_time="1453504368.8692737" >
+<scene export_time="1453507197.9602387" exported_by="twsh" formatVersion="1.0.1" previous_export_time="1453506626.3846016" >
   <nodes >
     <node name="HuesoCereza" >
       <position x="0.000000" y="0.000000" z="-0.000000" />
@@ -10,7 +10,7 @@
       </game>
       <node name="Cereza" >
         <position x="0.000000" y="0.000000" z="-0.000000" />
-        <rotation qw="0.999001" qx="0.000000" qy="0.044315" qz="0.005804" />
+        <rotation qw="1.000000" qx="0.000000" qy="0.000000" qz="-0.000000" />
         <scale x="1.000000" y="1.000000" z="1.000000" />
         <game >
           <sensors />
@@ -48,11 +48,7 @@
       </camera>
     </node>
   </nodes>
-  <externals >
-    <item type="material" >
-      <file name="/home/twsh/desarrollo/clion/pacman/media/MaterialCereza.material" />
-    </item>
-  </externals>
+  <externals />
   <environment >
     <colourBackground b="0.05087608844041824" g="0.05087608844041824" r="0.05087608844041824" />
     <colourDiffuse b="0.05087608844041824" g="0.05087608844041824" r="0.05087608844041824" />

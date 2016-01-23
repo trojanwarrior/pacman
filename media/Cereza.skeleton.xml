@@ -1,6 +1,6 @@
 <skeleton >
   <bones >
-    <bone id="0" name="Bone" >
+    <bone id="0" name="HuesoCereza" >
       <position x="0.000000" y="0.000000" z="0.000000" />
       <rotation angle="0.000000" >
         <axis x="1.000000" y="0.000000" z="0.000000" />
@@ -9,9 +9,9 @@
   </bones>
   <bonehierarchy />
   <animations >
-    <animation length="1.208333" name="Armature.001Action" >
+    <animation length="1.208333" name="reclamo" >
       <tracks >
-        <track bone="Bone" >
+        <track bone="HuesoCereza" >
           <keyframes >
             <keyframe time="0.000000" >
               <rotate angle="0.000000" >
@@ -167,9 +167,9 @@
         </track>
       </tracks>
     </animation>
-    <animation length="0.583333" name="Armature.001Action.001" >
+    <animation length="0.583333" name="Meneo" >
       <tracks >
-        <track bone="Bone" >
+        <track bone="HuesoCereza" >
           <keyframes >
             <keyframe time="0.000000" >
               <rotate angle="0.000000" >
