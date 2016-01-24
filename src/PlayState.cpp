@@ -20,7 +20,7 @@ void PlayState::enter ()
   // Nuevo background colour.
   _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 1.0));
   
-  mostrarFondo();
+  // mostrarFondo();
   createScene();
 
   _exitGame = false;
@@ -179,7 +179,7 @@ void PlayState::mostrarFondo()
 
 void PlayState::createScene()
 {
-  Entity* entCereza = _sceneMgr->createEntity("Cereza.mesh");
+  /*  Entity* entCereza = _sceneMgr->createEntity("Cereza.mesh");
   Ogre::SceneNode* nodeCereza = _sceneMgr->createSceneNode("CerezaNode");
   nodeCereza->attachObject(entCereza);
   _sceneMgr->getRootSceneNode()->addChild(nodeCereza);
@@ -200,7 +200,18 @@ void PlayState::createScene()
   light->setDirection(Ogre::Vector3(1,-1,0));
   //nodeGround->attachObject(light);
   nodeCereza->attachObject(light);
-
+  */
   //_sceneMgr->getRootSceneNode()->addChild(nodeGround);
+
+  _camera->setPosition (Vector3 (0,15,0));
+  _camera->lookAt (Vector3 (0,0,0));
+
+
+  StaticGeometry* stage =   _sceneMgr->createStaticGeometry("SG");
+  Entity* ent1 = _sceneMgr->  createEntity("level1.mesh");
+  stage->addEntity(ent1, Vector3(0,0,0));
+  stage->build();
+
+ 
 }
 
