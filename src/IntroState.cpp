@@ -1,7 +1,10 @@
 #include <iostream>
 #include "IntroState.h"
 #include "PlayState.h"
-
+#include "MenuState.h"
+#include "MyGUI.h"
+#include "MyGUI_OgrePlatform.h"
+#include "Base/Main.h"
 using namespace std;
 using namespace Ogre;
 
@@ -20,7 +23,7 @@ void IntroState::enter ()
     cout << "SceneManager no existe, creándolo \n";  
     _sceneMgr = _root->createSceneManager(Ogre::ST_GENERIC, "SceneManager");
   }
-  
+
   try
   {
     _camera = _sceneMgr->getCamera("IntroCamera");
@@ -40,6 +43,15 @@ void IntroState::enter ()
     _viewport = _root->getAutoCreatedWindow()->getViewport(0);
   }
   
+MyGUI::OgrePlatform* mp = new MyGUI::OgrePlatform();
+ mp->initialise(_root->getAutoCreatedWindow(), Ogre::Root::getSingleton().getSceneManager("SceneManager"));
+                MyGUI::Gui*  mGUI = new MyGUI::Gui();
+                base::BaseManager::setupResources();
+                addResourceLocation(getRootMedia());
+                addResourceLocation(getRootMedia() + "/MyGUI_Media");
+                addResourceLocation(getRootMedia() + "/PACMAN");
+                mGUI->initialise();
+
   
   //El fondo del pacman siempre es negro
   _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 0.0));
@@ -60,6 +72,7 @@ void IntroState::enter ()
   mostrarFondo();
 
   _exitGame = false;
+  sounds::getInstance()->play_effect("begin");
 }
 
 void IntroState::exit()
@@ -95,34 +108,39 @@ bool IntroState::frameEnded(const Ogre::FrameEvent& evt)
   return true;
 }
 
-void IntroState::keyPressed(const OIS::KeyEvent &e)
+bool IntroState::keyPressed(const OIS::KeyEvent &e)
 {
   // Transición al siguiente estado.
   // Espacio --> PlayState
   if (e.key == OIS::KC_SPACE) 
   {
-    changeState(PlayState::getSingletonPtr());
+    changeState(MenuState::getSingletonPtr());
   }
+  return true;
 }
 
-void IntroState::keyReleased(const OIS::KeyEvent &e )
+bool IntroState::keyReleased(const OIS::KeyEvent &e )
 {
   if (e.key == OIS::KC_ESCAPE)
   {
     _exitGame = true;
   }
+  return true;
 }
 
-void IntroState::mouseMoved(const OIS::MouseEvent &e)
+bool IntroState::mouseMoved(const OIS::MouseEvent &e)
 {
+  return true;
 }
 
-void IntroState::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
+bool IntroState::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
+  return true;
 }
 
-void IntroState::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
+bool IntroState::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
+  return true;
 }
 
 IntroState* IntroState::getSingletonPtr ()

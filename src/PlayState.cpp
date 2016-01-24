@@ -1,7 +1,10 @@
-#include "PlayState.h"
+#include "ControlsState.h"
+#include "RecordsState.h"
 #include "PauseState.h"
 #include "IntroState.h"
-
+#include "PlayState.h"
+#include "MenuState.h"
+#include "Base/Main.h"
 
 //http://www.cplusplus.com/doc/tutorial/templates/          <--------Visita esta página para entender la linea justo debajo de esta
 template<> PlayState* Ogre::Singleton<PlayState>::msSingleton = 0;
@@ -16,20 +19,22 @@ void PlayState::enter ()
   // Se recupera el gestor de escena y la cámara.
   _sceneMgr = _root->getSceneManager("SceneManager");
   _camera = _sceneMgr->getCamera("IntroCamera");
-  _viewport = _root->getAutoCreatedWindow()->addViewport(_camera);
+  _viewport = _root->getAutoCreatedWindow()->getViewport(0);
   // Nuevo background colour.
   _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 1.0));
   
-  mostrarFondo();
+  //mostrarFondo();
   createScene();
 
   _exitGame = false;
+ sounds::getInstance()->play_effect("intermission");
 }
 
 void PlayState::exit ()
 {
   _sceneMgr->clearScene();
   _root->getAutoCreatedWindow()->removeAllViewports();
+  MyGUI::LayoutManager::getInstance().unloadLayout(layout);
 }
 
 void PlayState::pause()
@@ -55,15 +60,22 @@ bool PlayState::frameEnded(const Ogre::FrameEvent& evt)
   return true;
 }
 
-void PlayState::keyPressed(const OIS::KeyEvent &e)
+
+bool PlayState::keyPressed(const OIS::KeyEvent &e)
 {
+  popState();
+  return true;
   // Tecla p --> PauseState.
   if (e.key == OIS::KC_P) {
     pushState(PauseState::getSingletonPtr());
   }
+  else if (e.key == OIS::KC_S) {
+    pushState(PlayState::getSingletonPtr());
+  }
+  return true;
 }
 
-void PlayState::keyReleased(const OIS::KeyEvent &e)
+bool PlayState::keyReleased(const OIS::KeyEvent &e)
 {
   if (e.key == OIS::KC_ESCAPE) 
   {
@@ -79,22 +91,27 @@ void PlayState::keyReleased(const OIS::KeyEvent &e)
     //para volver al estado PlayState.
     changeState(IntroState::getSingletonPtr());
   }
+  return true;
 }
 
-void PlayState::mouseMoved(const OIS::MouseEvent &e)
+bool PlayState::mouseMoved(const OIS::MouseEvent &e)
 {
+  return true;
 }
 
-void PlayState::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
+bool PlayState::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
+  return true;
 }
 
-void PlayState::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
+bool PlayState::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
+  return true;
 }
 
 PlayState* PlayState::getSingletonPtr()
 {
+
     return msSingleton;
 }
 
@@ -179,7 +196,17 @@ void PlayState::mostrarFondo()
 
 void PlayState::createScene()
 {
-    Entity* entCereza = _sceneMgr->createEntity("Cereza.mesh");
+//JAM
+                 MyGUI::EditBox* high_score_txt;
+                layout = MyGUI::LayoutManager::getInstance().loadLayout("pacman_play.layout");
+                const MyGUI::VectorWidgetPtr& root = MyGUI::LayoutManager::getInstance().loadLayout("HelpPanel.layout");
+                if (root.size() == 1)
+                root.at(0)->findWidget("Text")->castType<MyGUI::TextBox>()->setCaption("pacman");
+                high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
+//JAM
+return;
+  
+ Entity* entCereza = _sceneMgr->createEntity("Cereza.mesh");
     Ogre::SceneNode* nodeCereza = _sceneMgr->createSceneNode("CerezaNode");
     nodeCereza->attachObject(entCereza);
     _sceneMgr->getRootSceneNode()->addChild(nodeCereza);
