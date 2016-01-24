@@ -16,7 +16,7 @@ DIRHEA := include/
 CXX := g++
 
 #START MYGUI
-MYGUI_INC :=-I$(MYGUI_SOURCE_DIR)//MyGUIEngine/include -I$(MYGUI_SOURCE_DIR)/Common -I$(MYGUI_SOURCE_DIR)/Platforms/Ogre/OgrePlatform/include -I$(MYGUI_INSTALL)/Common/Base/Ogre -I$(MYGUI_INSTALL)/Common/Input/OIS -I$(OGRE_INCLUDE_DIR) -I$(OIS_INCLUDE_DIR) -DMYGUI_OGRE_PLATFORM
+MYGUI_INC :=-I$(MYGUI_SOURCE_DIR)/MyGUIEngine/include -I$(MYGUI_INSTALL)/Common/Base/Ogre -I$(MYGUI_SOURCE_DIR)/Common/ -I$(MYGUI_SOURCE_DIR)/Platforms/Ogre/OgrePlatform/include -I$(MYGUI_INSTALL)/Common/Input/OIS -I$(OGRE_INCLUDE_DIR) -I$(OIS_INCLUDE_DIR) -DMYGUI_OGRE_PLATFORM
 MYGUI_LINK=-L/usr/lib/i386-linux-gnu/ -lOgreMain -L$(MYGUI_INSTALL)/lib -lboost_system -lCommon -lX11 -lMyGUIEngine -lOIS -lMyGUI.OgrePlatform
 #SDL_LINK=-lSDL -lSDL_image -lSDL_ttf -lSDL_mixer -lmxml -lpthread
 SDL_LINK=-lSDL -lSDL_mixer -lmxml -lpthread

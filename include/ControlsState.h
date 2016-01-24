@@ -27,6 +27,7 @@
 #include "GameState.h"
 #include "Base/BaseDemoManager.h"
 
+
 using namespace std;
 using namespace Ogre;
 class ControlsState : public Ogre::Singleton<ControlsState>, public GameState , public base::BaseDemoManager

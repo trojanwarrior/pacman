@@ -27,6 +27,7 @@
 #include "GameState.h"
 #include "sounds.h"
 #include "Base/BaseDemoManager.h"
+
 using namespace std;
 using namespace Ogre;
 
