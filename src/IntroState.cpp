@@ -119,7 +119,7 @@ bool IntroState::keyReleased(const OIS::KeyEvent &e )
 {
   if (e.key == OIS::KC_ESCAPE)
   {
-    printf("Que coño hace esto vigente\n");
+
     _exitGame = true;
   }
   return true;

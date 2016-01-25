@@ -70,6 +70,6 @@ private:
   void mostrarFondo();
   TextureUnitState* CreateTextureFromImgWithoutStretch(const String& texName, Real texSize, const String& imgName);
   
-}
+};
 
 #endif

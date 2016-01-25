@@ -68,7 +68,7 @@ class MenuState : public Ogre::Singleton<MenuState>, public GameState
   MyGUI::EditBox* high_score_txt;  
   MyGUI::VectorWidgetPtr layout;
 
-private:
+
   private:
   Ogre::Rectangle2D* _rect; // Para mostrar un fondo
   void mostrarFondo();

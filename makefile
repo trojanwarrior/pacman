@@ -21,9 +21,9 @@ LDLIBS= `pkg-config --libs-only-l OGRE OGRE-Overlay MYGUI mxml` `sdl-config --li
 
 # Modo de compilación (-mode=release -mode=debug) --------------------
 ifeq ($(mode), release) 
-	CXXFLAGS += -O2 -D_RELEASE
+	CFLAGS += -O2 -D_RELEASE
 else 
-	CXXFLAGS += -g -D_DEBUG
+	CFLAGS += -g -D_DEBUG
 	mode := debug
 endif
 
@@ -51,6 +51,7 @@ $(EXEC): $(OBJS)
 	$(CXX)  -o $@ $^   $(LDLIBS)
 
 # Compilación --------------------------------------------------------
+
 $(DIROBJ)%.o: $(DIRSRC)%.cpp
 	$(CXX) $(CFLAGS) -c $< -o $@
 

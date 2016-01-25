@@ -32,7 +32,7 @@ void MenuState::enter ()
 
 void MenuState::exit ()
 {
-  printf("Esto está pasando por aquí\n");
+
   _sceneMgr->clearScene();
   _root->getAutoCreatedWindow()->removeAllViewports();
 
