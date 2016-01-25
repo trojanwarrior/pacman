@@ -65,6 +65,9 @@ class RecordsState : public Ogre::Singleton<RecordsState>, public GameState
   bool _exitGame;
 
   MyGUI::EditBox* high_score_txt;  
+  MyGUI::TextBox* score_positions_txt;  
+  MyGUI::TextBox* score_points_txt;  
+  MyGUI::TextBox* score_names_txt;  
 MyGUI::VectorWidgetPtr layout;
 
   
