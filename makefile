@@ -10,8 +10,6 @@ DIRHEA := include/
 
 CXX := g++
 
-
-
 CC=g++
 CFLAGS=-c  -Wall -Wno-deprecated-declarations  -I$(DIRHEA)  `pkg-config --cflags OGRE OGRE-Overlay MYGUI mxml `  `sdl-config --cflags` --std=c++11
 CPP_FILES := $(wildcard ./src/*.cpp)
