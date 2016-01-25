@@ -4,7 +4,7 @@
 #include "IntroState.h"
 #include "PlayState.h"
 #include "MenuState.h"
-#include "Base/Main.h"
+
 
 //http://www.cplusplus.com/doc/tutorial/templates/          <--------Visita esta página para entender la linea justo debajo de esta
 template<> PlayState* Ogre::Singleton<PlayState>::msSingleton = 0;
@@ -24,6 +24,7 @@ void PlayState::enter ()
   _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 1.0));
 
   createScene();
+  _pacman = new Pacman();
 
   _exitGame = false;
  sounds::getInstance()->play_effect("intermission");
@@ -33,6 +34,7 @@ void PlayState::exit ()
 {
   _sceneMgr->clearScene();
   _root->getAutoCreatedWindow()->removeAllViewports();
+  delete _pacman;
   MyGUI::LayoutManager::getInstance().unloadLayout(layout);
 }
 
@@ -48,6 +50,7 @@ void PlayState::resume()
 
 bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
 {
+  deltaTime = evt.timeSinceLastFrame;
   return true;
 }
 
@@ -62,14 +65,29 @@ bool PlayState::frameEnded(const Ogre::FrameEvent& evt)
 
 bool PlayState::keyPressed(const OIS::KeyEvent &e)
 {
-  popState();
+
   return true;
   // Tecla p --> PauseState.
   if (e.key == OIS::KC_P) {
     pushState(PauseState::getSingletonPtr());
   }
-  else if (e.key == OIS::KC_S) {
-    pushState(PlayState::getSingletonPtr());
+  else if (e.key == OIS::KC_A) 
+{    printf("movidendo arriba delta %f \n",deltaTime);
+    _pacman->move(UP_DIR, deltaTime);
+  }
+  else if (e.key == OIS::KC_DOWN) {
+    _pacman->move(UP_DIR, deltaTime);
+  }
+  else if (e.key == OIS::KC_LEFT) {
+    _pacman->move(LEFT_DIR, deltaTime);
+  }
+  else if (e.key == OIS::KC_UP) {
+    _pacman->move(RIGHT_DIR, deltaTime);
+  }
+  else if (e.key == OIS::KC_ESCAPE) {
+   printf("movidendo arriba delta %f \n",deltaTime);
+    popState();
+     pushState(IntroState::getSingletonPtr());
   }
   return true;
 }
@@ -122,98 +140,41 @@ PlayState& PlayState::getSingleton()
 
 PlayState::~PlayState()
 {
-    // Don't forget to delete the Rectangle2D in the destructor of your application:
-    delete _rect;
+
+
 }
 
 
-// Function to put a non-power 2 size image in the upper left corner of a larger size texture
-//CODIGO DUPLICADO, LO SÉ, YA LO ORGANIZARÉ MEJOR
-TextureUnitState* PlayState::CreateTextureFromImgWithoutStretch(const String& texName, Real texSize, const String& imgName)
-{
-    TexturePtr tex = TextureManager::getSingleton().createManual(
-        texName,
-        "General",
-        TEX_TYPE_2D,
-        texSize, texSize,
-        1, PF_R8G8B8);
-
-    // get image
-    Image img;
-    img.load(imgName, "General");
-
-    // Copy image to the upper left corner of the texture.
-    tex->getBuffer(0,0)->blitFromMemory(img.getPixelBox(0,0), Image::Box(0, 0, img.getWidth(), img.getHeight()));
-
-    MaterialPtr pmat = MaterialManager::getSingleton().create(texName, 
-                                            ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME); 
-    pmat->getTechnique(0)->getPass(0)->createTextureUnitState(); 
-    pmat->getTechnique(0)->getPass(0)->getTextureUnitState(0)->setTextureName(texName); 
-    pmat->getTechnique(0)->getPass(0)->getTextureUnitState(0)->setTextureFiltering(FO_NONE,FO_NONE,FO_NONE); 
-    pmat->getTechnique(0)->getPass(0)->setDepthCheckEnabled(false);
-    pmat->getTechnique(0)->getPass(0)->setDepthWriteEnabled(false);
-    pmat->getTechnique(0)->getPass(0)->setLightingEnabled(false);
-
-    TextureUnitState* texState= pmat->getTechnique(0)->getPass(0)->getTextureUnitState(0);        
-    
-    // Example of background scrolling
-    //pmat->getTechnique(0)->getPass(0)->getTextureUnitState(0)->setScrollAnimation(-0.25, 0.0);
-
-
-    return texState;    
-}
-
-void PlayState::mostrarFondo()
-{
-    String texName = "FondoPlay";
-    Real texW = 1024;
-
-    // Create background material
-    Ogre::TexturePtr tex = CreateTextureFromImgWithoutStretch(texName, texW, "pacman_screen_800x600.jpg")->_getTexturePtr();
-
-    Real windowW = 800;
-    Real windowH = 600;
-
-    // Create background rectangle covering the whole screen
-    _rect = new Rectangle2D(true);       
-    _rect->setCorners(-1.0, 1.0, texW /windowW*2.0+-1.0, 1.0-texW /windowH*2.0);
-    _rect->setMaterial(texName);
-    
-    // Render the background before everything else
-    _rect->setRenderQueueGroup(Ogre::RENDER_QUEUE_BACKGROUND);
-     
-    // Use infinite AAB to always stay visible
-    Ogre::AxisAlignedBox aabInf;
-    aabInf.setInfinite();
-    _rect->setBoundingBox(aabInf);
-     
-    // Attach background to the scene
-    Ogre::SceneNode* node = _sceneMgr->getRootSceneNode()->createChildSceneNode("Background");
-    node->attachObject(_rect);
-     
-}
 
 void PlayState::createScene()
 {
 //JAM
-                 MyGUI::EditBox* high_score_txt;
+  /*                 MyGUI::EditBox* high_score_txt;
                 layout = MyGUI::LayoutManager::getInstance().loadLayout("pacman_play.layout");
                 const MyGUI::VectorWidgetPtr& root = MyGUI::LayoutManager::getInstance().loadLayout("HelpPanel.layout");
                 if (root.size() == 1)
                 root.at(0)->findWidget("Text")->castType<MyGUI::TextBox>()->setCaption("pacman");
-                high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
+                high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");*/
 //JAM
 
   
 
   _camera->setPosition (Vector3 (0,15,0));
-  _camera->lookAt (Vector3 (0,0,0));
+  _camera->lookAt (Vector3 (0,0,0.1));
+  //_camera->pitch(Ogre::Degree(-90));
+  _camera->setProjectionType(Ogre::PT_ORTHOGRAPHIC);
+  _camera->setOrthoWindowHeight(15);
 
 
+  _sceneMgr->setAmbientLight(Ogre::ColourValue(0.5, 0.5, 0.5));
   StaticGeometry* stage =   _sceneMgr->createStaticGeometry("SG");
   Entity* ent1 = _sceneMgr->  createEntity("level1.mesh");
   stage->addEntity(ent1, Vector3(0,0,0));
   stage->build();
+
+
+  
+
 
  
 }

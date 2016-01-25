@@ -25,11 +25,13 @@
 #include <OIS/OIS.h>
 #include <string>
 #include "GameState.h"
-#include "Base/BaseDemoManager.h"
+#include "MyGUI.h"
+#include "MyGUI_OgrePlatform.h"
+
 
 using namespace std;
 using namespace Ogre;
-class ControlsState : public Ogre::Singleton<ControlsState>, public GameState , public base::BaseDemoManager
+class ControlsState : public Ogre::Singleton<ControlsState>, public GameState 
 {
  public:
   ControlsState () {}

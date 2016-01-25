@@ -23,14 +23,15 @@
 
 #include <Ogre.h>
 #include <OIS/OIS.h>
-
 #include "GameState.h"
 #include "sounds.h"
-#include "Base/BaseDemoManager.h"
+#include "MyGUI.h"
+#include "MyGUI_OgrePlatform.h"
+
 using namespace std;
 using namespace Ogre;
 
-class IntroState : public Ogre::Singleton<IntroState>, public GameState,public base::BaseDemoManager
+class IntroState : public Ogre::Singleton<IntroState>, public GameState
 {
  public:
   IntroState() {}

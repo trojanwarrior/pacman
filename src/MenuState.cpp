@@ -4,7 +4,7 @@
 #include "PlayState.h"
 #include "ControlsState.h"//JAM
 #include "RecordsState.h"//JAM
-#include "Base/Main.h"
+
 
 //http://www.cplusplus.com/doc/tutorial/templates/          <--------Visita esta página para entender la linea justo debajo de esta
 template<> MenuState* Ogre::Singleton<MenuState>::msSingleton = 0;
@@ -32,9 +32,10 @@ void MenuState::enter ()
 
 void MenuState::exit ()
 {
+  printf("Esto está pasando por aquí\n");
   _sceneMgr->clearScene();
   _root->getAutoCreatedWindow()->removeAllViewports();
-  MyGUI::LayoutManager::getInstance().unloadLayout(layout);
+
 }
 
 void MenuState::pause()
@@ -70,6 +71,7 @@ bool MenuState::keyPressed(const OIS::KeyEvent &e)
     pushState(PauseState::getSingletonPtr());
   }
   else if (e.key == OIS::KC_S) {
+  MyGUI::LayoutManager::getInstance().unloadLayout(layout);
     pushState(PlayState::getSingletonPtr());
   }
   else if (e.key == OIS::KC_C) {
@@ -203,11 +205,10 @@ void MenuState::mostrarFondo()
 void MenuState::createScene()
 {
                 layout = MyGUI::LayoutManager::getInstance().loadLayout("pacman_start.layout");
-                const MyGUI::VectorWidgetPtr& root = MyGUI::LayoutManager::getInstance().loadLayout("HelpPanel.layout");
+                /* const MyGUI::VectorWidgetPtr& root = MyGUI::LayoutManager::getInstance().loadLayout("HelpPanel.layout");
                 if (root.size() == 1)
-                root.at(0)->findWidget("Text")->castType<MyGUI::TextBox>()->setCaption("pacman");
-                MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
-                MyGUI::Gui::getInstance().findWidget<MyGUI::ImageBox>("start");
+                root.at(0)->findWidget("Text")->castType<MyGUI::TextBox>()->setCaption("pacman");*/
+
 }
 
 MenuState::MenuState()

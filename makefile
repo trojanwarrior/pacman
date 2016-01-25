@@ -7,28 +7,16 @@ EXEC := pacman
 DIRSRC := src/
 DIROBJ := obj/
 DIRHEA := include/
-#Añadido por mi para compilar en Fedora
-#DIRHEACEGUI1 := /usr/include/cegui-0/CEGUI
-#DIRHEACEGUI2 := /usr/include/cegui-0
-#LIBCEGUIBASE := CEGUIBase-0
-#LIBCEGUIOGRERENDERER := CEGUIOgreRenderer-0    #-lCEGUIBase-0 -lCEGUIOgreRenderer-0
 
 CXX := g++
 
-#START MYGUI
-MYGUI_INC :=-I$(MYGUI_SOURCE_DIR)//MyGUIEngine/include -I$(MYGUI_SOURCE_DIR)/Common -I$(MYGUI_SOURCE_DIR)/Platforms/Ogre/OgrePlatform/include -I$(MYGUI_INSTALL)/Common/Base/Ogre -I$(MYGUI_INSTALL)/Common/Input/OIS -I$(OGRE_INCLUDE_DIR) -I$(OIS_INCLUDE_DIR) -DMYGUI_OGRE_PLATFORM
-MYGUI_LINK=-L/usr/lib/i386-linux-gnu/ -lOgreMain -L$(MYGUI_INSTALL)/lib -lboost_system -lCommon -lX11 -lMyGUIEngine -lOIS -lMyGUI.OgrePlatform
-#SDL_LINK=-lSDL -lSDL_image -lSDL_ttf -lSDL_mixer -lmxml -lpthread
-SDL_LINK=-lSDL -lSDL_mixer -lmxml -lpthread
-#END MYGUI
-# Flags de compilación -----------------------------------------------
-#CXXFLAGS := -I$(DIRHEA) -I$(DIRHEACEGUI1) -I$(DIRHEACEGUI2) -Wall `pkg-config --cflags OIS OGRE`  
-CXXFLAGS := -I$(DIRHEA) -Wall `pkg-config --cflags OIS OGRE OGRE-Overlay` $(MYGUI_INC)
 
-# Flags del linker ---------------------------------------------------
-LDFLAGS := `pkg-config --libs-only-l OGRE`
-#LDLIBS := `pkg-config --libs-only-l gl OIS OGRE xerces-c` -lstdc++ -lboost_system -l$(LIBCEGUIBASE) -l$(LIBCEGUIOGRERENDERER)
-LDLIBS := `pkg-config --libs-only-l gl OIS OGRE OGRE-Overlay xerces-c` -lstdc++ -lboost_system $(MYGUI_LINK) $(SDL_LINK)
+CC=g++
+CFLAGS=-c  -Wall -Wno-deprecated-declarations  -I$(DIRHEA)  `pkg-config --cflags OGRE OGRE-Overlay MYGUI mxml `  `sdl-config --cflags` --std=c++11
+CPP_FILES := $(wildcard ./src/*.cpp)
+OBJ_FILES := $(addprefix ./obj/,$(notdir $(CPP_FILES:.cpp=.o)))
+LDLIBS= `pkg-config --libs-only-l OGRE OGRE-Overlay MYGUI mxml` `sdl-config --libs` -lSDL_mixer -lboost_system -lboost_graph -lOIS -lGL -lstdc++   -lMyGUI.OgrePlatform
+
 
 # Modo de compilación (-mode=release -mode=debug) --------------------
 ifeq ($(mode), release) 
@@ -38,7 +26,7 @@ else
 	mode := debug
 endif
 
-CXXFLAGS += -Wno-deprecated -Wno-deprecated-declarations
+
 
 # Obtención automática de la lista de objetos a compilar -------------
 OBJS := $(subst $(DIRSRC), $(DIROBJ), \
@@ -63,7 +51,7 @@ $(EXEC): $(OBJS)
 
 # Compilación --------------------------------------------------------
 $(DIROBJ)%.o: $(DIRSRC)%.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CFLAGS) -c $< -o $@
 
 # Limpieza de temporales ---------------------------------------------
 clean:

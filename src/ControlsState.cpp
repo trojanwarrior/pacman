@@ -3,7 +3,7 @@
 #include "IntroState.h"
 #include "PlayState.h"
 #include "MenuState.h"//JAM
-#include "Base/Main.h"
+
 
 //http://www.cplusplus.com/doc/tutorial/templates/          <--------Visita esta página para entender la linea justo debajo de esta
 template<> ControlsState* Ogre::Singleton<ControlsState>::msSingleton = 0;
