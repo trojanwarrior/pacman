@@ -25,12 +25,14 @@
 #include <OIS/OIS.h>
 #include <string>
 #include "GameState.h"
-#include "Base/BaseDemoManager.h"
+#include "MyGUI.h"
+#include "MyGUI_OgrePlatform.h"
+
 
 using namespace std;
 using namespace Ogre;
-class MenuState : public Ogre::Singleton<MenuState>, public GameState , public base::BaseDemoManager
-//class MenuState : public Ogre::Singleton<MenuState>,public base::BaseDemoManager
+class MenuState : public Ogre::Singleton<MenuState>, public GameState
+
 {
  public:
   MenuState ();
@@ -66,7 +68,7 @@ class MenuState : public Ogre::Singleton<MenuState>, public GameState , public b
   MyGUI::EditBox* high_score_txt;  
   MyGUI::VectorWidgetPtr layout;
 
-private:
+
   private:
   Ogre::Rectangle2D* _rect; // Para mostrar un fondo
   void mostrarFondo();

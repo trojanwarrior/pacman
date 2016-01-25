@@ -4,7 +4,6 @@
 #include "MenuState.h"
 #include "MyGUI.h"
 #include "MyGUI_OgrePlatform.h"
-#include "Base/Main.h"
 using namespace std;
 using namespace Ogre;
 
@@ -43,14 +42,11 @@ void IntroState::enter ()
     _viewport = _root->getAutoCreatedWindow()->getViewport(0);
   }
   
-MyGUI::OgrePlatform* mp = new MyGUI::OgrePlatform();
- mp->initialise(_root->getAutoCreatedWindow(), Ogre::Root::getSingleton().getSceneManager("SceneManager"));
-                MyGUI::Gui*  mGUI = new MyGUI::Gui();
-                base::BaseManager::setupResources();
-                addResourceLocation(getRootMedia());
-                addResourceLocation(getRootMedia() + "/MyGUI_Media");
-                addResourceLocation(getRootMedia() + "/PACMAN");
-                mGUI->initialise();
+
+  MyGUI::OgrePlatform* mp = new MyGUI::OgrePlatform();
+  mp->initialise(_root->getAutoCreatedWindow(), Ogre::Root::getSingleton().getSceneManager("SceneManager"));
+  MyGUI::Gui*  mGUI = new MyGUI::Gui();
+  mGUI->initialise();
 
   
   //El fondo del pacman siempre es negro
@@ -123,6 +119,7 @@ bool IntroState::keyReleased(const OIS::KeyEvent &e )
 {
   if (e.key == OIS::KC_ESCAPE)
   {
+
     _exitGame = true;
   }
   return true;

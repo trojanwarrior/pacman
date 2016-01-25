@@ -25,11 +25,14 @@
 #include <OIS/OIS.h>
 #include <string>
 #include "GameState.h"
-#include "Base/BaseDemoManager.h"
+#include "MyGUI.h"
+#include "MyGUI_OgrePlatform.h"
+#include "pacman.h"
+
 
 using namespace std;
 using namespace Ogre;
-class PlayState : public Ogre::Singleton<PlayState>, public GameState , public base::BaseDemoManager
+class PlayState : public Ogre::Singleton<PlayState>, public GameState
 {
  public:
   PlayState () {}
@@ -59,17 +62,15 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState , public b
   Ogre::SceneManager* _sceneMgr;
   Ogre::Viewport* _viewport;
   Ogre::Camera* _camera;
+  Pacman *_pacman;
+  float deltaTime;
 
   bool _exitGame;
   MyGUI::VectorWidgetPtr layout;
   
 private:
   private:
-  Ogre::Rectangle2D* _rect; // Para mostrar un fondo
-  void mostrarFondo();
-  Ogre::TextureUnitState* CreateTextureFromImgWithoutStretch(const String& texName, Real texSize, const String& imgName);
   void createScene();
-  
 };
 
 #endif
