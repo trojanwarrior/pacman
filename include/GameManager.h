@@ -26,7 +26,7 @@
 #include <OgreSingleton.h>
 #include <OIS/OIS.h>
 
-#include "InputManager.h"
+#include "InputManager_.h"
 
 
 
@@ -80,7 +80,7 @@ class GameManager : public Ogre::FrameListener, public Ogre::Singleton<GameManag
   bool mouseReleased (const OIS::MouseEvent &e, OIS::MouseButtonID id);
   
   // Gestor de eventos de entrada.
-  InputManager *_inputMgr;
+  InputManager_ *_inputMgr;
   // Estados del juego.
   std::stack<GameState*> _states;
 };

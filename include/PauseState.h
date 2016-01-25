@@ -39,12 +39,12 @@ class PauseState : public Ogre::Singleton<PauseState>, public GameState
   void pause ();
   void resume ();
 
-  void keyPressed (const OIS::KeyEvent &e);
-  void keyReleased (const OIS::KeyEvent &e);
+  bool keyPressed (const OIS::KeyEvent &e);
+  bool keyReleased (const OIS::KeyEvent &e);
 
-  void mouseMoved (const OIS::MouseEvent &e);
-  void mousePressed (const OIS::MouseEvent &e, OIS::MouseButtonID id);
-  void mouseReleased (const OIS::MouseEvent &e, OIS::MouseButtonID id);
+  bool mouseMoved (const OIS::MouseEvent &e);
+  bool mousePressed (const OIS::MouseEvent &e, OIS::MouseButtonID id);
+  bool mouseReleased (const OIS::MouseEvent &e, OIS::MouseButtonID id);
 
   bool frameStarted (const Ogre::FrameEvent& evt);
   bool frameEnded (const Ogre::FrameEvent& evt);

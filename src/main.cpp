@@ -24,6 +24,10 @@
 #include "IntroState.h"
 #include "PlayState.h"
 #include "PauseState.h"
+#include "MenuState.h"
+#include "ControlsState.h"
+#include "RecordsState.h"
+#include "sounds.h"
 
 #include <iostream>
 
@@ -34,12 +38,19 @@ int main () {
   GameManager* game = new GameManager();
   IntroState* introState = new IntroState();
   PlayState* playState = new PlayState();
+  MenuState* menuState = new MenuState();
+  ControlsState* controlsState = new ControlsState();
   PauseState* pauseState = new PauseState();
+  RecordsState * recordState = new RecordsState();
+  sounds * s = sounds::getInstance();
 
   UNUSED_VARIABLE(introState);
   UNUSED_VARIABLE(playState);
   UNUSED_VARIABLE(pauseState);
-    
+  UNUSED_VARIABLE(menuState);
+  UNUSED_VARIABLE(controlsState);
+
+  s->load_xml((char*)"sounds.xml");
   try
     {
       // Inicializa el juego y transición al primer estado.

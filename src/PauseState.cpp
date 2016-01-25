@@ -1,5 +1,7 @@
 #include "PauseState.h"
 #include "IntroState.h"
+#include "MenuState.h"
+
 #include <OgreOverlaySystem.h>
 #include <OgreOverlayElement.h>
 #include <OgreOverlayManager.h>
@@ -48,16 +50,17 @@ bool PauseState::frameEnded(const Ogre::FrameEvent& evt)
   return true;
 }
 
-void PauseState::keyPressed(const OIS::KeyEvent &e) 
+bool PauseState::keyPressed(const OIS::KeyEvent &e) 
 {
   // Tecla p --> Estado anterior.
   if (e.key == OIS::KC_P) 
   {
     popState();
   }
+  return true;
 }
 
-void PauseState::keyReleased(const OIS::KeyEvent &e)
+bool PauseState::keyReleased(const OIS::KeyEvent &e)
 {
     if (e.key == OIS::KC_ESCAPE)
     {
@@ -69,18 +72,22 @@ void PauseState::keyReleased(const OIS::KeyEvent &e)
         changeState(IntroState::getSingletonPtr());
         
     }
+  return true;
 }
 
-void PauseState::mouseMoved(const OIS::MouseEvent &e)
+bool PauseState::mouseMoved(const OIS::MouseEvent &e)
 {
+  return true;
 }
 
-void PauseState::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
+bool PauseState::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
+  return true;
 }
 
-void PauseState::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
+bool PauseState::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
+  return true;
 }
 
 PauseState* PauseState::getSingletonPtr ()

@@ -25,10 +25,10 @@
 #include <OIS/OIS.h>
 
 // Gestor para los eventos de entrada (teclado y ratón).
-class InputManager : public Ogre::Singleton<InputManager>, public OIS::KeyListener, public OIS::MouseListener {
+class InputManager_ : public Ogre::Singleton<InputManager_>, public OIS::KeyListener, public OIS::MouseListener {
  public:
-  InputManager ();
-  virtual ~InputManager ();
+  InputManager_ ();
+  virtual ~InputManager_ ();
   
   void initialise (Ogre::RenderWindow *renderWindow);
   void capture ();
@@ -54,8 +54,8 @@ class InputManager : public Ogre::Singleton<InputManager>, public OIS::KeyListen
   OIS::Mouse* getMouse ();
 
   // Heredados de Ogre::Singleton.
-  static InputManager& getSingleton ();
-  static InputManager* getSingletonPtr ();
+  static InputManager_& getSingleton ();
+  static InputManager_* getSingletonPtr ();
 
  private:
   bool keyPressed (const OIS::KeyEvent &e);

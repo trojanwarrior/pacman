@@ -25,7 +25,7 @@
 #include <OIS/OIS.h>
  
 #include "GameManager.h"
-#include "InputManager.h"
+#include "InputManager_.h"
 
 // Clase abstracta de estado básico.
 // Definición base sobre la que extender
@@ -43,12 +43,14 @@ class GameState {
 
   // Gestión básica para el tratamiento
   // de eventos de teclado y ratón.
-  virtual void keyPressed (const OIS::KeyEvent &e) = 0;
-  virtual void keyReleased (const OIS::KeyEvent &e) = 0;
+  
+  virtual bool keyPressed (const OIS::KeyEvent &e)=0 ;
+  virtual bool keyReleased (const OIS::KeyEvent &e)=0;
 
-  virtual void mouseMoved (const OIS::MouseEvent &e) = 0; 
-  virtual void mousePressed (const OIS::MouseEvent &e, OIS::MouseButtonID id) = 0;
-  virtual void mouseReleased (const OIS::MouseEvent &e, OIS::MouseButtonID id) = 0;
+  virtual bool mouseMoved (const OIS::MouseEvent &e)=0 ; 
+  virtual bool mousePressed (const OIS::MouseEvent &e, OIS::MouseButtonID id)=0 ;
+  virtual bool mouseReleased (const OIS::MouseEvent &e, OIS::MouseButtonID id)=0;
+
 
   // Gestión básica para la gestión
   // de eventos antes y después de renderizar un frame.

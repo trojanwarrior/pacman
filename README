@@ -1,0 +1,23 @@
+MYGUI:
+codigo :
+	git clone https://github.com/MyGUI/mygui
+
+Dependencias
+	OgreMain 
+	boost_system 
+	Common 
+	X11 
+	MyGUIEngine 
+	OIS 
+	MyGUI.OgrePlatform
+
+SDL:
+codigo:
+	paquetes SDL comunes de las distribuciones
+	minixml : http://www.msweet.org/projects.php?Z3
+Dependencias SDL
+	SDL 
+	SDL_mixer 
+	mxml 
+	pthread
+

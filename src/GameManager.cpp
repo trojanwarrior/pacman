@@ -3,6 +3,9 @@
 #include "GameManager.h"
 #include "GameState.h"
 
+using namespace std;
+using namespace Ogre;
+
 template<> GameManager* Ogre::Singleton<GameManager>::msSingleton = 0;
 
 GameManager::GameManager ()
@@ -31,7 +34,7 @@ void GameManager::start(GameState* state)
   if (!configure())
     return;    
   	
-  _inputMgr = new InputManager;
+  _inputMgr = new InputManager_;
   _inputMgr->initialise(_renderWindow);
 
   // Registro como key y mouse listener...

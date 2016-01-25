@@ -24,13 +24,12 @@
 #include <Ogre.h>
 #include <OIS/OIS.h>
 #include <string>
-
 #include "GameState.h"
+#include "Base/BaseDemoManager.h"
 
 using namespace std;
 using namespace Ogre;
-
-class PlayState : public Ogre::Singleton<PlayState>, public GameState
+class PlayState : public Ogre::Singleton<PlayState>, public GameState , public base::BaseDemoManager
 {
  public:
   PlayState () {}
@@ -41,12 +40,12 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   void pause ();
   void resume ();
 
-  void keyPressed (const OIS::KeyEvent &e);
-  void keyReleased (const OIS::KeyEvent &e);
+  bool keyPressed (const OIS::KeyEvent &e);
+  bool keyReleased (const OIS::KeyEvent &e);
 
-  void mouseMoved (const OIS::MouseEvent &e);
-  void mousePressed (const OIS::MouseEvent &e, OIS::MouseButtonID id);
-  void mouseReleased (const OIS::MouseEvent &e, OIS::MouseButtonID id);
+  bool mouseMoved (const OIS::MouseEvent &e);
+  bool mousePressed (const OIS::MouseEvent &e, OIS::MouseButtonID id);
+  bool mouseReleased (const OIS::MouseEvent &e, OIS::MouseButtonID id);
 
   bool frameStarted (const Ogre::FrameEvent& evt);
   bool frameEnded (const Ogre::FrameEvent& evt);
@@ -62,7 +61,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   Ogre::Camera* _camera;
 
   bool _exitGame;
-  
+  MyGUI::VectorWidgetPtr layout;
   
 private:
   private:

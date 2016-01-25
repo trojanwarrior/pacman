@@ -15,14 +15,20 @@ DIRHEA := include/
 
 CXX := g++
 
+#START MYGUI
+MYGUI_INC :=-I$(MYGUI_SOURCE_DIR)//MyGUIEngine/include -I$(MYGUI_SOURCE_DIR)/Common -I$(MYGUI_SOURCE_DIR)/Platforms/Ogre/OgrePlatform/include -I$(MYGUI_INSTALL)/Common/Base/Ogre -I$(MYGUI_INSTALL)/Common/Input/OIS -I$(OGRE_INCLUDE_DIR) -I$(OIS_INCLUDE_DIR) -DMYGUI_OGRE_PLATFORM
+MYGUI_LINK=-L/usr/lib/i386-linux-gnu/ -lOgreMain -L$(MYGUI_INSTALL)/lib -lboost_system -lCommon -lX11 -lMyGUIEngine -lOIS -lMyGUI.OgrePlatform
+#SDL_LINK=-lSDL -lSDL_image -lSDL_ttf -lSDL_mixer -lmxml -lpthread
+SDL_LINK=-lSDL -lSDL_mixer -lmxml -lpthread
+#END MYGUI
 # Flags de compilación -----------------------------------------------
 #CXXFLAGS := -I$(DIRHEA) -I$(DIRHEACEGUI1) -I$(DIRHEACEGUI2) -Wall `pkg-config --cflags OIS OGRE`  
-CXXFLAGS := -I$(DIRHEA) -Wall `pkg-config --cflags OIS OGRE OGRE-Overlay` 
+CXXFLAGS := -I$(DIRHEA) -Wall `pkg-config --cflags OIS OGRE OGRE-Overlay` $(MYGUI_INC)
 
 # Flags del linker ---------------------------------------------------
 LDFLAGS := `pkg-config --libs-only-l OGRE`
 #LDLIBS := `pkg-config --libs-only-l gl OIS OGRE xerces-c` -lstdc++ -lboost_system -l$(LIBCEGUIBASE) -l$(LIBCEGUIOGRERENDERER)
-LDLIBS := `pkg-config --libs-only-l gl OIS OGRE OGRE-Overlay xerces-c` -lstdc++ -lboost_system
+LDLIBS := `pkg-config --libs-only-l gl OIS OGRE OGRE-Overlay xerces-c` -lstdc++ -lboost_system $(MYGUI_LINK) $(SDL_LINK)
 
 # Modo de compilación (-mode=release -mode=debug) --------------------
 ifeq ($(mode), release) 
