@@ -1,4 +1,4 @@
-/*********************************************************************
+/*********************************************************************n
  * Módulo 1. Curso de Experto en Desarrollo de Videojuegos
  * Autor: David Vallejo Fernández    David.Vallejo@uclm.es
  *
@@ -70,6 +70,6 @@ private:
   void mostrarFondo();
   TextureUnitState* CreateTextureFromImgWithoutStretch(const String& texName, Real texSize, const String& imgName);
   
-};
+}
 
 #endif

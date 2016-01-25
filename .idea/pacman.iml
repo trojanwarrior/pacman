@@ -3,19 +3,27 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/graphml_boost.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/PlayState.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/MenuState.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/InputManager.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/IntroState.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ControlsState.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/GameManager.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/PauseState.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/PlayState.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/IntroState.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/RecordsState.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/sounds.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/InputManager_.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/include/GameManager.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/sounds.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/include/graphml_boost.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/PlayState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/ControlsState.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/include/PauseState.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/include/IntroState.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/include/GameState.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/InputManager.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/RecordsState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/MenuState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/PlayState.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
@@ -25,6 +33,9 @@
           <root url="file:///usr/include" />
           <root url="file:///usr/lib/gcc/x86_64-redhat-linux/5.3.1/include" />
           <root url="file:///usr/local/include" />
+          <root url="file://$MODULE_DIR$/../../mygui-src/Platforms/Ogre/OgrePlatform/include" />
+          <root url="file://$MODULE_DIR$/../../mygui-src/MyGUIEngine/include" />
+          <root url="file://$MODULE_DIR$/../../mygui-src/Common" />
           <root url="file://$MODULE_DIR$/src" />
           <root url="file://$MODULE_DIR$/include" />
         </CLASSES>
@@ -32,24 +43,35 @@
           <root url="file:///usr/include" />
           <root url="file:///usr/lib/gcc/x86_64-redhat-linux/5.3.1/include" />
           <root url="file:///usr/local/include" />
+          <root url="file://$MODULE_DIR$/../../mygui-src/Platforms/Ogre/OgrePlatform/include" />
+          <root url="file://$MODULE_DIR$/../../mygui-src/MyGUIEngine/include" />
+          <root url="file://$MODULE_DIR$/../../mygui-src/Common" />
           <root url="file://$MODULE_DIR$/src" />
           <root url="file://$MODULE_DIR$/include" />
         </SOURCES>
         <excluded>
           <root url="file://$MODULE_DIR$/src/graphml_boost.cpp" />
+          <root url="file://$MODULE_DIR$/src/PlayState.cpp" />
+          <root url="file://$MODULE_DIR$/src/MenuState.cpp" />
           <root url="file://$MODULE_DIR$/src/main.cpp" />
           <root url="file://$MODULE_DIR$/src/InputManager.cpp" />
+          <root url="file://$MODULE_DIR$/src/IntroState.cpp" />
+          <root url="file://$MODULE_DIR$/src/ControlsState.cpp" />
           <root url="file://$MODULE_DIR$/src/GameManager.cpp" />
           <root url="file://$MODULE_DIR$/src/PauseState.cpp" />
-          <root url="file://$MODULE_DIR$/src/PlayState.cpp" />
-          <root url="file://$MODULE_DIR$/src/IntroState.cpp" />
+          <root url="file://$MODULE_DIR$/src/RecordsState.cpp" />
+          <root url="file://$MODULE_DIR$/src/sounds.cpp" />
+          <root url="file://$MODULE_DIR$/include/InputManager_.h" />
           <root url="file://$MODULE_DIR$/include/GameManager.h" />
+          <root url="file://$MODULE_DIR$/include/sounds.h" />
           <root url="file://$MODULE_DIR$/include/graphml_boost.h" />
-          <root url="file://$MODULE_DIR$/include/PlayState.h" />
+          <root url="file://$MODULE_DIR$/include/ControlsState.h" />
           <root url="file://$MODULE_DIR$/include/PauseState.h" />
           <root url="file://$MODULE_DIR$/include/IntroState.h" />
           <root url="file://$MODULE_DIR$/include/GameState.h" />
-          <root url="file://$MODULE_DIR$/include/InputManager.h" />
+          <root url="file://$MODULE_DIR$/include/RecordsState.h" />
+          <root url="file://$MODULE_DIR$/include/MenuState.h" />
+          <root url="file://$MODULE_DIR$/include/PlayState.h" />
         </excluded>
       </library>
     </orderEntry>

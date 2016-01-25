@@ -29,6 +29,7 @@
 #include "MyGUI_OgrePlatform.h"
 
 
+
 using namespace std;
 using namespace Ogre;
 class ControlsState : public Ogre::Singleton<ControlsState>, public GameState 
