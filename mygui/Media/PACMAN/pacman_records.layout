@@ -11,30 +11,29 @@
         <Property key="Colour" value="0 0 0"/>
         <Property key="TextColour" value="1 1 1"/>
     </Widget>
-
-        <Widget type="TextBox" skin="TextBox" position="150 295 110 270" name="records_position">
-            <Property key="Visible" value="true"/>
-            <Property key="FontName" value="PressStart2P"/>
-            <Property key="Caption" value="1 ST"/>
-            <Property key="FontHeight" value="25"/>
-            <Property key="Colour" value="0 0 0"/>
-            <Property key="TextColour" value="1 1 1"/>
-        </Widget>
-        <Widget type="TextBox" skin="TextBox" position="340 295 140 270" name="score_points">
-            <Property key="Visible" value="true"/>
-            <Property key="FontName" value="PressStart2P"/>
-            <Property key="Caption" value="123123"/>
-            <Property key="FontHeight" value="25"/>
-            <Property key="Colour" value="0 0 0"/>
-            <Property key="TextColour" value="1 1 1"/>
-        </Widget>
-        <Widget type="TextBox" skin="TextBox" position="545 295 145 270" name="score_name">
-            <Property key="Visible" value="true"/>
-            <Property key="FontName" value="PressStart2P"/>
-            <Property key="Caption" value="JAM"/>
-            <Property key="FontHeight" value="25"/>
-            <Property key="Colour" value="0 0 0"/>
-            <Property key="TextColour" value="1 1 1"/>
-        </Widget>
+    <Widget type="TextBox" skin="TextBox" position="150 295 130 270" layer="Main" name="score_positions">
+        <Property key="Visible" value="true"/>
+        <Property key="FontName" value="PressStart2P"/>
+        <Property key="Caption" value=" 1 ST\n 2 ND\n 3 RD\n 4 TH\n 5 TH\n 6 TH\n 7 TH\n 8 TH\n 9 TH\n10 TH"/>
+        <Property key="FontHeight" value="25"/>
+        <Property key="Colour" value="0 0 0"/>
+        <Property key="TextColour" value="1 1 1"/>
+    </Widget>
+    <Widget type="TextBox" skin="TextBox" position="340 295 140 270" layer="Main" name="score_points">
+        <Property key="Visible" value="true"/>
+        <Property key="FontName" value="PressStart2P"/>
+        <Property key="Caption" value="123123"/>
+        <Property key="FontHeight" value="25"/>
+        <Property key="Colour" value="0 0 0"/>
+        <Property key="TextColour" value="1 1 1"/>
+    </Widget>
+    <Widget type="TextBox" skin="TextBox" position="545 295 145 270" layer="Main" name="score_names">
+        <Property key="Visible" value="true"/>
+        <Property key="FontName" value="PressStart2P"/>
+        <Property key="Caption" value="JAM"/>
+        <Property key="FontHeight" value="25"/>
+        <Property key="Colour" value="0 0 0"/>
+        <Property key="TextColour" value="1 1 1"/>
+    </Widget>
     <CodeGeneratorSettings/>
 </MyGUI>

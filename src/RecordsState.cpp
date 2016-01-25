@@ -3,7 +3,7 @@
 #include "PauseState.h"
 #include "IntroState.h"
 #include "PlayState.h"
-#include "MenuState.h"//JAM
+#include "MenuState.h"
 
 
 //http://www.cplusplus.com/doc/tutorial/templates/          <--------Visita esta página para entender la linea justo debajo de esta
@@ -202,6 +202,9 @@ void RecordsState::createScene()
                 if (root.size() == 1)
                 root.at(0)->findWidget("Text")->castType<MyGUI::TextBox>()->setCaption("pacman");
                 high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
+                score_positions_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::TextBox>("score_positions");
+                score_points_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::TextBox>("score_points");
+                score_names_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::TextBox>("score_names");
                 //start_input->eventKeyButtonPressed= MyGUI::newDelegate(this, &GuiShip::notifyKeyPress);
                 //MyGUI::InputManager::getInstance().setKeyFocusWidget(start_input);
                 //high_score_txt->setVisible(true); 
