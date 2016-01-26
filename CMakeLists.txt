@@ -20,6 +20,7 @@ set(OIS_INC "/usr/include/OIS")
 set(OGRE_INC "/usr/include/OGRE")
 set(OVERLAY_INC "/usr/include/OGRE/Overlay")
 
+#set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -D_DEBUG -std=c++11 -pthread -Wno-deprecated -Wno-deprecated-declarations \
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -D_DEBUG -std=c++11 -pthread -Wno-deprecated -Wno-deprecated-declarations \
         -I${OIS_INC} \
         -I${OGRE_INC} \
@@ -89,4 +90,4 @@ include_directories(${MXML_INC})
 
 add_executable(pacman ${SOURCE_FILES})
 
-TARGET_LINK_LIBRARIES(pacman -lOgreOverlay -lOgreMain -lpthread -lboost_system -lMyGUIEngine -lmxml -lSDL -lpthread -lSDL_mixer -lboost_system -lboost_graph -lOIS -lGL -lstdc++ -lMyGUI.OgrePlatform)
+TARGET_LINK_LIBRARIES(pacman -lOgreOverlay -lOgreMain -lpthread -lboost_system -lMyGUIEngine -lmxml -lSDL -lpthread -lSDL_mixer -lboost_system -lboost_graph -lOIS -lGL -lMyGUI.OgrePlatform)

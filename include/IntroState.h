@@ -33,43 +33,57 @@ using namespace Ogre;
 
 class IntroState : public Ogre::Singleton<IntroState>, public GameState
 {
- public:
-  IntroState() {}
-  ~IntroState();
+public:
+    IntroState()
+    { }
 
-  void enter ();
-  void exit ();
-  void pause ();
-  void resume ();
+    ~IntroState();
 
-  bool keyPressed (const OIS::KeyEvent &e);
-  bool keyReleased (const OIS::KeyEvent &e);
+    void enter();
 
-  bool mouseMoved (const OIS::MouseEvent &e);
-  bool mousePressed (const OIS::MouseEvent &e, OIS::MouseButtonID id);
-  bool mouseReleased (const OIS::MouseEvent &e, OIS::MouseButtonID id);
+    void exit();
 
-  bool frameStarted (const Ogre::FrameEvent& evt);
-  bool frameEnded (const Ogre::FrameEvent& evt);
+    void pause();
 
-  // Heredados de Ogre::Singleton.
-  static IntroState& getSingleton ();
-  static IntroState* getSingletonPtr ();
+    void resume();
 
- protected:
-  Ogre::Root* _root;
-  Ogre::SceneManager* _sceneMgr;
-  Ogre::Viewport* _viewport;
-  Ogre::Camera* _camera;
+    bool keyPressed(const OIS::KeyEvent &e);
 
-  bool _exitGame;
-  
+    bool keyReleased(const OIS::KeyEvent &e);
+
+    bool mouseMoved(const OIS::MouseEvent &e);
+
+    bool mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id);
+
+    bool mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id);
+
+    bool frameStarted(const Ogre::FrameEvent &evt);
+
+    bool frameEnded(const Ogre::FrameEvent &evt);
+
+    // Heredados de Ogre::Singleton.
+    static IntroState &getSingleton();
+
+    static IntroState *getSingletonPtr();
+
+protected:
+    Ogre::Root *_root;
+    Ogre::SceneManager *_sceneMgr;
+    Ogre::Viewport *_viewport;
+    Ogre::Camera *_camera;
+
+    bool _exitGame;
+
 private:
-  Ogre::Rectangle2D* _rect; // Para mostrar un fondo
- 
-  void mostrarFondo();
-  TextureUnitState* CreateTextureFromImgWithoutStretch(const String& texName, Real texSize, const String& imgName);
-  
+    Ogre::Rectangle2D *_rect; // Para mostrar un fondo
+    Ogre::AnimationState *_animStatePacman; // Para animar boca pacman
+
+
+    void mostrarFondo();
+    void createScene();
+
+    TextureUnitState *CreateTextureFromImgWithoutStretch(const String &texName, Real texSize, const String &imgName);
+
 };
 
 #endif

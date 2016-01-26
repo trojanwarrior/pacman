@@ -71,7 +71,7 @@ bool PlayState::keyPressed(const OIS::KeyEvent &e)
   if (e.key == OIS::KC_P) {
     pushState(PauseState::getSingletonPtr());
   }
-  else if (e.key == OIS::KC_A) 
+  else if (e.key == OIS::KC_A)
 {    printf("movidendo arriba delta %f \n",deltaTime);
     _pacman->move(UP_DIR, deltaTime);
   }
@@ -96,17 +96,12 @@ bool PlayState::keyReleased(const OIS::KeyEvent &e)
 {
   if (e.key == OIS::KC_ESCAPE) 
   {
-    //Ahora mismo lo dejo así, se resetea la pila de estados
-    //y volvemos al InstroState denotado por el cambio de color del fondo.
-    //Aquí en realidad hay que hacer un pushState(PauseState::getSingletonPtr())
-    //y apilamos el estado de pausa donde debería aparecer la gui de pausa.
-    //En ese estado daremos la opción de proseguir que provocará que se active el resume
-    //del estado PlayState, o sea, del estado inmendiatamente debajo del de pausa en la pila.
-    //O bien, la opción de terminar el juego y volver al menú principal lo que provocará un reseteo
-    //de toda la pila de estados (gestionada por GameManager).
-    //Para ver como funciona la pausa, presiona la tecla p para activarla (apilarla) y otra vez a p
-    //para volver al estado PlayState.
-    changeState(IntroState::getSingletonPtr());
+    // Cambiamos de estado apilando el estado PauseState.
+    // Cuando salgamos de PauseState (se desapile el estado PauseState)
+    // habrá que controlar lo que se necesite en el método
+    // resume.
+    pushState(PauseState::getSingletonPtr());
+
   }
   return true;
 }

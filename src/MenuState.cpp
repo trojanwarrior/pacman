@@ -56,8 +56,8 @@ bool MenuState::frameStarted(const Ogre::FrameEvent& evt)
 
 bool MenuState::frameEnded(const Ogre::FrameEvent& evt)
 {
-//  if (_exitGame)
-//    return false;
+  if (_exitGame)
+    return false;
   
   return true;
 }
@@ -87,17 +87,8 @@ bool MenuState::keyReleased(const OIS::KeyEvent &e)
 {
   if (e.key == OIS::KC_ESCAPE) 
   {
-    //Ahora mismo lo dejo así, se resetea la pila de estados
-    //y volvemos al InstroState denotado por el cambio de color del fondo.
-    //Aquí en realidad hay que hacer un pushState(PauseState::getSingletonPtr())
-    //y apilamos el estado de pausa donde debería aparecer la gui de pausa.
-    //En ese estado daremos la opción de proseguir que provocará que se active el resume
-    //del estado PlayState, o sea, del estado inmendiatamente debajo del de pausa en la pila.
-    //O bien, la opción de terminar el juego y volver al menú principal lo que provocará un reseteo
-    //de toda la pila de estados (gestionada por GameManager).
-    //Para ver como funciona la pausa, presiona la tecla p para activarla (apilarla) y otra vez a p
-    //para volver al estado PlayState.
-    changeState(IntroState::getSingletonPtr());
+    // Fin del juego, salimos.
+    _exitGame = true;
   }
   return true;
 }
