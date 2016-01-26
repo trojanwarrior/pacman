@@ -99,11 +99,21 @@ bool IntroState::frameStarted(const Ogre::FrameEvent &evt)
 {
     Ogre::Real deltaT = evt.timeSinceLastFrame;
 
-    _animStatePacman = _sceneMgr->getEntity("Pacman")->getAnimationState("Pakupaku");
-    _animStatePacman->setEnabled(true);
-    _animStatePacman->setLoop(true);
-    _animStatePacman->setTimePosition(0.0);
-    _animStatePacman->addTime(deltaT);
+    //_animStatePacman = _sceneMgr->getEntity("Pacman")->getAnimationState("Pakupaku");
+    if (!_animStatePacman)
+    {
+        _animStatePacman = _sceneMgr->getEntity("Cereza")->getAnimationState("meneo");
+        _animStatePacman->setEnabled(true);
+        _animStatePacman->setLoop(true);
+        _animStatePacman->setTimePosition(0.0);
+    }
+    else
+        _animStatePacman->addTime(deltaT);
+
+    cout << _animStatePacman->getAnimationName() << endl;
+    cout << _animStatePacman->getTimePosition() << "/" << _animStatePacman->getLength() << endl;
+    cout << _animStatePacman->hasEnded() << endl;
+
 
 
     return true;
@@ -244,9 +254,14 @@ void IntroState::createScene()
     _sceneMgr->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
     _sceneMgr->setAmbientLight(Ogre::ColourValue(0.8, 0.8, 0.8));
 
-    Ogre::Entity *pacmanEnt = _sceneMgr->createEntity("Pacman","Pacman.mesh");
-    Ogre::SceneNode *nodePacmanIntro = _sceneMgr->createSceneNode("nodePacmanIntro");
-    nodePacmanIntro->attachObject(pacmanEnt);
-    _sceneMgr->getRootSceneNode()->addChild(nodePacmanIntro);
+//    Ogre::Entity *pacmanEnt = _sceneMgr->createEntity("Pacman","Pacman.mesh");
+//    Ogre::SceneNode *nodePacmanIntro = _sceneMgr->createSceneNode("nodePacmanIntro");
+//    nodePacmanIntro->attachObject(pacmanEnt);
+//    _sceneMgr->getRootSceneNode()->addChild(nodePacmanIntro);
+
+    Ogre::Entity *cerezaEnt = _sceneMgr->createEntity("Cereza","Cereza.mesh");
+    Ogre::SceneNode *nodeCerezaIntro = _sceneMgr->createSceneNode("nodeCerezaIntro");
+    nodeCerezaIntro->attachObject(cerezaEnt);
+    _sceneMgr->getRootSceneNode()->addChild(nodeCerezaIntro);
 
 }
