@@ -28,6 +28,7 @@
 #include "ControlsState.h"
 #include "RecordsState.h"
 #include "sounds.h"
+#include "records.h"
 
 #include <iostream>
 
@@ -43,6 +44,7 @@ int main () {
   PauseState* pauseState = new PauseState();
   RecordsState * recordState = new RecordsState();
   sounds * s = sounds::getInstance();
+  records * r = records::getInstance();
 
   UNUSED_VARIABLE(introState);
   UNUSED_VARIABLE(playState);
@@ -51,6 +53,7 @@ int main () {
   UNUSED_VARIABLE(controlsState);
 
   s->load_xml((char*)"sounds.xml");
+  r->loadFile("");
   try
     {
       // Inicializa el juego y transición al primer estado.

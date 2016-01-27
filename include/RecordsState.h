@@ -56,6 +56,7 @@ class RecordsState : public Ogre::Singleton<RecordsState>, public GameState
   static RecordsState& getSingleton ();
   static RecordsState* getSingletonPtr ();
 
+
  protected:
   Ogre::Root* _root;
   Ogre::SceneManager* _sceneMgr;
@@ -68,7 +69,7 @@ class RecordsState : public Ogre::Singleton<RecordsState>, public GameState
   MyGUI::TextBox* score_positions_txt;  
   MyGUI::TextBox* score_points_txt;  
   MyGUI::TextBox* score_names_txt;  
-MyGUI::VectorWidgetPtr layout;
+  MyGUI::VectorWidgetPtr layout;
 
   
 private:
@@ -77,6 +78,7 @@ private:
   void mostrarFondo();
   Ogre::TextureUnitState* CreateTextureFromImgWithoutStretch(const String& texName, Real texSize, const String& imgName);
   void createScene();
+  void loadRecords();
   
 };
 

@@ -4,7 +4,7 @@
 #include "IntroState.h"
 #include "PlayState.h"
 #include "MenuState.h"
-
+#include "records.h"
 
 //http://www.cplusplus.com/doc/tutorial/templates/          <--------Visita esta página para entender la linea justo debajo de esta
 template<> RecordsState* Ogre::Singleton<RecordsState>::msSingleton = 0;
@@ -23,13 +23,42 @@ void RecordsState::enter ()
   // Nuevo background colour.
   _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 1.0));
   
-  //mostrarFondo(); JAM
+  //mostrarFondo(); 
   createScene();
-
+  loadRecords();
   _exitGame = false;
    sounds::getInstance()->play_effect("eat_ghost");
 }
 
+void RecordsState::loadRecords()
+{
+          int result = 0;
+          int cont=0;
+          string name;
+          int points;
+          string tmp_users="";
+          string tmp_points="";
+          char tmp_char [64];
+          int max_records = 10;
+          result = records::getInstance()->getNext(name,points,true);
+          cont++;
+          while (result == 0)
+          {
+
+            if (result == 0)
+            {
+              sprintf(tmp_char,"\%s\n",name.c_str());
+              tmp_users += string(tmp_char);
+              sprintf(tmp_char,"\%d\n",points);
+              tmp_points += string(tmp_char);
+            }
+            if (max_records!=0 && cont >= max_records) break;
+            result = records::getInstance()->getNext(name,points);
+            cont++;
+          }
+          score_names_txt->setCaption(tmp_users);
+          score_points_txt->setCaption(tmp_points);
+}
 void RecordsState::exit ()
 {
   _sceneMgr->clearScene();
@@ -63,7 +92,6 @@ bool RecordsState::frameEnded(const Ogre::FrameEvent& evt)
 
 bool RecordsState::keyPressed(const OIS::KeyEvent &e)
 {
-  cout << __FUNCTION__ << endl;
   popState();
   return true;
   // Tecla p --> PauseState.
@@ -112,7 +140,6 @@ bool RecordsState::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id
 
 RecordsState* RecordsState::getSingletonPtr()
 {
-cout << __FUNCTION__<<endl;
     return msSingleton;
 }
 
