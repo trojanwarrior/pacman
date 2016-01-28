@@ -94,3 +94,17 @@ records * records::getInstance()
   return singleton;
 }
 
+void records::getBest (string & name,int & points)
+{
+  if (records_vector.size()>0)
+  {
+    name=this->records_vector[0].name;
+    points=this->records_vector[0].points;
+  }
+  else
+  {
+    name ="";
+    points =0;
+  }
+}
+

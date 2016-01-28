@@ -36,6 +36,7 @@ class records
     void print ();
     int getNext (string & name,int & points, bool begin=false);
     static records * getInstance();
+    void getBest (string & name,int & points);
 };
 
 #endif
