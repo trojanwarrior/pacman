@@ -203,9 +203,6 @@ void ControlsState::createScene()
                 char points_str [32];
                 int points=0;
                 layout = MyGUI::LayoutManager::getInstance().loadLayout("pacman_controls.layout");
-                const MyGUI::VectorWidgetPtr& root = MyGUI::LayoutManager::getInstance().loadLayout("HelpPanel.layout");
-                if (root.size() == 1)
-                root.at(0)->findWidget("Text")->castType<MyGUI::TextBox>()->setCaption("PACMAN");
                 high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
                 records::getInstance()->getBest(name,points);
                 sprintf(points_str,"%d",points); 

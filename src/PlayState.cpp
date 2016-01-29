@@ -4,7 +4,7 @@
 #include "IntroState.h"
 #include "PlayState.h"
 #include "MenuState.h"
-
+#include "records.h"
 
 //http://www.cplusplus.com/doc/tutorial/templates/          <--------Visita esta página para entender la linea justo debajo de esta
 template<> PlayState* Ogre::Singleton<PlayState>::msSingleton = 0;
@@ -21,7 +21,7 @@ void PlayState::enter ()
   _camera = _sceneMgr->getCamera("IntroCamera");
   _viewport = _root->getAutoCreatedWindow()->getViewport(0);
   // Nuevo background colour.
-  _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 1.0));
+  _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 0.0));
 
   createScene();
   _pacman = new Pacman();
@@ -143,16 +143,20 @@ PlayState::~PlayState()
 
 void PlayState::createScene()
 {
-//JAM
-  /*                 MyGUI::EditBox* high_score_txt;
-                layout = MyGUI::LayoutManager::getInstance().loadLayout("pacman_play.layout");
-                const MyGUI::VectorWidgetPtr& root = MyGUI::LayoutManager::getInstance().loadLayout("HelpPanel.layout");
-                if (root.size() == 1)
-                root.at(0)->findWidget("Text")->castType<MyGUI::TextBox>()->setCaption("pacman");
-                high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");*/
-//JAM
+   string name="";
+   char points_str [32];
+   int points=0;
 
-  
+   layout = MyGUI::LayoutManager::getInstance().loadLayout("pacman_play.layout");
+   high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
+   score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("score");
+   lives_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("lives");
+
+   records::getInstance()->getBest(name,points);
+   sprintf(points_str,"%d",points);
+   high_score_txt->setCaption(points_str);
+   set_score(0);
+   set_lives(3);
 
   _camera->setPosition (Vector3 (0,15,0));
   _camera->lookAt (Vector3 (0,0,0.1));
@@ -166,11 +170,31 @@ void PlayState::createScene()
   Entity* ent1 = _sceneMgr->  createEntity("level1.mesh");
   stage->addEntity(ent1, Vector3(0,0,0));
   stage->build();
+}
 
+void PlayState::set_lives (int lives)
+{
+  char tmp [64];
+  this->lives = lives;
+  sprintf(tmp,"%d",lives);
+  lives_txt->setCaption(tmp);
+}
 
-  
+int PlayState::get_lives ()
+{
+  return lives;
+}
 
+void PlayState::set_score (int score)
+{
+  char tmp [64];
+  this->score = score;
+  sprintf(tmp,"%d",score);
+  score_txt->setCaption(tmp);
+}
 
- 
+int PlayState::get_score ()
+{
+  return score;
 }
 

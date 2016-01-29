@@ -72,13 +72,15 @@ bool MenuState::keyPressed(const OIS::KeyEvent &e)
     pushState(PauseState::getSingletonPtr());
   }
   else if (e.key == OIS::KC_S) {
-  MyGUI::LayoutManager::getInstance().unloadLayout(layout);
+    MyGUI::LayoutManager::getInstance().unloadLayout(layout);
     pushState(PlayState::getSingletonPtr());
   }
   else if (e.key == OIS::KC_C) {
+    MyGUI::LayoutManager::getInstance().unloadLayout(layout);
     pushState(ControlsState::getSingletonPtr());
   }
   else if (e.key == OIS::KC_R) {
+    MyGUI::LayoutManager::getInstance().unloadLayout(layout);
     pushState(RecordsState::getSingletonPtr());
   }
   return true;
@@ -200,9 +202,6 @@ void MenuState::createScene()
                 char points_str [32];
                 int points=0;
                 layout = MyGUI::LayoutManager::getInstance().loadLayout("pacman_start.layout");
-                /* const MyGUI::VectorWidgetPtr& root = MyGUI::LayoutManager::getInstance().loadLayout("HelpPanel.layout");
-                if (root.size() == 1)
-                root.at(0)->findWidget("Text")->castType<MyGUI::TextBox>()->setCaption("pacman");*/
                 high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
                 records::getInstance()->getBest(name,points);
                 sprintf(points_str,"%d",points);

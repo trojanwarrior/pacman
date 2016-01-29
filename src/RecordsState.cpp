@@ -228,9 +228,6 @@ void RecordsState::createScene()
                 char points_str [32];
                 int points=0;
                 layout = MyGUI::LayoutManager::getInstance().loadLayout("pacman_records.layout");
-                const MyGUI::VectorWidgetPtr& root = MyGUI::LayoutManager::getInstance().loadLayout("HelpPanel.layout");
-                if (root.size() == 1)
-                root.at(0)->findWidget("Text")->castType<MyGUI::TextBox>()->setCaption("pacman");
                 high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
                 score_positions_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::TextBox>("score_positions");
                 score_points_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::TextBox>("score_points");

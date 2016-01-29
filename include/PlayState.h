@@ -56,6 +56,11 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   // Heredados de Ogre::Singleton.
   static PlayState& getSingleton ();
   static PlayState* getSingletonPtr ();
+  void set_lives (int lives);
+  int  get_lives ();
+
+  void set_score (int score);
+  int  get_score ();
 
  protected:
   Ogre::Root* _root;
@@ -67,6 +72,11 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
 
   bool _exitGame;
   MyGUI::VectorWidgetPtr layout;
+  MyGUI::EditBox* high_score_txt;
+  MyGUI::EditBox* score_txt;
+  MyGUI::EditBox* lives_txt;
+  int lives;
+  int score;
   
 private:
   private:
