@@ -11,6 +11,7 @@
         <Property key="FontHeight" value="30"/>
         <Property key="Colour" value="0 0 0"/>
         <Property key="TextColour" value="1 1 1"/>
+        <Property key="TextAlign" value="Center"/>
     </Widget>
 
     <CodeGeneratorSettings/>
