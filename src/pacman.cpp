@@ -16,7 +16,7 @@ Pacman::Pacman() {
   }
 
 
-  Ogre::Entity* pacmanEnt = _sceneMgr->createEntity("Pacman.mesh");
+  Ogre::Entity* pacmanEnt = _sceneMgr->createEntity("pacman.mesh");
   this->node->attachObject(pacmanEnt);
   this->node->scale(0.3, 0.3, 0.3);
 
