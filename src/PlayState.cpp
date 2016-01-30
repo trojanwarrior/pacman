@@ -151,6 +151,8 @@ void PlayState::createScene()
    high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
    score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("score");
    lives_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("lives");
+   gameover_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("gameover");
+   gameover_txt->setVisible(false);
 
    records::getInstance()->getBest(name,points);
    sprintf(points_str,"%d",points);
@@ -172,6 +174,12 @@ void PlayState::createScene()
   stage->build();
 }
 
+void PlayState::game_over()
+{
+  set_lives(0);
+  gameover_txt->setVisible(true);
+  // SOUND 
+}
 void PlayState::set_lives (int lives)
 {
   char tmp [64];

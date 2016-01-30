@@ -3,7 +3,7 @@
     <Widget type="ImageBox" skin="ImageBox" position_real="0 0 1 1" align="Stretch" layer="Wallpaper" name="start">
         <Property key="ImageTexture" value="play_screen4.png"/>
     </Widget>
-    <Widget type="EditBox" skin="EditBox" position="5 55 110 35" name="score" layer="Main">
+    <Widget type="EditBox" skin="EditBox" position="5 55 110 35" layer="Main" name="score">
         <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>
         <Property key="FontHeight" value="28"/>
@@ -11,7 +11,7 @@
         <Property key="TextColour" value="1 1 1"/>
         <Property key="TextAlign" value="Center"/>
     </Widget>
-    <Widget type="EditBox" skin="EditBox" position="5 140 110 35" name="lives" layer="Main">
+    <Widget type="EditBox" skin="EditBox" position="5 140 110 35" layer="Main" name="lives">
         <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>
         <Property key="FontHeight" value="28"/>
@@ -23,6 +23,15 @@
         <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>
         <Property key="FontHeight" value="28"/>
+        <Property key="Colour" value="0 0 0"/>
+        <Property key="TextColour" value="1 1 1"/>
+        <Property key="TextAlign" value="Center"/>
+    </Widget>
+    <Widget type="EditBox" skin="EditBox" position="205 250 420 65" layer="Main" name="gameover">
+        <Property key="Caption" value="GAME OVER"/>
+        <Property key="Visible" value="false"/>
+        <Property key="FontName" value="PressStart2P"/>
+        <Property key="FontHeight" value="50"/>
         <Property key="Colour" value="0 0 0"/>
         <Property key="TextColour" value="1 1 1"/>
         <Property key="TextAlign" value="Center"/>

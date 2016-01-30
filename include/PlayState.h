@@ -62,6 +62,8 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   void set_score (int score);
   int  get_score ();
 
+  void  game_over ();
+
  protected:
   Ogre::Root* _root;
   Ogre::SceneManager* _sceneMgr;
@@ -75,6 +77,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   MyGUI::EditBox* high_score_txt;
   MyGUI::EditBox* score_txt;
   MyGUI::EditBox* lives_txt;
+  MyGUI::EditBox* gameover_txt;
   int lives;
   int score;
   
