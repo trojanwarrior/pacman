@@ -77,6 +77,21 @@ protected:
 private:
     Ogre::Rectangle2D *_rect; // Para mostrar un fondo
     Ogre::AnimationState *_animStatePacman; // Para animar boca pacman
+    Ogre::AnimationState *_animStateCampana;
+    Ogre::AnimationState *_animStateCereza;
+    Ogre::AnimationState *_animStateFresa;
+    Ogre::AnimationState *_animStateGalaxian;
+    Ogre::AnimationState *_animStateLlave;
+    Ogre::AnimationState *_animStateManzana;
+    Ogre::AnimationState *_animStateNaranja;
+    Ogre::AnimationState *_animStateUvas;
+    Ogre::AnimationState *_animStateClyde;
+    Ogre::AnimationState *_animStateInky;
+    Ogre::AnimationState *_animStatePinky;
+    Ogre::AnimationState *_animStateBlinky;
+
+
+
 
 
     void mostrarFondo();
