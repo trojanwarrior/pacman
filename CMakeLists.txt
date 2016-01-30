@@ -61,6 +61,7 @@ set(SOURCE_FILES
         include/RecordsState.h
         include/sounds.h
         include/pacman.h
+        include/records.h
         src/GameManager.cpp
         src/InputManager.cpp
         src/IntroState.cpp
@@ -72,6 +73,7 @@ set(SOURCE_FILES
         src/MenuState.cpp
         src/RecordsState.cpp
         src/sounds.cpp
+        src/records.cpp
         src/pacman.cpp)
 
 include_directories(.)
