@@ -77,10 +77,10 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   MyGUI::EditBox* high_score_txt;
   MyGUI::EditBox* score_txt;
   MyGUI::EditBox* lives_txt;
-  MyGUI::EditBox* gameover_txt;
+  MyGUI::EditBox* message_txt;
   int lives;
   int score;
-  
+  bool paused;  
 private:
   private:
   void createScene();

@@ -28,6 +28,7 @@ void PlayState::enter ()
 
   _exitGame = false;
  sounds::getInstance()->play_effect("intermission");
+  paused=false;
 }
 
 void PlayState::exit ()
@@ -40,6 +41,19 @@ void PlayState::exit ()
 
 void PlayState::pause()
 {
+  if (paused)
+  {
+    message_txt->setVisible(false);
+    message_txt->setCaption("");
+    paused=false;
+  }
+  else
+  { 
+    message_txt->setVisible(true);
+    message_txt->setCaption("PAUSE");
+    paused=true;
+  }
+  sounds::getInstance()->play_effect("eat_fruit");
 }
 
 void PlayState::resume()
@@ -65,7 +79,14 @@ bool PlayState::frameEnded(const Ogre::FrameEvent& evt)
 
 bool PlayState::keyPressed(const OIS::KeyEvent &e)
 {
-
+  if (paused) pause();
+  else
+  {
+  if (e.key == OIS::KC_P) 
+    pause();
+  else if (e.key == OIS::KC_G) 
+    game_over();
+  }
   return true;
   // Tecla p --> PauseState.
   if (e.key == OIS::KC_P) {
@@ -151,8 +172,9 @@ void PlayState::createScene()
    high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
    score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("score");
    lives_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("lives");
-   gameover_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("gameover");
-   gameover_txt->setVisible(false);
+   message_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("message");
+   message_txt->setCaption("");
+   message_txt->setVisible(false);
 
    records::getInstance()->getBest(name,points);
    sprintf(points_str,"%d",points);
@@ -177,8 +199,9 @@ void PlayState::createScene()
 void PlayState::game_over()
 {
   set_lives(0);
-  gameover_txt->setVisible(true);
-  // SOUND 
+  message_txt->setVisible(true);
+  message_txt->setCaption("GAME OVER");
+  sounds::getInstance()->play_effect("pacman_death");
 }
 void PlayState::set_lives (int lives)
 {
