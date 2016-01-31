@@ -27,9 +27,9 @@
         <Property key="TextColour" value="1 1 1"/>
         <Property key="TextAlign" value="Center"/>
     </Widget>
-    <Widget type="EditBox" skin="EditBox" position="205 250 420 65" layer="Main" name="gameover">
-        <Property key="Caption" value="GAME OVER"/>
-        <Property key="Visible" value="false"/>
+    <Widget type="EditBox" skin="EditBox" position="185 250 440 65" layer="Main" name="message">
+        <Property key="Caption" value=""/>
+        <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>
         <Property key="FontHeight" value="50"/>
         <Property key="Colour" value="0 0 0"/>
