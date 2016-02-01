@@ -86,6 +86,8 @@ bool PlayState::keyPressed(const OIS::KeyEvent &e)
     pause();
   else if (e.key == OIS::KC_G) 
     game_over();
+  else if (e.key == OIS::KC_W) 
+    win();
   }
   return true;
   // Tecla p --> PauseState.
@@ -196,6 +198,12 @@ void PlayState::createScene()
   stage->build();
 }
 
+void PlayState::win()
+{
+  message_txt->setVisible(true);
+  message_txt->setCaption("YOU WIN!!");
+  sounds::getInstance()->play_effect("intermission");
+}
 void PlayState::game_over()
 {
   set_lives(0);

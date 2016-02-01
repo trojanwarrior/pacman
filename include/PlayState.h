@@ -63,6 +63,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   int  get_score ();
 
   void  game_over ();
+  void  win ();
 
  protected:
   Ogre::Root* _root;
