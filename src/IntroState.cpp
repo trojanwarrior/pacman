@@ -75,6 +75,23 @@ void IntroState::enter()
     _exitGame = false;
     sounds::getInstance()->play_effect("begin");
     _animStatePacman = NULL;
+    _animStateClyde = NULL;
+    _animStateBlinky = NULL;
+    _animStateCampana = NULL;
+    _animStateCereza = NULL;
+    _animStateFresa = NULL;
+    _animStateGalaxian = NULL;
+    _animStateLlave = NULL;
+    _animStateManzana = NULL;
+    _animStateNaranja = NULL;
+    _animStateUvas = NULL;
+    _animStateInky = NULL;
+    _animStatePinky = NULL;
+    _animOjosClyde = NULL;
+    _animOjosInky = NULL;
+    _animOjosPinky = NULL;
+    _animOjosBlinky = NULL;
+    _deIda = true;
 }
 
 void IntroState::exit()
@@ -101,67 +118,82 @@ bool IntroState::frameStarted(const Ogre::FrameEvent &evt)
 {
     Ogre::Real deltaT = evt.timeSinceLastFrame;
     Ogre::Real velocidad = 4.0;
+    static Ogre::Vector3 sentido = Ogre::Vector3(-1,0,0);
 
-    if (!_animStatePacman)
+    gestionaAnimaciones(_animStatePacman,deltaT,"Pacman","pakupaku");
+    gestionaAnimaciones(_animStateClyde,deltaT,"ghostClyde","mareo2");
+    gestionaAnimaciones(_animStateInky,deltaT,"ghostInky","mareo2");
+    gestionaAnimaciones(_animStatePinky,deltaT,"ghostPinky","mareo2");
+    gestionaAnimaciones(_animStateBlinky,deltaT,"ghostBlinky","mareo2");
+
+    if (_deIda)
     {
-        _animStatePacman = _sceneMgr->getEntity("Pacman")->getAnimationState("pakupaku");
-        _animStatePacman->setEnabled(true);
-        _animStatePacman->setLoop(true);
-        _animStatePacman->setTimePosition(0.0);
+        gestionaAnimaciones(_animOjosClyde,deltaT,"ojosClyde","piupiu");
+        gestionaAnimaciones(_animOjosInky,deltaT,"ojosInky","piupiu");
+        gestionaAnimaciones(_animOjosPinky,deltaT,"ojosPinky","piupiu");
+        gestionaAnimaciones(_animOjosBlinky,deltaT,"ojosBlinky","piupiu");
+
+        //if (_sceneMgr->getSceneNode("nodePacmanIntro")->convertLocalToWorldPosition(_sceneMgr->getSceneNode("nodePacmanIntro")->getPosition()).x < _posXminima)
+        if (_sceneMgr->getSceneNode("nodePacmanIntro")->getPosition().x < _posXminima)
+        {
+            _deIda = false;
+            sentido *= -1;
+            _sceneMgr->getSceneNode("nodePacmanIntro")->yaw(Ogre::Degree(180),Ogre::Node::TS_PARENT);
+            _sceneMgr->getEntity("ghostClyde")->setMaterialName("materialCagaosAzul");
+            _sceneMgr->getEntity("ghostInky")->setMaterialName("materialCagaosAzul");
+            _sceneMgr->getEntity("ghostPinky")->setMaterialName("materialCagaosAzul");
+            _sceneMgr->getEntity("ghostBlinky")->setMaterialName("materialCagaosAzul");
+            _sceneMgr->getEntity("ojosClyde")->setMaterialName("materialOjosGhost");
+            _sceneMgr->getEntity("ojosInky")->setMaterialName("materialOjosGhost");
+            _sceneMgr->getEntity("ojosPinky")->setMaterialName("materialOjosGhost");
+            _sceneMgr->getEntity("ojosBlinky")->setMaterialName("materialOjosGhost");
+            _animOjosClyde->setEnabled(false); _animOjosClyde = NULL;
+            _animOjosInky->setEnabled(false); _animOjosInky = NULL;
+            _animOjosPinky->setEnabled(false); _animOjosPinky = NULL;
+            _animOjosBlinky->setEnabled(false); _animOjosBlinky = NULL;
+            _sceneMgr->getSceneNode("nodeGhostClyde")->setPosition(_sceneMgr->getSceneNode("nodeGhostClyde")->getPosition() * Ogre::Vector3(-1,0,0));
+            _sceneMgr->getSceneNode("nodeGhostInky")->setPosition(_sceneMgr->getSceneNode("nodeGhostInky")->getPosition() * Ogre::Vector3(-1,0,0));
+            _sceneMgr->getSceneNode("nodeGhostPinky")->setPosition(_sceneMgr->getSceneNode("nodeGhostPinky")->getPosition() * Ogre::Vector3(-1,0,0));
+            _sceneMgr->getSceneNode("nodeGhostBlinky")->setPosition(_sceneMgr->getSceneNode("nodeGhostBlinky")->getPosition() * Ogre::Vector3(-1,0,0));
+        }
     }
     else
-        _animStatePacman->addTime(deltaT);
-
-    if (!_animStateClyde)
     {
-        _animStateClyde = _sceneMgr->getEntity("ghostClyde")->getAnimationState("mareo2");
-        _animStateClyde->setEnabled(true);
-        _animStateClyde->setLoop(true);
-        _animStateClyde->setTimePosition(0.0);
+        gestionaAnimaciones(_animOjosClyde,deltaT,"ojosClyde","cagaos");
+        gestionaAnimaciones(_animOjosInky,deltaT,"ojosInky","cagaos");
+        gestionaAnimaciones(_animOjosPinky,deltaT,"ojosPinky","cagaos");
+        gestionaAnimaciones(_animOjosBlinky,deltaT,"ojosBlinky","cagaos");
 
+        //if (_sceneMgr->getSceneNode("nodeGhostBlinky")->convertLocalToWorldPosition(_sceneMgr->getSceneNode("nodeGhostBlinky")->getPosition()).x > _posXmaxima)
+        if (_sceneMgr->getSceneNode("nodePacmanIntro")->getPosition().x > _posXmaxima)
+        {
+            changeState(MenuState::getSingletonPtr());
+            return true;
+        }
     }
-    else
-        _animStateClyde->addTime(deltaT);
-
-    if (!_animStateInky)
-    {
-        _animStateInky = _sceneMgr->getEntity("ghostInky")->getAnimationState("mareo2");
-        _animStateInky->setEnabled(true);
-        _animStateInky->setLoop(true);
-        _animStateInky->setTimePosition(0.0);
-
-    }
-    else
-        _animStateInky->addTime(deltaT);
-
-    if (!_animStatePinky)
-    {
-        _animStatePinky = _sceneMgr->getEntity("ghostPinky")->getAnimationState("mareo2");
-        _animStatePinky->setEnabled(true);
-        _animStatePinky->setLoop(true);
-        _animStatePinky->setTimePosition(0.0);
-
-    }
-    else
-        _animStatePinky->addTime(deltaT);
-
-    if (!_animStateBlinky)
-    {
-        _animStateBlinky = _sceneMgr->getEntity("ghostBlinky")->getAnimationState("mareo2");
-        _animStateBlinky->setEnabled(true);
-        _animStateBlinky->setLoop(true);
-        _animStateBlinky->setTimePosition(0.0);
-
-    }
-    else
-        _animStateBlinky->addTime(deltaT);
 
 
+    cout << "sentido " << sentido << endl;
     Ogre::Vector3 v(_sceneMgr->getSceneNode("nodePacmanIntro")->getPosition());
-    v += (Ogre::Vector3(-1,0,0) * deltaT * velocidad);
+    v += (sentido * deltaT * velocidad);
+    cout << v << endl;
     _sceneMgr->getSceneNode("nodePacmanIntro")->setPosition(v);
 
     return true;
+}
+
+void IntroState::gestionaAnimaciones(Ogre::AnimationState *&anim, Ogre::Real deltaT, const String &nombreEnt, const String &nombreAnim)
+{
+    if (!anim )
+    {
+        anim = _sceneMgr->getEntity(nombreEnt)->getAnimationState(nombreAnim);
+        anim->setEnabled(true);
+        anim->setLoop(true);
+        anim->setTimePosition(0.0);
+    }
+    else
+        anim->addTime(deltaT);
+
 }
 
 bool IntroState::frameEnded(const Ogre::FrameEvent &evt)
@@ -270,10 +302,10 @@ void IntroState::mostrarFondo()
 
     // Create background material
     Ogre::TexturePtr tex = CreateTextureFromImgWithoutStretch(texName, texW,
-                                                              "pacman_traditional_800x600.jpg")->_getTexturePtr();;
+                                                              "pacman_traditional_1024x768.jpg")->_getTexturePtr();;
 
-    Real windowW = 800;
-    Real windowH = 600;
+    Real windowW = 1024;
+    Real windowH = 768;
 
     // Create background rectangle covering the whole screen
     _rect = new Rectangle2D(true);
@@ -312,6 +344,11 @@ void IntroState::createScene()
     nodeGhostClyde->scale(0.9,0.9,0.9);
     nodePacmanIntro->addChild(nodeGhostClyde);
     nodeGhostClyde->setPosition(nodeGhostClyde->getPosition().x - 2.5,nodeGhostClyde->getPosition().y,nodeGhostClyde->getPosition().z);
+    Ogre::Entity *ojosEntClyde = _sceneMgr->createEntity("ojosClyde","ojosGhost.mesh");
+    Ogre::SceneNode *nodeOjosClyde = _sceneMgr->createSceneNode("nodeOjosClyde");
+    nodeOjosClyde->attachObject(ojosEntClyde);
+    nodeGhostClyde->addChild(nodeOjosClyde);
+    nodeOjosClyde->setInheritOrientation(false);
 
     Ogre::Entity *ghostEntInky = _sceneMgr->createEntity("ghostInky","ghost.mesh");
     ghostEntInky->setMaterialName("materialInkyCian");
@@ -319,6 +356,12 @@ void IntroState::createScene()
     nodeGhostInky->attachObject(ghostEntInky);
     nodeGhostClyde->addChild(nodeGhostInky);
     nodeGhostInky->setPosition(nodeGhostInky->getPosition().x - 2.5,nodeGhostInky->getPosition().y,nodeGhostInky->getPosition().z);
+    Ogre::Entity *ojosEntInky = _sceneMgr->createEntity("ojosInky","ojosGhost.mesh");
+    Ogre::SceneNode *nodeOjosInky = _sceneMgr->createSceneNode("nodeOjosInky");
+    nodeOjosInky->attachObject(ojosEntInky);
+    nodeGhostInky->addChild(nodeOjosInky);
+    nodeOjosInky->setInheritOrientation(false);
+
 
     Ogre::Entity *ghostEntPinky = _sceneMgr->createEntity("ghostPinky","ghost.mesh");
     ghostEntPinky->setMaterialName("materialPinkyRosa");
@@ -326,6 +369,12 @@ void IntroState::createScene()
     nodeGhostPinky->attachObject(ghostEntPinky);
     nodeGhostInky->addChild(nodeGhostPinky);
     nodeGhostPinky->setPosition(nodeGhostPinky->getPosition().x - 2.5,nodeGhostPinky->getPosition().y,nodeGhostPinky->getPosition().z);
+    Ogre::Entity *ojosEntPinky = _sceneMgr->createEntity("ojosPinky","ojosGhost.mesh");
+    Ogre::SceneNode *nodeOjosPinky = _sceneMgr->createSceneNode("nodeOjosPinky");
+    nodeOjosPinky->attachObject(ojosEntPinky);
+    nodeGhostPinky->addChild(nodeOjosPinky);
+    nodeOjosPinky->setInheritOrientation(false);
+
 
     Ogre::Entity *ghostEntBlinky = _sceneMgr->createEntity("ghostBlinky","ghost.mesh");
     ghostEntBlinky->setMaterialName("materialBlinkyRojo");
@@ -333,6 +382,18 @@ void IntroState::createScene()
     nodeGhostBlinky->attachObject(ghostEntBlinky);
     nodeGhostPinky->addChild(nodeGhostBlinky);
     nodeGhostBlinky->setPosition(nodeGhostBlinky->getPosition().x - 2.5,nodeGhostBlinky->getPosition().y,nodeGhostBlinky->getPosition().z);
+    Ogre::Entity *ojosEntBlinky = _sceneMgr->createEntity("ojosBlinky","ojosGhost.mesh");
+    Ogre::SceneNode *nodeOjosBlinky = _sceneMgr->createSceneNode("nodeOjosBlinky");
+    nodeOjosBlinky->attachObject(ojosEntBlinky);
+    nodeGhostBlinky->addChild(nodeOjosBlinky);
+    nodeOjosBlinky->setInheritOrientation(false);
+
+    //_posXmaxima = _sceneMgr->getSceneNode("nodePacmanIntro")->convertWorldToLocalPosition(_sceneMgr->getSceneNode("nodePacmanIntro")->getPosition()).x;
+    _posXmaxima = _sceneMgr->getSceneNode("nodePacmanIntro")->_getDerivedPosition().x + _sceneMgr->getSceneNode("nodeGhostBlinky")->_getDerivedPosition().x / 1.80;
+    _posXminima = _posXmaxima * -1;
+
+    cout << "maxima " << _posXmaxima;
+    cout << "minima " << _posXminima;
 
 
 
@@ -342,9 +403,12 @@ void IntroState::createScene()
     nodePacmanIntro->attachObject(light);
 
 
-    Ogre::Entity *cerezaEnt = _sceneMgr->createEntity("Cereza","Cereza.mesh");
-    Ogre::SceneNode *nodeCerezaIntro = _sceneMgr->createSceneNode("nodeCerezaIntro");
-    nodeCerezaIntro->attachObject(cerezaEnt);
-    _sceneMgr->getRootSceneNode()->addChild(nodeCerezaIntro);
+//    Ogre::Entity *cerezaEnt = _sceneMgr->createEntity("Cereza","Cereza.mesh");
+//    Ogre::SceneNode *nodeCerezaIntro = _sceneMgr->createSceneNode("nodeCerezaIntro");
+//    nodeCerezaIntro->attachObject(cerezaEnt);
+//    _sceneMgr->getRootSceneNode()->addChild(nodeCerezaIntro);
+
+
+
 
 }

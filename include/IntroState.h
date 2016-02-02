@@ -89,13 +89,21 @@ private:
     Ogre::AnimationState *_animStateInky;
     Ogre::AnimationState *_animStatePinky;
     Ogre::AnimationState *_animStateBlinky;
+    Ogre::AnimationState *_animOjosClyde;
+    Ogre::AnimationState *_animOjosInky;
+    Ogre::AnimationState *_animOjosPinky;
+    Ogre::AnimationState *_animOjosBlinky;
 
+    Ogre::Real _posXminima; // solo para saber cuando terminar la intro
+    Ogre::Real _posXmaxima;
+    bool _deIda;
 
 
 
 
     void mostrarFondo();
     void createScene();
+    void gestionaAnimaciones(Ogre::AnimationState *&anim, Ogre::Real deltaT, const String &nombreEnt, const String &nombreAnim);
 
     TextureUnitState *CreateTextureFromImgWithoutStretch(const String &texName, Real texSize, const String &imgName);
 
