@@ -91,6 +91,11 @@ void IntroState::enter()
     _animOjosInky = NULL;
     _animOjosPinky = NULL;
     _animOjosBlinky = NULL;
+    _animBocaClyde = NULL;
+    _animBocaInky = NULL;
+    _animBocaPinky = NULL;
+    _animBocaBlinky = NULL;
+
     _deIda = true;
 }
 
@@ -155,6 +160,11 @@ bool IntroState::frameStarted(const Ogre::FrameEvent &evt)
             _sceneMgr->getSceneNode("nodeGhostInky")->setPosition(_sceneMgr->getSceneNode("nodeGhostInky")->getPosition() * Ogre::Vector3(-1,0,0));
             _sceneMgr->getSceneNode("nodeGhostPinky")->setPosition(_sceneMgr->getSceneNode("nodeGhostPinky")->getPosition() * Ogre::Vector3(-1,0,0));
             _sceneMgr->getSceneNode("nodeGhostBlinky")->setPosition(_sceneMgr->getSceneNode("nodeGhostBlinky")->getPosition() * Ogre::Vector3(-1,0,0));
+            _sceneMgr->getSceneNode("nodeBocaClyde")->setVisible(true);
+            _sceneMgr->getSceneNode("nodeBocaInky")->setVisible(true);
+            _sceneMgr->getSceneNode("nodeBocaPinky")->setVisible(true);
+            _sceneMgr->getSceneNode("nodeBocaBlinky")->setVisible(true);
+
         }
     }
     else
@@ -163,6 +173,11 @@ bool IntroState::frameStarted(const Ogre::FrameEvent &evt)
         gestionaAnimaciones(_animOjosInky,deltaT,"ojosInky","cagaos");
         gestionaAnimaciones(_animOjosPinky,deltaT,"ojosPinky","cagaos");
         gestionaAnimaciones(_animOjosBlinky,deltaT,"ojosBlinky","cagaos");
+        gestionaAnimaciones(_animBocaClyde,deltaT,"bocaClyde","panico");
+        gestionaAnimaciones(_animBocaInky,deltaT,"bocaInky","panico");
+        gestionaAnimaciones(_animBocaPinky,deltaT,"bocaPinky","panico");
+        gestionaAnimaciones(_animBocaBlinky,deltaT,"bocaBlinky","panico");
+
 
         //if (_sceneMgr->getSceneNode("nodeGhostBlinky")->convertLocalToWorldPosition(_sceneMgr->getSceneNode("nodeGhostBlinky")->getPosition()).x > _posXmaxima)
         if (_sceneMgr->getSceneNode("nodePacmanIntro")->getPosition().x > _posXmaxima)
@@ -391,6 +406,28 @@ void IntroState::createScene()
     //_posXmaxima = _sceneMgr->getSceneNode("nodePacmanIntro")->convertWorldToLocalPosition(_sceneMgr->getSceneNode("nodePacmanIntro")->getPosition()).x;
     _posXmaxima = _sceneMgr->getSceneNode("nodePacmanIntro")->_getDerivedPosition().x + _sceneMgr->getSceneNode("nodeGhostBlinky")->_getDerivedPosition().x / 1.80;
     _posXminima = _posXmaxima * -1;
+
+
+    Ogre::SceneNode *nodeBocaClyde = _sceneMgr->createSceneNode("nodeBocaClyde");
+    Ogre::SceneNode *nodeBocaInky = _sceneMgr->createSceneNode("nodeBocaInky");
+    Ogre::SceneNode *nodeBocaPinky = _sceneMgr->createSceneNode("nodeBocaPinky");
+    Ogre::SceneNode *nodeBocaBlinky = _sceneMgr->createSceneNode("nodeBocaBlinky");
+    Ogre::Entity *entBocaClyde = _sceneMgr->createEntity("bocaClyde","bocaGhost.mesh");
+    Ogre::Entity *entBocaInky = _sceneMgr->createEntity("bocaInky","bocaGhost.mesh");
+    Ogre::Entity *entBocaPinky = _sceneMgr->createEntity("bocaPinky","bocaGhost.mesh");
+    Ogre::Entity *entBocaBlinky = _sceneMgr->createEntity("bocaBlinky","bocaGhost.mesh");
+    nodeBocaClyde->attachObject(entBocaClyde);
+    nodeBocaInky->attachObject(entBocaInky);
+    nodeBocaPinky->attachObject(entBocaPinky);
+    nodeBocaBlinky->attachObject(entBocaBlinky);
+    nodeBocaClyde->setVisible(false);
+    nodeBocaInky->setVisible(false);
+    nodeBocaPinky->setVisible(false);
+    nodeBocaBlinky->setVisible(false);
+    nodeGhostClyde->addChild(nodeBocaClyde);
+    nodeGhostInky->addChild(nodeBocaInky);
+    nodeGhostPinky->addChild(nodeBocaPinky);
+    nodeGhostBlinky->addChild(nodeBocaBlinky);
 
     cout << "maxima " << _posXmaxima;
     cout << "minima " << _posXminima;

@@ -93,6 +93,10 @@ private:
     Ogre::AnimationState *_animOjosInky;
     Ogre::AnimationState *_animOjosPinky;
     Ogre::AnimationState *_animOjosBlinky;
+    Ogre::AnimationState *_animBocaClyde;
+    Ogre::AnimationState *_animBocaInky;
+    Ogre::AnimationState *_animBocaPinky;
+    Ogre::AnimationState *_animBocaBlinky;
 
     Ogre::Real _posXminima; // solo para saber cuando terminar la intro
     Ogre::Real _posXmaxima;
