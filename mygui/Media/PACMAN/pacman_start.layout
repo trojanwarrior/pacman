@@ -3,15 +3,13 @@
     <Widget type="ImageBox" skin="ImageBox" position_real="0 0 1 1" align="Stretch" layer="Wallpaper" name="start">
         <Property key="ImageTexture" value="start_screen3.png"/>
     </Widget>
-    <Widget type="EditBox" skin="EditBox" position="325 45 145 40" align="HStretch Top" layer="Main" name="high_score">
+    <Widget type="EditBox" skin="EditBox" position="410 60 165 50" align="HStretch Top" layer="Main" name="high_score">
         <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>
-<!--        <Property key="Caption" value="123123"/>-->
-        <Property key="FontHeight" value="30"/>
+        <Property key="FontHeight" value="40"/>
         <Property key="Colour" value="0 0 0"/>
         <Property key="TextColour" value="1 1 1"/>
         <Property key="TextAlign" value="Center"/>
     </Widget>
-
     <CodeGeneratorSettings/>
 </MyGUI>
