@@ -3,31 +3,31 @@
     <Widget type="ImageBox" skin="ImageBox" position_real="0 0 1 1" align="Stretch" layer="Wallpaper" name="start">
         <Property key="ImageTexture" value="play_screen4.png"/>
     </Widget>
-    <Widget type="EditBox" skin="EditBox" position="5 55 110 35" layer="Main" name="score">
+    <Widget type="EditBox" skin="EditBox" position="5 70 135 50" layer="Main" name="score">
         <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>
-        <Property key="FontHeight" value="28"/>
+        <Property key="FontHeight" value="35"/>
         <Property key="Colour" value="0 0 0"/>
         <Property key="TextColour" value="1 1 1"/>
         <Property key="TextAlign" value="Center"/>
     </Widget>
-    <Widget type="EditBox" skin="EditBox" position="5 140 110 35" layer="Main" name="lives">
+    <Widget type="EditBox" skin="EditBox" position="5 180 135 50" layer="Main" name="lives">
         <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>
-        <Property key="FontHeight" value="28"/>
+        <Property key="FontHeight" value="35"/>
         <Property key="Colour" value="0 0 0"/>
         <Property key="TextColour" value="1 1 1"/>
         <Property key="TextAlign" value="Center"/>
     </Widget>
-    <Widget type="EditBox" skin="EditBox" position="690 55 110 35" align="HStretch Top" layer="Main" name="high_score">
+    <Widget type="EditBox" skin="EditBox" position="880 70 160 50" align="HStretch Top" layer="Main" name="high_score">
         <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>
-        <Property key="FontHeight" value="28"/>
+        <Property key="FontHeight" value="35"/>
         <Property key="Colour" value="0 0 0"/>
         <Property key="TextColour" value="1 1 1"/>
         <Property key="TextAlign" value="Center"/>
     </Widget>
-    <Widget type="EditBox" skin="EditBox" position="185 250 440 65" layer="Main" name="message">
+    <Widget type="EditBox" skin="EditBox" position="315 245 440 65" layer="Main" name="message">
         <Property key="Caption" value=""/>
         <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>
