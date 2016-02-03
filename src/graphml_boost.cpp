@@ -72,11 +72,9 @@ bool graphml_boost::cargaGrafo(string &nombreFichero)
         _dp.property("target",boost::get(&arista_props::target,_grafo));
         _dp.property("weight",boost::get(&arista_props::weight,_grafo));
 
-
         boost::read_graphml(_ifstream, _grafo, _dp);  // Procedemos a la lectura del archivo y lo cargamos en nuestro grafo
         cout << "Nº de nodos " << boost::num_vertices(_grafo) << "\n";
         cout << "Nº de aristas " << boost::num_edges(_grafo) << "\n";
-
 
     }
     catch (std::exception &e)
@@ -270,3 +268,27 @@ void graphml_boost::rutasAleatoriasRST(bool conPesos, int idNodoOrigen) //Random
 //
 //    return;
 //}
+
+
+graphml_boost::ruta_t graphml_boost::getRuta(size_t idOrigen, size_t idDestino)
+{
+    graphml_boost::ruta_t vec;
+
+    if (idDestino < boost::num_vertices(_grafo) && idDestino >= 0) // Aquí podríamos hacer algo más sofisticado como lanzar excepciones y esas cosas :D
+    {
+        size_t i = idDestino;
+        vec.push_back(_grafo[idDestino]);
+        while (i != idOrigen && i >= 0)
+        {
+            vec.push_back(_grafo[_p[i]]);
+            i = static_cast<size_t>(_p[i]);
+        }
+    }
+
+//    for (int j=0; j<vec.size();j++)
+//        cout << "vec["<< j << "]" << vec[j].id << endl;
+
+    return vec;
+
+}
+
