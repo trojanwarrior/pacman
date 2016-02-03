@@ -73,7 +73,6 @@ void IntroState::enter()
 
 
     _exitGame = false;
-    sounds::getInstance()->play_effect("begin");
     _animStatePacman = NULL;
     _animStateClyde = NULL;
     _animStateBlinky = NULL;
@@ -95,12 +94,16 @@ void IntroState::enter()
     _animBocaInky = NULL;
     _animBocaPinky = NULL;
     _animBocaBlinky = NULL;
-
     _deIda = true;
+
+    sounds::getInstance()->play_effect("begin");
+    sounds::getInstance()->play_music("chomp");
+
 }
 
 void IntroState::exit()
 {
+    sounds::getInstance()->halt_music();
     _sceneMgr->clearScene();
     _root->getAutoCreatedWindow()->removeAllViewports();
 }
@@ -124,6 +127,7 @@ bool IntroState::frameStarted(const Ogre::FrameEvent &evt)
     Ogre::Real deltaT = evt.timeSinceLastFrame;
     Ogre::Real velocidad = 4.0;
     static Ogre::Vector3 sentido = Ogre::Vector3(-1,0,0);
+
 
     gestionaAnimaciones(_animStatePacman,deltaT,"Pacman","pakupaku");
     gestionaAnimaciones(_animStateClyde,deltaT,"ghostClyde","mareo2");
