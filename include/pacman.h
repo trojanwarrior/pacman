@@ -12,7 +12,12 @@
 #define RIGHT_DIR 4
 #define PACMAN_NODE "pacman"
 #include "Ogre.h"
+#include "OgreBulletDynamicsRigidBody.h"
+#include "OgreBulletDynamicsWorld.h"
 
+using namespace Ogre;
+using namespace OgreBulletDynamics;
+using namespace OgreBulletCollisions;
 
 class Pacman{
  private :
@@ -20,10 +25,15 @@ class Pacman{
   float speed;
   int lifes;
   Ogre::SceneNode* node;
+  RigidBody* body;
+  CollisionShape* shape;
+  void createFloor();
+  void createLevel();
+  void createLight();
 
  public :
   const Ogre::Vector3& getPosition();
-  Pacman();
+  explicit Pacman(DynamicsWorld* _world);
   ~Pacman();
   void move(int direction  , double deltaTime);
   int kill();

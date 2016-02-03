@@ -108,6 +108,7 @@ bool IntroState::keyPressed(const OIS::KeyEvent &e)
 {
   // Transición al siguiente estado.
   // Espacio --> PlayState
+  printf("Estado Intro\n");
   if (e.key == OIS::KC_SPACE) 
   {
     changeState(MenuState::getSingletonPtr());

@@ -62,6 +62,7 @@ class IntroState : public Ogre::Singleton<IntroState>, public GameState
   Ogre::Viewport* _viewport;
   Ogre::Camera* _camera;
 
+
   bool _exitGame;
   
 private:

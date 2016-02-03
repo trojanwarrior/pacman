@@ -28,10 +28,17 @@
 #include "MyGUI.h"
 #include "MyGUI_OgrePlatform.h"
 #include "pacman.h"
+#include "OgreBulletDynamicsRigidBody.h"
+#include "OgreBulletDynamicsWorld.h"
+#include "Utils/OgreBulletCollisionsMeshToShapeConverter.h"
+#include "graphml_boost.h"
+
 
 
 using namespace std;
 using namespace Ogre;
+using namespace OgreBulletDynamics;
+using namespace OgreBulletCollisions;
 class PlayState : public Ogre::Singleton<PlayState>, public GameState
 {
  public:
@@ -63,14 +70,22 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   Ogre::Viewport* _viewport;
   Ogre::Camera* _camera;
   Pacman *_pacman;
-  float deltaTime;
+
+  int _pacmanDir;
+  DynamicsWorld* _world;
+  DebugDrawer* _debugDrawer;
+  graphml_boost *graphLevel;
 
   bool _exitGame;
   MyGUI::VectorWidgetPtr layout;
   
 private:
-  private:
+
   void createScene();
+  void createFloor();
+  void createLevel();
+  void createLight();
+
 };
 
 #endif
