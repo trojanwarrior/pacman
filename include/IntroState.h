@@ -72,7 +72,8 @@ protected:
     Ogre::Viewport *_viewport;
     Ogre::Camera *_camera;
 
-    bool _exitGame;
+  bool _exitGame;
+  
 
 private:
     Ogre::Rectangle2D *_rect; // Para mostrar un fondo

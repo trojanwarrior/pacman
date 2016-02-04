@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sounds_library>
+
     <base_path>./wav</base_path>
     <effects>
       <sound>
@@ -88,5 +89,6 @@
       </sound>
 
     </effects>
+
 </sounds_library>
 

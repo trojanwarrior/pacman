@@ -229,6 +229,7 @@ bool IntroState::frameEnded(const Ogre::FrameEvent &evt)
 
 bool IntroState::keyPressed(const OIS::KeyEvent &e)
 {
+
     // Transición al siguiente estado.
     // Espacio --> PlayState
     if (e.key == OIS::KC_SPACE)
@@ -236,6 +237,7 @@ bool IntroState::keyPressed(const OIS::KeyEvent &e)
         changeState(MenuState::getSingletonPtr());
     }
     return true;
+
 }
 
 bool IntroState::keyReleased(const OIS::KeyEvent &e)

@@ -31,13 +31,12 @@ class graphml_boost
     // Definición de tipos y estructuras necesarias
     struct nodo_props      // Propiedades de un nodo (a.k.a los datos que realmente nos interesa albergar en un nodo.
     {
-        int id;            // id del nodo, externo al grafo, es decir este lo definimos nosotros. boost_graph tiene su propio índice.
+      std::string id;            // id del nodo, externo al grafo, es decir este lo definimos nosotros. boost_graph tiene su propio índice.
         std::string x,y,z; // coordenadas físicas en el espacio virtual de un nodo.
         bool interseccion; // si en este nodo sus aristas salientes (o entrantes según se mire) son perpendiculares. Implica un posible
+      std::string type;
                            // cambio de dirección del fantasma que se encuentre en ese nodo. Es útil para el fantasma bobo, de modo que
                            // al llegar a una esquina se volviera a calcular su ruta de movimiento.
-        bool pastilla;     // Si hay una pastillita simple que solo da puntos.
-        bool superPastilla;// Si hay una superpastilla que provoca que pacman pase al ataque.
     };
 
     typedef nodo_props nodo_props_t;
@@ -76,7 +75,7 @@ class graphml_boost
         virtual ~graphml_boost();
 
         void limpiaGrafo();                         // hace un clear del grafo dejándolo sin ningún vértice/arista. Para cuando se cargue un nivel nuevo.
-        bool cargaGrafo(string &nombreFichero);     // Carga del fichero xml con la especificación del grafo
+        bool cargaGrafo(string nombreFichero);     // Carga del fichero xml con la especificación del grafo
         void rutaMasCortaDijkstra(int idNodoOrigen); // para calcular ruta más corta en grafos con pesos en sus aristas
         void rutaMasCortaBFS(int idNodoOrigen);     // algoritmo breadht_first_search para grafos con peso en las aristas igual a 1 para todas, es decir sin peso.
         void rutasAleatoriasRST(bool conPesos, int idNodoOrigen); // Random_spanning_tree calcula rutas aleatorias, ideal para el fantasma bobo.
@@ -84,6 +83,7 @@ class graphml_boost
                                                            // Cada vez que hagamos una búsqueda, del tipo que sea, necesitaremos llamar a este método para
                                                            // obtener una lista de nodos nueva. El vector que nos devuelva no será válido en el momento que nuestro
                                                            // idOrigen haya cambiado, momento en el que deberemos volver a llamar a los algoritmos de búsqueda.
+        ruta_t getVertices(std::string type);
 
 
 

@@ -50,7 +50,7 @@ graphml_boost::~graphml_boost()
         _ifstream.close();
 }
 
-bool graphml_boost::cargaGrafo(string &nombreFichero)
+bool graphml_boost::cargaGrafo(string nombreFichero)
 {
 
     try
@@ -67,6 +67,7 @@ bool graphml_boost::cargaGrafo(string &nombreFichero)
         _dp.property("y",boost::get(&nodo_props::y,_grafo));
         _dp.property("z",boost::get(&nodo_props::z,_grafo));
         _dp.property("id",boost::get(&nodo_props::id,_grafo));
+        _dp.property("type",boost::get(&nodo_props::type,_grafo));        
         _dp.property("idarista",boost::get(&arista_props::id,_grafo));
         _dp.property("source",boost::get(&arista_props::source,_grafo));
         _dp.property("target",boost::get(&arista_props::target,_grafo));
@@ -269,7 +270,28 @@ void graphml_boost::rutasAleatoriasRST(bool conPesos, int idNodoOrigen) //Random
 //    return;
 //}
 
+/*
+ * Get All vertices from one type (pacmanstart,bigpill,regular,phantomZone)
+ */
+graphml_boost::ruta_t graphml_boost::getVertices(std::string type){
 
+    graphml_boost::ruta_t vec;
+
+    for(uint i=0; i<boost::num_vertices(_grafo); i++)
+    {
+
+      if(_grafo[i].type == type){
+
+        vec.push_back(_grafo[i]);
+      }
+    }
+
+
+    return vec;
+
+
+
+}
 graphml_boost::ruta_t graphml_boost::getRuta(size_t idOrigen, size_t idDestino)
 {
     graphml_boost::ruta_t vec;
