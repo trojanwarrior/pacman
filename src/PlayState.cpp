@@ -27,7 +27,7 @@ void PlayState::enter ()
   _pacman = new Pacman();
 
   _exitGame = false;
- sounds::getInstance()->play_effect("intermission");
+  sounds::getInstance()->play_effect("intermission");
   paused=false;
 }
 

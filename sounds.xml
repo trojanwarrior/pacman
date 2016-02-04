@@ -1,35 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sounds_library>
-<base_path>./wav</base_path>
-<effects>
-<sound>
-  <id>begin</id>
-  <file>pacman_beginning.wav</file>
-</sound>
-<sound>
-  <id>chomp</id>
-  <file>pacman_chomp.wav</file>
-</sound>
-<sound>
-  <id>pacman_death</id>
-  <file>pacman_death.wav</file>
-</sound>
-<sound>
-  <id>eat_fruit</id>
-  <file>pacman_eatfruit.wav</file>
-</sound>
-<sound>
-  <id>eat_ghost</id>
-  <file>pacman_eatghost.wav</file>
-</sound>
-<sound>
-  <id>intermission</id>
-  <file>pacman_intermission.wav</file>
-</sound>
-<sound>
-  <id>extra_pack</id>
-  <file>pacman_extrapack.wav</file>
-</sound>
-</effects>
+    <base_path>./wav</base_path>
+    <effects>
+      <sound>
+        <id>begin</id>
+        <file>pacman_beginning.ogg</file>
+      </sound>
+
+      <sound>
+        <id>credit</id>
+        <file>pacman_credit.ogg</file>
+      </sound>
+
+      <sound>
+        <id>chomp</id>
+        <file>pacman_munch#2.ogg</file>
+      </sound>
+
+      <sound>
+        <id>chomp2</id>
+        <file>pacman_munch#1.ogg</file>
+      </sound>
+
+      <sound>
+        <id>pacman_death</id>
+        <file>pacman_death#1.ogg</file>
+      </sound>
+
+      <sound>
+        <id>pacman_death2</id>
+        <file>pacman_death#2.ogg</file>
+      </sound>
+
+      <sound>
+        <id>energizer</id>
+        <file>pacman_energizer.ogg</file>
+      </sound>
+
+      <sound>
+        <id>pacman_monster_escapes</id>
+        <file>pacman_monster_escapes.ogg</file>
+      </sound>
+
+      <sound>
+        <id>eat_fruit</id>
+        <file>pacman_fruit_prize_eaten.ogg</file>
+      </sound>
+
+      <sound>
+        <id>eat_ghost</id>
+        <file>pacman_monster_eaten.ogg</file>
+      </sound>
+
+      <sound>
+        <id>intermission</id>
+        <file>pacman_intermission.ogg</file>
+      </sound>
+
+      <sound>
+        <id>extra_pack</id>
+        <file>pacman_extrapac.ogg</file>
+      </sound>
+
+      <sound>
+        <id>siren1</id>
+        <file>pacman_siren#1.ogg</file>
+      </sound>
+
+      <sound>
+        <id>siren2</id>
+        <file>pacman_siren#2.ogg</file>
+      </sound>
+
+      <sound>
+        <id>siren3</id>
+        <file>pacman_siren#3.ogg</file>
+      </sound>
+
+      <sound>
+        <id>siren4</id>
+        <file>pacman_siren#4.ogg</file>
+      </sound>
+
+      <sound>
+        <id>siren5</id>
+        <file>pacman_siren#5.ogg</file>
+      </sound>
+
+    </effects>
 </sounds_library>
 

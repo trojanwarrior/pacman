@@ -97,7 +97,7 @@ void IntroState::enter()
     _deIda = true;
 
     sounds::getInstance()->play_effect("begin");
-    sounds::getInstance()->play_music("chomp");
+    sounds::getInstance()->play_music("siren1");
 
 }
 
@@ -145,6 +145,9 @@ bool IntroState::frameStarted(const Ogre::FrameEvent &evt)
         //if (_sceneMgr->getSceneNode("nodePacmanIntro")->convertLocalToWorldPosition(_sceneMgr->getSceneNode("nodePacmanIntro")->getPosition()).x < _posXminima)
         if (_sceneMgr->getSceneNode("nodePacmanIntro")->getPosition().x < _posXminima)
         {
+            sounds::getInstance()->halt_music();
+            sounds::getInstance()->play_music("energizer");
+
             _deIda = false;
             sentido *= -1;
             _sceneMgr->getSceneNode("nodePacmanIntro")->yaw(Ogre::Degree(180),Ogre::Node::TS_PARENT);
@@ -168,6 +171,7 @@ bool IntroState::frameStarted(const Ogre::FrameEvent &evt)
             _sceneMgr->getSceneNode("nodeBocaInky")->setVisible(true);
             _sceneMgr->getSceneNode("nodeBocaPinky")->setVisible(true);
             _sceneMgr->getSceneNode("nodeBocaBlinky")->setVisible(true);
+
 
         }
     }
