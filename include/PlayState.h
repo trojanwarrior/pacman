@@ -21,6 +21,7 @@
 #ifndef PlayState_H
 #define PlayState_H
 
+
 #include <Ogre.h>
 #include <OIS/OIS.h>
 #include <string>
@@ -32,7 +33,13 @@
 #include "OgreBulletDynamicsWorld.h"
 #include "Utils/OgreBulletCollisionsMeshToShapeConverter.h"
 #include "graphml_boost.h"
+#include "phantom.h"
+#include "phantomFactory.h"
 
+#define PACMAN_START_NODE "pacmanstart"
+#define PHANTOM_START_NODE "phantomstart"
+#define BIGPILL_NODE "bigpill"
+#define REGULAR_NODE "regular"
 
 
 using namespace std;
@@ -63,6 +70,14 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   // Heredados de Ogre::Singleton.
   static PlayState& getSingleton ();
   static PlayState* getSingletonPtr ();
+  void set_lives (int lives);
+  int  get_lives ();
+
+  void set_score (int score);
+  int  get_score ();
+
+  void  game_over ();
+  void  win ();
 
  protected:
   Ogre::Root* _root;
@@ -70,6 +85,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   Ogre::Viewport* _viewport;
   Ogre::Camera* _camera;
   Pacman *_pacman;
+  std::vector<Phantom> _phantoms;
 
   int _pacmanDir;
   DynamicsWorld* _world;
@@ -78,13 +94,22 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
 
   bool _exitGame;
   MyGUI::VectorWidgetPtr layout;
-  
+  MyGUI::EditBox* high_score_txt;
+  MyGUI::EditBox* score_txt;
+  MyGUI::EditBox* lives_txt;
+  MyGUI::EditBox* message_txt;
+  int lives;
+  int score;
+  bool paused;  
 private:
 
   void createScene();
   void createFloor();
   void createLevel();
   void createLight();
+  void paintPills(bool bigpill);
+  void createPacman();
+  void createPhantoms();
 
 };
 

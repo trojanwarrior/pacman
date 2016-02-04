@@ -1,0 +1,61 @@
+<scene exported_by="twsh" formatVersion="1.0.1" export_time="1454405827.1336372" previous_export_time="1454405541.5369759" >
+  <nodes >
+    <node name="Armature" >
+      <position y="0.000000" x="0.000000" z="-0.000000" />
+      <rotation qx="0.000000" qz="-0.000000" qw="1.000000" qy="0.000000" />
+      <scale y="1.000000" x="1.000000" z="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <node name="bocaGhost" >
+        <position y="0.000000" x="0.000000" z="-0.000000" />
+        <rotation qx="0.000000" qz="-0.000000" qw="1.000000" qy="0.000000" />
+        <scale y="1.000000" x="1.000000" z="1.000000" />
+        <game >
+          <sensors />
+          <actuators />
+        </game>
+        <entity friction_x="1.0" physics_type="STATIC" meshFile="bocaGhost.mesh" lock_trans_z="False" lock_rot_y="False" lock_rot_x="False" friction_z="1.0" mass="1.0" friction_y="1.0" damping_rot="0.1589999943971634" mass_radius="1.0" velocity_min="0.0" actor="False" anisotropic_friction="False" lock_trans_x="False" lock_trans_y="False" damping_trans="0.02539999969303608" ghost="False" lock_rot_z="False" velocity_max="0.0" name="bocaGhost" inertia_tensor="0.4000000059604645" />
+      </node>
+    </node>
+    <node name="Lamp" >
+      <position y="5.903862" x="4.076245" z="-1.005454" />
+      <rotation qx="0.169076" qz="-0.272171" qw="0.570947" qy="0.755880" />
+      <scale y="1.000000" x="1.000000" z="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <light shadow="true" powerScale="1.0" name="Lamp" type="point" >
+        <position y="5.903862" x="4.076245" z="-1.005454" />
+        <lightAttenuation quadratic="0.0" linear="0.03333335240683057" constant="1.0" range="5000" />
+        <colourDiffuse r="1.0" b="1.0" g="1.0" />
+        <colourSpecular r="1.0" b="1.0" g="1.0" />
+        <colourShadow r="1.0" b="1.0" g="1.0" />
+      </light>
+    </node>
+    <node name="Camera" >
+      <position y="5.343665" x="7.481132" z="6.507640" />
+      <rotation qx="0.481707" qz="-0.212922" qw="0.781600" qy="0.334251" />
+      <scale y="1.000000" x="1.000000" z="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <camera fov="0.5033799435163735" projectionType="perspective" name="Camera" >
+        <clipping far="100.0" farPlaneDist="100.0" nearPlaneDist="0.10000000149011612" near="0.10000000149011612" />
+      </camera>
+    </node>
+  </nodes>
+  <externals >
+    <item type="material" >
+      <file name="/home/twsh/desarrollo/clion/pacman/media/materialBocaGhost.material" />
+    </item>
+  </externals>
+  <environment >
+    <colourAmbient r="0.0" b="0.0" g="0.0" />
+    <colourBackground r="0.05087608844041824" b="0.05087608844041824" g="0.05087608844041824" />
+    <colourDiffuse r="0.05087608844041824" b="0.05087608844041824" g="0.05087608844041824" />
+  </environment>
+</scene>

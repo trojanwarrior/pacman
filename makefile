@@ -12,8 +12,6 @@ DIROGREBULLET_COL := /usr/include/OgreBullet/Collisions
 
 CXX := g++
 
-
-
 CC=g++
 CFLAGS=-c  -Wall -Wno-deprecated-declarations  -I$(DIRHEA) -I$(DIROGREBULLET_DIN) -I$(DIROGREBULLET_COL) `pkg-config --cflags OGRE OGRE-Overlay MYGUI mxml bullet `  `sdl-config --cflags` --std=c++11
 CPP_FILES := $(wildcard ./src/*.cpp)

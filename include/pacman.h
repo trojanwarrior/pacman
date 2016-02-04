@@ -33,7 +33,7 @@ class Pacman{
 
  public :
   const Ogre::Vector3& getPosition();
-  explicit Pacman(DynamicsWorld* _world);
+  explicit Pacman(DynamicsWorld* _world,Vector3 position);
   ~Pacman();
   void move(int direction  , double deltaTime);
   int kill();

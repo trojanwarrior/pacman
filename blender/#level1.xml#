@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+	http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+
+	<key id="keyIdNodo" for="node" attr.name="id" attr.type="string"/>
+ 	<key id="keyX" for="node" attr.name="x" attr.type="string"/>
+	<key id="keyY" for="node" attr.name="y" attr.type="string"/>
+	<key id="keyZ" for="node" attr.name="z" attr.type="string"/>
+	<key
+	<key id="keyIdArista" for="edge" attr.name="idarista" attr.type="string"/>
+	<key id="keySource" for="edge" attr.name="source" attr.type="int"/>
+	<key id="keyTarget" for="edge" attr.name="target" attr.type="int"/>
+	<key id="keyWeight" for="edge" attr.name="weight" attr.type="int">
+		<default>1</default>
+	</key>
+
+	<graph id="level1" edgedefault="undirected" >
+		<node id="130">
+		<data key="keyX">-6.5</data>
+		<data key="keyY">0.0</data>
+		<data key="keyZ">-4.258620738983154</data>
+		<data key="keyIdNodo">130</data>
+		</node>
+		<node id="131" >
+		<data key="keyX">-5.980000019073486</data>
+		<data key="keyY">0.0</data>
+		<data key="keyZ">-4.258620738983154</data>
+		<data key="keyIdNodo">131</data>
+		</node>
+		<node id="132" >
+		<data key="keyX">-5.460000038146973</data>
+		<data key="keyY">0.0</data>
+		<data key="keyZ">-4.258620738983154</data>
+		<data key="keyIdNodo">132</data>
+		</node>
+		<node id="133" >
+		<data key="keyX">-4.940000057220459</data>
+		<data key="keyY">0.0</data>
+		<data key="keyZ">-4.258620738983154</data>
+		<data key="keyIdNodo">133</data>
+		</node>
+		<node id="134" >
+		<data key="keyX">-4.940000057220459</data>
+		<data key="keyY">0.0</data>
+		<data key="keyZ">-4.258620738983154</data>
+		<data key="keyIdNodo">134</data>
+		</node>
+		<node id="135" >
+		<data key="keyX">-4.940000057220459</data>
+		<data key="keyY">0.0</data>
+		<data key="keyZ">-4.258620738983154</data>
+		<data key="keyIdNodo">135</data>
+		</node>
+		<node id="136" >
+		<data key="keyX">-4.940000057220459</data>
+		<data key="keyY">0.0</data>
+		<data key="keyZ">-4.258620738983154</data>
+		<data key="keyIdNodo">136</data>
+		</node>
+		<node id="137">
+		<data key="keyX">-4.940000057220459</data>
+		<data key="keyY">0.0</data>
+		<data key="keyZ">-4.258620738983154</data>
+		<data key="keyIdNodo">137</data>
+		</node>
+		<node id="138" >
+		<data key="keyX">-4.940000057220459</data>
+		<data key="keyY">0.0</data>
+		<data key="keyZ">-4.258620738983154</data>
+		<data key="keyIdNodo">138</data>
+		</node>
+
+		<edge id="e231" source="130" target="131">
+			<data key="keyIdArista">e232</data>
+			<data key="keySource">130</data>
+			<data key="keyTarget">131</data>
+		</edge>
+		<edge id="e232" source="131" target="132">
+			<data key="keyIdArista">e234</data>
+			<data key="keySource">131</data>
+			<data key="keyTarget">132</data>
+		</edge>
+		<edge id="e233" source="132" target="133">
+			<data key="keyIdArista">e236</data>
+			<data key="keySource">132</data>
+			<data key="keyTarget">133</data>
+		</edge>
+		<edge id="e234" source="134" target="135">
+			<data key="keyIdArista">e237</data>
+			<data key="keySource">134</data>
+			<data key="keyTarget">135</data>
+		</edge>
+		<edge id="e235" source="135" target="136">
+			<data key="keyIdArista">e239</data>
+			<data key="keySource">135</data>
+			<data key="keyTarget">136</data>
+		</edge>
+		<edge id="e236" source="134" target="137">
+			<data key="keyIdArista">e240</data>
+			<data key="keySource">134</data>
+			<data key="keyTarget">137</data>
+		</edge>
+		<edge id="e237" source="137" target="138">
+			<data key="keyIdArista">e242</data>
+			<data key="keySource">137</data>
+			<data key="keyTarget">138</data>
+		</edge>
+		<edge id="e238" source="135" target="138">
+			<data key="keyIdArista">e245</data>
+			<data key="keySource">135</data>
+			<data key="keyTarget">138</data>
+		</edge>
+		<edge id="e239" source="136" target="132">
+			<data key="keyIdArista">e246</data>
+			<data key="keySource">136</data>
+			<data key="keyTarget">132</data>
+		</edge>
+		<edge id="e240" source="131" target="135">
+			<data key="keyIdArista">e246</data>
+			<data key="keySource">136</data>
+			<data key="keyTarget">132</data>
+		</edge>
+		<edge id="e241" source="130" target="134">
+			<data key="keyIdArista">e246</data>
+			<data key="keySource">136</data>
+			<data key="keyTarget">132</data>
+		</edge>
+		
+	</graph>
+</graphml>

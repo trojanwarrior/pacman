@@ -22,7 +22,7 @@ def exportToGraphMl():
     f.write('xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n')
     f.write('xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns\n')
     f.write('http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">\n')
-    f.write('<key id="keyIdNodo" for="node" attr.name="id" attr.type="int"/>\n')
+    f.write('<key id="keyIdNodo" for="node" attr.name="id" attr.type="string"/>\n')
     f.write('<key id="keyX" for="node" attr.name="x" attr.type="string"/>\n')
     f.write('<key id="keyY" for="node" attr.name="y" attr.type="string"/>\n')
     f.write('<key id="keyZ" for="node" attr.name="z" attr.type="string"/>\n')
@@ -38,10 +38,10 @@ def exportToGraphMl():
     for idx,ver in enumerate(mesh.vertices):
         if isVertexInGroup(idx,idRoadsGroup):
             f.write('<node id="'+str(idx)+'" >\n')
-            f.write('<data id="keyIdNodo">'+str(idx)+'</data>\n')
-            f.write('<data id="keyX">'+str(ver.co.x)+'</data>\n')
-            f.write('<data id="keyY">'+str(ver.co.z)+'</data>\n')
-            f.write('<data id="keyZ">'+str(ver.co.y)+'</data>\n')
+            f.write('<data key="keyIdNodo">'+str(idx)+'</data>\n')
+            f.write('<data key="keyX">'+str(ver.co.x)+'</data>\n')
+            f.write('<data key="keyY">'+str(ver.co.z)+'</data>\n')
+            f.write('<data key="keyZ">'+str(ver.co.y)+'</data>\n')
             type='regular'
             if isVertexInGroup(idx,idPacStartGroup) == True:
                 type = 'pacmanstart'
@@ -49,7 +49,7 @@ def exportToGraphMl():
                 type  = 'bigpill'
             elif isVertexInGroup(idx,idPhantomStartGroup) == True:
                 type = 'phantomstart'
-            f.write('<data id="keyType">'+type+'</data>\n')
+            f.write('<data key="keyType">'+type+'</data>\n')
             f.write('</node>\n')
     for idxe, edge in enumerate(mesh.edges):
         

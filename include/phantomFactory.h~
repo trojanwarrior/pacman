@@ -1,0 +1,26 @@
+#include "phantomFactory.h"
+#include "phantom.h"
+
+#define CLYDE 1
+#define BLINKY 2
+#define INKY 3
+#define CLYDE 4
+
+
+class PhantomFactory {
+ private:
+
+  PhantomFactory() {}
+  PhantomFactory(PhantomFactory const&) = delete;
+  void operator = (PhantomFactory const &) = delete;
+  ~PhantomFactory();
+
+
+ public:
+  static  PhantomFactory &getInstance(){
+    static PhantomFactory instance;
+    return instance;
+  }
+
+
+}

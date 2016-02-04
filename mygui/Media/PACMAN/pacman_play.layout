@@ -1,16 +1,40 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MyGUI type="Layout" version="3.2.0">
     <Widget type="ImageBox" skin="ImageBox" position_real="0 0 1 1" align="Stretch" layer="Wallpaper" name="start">
-        <Property key="ImageTexture" value="play_screen.png"/>
+        <Property key="ImageTexture" value="play_screen4.png"/>
     </Widget>
-    <Widget type="EditBox" skin="EditBox" position="325 45 145 40" align="HStretch Top" layer="Main" name="high_score">
+    <Widget type="EditBox" skin="EditBox" position="5 70 135 50" layer="Main" name="score">
         <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>
-        <Property key="Caption" value="123123"/>
-        <Property key="FontHeight" value="30"/>
+        <Property key="FontHeight" value="35"/>
         <Property key="Colour" value="0 0 0"/>
         <Property key="TextColour" value="1 1 1"/>
+        <Property key="TextAlign" value="Center"/>
     </Widget>
-
+    <Widget type="EditBox" skin="EditBox" position="5 180 135 50" layer="Main" name="lives">
+        <Property key="Visible" value="true"/>
+        <Property key="FontName" value="PressStart2P"/>
+        <Property key="FontHeight" value="35"/>
+        <Property key="Colour" value="0 0 0"/>
+        <Property key="TextColour" value="1 1 1"/>
+        <Property key="TextAlign" value="Center"/>
+    </Widget>
+    <Widget type="EditBox" skin="EditBox" position="880 70 160 50" align="HStretch Top" layer="Main" name="high_score">
+        <Property key="Visible" value="true"/>
+        <Property key="FontName" value="PressStart2P"/>
+        <Property key="FontHeight" value="35"/>
+        <Property key="Colour" value="0 0 0"/>
+        <Property key="TextColour" value="1 1 1"/>
+        <Property key="TextAlign" value="Center"/>
+    </Widget>
+    <Widget type="EditBox" skin="EditBox" position="315 245 440 65" layer="Main" name="message">
+        <Property key="Caption" value=""/>
+        <Property key="Visible" value="true"/>
+        <Property key="FontName" value="PressStart2P"/>
+        <Property key="FontHeight" value="50"/>
+        <Property key="Colour" value="0 0 0"/>
+        <Property key="TextColour" value="1 1 1"/>
+        <Property key="TextAlign" value="Center"/>
+    </Widget>
     <CodeGeneratorSettings/>
 </MyGUI>

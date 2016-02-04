@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sounds_library>
-<base_path>/home/jalcolea/VIDEOJUEGOS/REPO/pacman/wav</base_path>
+<base_path>./lwav</base_path>
 <effects>
 <sound>
   <id>begin</id>

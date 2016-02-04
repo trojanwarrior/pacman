@@ -33,44 +33,85 @@ using namespace Ogre;
 
 class IntroState : public Ogre::Singleton<IntroState>, public GameState
 {
- public:
-  IntroState() {}
-  ~IntroState();
+public:
+    IntroState()
+    { }
 
-  void enter ();
-  void exit ();
-  void pause ();
-  void resume ();
+    ~IntroState();
 
-  bool keyPressed (const OIS::KeyEvent &e);
-  bool keyReleased (const OIS::KeyEvent &e);
+    void enter();
 
-  bool mouseMoved (const OIS::MouseEvent &e);
-  bool mousePressed (const OIS::MouseEvent &e, OIS::MouseButtonID id);
-  bool mouseReleased (const OIS::MouseEvent &e, OIS::MouseButtonID id);
+    void exit();
 
-  bool frameStarted (const Ogre::FrameEvent& evt);
-  bool frameEnded (const Ogre::FrameEvent& evt);
+    void pause();
 
-  // Heredados de Ogre::Singleton.
-  static IntroState& getSingleton ();
-  static IntroState* getSingletonPtr ();
+    void resume();
 
- protected:
-  Ogre::Root* _root;
-  Ogre::SceneManager* _sceneMgr;
-  Ogre::Viewport* _viewport;
-  Ogre::Camera* _camera;
+    bool keyPressed(const OIS::KeyEvent &e);
 
+    bool keyReleased(const OIS::KeyEvent &e);
+
+    bool mouseMoved(const OIS::MouseEvent &e);
+
+    bool mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id);
+
+    bool mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id);
+
+    bool frameStarted(const Ogre::FrameEvent &evt);
+
+    bool frameEnded(const Ogre::FrameEvent &evt);
+
+    // Heredados de Ogre::Singleton.
+    static IntroState &getSingleton();
+
+    static IntroState *getSingletonPtr();
+
+protected:
+    Ogre::Root *_root;
+    Ogre::SceneManager *_sceneMgr;
+    Ogre::Viewport *_viewport;
+    Ogre::Camera *_camera;
 
   bool _exitGame;
   
+
 private:
-  Ogre::Rectangle2D* _rect; // Para mostrar un fondo
- 
-  void mostrarFondo();
-  TextureUnitState* CreateTextureFromImgWithoutStretch(const String& texName, Real texSize, const String& imgName);
-  
+    Ogre::Rectangle2D *_rect; // Para mostrar un fondo
+    Ogre::AnimationState *_animStatePacman; // Para animar boca pacman
+    Ogre::AnimationState *_animStateCampana;
+    Ogre::AnimationState *_animStateCereza;
+    Ogre::AnimationState *_animStateFresa;
+    Ogre::AnimationState *_animStateGalaxian;
+    Ogre::AnimationState *_animStateLlave;
+    Ogre::AnimationState *_animStateManzana;
+    Ogre::AnimationState *_animStateNaranja;
+    Ogre::AnimationState *_animStateUvas;
+    Ogre::AnimationState *_animStateClyde;
+    Ogre::AnimationState *_animStateInky;
+    Ogre::AnimationState *_animStatePinky;
+    Ogre::AnimationState *_animStateBlinky;
+    Ogre::AnimationState *_animOjosClyde;
+    Ogre::AnimationState *_animOjosInky;
+    Ogre::AnimationState *_animOjosPinky;
+    Ogre::AnimationState *_animOjosBlinky;
+    Ogre::AnimationState *_animBocaClyde;
+    Ogre::AnimationState *_animBocaInky;
+    Ogre::AnimationState *_animBocaPinky;
+    Ogre::AnimationState *_animBocaBlinky;
+
+    Ogre::Real _posXminima; // solo para saber cuando terminar la intro
+    Ogre::Real _posXmaxima;
+    bool _deIda;
+
+
+
+
+    void mostrarFondo();
+    void createScene();
+    void gestionaAnimaciones(Ogre::AnimationState *&anim, Ogre::Real deltaT, const String &nombreEnt, const String &nombreAnim);
+
+    TextureUnitState *CreateTextureFromImgWithoutStretch(const String &texName, Real texSize, const String &imgName);
+
 };
 
 #endif

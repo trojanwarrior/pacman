@@ -8,6 +8,7 @@ using namespace Ogre;
 
 template<> GameManager* Ogre::Singleton<GameManager>::msSingleton = 0;
 
+
 GameManager::GameManager ()
 {
   _root = 0;

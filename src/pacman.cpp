@@ -11,7 +11,7 @@ using namespace OgreBulletCollisions;
  *Constructor
  * Set lifes to 3 and speed to 1. also create Scene Node for pacman if it doesn't exists.
  */
-Pacman::Pacman(DynamicsWorld *_world) {
+Pacman::Pacman(DynamicsWorld *_world, Vector3 position) {
   SceneManager* _sceneMgr = Root::getSingleton().
                             getSceneManager("SceneManager");
   try  {
@@ -23,12 +23,10 @@ Pacman::Pacman(DynamicsWorld *_world) {
        _sceneMgr->getRootSceneNode()->addChild(this->node);
 
   }
-  Entity* pacmanEnt = _sceneMgr->createEntity("Pacman.mesh");
+  Entity* pacmanEnt = _sceneMgr->createEntity("pacman.mesh");
   pacmanEnt->setCastShadows(true);
   this->node->attachObject(pacmanEnt);
   this->node->scale(0.2, 0.2, 0.2);
-
-
 
   body = new  RigidBody("pacman", _world);
   shape = new SphereCollisionShape(0.2);
@@ -41,9 +39,11 @@ Pacman::Pacman(DynamicsWorld *_world) {
                         Quaternion::IDENTITY);
   body->enableActiveState();
 
+  std::cout << position << std::endl;
+
   btTransform transform; //Declaration of the btTransform
   transform.setIdentity(); //This function put the variable of the object to default. The ctor of btTransform doesnt do it.
-  transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(Vector3(6.5, 0, 3))); //Set the new position/origin
+  transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(position)); //Set the new position/origin
   body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body
 
   this->lifes = 3;

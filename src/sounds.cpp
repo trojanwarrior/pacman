@@ -50,8 +50,10 @@ int sounds::play_effect(string id)
 {
    Mix_Chunk * e = NULL;
    e= map_effect[id];
-   if (e!=NULL) return Mix_PlayChannel( -1, e, 0 );
-   else return -1; //TBD
+   if (e!=NULL)
+       return Mix_PlayChannel( -1, e, 0 );
+   else
+       return -1; //TBD
 }
 
 int sounds::playing_music()
