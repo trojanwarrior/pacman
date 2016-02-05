@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MyGUI type="Layout" version="3.2.0">
     <Widget type="ImageBox" skin="ImageBox" position_real="0 0 1 1" align="Stretch" layer="Wallpaper" name="start">
-        <Property key="ImageTexture" value="start_screen3.png"/>
+        <Property key="ImageTexture" value="start_screen4.png"/>
     </Widget>
     <Widget type="EditBox" skin="EditBox" position="410 60 165 50" align="HStretch Top" layer="Main" name="high_score">
         <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>
-        <Property key="FontHeight" value="40"/>
+        <Property key="FontHeight" value="35"/>
         <Property key="Colour" value="0 0 0"/>
         <Property key="TextColour" value="1 1 1"/>
         <Property key="TextAlign" value="Center"/>
