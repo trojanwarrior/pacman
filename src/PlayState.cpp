@@ -277,7 +277,8 @@ void PlayState::createLevel(){
   TriangleMeshCollisionShape *trackTrimesh = trimeshConverter->createTrimesh();
   RigidBody *rigidLevel = new  RigidBody("level", _world);
   rigidLevel->setStaticShape(trackTrimesh, 0.0, 0.0, Vector3::ZERO, Quaternion::IDENTITY);
-  std::string fileName = "/home/flush/CEDV/pacman/pacman/blender/level1.xml";
+  //std::string fileName = "/home/flush/CEDV/pacman/pacman/blender/level1.xml";  //   YO TE MATO ALFREDO :D :D
+  std::string fileName = "./blender/level1.xml";
   graphLevel = new graphml_boost();
   graphLevel->cargaGrafo(fileName);
   paintPills(false);
