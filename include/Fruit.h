@@ -40,6 +40,7 @@ public :
     ~Fruit();
     Fruit(const Fruit &fruit);
     void animaFruta(tipoAnim tipo,Ogre::Real deltaT);
+    void cambiaAnimacion(tipoAnim tipo, Ogre::Real deltaT);
 
 };
 

@@ -59,7 +59,26 @@ Fruit::Fruit(const Fruit &fruit)
     this->shape = fruit.shape;
 }
 
-void Fruit::animaFruta(Fruit::tipoAnim tipo,Ogre::Real deltaT){}
+void Fruit::animaFruta(Fruit::tipoAnim tipo,Ogre::Real deltaT)
+{
+
+    if (!_anim)
+    {
+        SceneManager *sceneMgr = Root::getSingleton().getSceneManager("SceneManager");
+        _anim = sceneMgr->getEntity(_name)->getAnimationState(nombreAnim[tipo]);
+        _anim->setEnabled(true);
+        _anim->setTimePosition(0.0);
+        _anim->setLoop(true);
+    }
+    else
+        _anim->addTime(deltaT);
+}
+
+void Fruit::cambiaAnimacion(Fruit::tipoAnim tipo, Ogre::Real deltaT)
+{
+    _anim = NULL;
+    animaFruta(tipo,deltaT);
+}
 
 const Ogre::Vector3& Fruit::getPosition()
 {

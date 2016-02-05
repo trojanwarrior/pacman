@@ -16,9 +16,9 @@ std::vector<Fruit>* FruitFactory::createAllFruits(DynamicsWorld* _world)
 {
     std::vector<Fruit>* fruits = new std::vector<Fruit>();
 
-    for(int type=0; type < names->size();type++){
-
-        Fruit(_world, Ogre::Vector3(0,0,0),names[type]);
+    for(size_t type=0; type < names->size();type++)
+    {
+        fruits->push_back(Fruit(_world, Ogre::Vector3(0,0,0),names[type]));
     }
     return fruits;
 }
