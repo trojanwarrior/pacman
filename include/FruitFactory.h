@@ -5,8 +5,6 @@
 #ifndef PACMAN_FRUITFACTORY_H
 #define PACMAN_FRUITFACTORY_H
 
-
-#include "graphml_boost.h"
 #include "Fruit.h"
 
 using namespace std;
@@ -32,7 +30,7 @@ public:
         return instance;
     };
 
-    std::vector<Fruit>* createAllPhantoms(DynamicsWorld* _world,graphml_boost::nodo_props_t nodoGrafo);
+    std::vector<Fruit>* createAllFruits(DynamicsWorld* _world);
     Fruit *createFruit(DynamicsWorld* _world, Vector3 position,tipoFruta tipo);
 
 };

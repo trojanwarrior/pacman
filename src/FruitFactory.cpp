@@ -3,7 +3,23 @@
 //
 
 #include "FruitFactory.h"
+#include "Fruit.h"
 
-std::vector<Fruit>* FruitFactory::createAllPhantoms(DynamicsWorld* _world,graphml_boost::nodo_props_t nodoGrafo){}
 
-Fruit * FruitFactory::createFruit(DynamicsWorld* _world, Vector3 position,tipoFruta tipo){}
+
+Fruit * FruitFactory::createFruit(DynamicsWorld* _world, Vector3 position,tipoFruta tipo){
+    return new Fruit(_world, position,names[tipo]);
+}
+
+
+std::vector<Fruit>* FruitFactory::createAllFruits(DynamicsWorld* _world)
+{
+    std::vector<Fruit>* fruits = new std::vector<Fruit>();
+
+    for(int type=0; type < names->size();type++){
+
+        Fruit(_world, Ogre::Vector3(0,0,0),names[type]);
+    }
+    return fruits;
+}
+

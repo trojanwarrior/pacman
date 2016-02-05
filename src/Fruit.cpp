@@ -3,6 +3,13 @@
 //
 
 #include "Fruit.h"
+#include "Shapes/OgreBulletCollisionsSphereShape.h"
+#include "Shapes/OgreBulletCollisionsBoxShape.h"
+
+using namespace Ogre;
+using namespace std;
+using namespace OgreBulletDynamics;
+using namespace OgreBulletCollisions;
 
 
 Fruit::Fruit(DynamicsWorld* _world,Ogre::Vector3 position, std::string name)
@@ -19,14 +26,17 @@ Fruit::Fruit(DynamicsWorld* _world,Ogre::Vector3 position, std::string name)
     _sceneMgr->getRootSceneNode()->addChild(nodeFruit);
 
     body = new  RigidBody(_name, _world);
-    shape = new OgreBulletCollisions::SphereCollisionShape(0.2);
+    shape = new BoxCollisionShape(*(frutaEnt->getBoundingBox().getAllCorners()));
 
-    body->setShape(nodeFruit,shape,
-    0.0,
-    0.0,
-    10,
-    Vector3::ZERO,
-    Quaternion::IDENTITY);
+
+    body->setShape(nodeFruit,
+                   shape,
+                   0.0,
+                   0.0,
+                   10,
+                   Vector3::ZERO,
+                   Quaternion::IDENTITY);
+
     body->enableActiveState();
 
     btTransform transform; //Declaration of the btTransform

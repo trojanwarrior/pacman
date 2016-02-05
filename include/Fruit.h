@@ -9,11 +9,12 @@
 #include "OgreBulletDynamicsRigidBody.h"
 #include "OgreBulletDynamicsWorld.h"
 #include <string>
+#include <Shapes/OgreBulletCollisionsBoxShape.h>
 
 using namespace std;
 using namespace Ogre;
-using namespace OgreBulletDynamics;
 using namespace OgreBulletCollisions;
+using namespace OgreBulletDynamics;
 
 
 class Fruit
@@ -25,7 +26,8 @@ private :
 
 
     RigidBody* body;
-    CollisionShape* shape;
+    BoxCollisionShape* shape;
+
     Ogre::AnimationState *_anim; // Con un puntero vale. Pues la idea es que solo haya una animación en marcha.
                                  // Meneo sería la animación en standby y Reclamo, pues eso, un toque de atención: "Eo! que estoy aquí!! Ven a por mi!!
                                  // Y entonces es cuando el ansia te puede, intentas ir a por la dichosa fruta y MUERES!!! :D :D
