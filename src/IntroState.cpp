@@ -99,6 +99,9 @@ void IntroState::enter()
     sounds::getInstance()->play_effect("begin");
     sounds::getInstance()->play_music("siren1");
 
+    //prueba grafo
+    graphml_boost gb;
+
 }
 
 void IntroState::exit()

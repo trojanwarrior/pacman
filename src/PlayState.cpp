@@ -125,6 +125,7 @@ bool PlayState::keyPressed(const OIS::KeyEvent &e)
   }
   else if (e.key == OIS::KC_LEFT) {
     _pacmanDir = LEFT_DIR;
+    cout << "left" << endl;
 
   }
   else if (e.key == OIS::KC_RIGHT) {
@@ -133,8 +134,9 @@ bool PlayState::keyPressed(const OIS::KeyEvent &e)
   }
   else if (e.key == OIS::KC_ESCAPE) {
 
-    popState();
-    pushState(IntroState::getSingletonPtr());
+    //popState();                                 //esto hay que cambiarlo, o volvemos a un estado anterior o cambiamos
+    //pushState(IntroState::getSingletonPtr());   //de estado completamente, pero ambas cosas a la vez NO.
+      pushState(MenuState::getSingletonPtr());
   }
   return true;
 }

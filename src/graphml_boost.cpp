@@ -314,3 +314,19 @@ graphml_boost::ruta_t graphml_boost::getRuta(size_t idOrigen, size_t idDestino)
 
 }
 
+graphml_boost::nodo_props graphml_boost::getNodoAleatorio()
+{
+    graphml_boost::nodo_props nodo {"0","0","0","0",""};
+    if (boost::num_vertices(_grafo))
+    {
+        std::random_device rd;      //non-deterministic uniform random number generator COMO MOLA :D
+        std::mt19937 gen(rd());     //Algoritmo generador: 32-bit Mersenne Twister by Matsumoto and Nishimura, 1998
+        std::uniform_int_distribution<> dis(0,boost::num_vertices(_grafo)-1); // post-processes the output of an random number engine
+                                                                              // in such a way that resulting output is distributed according to a defined
+                                                                              // statistical probability density function. Distribuye números en una sucesión dentro de un rango dado.
+        nodo = _grafo[dis(gen)];        // Y ahora cogemos uno de los numeros dentro de la distribución y lo usamos como indice para recuperar un nodo del grafo. MOLONGO DE LA MUERTE.
+    }
+
+    return nodo;
+
+}
