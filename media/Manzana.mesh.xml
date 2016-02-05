@@ -3042,7 +3042,7 @@
         <submesh name="MaterialManzana" index="0">
         </submesh>
     </submeshnames>
-    <skeletonlink name="manzana.skeleton"/>
+    <skeletonlink name="Manzana.skeleton"/>
     <boneassignments>
         <vertexboneassignment vertexindex="0" weight="1.0" boneindex="0"/>
         <vertexboneassignment vertexindex="1" weight="1.0" boneindex="0"/>

@@ -86,7 +86,7 @@ set(SOURCE_FILES
         src/records.cpp
         src/pacman.cpp
         src/phantom.cpp
-        src/phantomFactory.cpp)
+        src/phantomFactory.cpp src/FruitFactory.cpp include/FruitFactory.h src/Fruit.cpp include/Fruit.h)
 
 include_directories(.)
 include_directories(include)
