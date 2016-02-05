@@ -1,7 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MyGUI type="Layout" version="3.2.0">
-    <Widget type="ImageBox" skin="ImageBox" position_real="0 0 1 1" align="Stretch" layer="Wallpaper" name="start">
+  <Widget type="ImageBox" skin="ImageBox" position_real="0 0 1 1" align="Stretch" layer="Wallpaper" name="start">
         <Property key="ImageTexture" value="play_screen4.png"/>
+    </Widget>
+
+    <Widget type="ImageBox" skin="ImageBox" position="210 40 610 440" align="Center" layer="Main" name="message_wall">
+        <Property key="ImageTexture" value="fondo_mensaje.png"/>
+    </Widget>
+
+    <Widget type="EditBox" skin="EditBox" position="420 310 225 65" layer="Main" name="user_name">
+        <Property key="Caption" value=""/>
+        <Property key="Visible" value="true"/>
+        <Property key="FontName" value="PressStart2P"/>
+        <Property key="FontHeight" value="50"/>
+        <Property key="Colour" value="0 0 0"/>
+        <Property key="TextColour" value="1 1 1"/>
+        <Property key="TextAlign" value="Center"/>
     </Widget>
     <Widget type="EditBox" skin="EditBox" position="5 70 135 50" layer="Main" name="score">
         <Property key="Visible" value="true"/>
@@ -27,7 +41,7 @@
         <Property key="TextColour" value="1 1 1"/>
         <Property key="TextAlign" value="Center"/>
     </Widget>
-    <Widget type="EditBox" skin="EditBox" position="315 245 440 65" layer="Main" name="message">
+    <Widget type="EditBox" skin="EditBox" position="320 245 440 65" layer="Main" name="message">
         <Property key="Caption" value=""/>
         <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>

@@ -68,10 +68,13 @@ bool MenuState::keyPressed(const OIS::KeyEvent &e)
 {
   cout << __FUNCTION__ << endl;
   // Tecla p --> PauseState.
+/*
   if (e.key == OIS::KC_P) {
     pushState(PauseState::getSingletonPtr());
   }
-  else if (e.key == OIS::KC_S) {
+  else 
+*/
+  if (e.key == OIS::KC_S) {
     MyGUI::LayoutManager::getInstance().unloadLayout(layout);
     pushState(PlayState::getSingletonPtr());
   }
@@ -82,6 +85,11 @@ bool MenuState::keyPressed(const OIS::KeyEvent &e)
   else if (e.key == OIS::KC_R) {
     MyGUI::LayoutManager::getInstance().unloadLayout(layout);
     pushState(RecordsState::getSingletonPtr());
+  }
+  else if (e.key == OIS::KC_ESCAPE) 
+  {
+    sounds::getInstance()->play_effect("eat_ghost");
+    ::exit(0);
   }
   return true;
 }
