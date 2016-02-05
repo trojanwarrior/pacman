@@ -21,13 +21,13 @@ class PhantomFactory {
   const float smarts[4] = {70,80,90,100};
   const string materials[4] = {"materialClydeNaranja","materialBlinkyRojo","materialInkyCian","materialPinkyRosa"};
   const float speeds[4] = {1,2,1.5,1.8} ;
-  
-  PhantomFactory() {
-    
-  };
-  PhantomFactory(PhantomFactory const&) = delete;
-  void operator = (PhantomFactory const &) = delete;
-  ~PhantomFactory(){};
+
+    PhantomFactory() {
+
+    };
+    PhantomFactory(PhantomFactory const&) = delete;
+    void operator = (PhantomFactory const &) = delete;
+    ~PhantomFactory(){};
 
 
  public:

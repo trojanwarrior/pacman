@@ -19,6 +19,10 @@ set(MXML_ARGS "-D_THREAD_SAFE -D_REENTRANT")
 set(OIS_INC "/usr/include/OIS")
 set(OGRE_INC "/usr/include/OGRE")
 set(OVERLAY_INC "/usr/include/OGRE/Overlay")
+set(BULLET_INC "/usr/include/bullet")
+set(OGREBULLET_DIN_INC "/usr/local/include/OgreBullet/Dynamics")
+set(OGREBULLET_COL_INC "/usr/local/include/OgreBullet/Collisions")
+
 
 #set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -D_DEBUG -std=c++11 -pthread -Wno-deprecated -Wno-deprecated-declarations \
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -D_DEBUG -std=c++11 -pthread -Wno-deprecated -Wno-deprecated-declarations \
@@ -31,13 +35,17 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -D_DEBUG -std=c++11 -pthr
         -I${MYGUI_OGREPLATFORM_INC} ${MYGUI_OGREPLATFORM_ARGS} \
         -I${SDL_INC} ${SDL_ARGS} \
         -I${MXML_INC} ${MXML_ARGS} \
-        -I${MYGUI_INPUT_OIS}")
+        -I${MYGUI_INPUT_OIS} \
+        -I${BULLET_INC} \
+        -I${OGREBULLET_DIN_INC} \
+        -I${OGREBULLET_COL_INC}")
 
 #set(LDLIBS "-lGL -lOIS -lOgreOverlay -lOgreMain -lboost_system -lxerces-c -lstdc++ \
 #    -lboost_graph -lSDL -lSDL_mixer -lmxml -lpthread \
 #    -L/usr/local/lib/ -lOgreMain -L${MYGUI_INSTALL}/lib -lCommon -lX11 -lMyGUIEngine -lMyGUI.OgrePlatform ")
 
-set(LDLIBS "-lOgreOverlay -lOgreMain -lpthread -lboost_system -lMyGUIEngine -lmxml -lSDL -lpthread -lSDL_mixer -lboost_system -lboost_graph -lOIS -lGL -lstdc++ -lMyGUI.OgrePlatform")
+set(LDLIBS "-lOgreOverlay -lOgreMain -lpthread -lboost_system -lMyGUIEngine -lmxml -lSDL -lpthread -lSDL_mixer -lboost_system \
+            -lboost_graph -lOIS -lGL -lstdc++ -lMyGUI.OgrePlatform -lBulletSoftBody -lBulletDynamics -lBulletCollision -lLinearMath -lOgreBulletCollisions -lOgreBulletDynamics")
 
 set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${LDLIBS}")
 set(CMAKE_EXE_LINKER_FLAGS "${LDLIBS}")
@@ -62,6 +70,8 @@ set(SOURCE_FILES
         include/sounds.h
         include/pacman.h
         include/records.h
+        include/phantom.h
+        include/phantomFactory.h
         src/GameManager.cpp
         src/InputManager.cpp
         src/IntroState.cpp
@@ -74,7 +84,9 @@ set(SOURCE_FILES
         src/RecordsState.cpp
         src/sounds.cpp
         src/records.cpp
-        src/pacman.cpp)
+        src/pacman.cpp
+        src/phantom.cpp
+        src/phantomFactory.cpp src/FruitFactory.cpp include/FruitFactory.h src/Fruit.cpp include/Fruit.h)
 
 include_directories(.)
 include_directories(include)
@@ -88,8 +100,14 @@ include_directories(${MYGUI_OGREPLATFORM_INC})
 include_directories(${MYGUI_COMMON_BASE_OGRE_INC})
 include_directories(${SDL_INC})
 include_directories(${MXML_INC})
+include_directories(BULLET_INC)
+include_directories(OGREBULLET_DIN_INC)
+include_directories(OGREBULLET_COL_INC)
+
 
 
 add_executable(pacman ${SOURCE_FILES})
 
-TARGET_LINK_LIBRARIES(pacman -lOgreOverlay -lOgreMain -lpthread -lboost_system -lMyGUIEngine -lmxml -lSDL -lpthread -lSDL_mixer -lboost_system -lboost_graph -lOIS -lGL -lMyGUI.OgrePlatform)
+TARGET_LINK_LIBRARIES(pacman -lOgreOverlay -lOgreMain -lpthread -lboost_system -lMyGUIEngine -lmxml -lSDL -lpthread -lSDL_mixer
+                      -lboost_system -lboost_graph -lOIS -lGL -lMyGUI.OgrePlatform  -lBulletSoftBody -lBulletDynamics -lBulletCollision
+                      -lLinearMath -lOgreBulletCollisions -lOgreBulletDynamics)

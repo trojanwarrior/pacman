@@ -99,6 +99,9 @@ void IntroState::enter()
     sounds::getInstance()->play_effect("begin");
     sounds::getInstance()->play_music("siren1");
 
+    //prueba grafo
+    graphml_boost gb;
+
 }
 
 void IntroState::exit()
@@ -155,10 +158,10 @@ bool IntroState::frameStarted(const Ogre::FrameEvent &evt)
             _sceneMgr->getEntity("ghostInky")->setMaterialName("materialCagaosAzul");
             _sceneMgr->getEntity("ghostPinky")->setMaterialName("materialCagaosAzul");
             _sceneMgr->getEntity("ghostBlinky")->setMaterialName("materialCagaosAzul");
-            _sceneMgr->getEntity("ojosClyde")->setMaterialName("materialOjosGhost");
-            _sceneMgr->getEntity("ojosInky")->setMaterialName("materialOjosGhost");
-            _sceneMgr->getEntity("ojosPinky")->setMaterialName("materialOjosGhost");
-            _sceneMgr->getEntity("ojosBlinky")->setMaterialName("materialOjosGhost");
+            _sceneMgr->getEntity("ojosClyde")->setMaterialName("materialOjoGhost");
+            _sceneMgr->getEntity("ojosInky")->setMaterialName("materialOjoGhost");
+            _sceneMgr->getEntity("ojosPinky")->setMaterialName("materialOjoGhost");
+            _sceneMgr->getEntity("ojosBlinky")->setMaterialName("materialOjoGhost");
             _animOjosClyde->setEnabled(false); _animOjosClyde = NULL;
             _animOjosInky->setEnabled(false); _animOjosInky = NULL;
             _animOjosPinky->setEnabled(false); _animOjosPinky = NULL;
@@ -196,10 +199,10 @@ bool IntroState::frameStarted(const Ogre::FrameEvent &evt)
     }
 
 
-    cout << "sentido " << sentido << endl;
+//    cout << "sentido " << sentido << endl;
     Ogre::Vector3 v(_sceneMgr->getSceneNode("nodePacmanIntro")->getPosition());
     v += (sentido * deltaT * velocidad);
-    cout << v << endl;
+//    cout << v << endl;
     _sceneMgr->getSceneNode("nodePacmanIntro")->setPosition(v);
 
     return true;
