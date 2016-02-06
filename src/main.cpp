@@ -35,6 +35,7 @@
 using namespace std;
 
 int main () {
+  srand(time(NULL));
 
   GameManager* game = new GameManager();
   IntroState* introState = new IntroState();

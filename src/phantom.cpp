@@ -1,6 +1,7 @@
 #include "phantom.h"
 #include "Shapes/OgreBulletCollisionsSphereShape.h"
 #include <string>
+#include "pacman.h"
 
 
 using namespace Ogre;
@@ -9,7 +10,7 @@ using namespace OgreBulletDynamics;
 using namespace OgreBulletCollisions;
 
 
-Phantom::Phantom(const Phantom& phantom){
+/*Phantom::Phantom(const Phantom& phantom){
   name = phantom.name;
   speed = phantom.speed;
   smart = phantom.smart;
@@ -17,15 +18,17 @@ Phantom::Phantom(const Phantom& phantom){
   shape = phantom.shape;
 
 
-}
+  }*/
 /*
  *Constructor
  */
-Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _speed,float _smart,string material) {
+Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _speed,float _smart,string material,int origin) {
   
   smart = _smart;
   name = _name;
   speed = _speed;
+  idOrigin = origin;
+  std::cout << "Nodo origen Fantasma = " << origin << std::endl;
   SceneManager* _sceneMgr = Root::getSingleton().
                             getSceneManager("SceneManager");
 
@@ -53,7 +56,7 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
                         Vector3::ZERO,
                         Quaternion::IDENTITY);
   body->enableActiveState();
-  
+  std::cout << position << "," <<_name << "," << speed << "," <<_smart << "," << material << std::endl;  
   btTransform transform; //Declaration of the btTransform
   transform.setIdentity(); //This function put the variable of the object to default. The ctor of btTransform doesnt do it.
   transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(position)); //Set the new position/origin
@@ -67,10 +70,10 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
 /*
  * Destructor
  */
-Phantom::~Phantom() {
+/*Phantom::~Phantom() {
   delete body;
   delete shape;
-}
+  }*/
 
 /*
  * Get  position

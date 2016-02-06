@@ -6,10 +6,7 @@
  */
 #ifndef PHANTOM_H
 #define PHANTOM_H
-#define UP_DIR 1
-#define DOWN_DIR 2
-#define LEFT_DIR 3
-#define RIGHT_DIR 4
+
 #include "Ogre.h"
 #include "OgreBulletDynamicsRigidBody.h"
 #include "OgreBulletDynamicsWorld.h"
@@ -25,6 +22,7 @@ class Phantom{
 
   float speed;
   float smart;
+  int idOrigin;
 
   string name;
 
@@ -34,9 +32,9 @@ class Phantom{
 
  public :
   const Ogre::Vector3& getPosition();
-  explicit Phantom(DynamicsWorld* _world,Vector3 position,string _name, float _speed, float _smart,string material);
-  ~Phantom();
-  Phantom(const Phantom &phantom);
+  explicit Phantom(DynamicsWorld* _world,Vector3 position,string _name, float _speed, float _smart,string material,int origin);
+  //  ~Phantom();
+  //Phantom(const Phantom &phantom);
   void move(int direction);
 
 };

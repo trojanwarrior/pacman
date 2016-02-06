@@ -32,8 +32,9 @@ class graphml_boost
     struct nodo_props      // Propiedades de un nodo (a.k.a los datos que realmente nos interesa albergar en un nodo.
     {
       std::string id;            // id del nodo, externo al grafo, es decir este lo definimos nosotros. boost_graph tiene su propio índice.
-        std::string x,y,z; // coordenadas físicas en el espacio virtual de un nodo.
-        bool interseccion; // si en este nodo sus aristas salientes (o entrantes según se mire) son perpendiculares. Implica un posible
+      int idBoost;
+      std::string x,y,z; // coordenadas físicas en el espacio virtual de un nodo.
+      bool interseccion; // si en este nodo sus aristas salientes (o entrantes según se mire) son perpendiculares. Implica un posible
       std::string type;
                            // cambio de dirección del fantasma que se encuentre en ese nodo. Es útil para el fantasma bobo, de modo que
                            // al llegar a una esquina se volviera a calcular su ruta de movimiento.

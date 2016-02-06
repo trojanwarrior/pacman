@@ -281,7 +281,7 @@ graphml_boost::ruta_t graphml_boost::getVertices(std::string type){
     {
 
       if(_grafo[i].type == type){
-
+        _grafo[i].idBoost=i;
         vec.push_back(_grafo[i]);
       }
     }

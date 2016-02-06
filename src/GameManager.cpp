@@ -29,6 +29,7 @@ void GameManager::start(GameState* state)
 {
   // Creación del objeto Ogre::Root.
   _root = new Ogre::Root();
+
   
   loadResources();
 

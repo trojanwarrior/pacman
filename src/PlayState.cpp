@@ -10,7 +10,9 @@
 #include "Shapes/OgreBulletCollisionsSphereShape.h"
 #include "graphml_boost.h"
 #include <string>
+#include <vector>
 #include "records.h"
+#include "OgreUtil.h"
 
 //http://www.cplusplus.com/doc/tutorial/templates/          <--------Visita esta página para entender la linea justo debajo de esta
 template<> PlayState* Ogre::Singleton<PlayState>::msSingleton = 0;
@@ -88,6 +90,9 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
   if (_pacmanDir != 0) {
     _pacman->move(_pacmanDir, evt.timeSinceLastFrame);
   }
+  if(_pacman){
+    _pacman->updateAnim(evt.timeSinceLastFrame);
+  }
   return true;
 }
 
@@ -98,6 +103,8 @@ bool PlayState::frameEnded(const Ogre::FrameEvent& evt)
   
   return true;
 }
+
+
 
 
 bool PlayState::keyPressed(const OIS::KeyEvent &e)
@@ -280,8 +287,9 @@ void PlayState::createLevel(){
   std::string fileName = "/home/flush/CEDV/pacman/pacman/blender/level1.xml";
   graphLevel = new graphml_boost();
   graphLevel->cargaGrafo(fileName);
-  paintPills(false);
-  paintPills(true);  
+  
+   paintPills(false);
+   paintPills(true);  
   
   createPacman();
   createPhantoms();
@@ -290,42 +298,16 @@ void PlayState::createLevel(){
 void PlayState::paintPills(bool bigpill){
   graphml_boost::ruta_t pillsNodes  = graphLevel->getVertices(bigpill ? BIGPILL_NODE : REGULAR_NODE);
   for(graphml_boost::ruta_t::iterator it = pillsNodes.begin(); it != pillsNodes.end(); ++it) {
-    std::stringstream str;
 
     graphml_boost::nodo_props node = *it;
-    str << (bigpill ? "bigpill":"pill" )<< (pillsNodes.begin()-it);
     Vector3 position = Vector3(atof(node.x.c_str()),
                                    atof(node.y.c_str()),
                                    atof(node.z.c_str()));
-
-
-    SceneNode *nodePill = _sceneMgr->createSceneNode(str.str());
-    _sceneMgr->getRootSceneNode()->addChild(nodePill);
-    Entity* pacmanEnt = _sceneMgr->createEntity("pill.mesh");
-    pacmanEnt->setCastShadows(true);
-    nodePill->attachObject(pacmanEnt);
-    if (bigpill == true) {
-      nodePill->scale(1.5, 1.5, 1.5);
-    }
-  
-    RigidBody *body = new  RigidBody(str.str(), _world);
-    SphereCollisionShape *shape = new SphereCollisionShape(bigpill ? 0.3 :0.1);
-    body->setShape(nodePill,
-    shape,
-    0.0,
-    0.0,
-    0.01,
-    Vector3::ZERO,
-    Quaternion::IDENTITY);
-    body->enableActiveState();
-       btTransform transform; //Declaration of the btTransform
-    transform.setIdentity(); //This function put the variable of the object to default. The ctor of btTransform doesnt do it.
-    transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(position)); //Set the new position/origin
-    body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body
-  }
-  
+    Pill pill = Pill(_world, position, bigpill, atoi(node.id.c_str()));
+    _pills.push_back(pill);
 
   }
+}
   
 
 /*
@@ -393,4 +375,46 @@ int PlayState::get_score ()
 
 }
 
+/**
+ * Manage collisions with Pacman
+ */
+void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *body1) {
+
+    if (body0 == _pacman->getBtRigidBody() ||
+      body1 == _pacman->getBtRigidBody()) {
+
+    btCollisionObject* pacBody = (body0 == _pacman->getBtRigidBody()) ? body0 : body1;
+    btCollisionObject* otherObject = (pacBody == body0)?body1:body0;
+    // Check pills collision
+    for (std::vector<Pill>::iterator it = _pills.begin();
+         
+      it != _pills.end(); ++it) {
+      Pill pill = *it;
+
+
+      if ( pill.getBtRigidBody() == otherObject) {
+
+
+
+        int points = pill.isBig()? 50 : 10;
+        _world->getBulletDynamicsWorld()->removeCollisionObject(pill.getBtRigidBody());
+                it = _pills.erase(it);
+        OgreUtil::destroySceneNode(pill.getSceneNode());
+        set_score(score+points);
+        break;
+
+
+      }
+    }
+
+
+
+
+
+    }
+
+
+
+
+}
 

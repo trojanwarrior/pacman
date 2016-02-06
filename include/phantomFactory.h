@@ -36,7 +36,7 @@ class PhantomFactory {
     return instance;
   };
   std::vector<Phantom>* createAllPhantoms(DynamicsWorld* _world,graphml_boost::ruta_t phantomZone);
-  Phantom *createPhantom(DynamicsWorld* _world, Vector3 position,int type);
+
 
   
 

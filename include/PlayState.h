@@ -35,6 +35,8 @@
 #include "graphml_boost.h"
 #include "phantom.h"
 #include "phantomFactory.h"
+#include <vector>
+#include "pill.h"
 
 #define PACMAN_START_NODE "pacmanstart"
 #define PHANTOM_START_NODE "phantomstart"
@@ -78,7 +80,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
 
   void  game_over ();
   void  win ();
-
+  void handleCollision(btCollisionObject *body0, btCollisionObject *body1);
  protected:
   Ogre::Root* _root;
   Ogre::SceneManager* _sceneMgr;
@@ -86,6 +88,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   Ogre::Camera* _camera;
   Pacman *_pacman;
   std::vector<Phantom> _phantoms;
+  std::vector<Pill>_pills;
 
   int _pacmanDir;
   DynamicsWorld* _world;
