@@ -12,7 +12,7 @@ using namespace OgreBulletDynamics;
 using namespace OgreBulletCollisions;
 
 
-Fruit::Fruit(DynamicsWorld* _world,Ogre::Vector3 position, std::string name)
+Fruit::Fruit(DynamicsWorld* _world,Ogre::Vector3 position, const std::string &name)
 {
     _name = name;
 
@@ -57,6 +57,11 @@ Fruit::Fruit(const Fruit &fruit)
     this->_name = fruit._name;
     this->body = fruit.body;
     this->shape = fruit.shape;
+}
+
+Fruit::Fruit(Fruit&&)
+{
+    cout << "a ver que hace";
 }
 
 void Fruit::animaFruta(Fruit::tipoAnim tipo,Ogre::Real deltaT)

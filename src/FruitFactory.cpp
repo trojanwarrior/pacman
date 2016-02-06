@@ -15,10 +15,11 @@ Fruit * FruitFactory::createFruit(DynamicsWorld* _world, Vector3 position,tipoFr
 std::vector<Fruit>* FruitFactory::createAllFruits(DynamicsWorld* _world)
 {
     std::vector<Fruit>* fruits = new std::vector<Fruit>();
-
+    Ogre::Vector3 v(0,0,0);
     for(size_t type=0; type < names->size();type++)
     {
-        fruits->push_back(Fruit(_world, Ogre::Vector3(0,0,0),names[type]));
+        Fruit fruta(_world, v,names[type]);
+        fruits->push_back(move(fruta));
     }
     return fruits;
 }

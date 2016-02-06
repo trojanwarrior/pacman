@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.3)
 project(pacman)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftrack-macro-expansion=0 -std=c++11")
 
 ######################## AÑADIDO POR MI: varias variables de entorno para pasarle al compilador/linkador
 set(MYGUI_SOURCE_DIR "/home/twsh/desarrollo/mygui")
@@ -72,6 +72,10 @@ set(SOURCE_FILES
         include/records.h
         include/phantom.h
         include/phantomFactory.h
+        include/ogreUtil.h
+        include/pill.h
+        include/FruitFactory.h
+        include/Fruit.h
         src/GameManager.cpp
         src/InputManager.cpp
         src/IntroState.cpp
@@ -86,7 +90,11 @@ set(SOURCE_FILES
         src/records.cpp
         src/pacman.cpp
         src/phantom.cpp
-        src/phantomFactory.cpp src/FruitFactory.cpp include/FruitFactory.h src/Fruit.cpp include/Fruit.h)
+        src/phantomFactory.cpp
+        src/FruitFactory.cpp
+        src/Fruit.cpp
+        src/ogreUtil.cpp
+        src/pill.cpp)
 
 include_directories(.)
 include_directories(include)

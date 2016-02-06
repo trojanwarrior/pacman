@@ -19,23 +19,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/graphml_boost.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Fruit.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/RecordsState.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/FruitFactory.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/IntroState.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/phantom.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/GameManager.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/GameState.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/PauseState.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/PlayState.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/ControlsState.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/MenuState.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/sounds.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/phantomFactory.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/Fruit.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/InputManager_.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/graphml_boost.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/records.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/RecordsState.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/pacman.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
@@ -59,25 +42,6 @@
           <root url="file://$MODULE_DIR$/../../mygui/Common" />
           <root url="file://$MODULE_DIR$/include" />
         </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/include/FruitFactory.h" />
-          <root url="file://$MODULE_DIR$/include/IntroState.h" />
-          <root url="file://$MODULE_DIR$/include/phantom.h" />
-          <root url="file://$MODULE_DIR$/include/GameManager.h" />
-          <root url="file://$MODULE_DIR$/include/GameState.h" />
-          <root url="file://$MODULE_DIR$/include/PauseState.h" />
-          <root url="file://$MODULE_DIR$/include/PlayState.h" />
-          <root url="file://$MODULE_DIR$/include/ControlsState.h" />
-          <root url="file://$MODULE_DIR$/include/MenuState.h" />
-          <root url="file://$MODULE_DIR$/include/sounds.h" />
-          <root url="file://$MODULE_DIR$/include/phantomFactory.h" />
-          <root url="file://$MODULE_DIR$/include/Fruit.h" />
-          <root url="file://$MODULE_DIR$/include/InputManager_.h" />
-          <root url="file://$MODULE_DIR$/include/graphml_boost.h" />
-          <root url="file://$MODULE_DIR$/include/records.h" />
-          <root url="file://$MODULE_DIR$/include/RecordsState.h" />
-          <root url="file://$MODULE_DIR$/include/pacman.h" />
-        </excluded>
       </library>
     </orderEntry>
   </component>

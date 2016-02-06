@@ -35,6 +35,8 @@
 #include "graphml_boost.h"
 #include "phantom.h"
 #include "phantomFactory.h"
+#include "Fruit.h"
+#include "FruitFactory.h"
 #include <vector>
 #include "pill.h"
 
@@ -115,6 +117,7 @@ private:
   void paintPills(bool bigpill);
   void createPacman();
   void createPhantoms();
+  void createFruits();
 
 };
 

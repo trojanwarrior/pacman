@@ -44,7 +44,7 @@ void PlayState::enter ()
                     createChildSceneNode("debugNode", Vector3::ZERO);
   node->attachObject(static_cast<SimpleRenderable*>(_debugDrawer));
   _world->setDebugDrawer (_debugDrawer);
-  // _world->setShowDebugShapes (true);  
+  // _world->setShowDebugShapes (true);
 
   _exitGame = false;
 
@@ -245,6 +245,7 @@ void PlayState::createScene()
   createLight();
   createLevel();
   createFloor();
+  createFruits();
 
    string name="";
    char points_str [32];
@@ -290,6 +291,11 @@ void PlayState::createLight() {
 void PlayState::createPhantoms(){
    graphml_boost::ruta_t phantomZone = graphLevel->getVertices(PHANTOM_START_NODE);
    PhantomFactory::getInstance().createAllPhantoms(_world,phantomZone);
+}
+
+void PlayState::createFruits()
+{
+  FruitFactory::getInstance().createAllFruits(_world);
 }
 
 void PlayState::createPacman(){

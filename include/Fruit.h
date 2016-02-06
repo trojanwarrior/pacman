@@ -36,7 +36,8 @@ public :
     enum tipoAnim {RECLAMO,MENEO};
 
     const Ogre::Vector3& getPosition();
-    explicit Fruit(DynamicsWorld* _world,Vector3 position,string name);
+    explicit Fruit(DynamicsWorld* _world,Vector3 position,const string &name);
+    Fruit(Fruit&&);
     ~Fruit();
     Fruit(const Fruit &fruit);
     void animaFruta(tipoAnim tipo,Ogre::Real deltaT);
