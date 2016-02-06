@@ -6,7 +6,7 @@
     <Widget type="EditBox" skin="EditBox" position="410 60 165 50" align="HStretch Top" layer="Main" name="high_score">
         <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>
-        <Property key="FontHeight" value="40"/>
+        <Property key="FontHeight" value="35"/>
         <Property key="Colour" value="0 0 0"/>
         <Property key="TextColour" value="1 1 1"/>
         <Property key="TextAlign" value="Center"/>
@@ -22,7 +22,6 @@
     <Widget type="TextBox" skin="TextBox" position="475 370 170 305" layer="Main" name="score_points">
         <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>
-        <Property key="Caption" value="123123"/>
         <Property key="FontHeight" value="30"/>
         <Property key="Colour" value="0 0 0"/>
         <Property key="TextColour" value="1 1 1"/>
@@ -30,7 +29,6 @@
     <Widget type="TextBox" skin="TextBox" position="715 370 180 305" layer="Main" name="score_names">
         <Property key="Visible" value="true"/>
         <Property key="FontName" value="PressStart2P"/>
-        <Property key="Caption" value="JAM"/>
         <Property key="FontHeight" value="30"/>
         <Property key="Colour" value="0 0 0"/>
         <Property key="TextColour" value="1 1 1"/>

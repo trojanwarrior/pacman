@@ -40,7 +40,7 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
   nodeGhost->attachObject(ghostEnt);
   nodeGhost->scale(0.2, 0.2, 0.2);
   _sceneMgr->getRootSceneNode()->addChild(nodeGhost);
-  Entity *ojosEnt = _sceneMgr->createEntity("ojos"+name, "ojosGhost.mesh");
+  Entity *ojosEnt = _sceneMgr->createEntity("ojo"+name, "ojosGhost.mesh");
   SceneNode *nodeOjos = _sceneMgr->createSceneNode("nodeOjos"+name);
   nodeOjos->attachObject(ojosEnt);
   nodeGhost->addChild(nodeOjos);

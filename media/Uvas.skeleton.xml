@@ -1,6 +1,6 @@
 <skeleton >
   <bones >
-    <bone name="HuesoManzana" id="0" >
+    <bone name="HuesoUvas" id="0" >
       <position z="0.000000" y="0.000000" x="0.000000" />
       <rotation angle="0.000000" >
         <axis z="0.000000" y="0.000000" x="1.000000" />
@@ -11,7 +11,7 @@
   <animations >
     <animation name="reclamo" length="0.5833333333333334" >
       <tracks >
-        <track bone="HuesoManzana" >
+        <track bone="HuesoUvas" >
           <keyframes >
             <keyframe time="0.0" >
               <translate z="0.000000" y="0.000000" x="0.000000" />
@@ -124,7 +124,7 @@
     </animation>
     <animation name="meneo" length="1.2083333333333333" >
       <tracks >
-        <track bone="HuesoManzana" >
+        <track bone="HuesoUvas" >
           <keyframes >
             <keyframe time="0.0" >
               <translate z="0.000000" y="0.000000" x="0.000000" />

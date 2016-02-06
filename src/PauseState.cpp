@@ -53,7 +53,7 @@ bool PauseState::frameEnded(const Ogre::FrameEvent& evt)
 bool PauseState::keyPressed(const OIS::KeyEvent &e) 
 {
   // Tecla p --> Estado anterior.
-  if (e.key == OIS::KC_P) 
+  if (e.key == OIS::KC_P)  // Con  P otra vez reanudamos el PlayState
   {
     popState();
   }
@@ -62,13 +62,12 @@ bool PauseState::keyPressed(const OIS::KeyEvent &e)
 
 bool PauseState::keyReleased(const OIS::KeyEvent &e)
 {
-    if (e.key == OIS::KC_ESCAPE)
+    if (e.key == OIS::KC_ESCAPE)        //Si le damos a escape otra vez volvemo al menu (MenuState)
     {
         //Esto solo cuando queramos volver al menu principal, de lo contrario 
         //si volvemos al PlayState nos cargaríamos la escena del juego en marcha.
         _sceneMgr->clearScene(); 
         _root->getAutoCreatedWindow()->removeAllViewports();
-        
         changeState(IntroState::getSingletonPtr());
         
     }

@@ -101,6 +101,8 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   MyGUI::EditBox* score_txt;
   MyGUI::EditBox* lives_txt;
   MyGUI::EditBox* message_txt;
+  MyGUI::EditBox* user_name_txt;
+  MyGUI::ImageBox* message_wall;
   int lives;
   int score;
   bool paused;  

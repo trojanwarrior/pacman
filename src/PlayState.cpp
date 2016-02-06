@@ -66,12 +66,14 @@ void PlayState::pause()
   if (paused)
   {
     message_txt->setVisible(false);
+    message_wall->setVisible(false);
     message_txt->setCaption("");
     paused=false;
   }
   else
   { 
     message_txt->setVisible(true);
+    message_wall->setVisible(true);
     message_txt->setCaption("PAUSE");
     paused=true;
   }
@@ -109,41 +111,66 @@ bool PlayState::frameEnded(const Ogre::FrameEvent& evt)
 
 bool PlayState::keyPressed(const OIS::KeyEvent &e)
 {
-
-  if (paused) {
-    pause();
-  }
-  else if (e.key == OIS::KC_P) {
-    pause();
-    }
-  else if (e.key == OIS::KC_G) {
-    game_over();
-  }
-  else if (e.key == OIS::KC_W) {
-    win();
-  }
-  else if (e.key == OIS::KC_UP) 
+  if (!user_name_txt->getVisible())
   {
-    _pacmanDir = UP_DIR;
-  }
-  else if (e.key == OIS::KC_DOWN) {
-    _pacmanDir = DOWN_DIR;
-
-  }
-  else if (e.key == OIS::KC_LEFT) {
-    _pacmanDir = LEFT_DIR;
-
-  }
-  else if (e.key == OIS::KC_RIGHT) {
-    _pacmanDir = RIGHT_DIR;
-
-  }
-  else if (e.key == OIS::KC_ESCAPE) {
-
-    popState();
-    pushState(IntroState::getSingletonPtr());
+    if (paused) pause();
+    else
+    {
+      if (e.key == OIS::KC_P) {
+        pause();
+      }
+      else if (e.key == OIS::KC_G) {
+        game_over();
+      }
+      else if (e.key == OIS::KC_W) {
+        win();
+     }
+     else if (e.key == OIS::KC_UP)
+     {
+       _pacmanDir = UP_DIR;
+     }
+     else if (e.key == OIS::KC_DOWN) {
+       _pacmanDir = DOWN_DIR;
+     }
+     else if (e.key == OIS::KC_LEFT) {
+       _pacmanDir = LEFT_DIR;
+     }
+     else if (e.key == OIS::KC_RIGHT) {
+       _pacmanDir = RIGHT_DIR;
+     }
+     else if (e.key == OIS::KC_ESCAPE) {
+       popState();
+       pushState(IntroState::getSingletonPtr());
+     }
+   }
+ }
+   else
+  {
+    sounds::getInstance()->play_effect("eat_fruit");
+    cout << (int)e.key<<endl;
+    MyGUI::UString txt = user_name_txt->getCaption();
+    if ((int)e.key==14 && txt.size()>0) txt.resize(txt.size()-1);
+    else
+    {
+      if (((int)e.text >=65 && (int)e.text<=90) || ((int)e.text>=97 && (int)e.text<=122))
+      {
+        if (txt.size()<3) txt.push_back(e.text);
+      }
+    }
+    user_name_txt->setCaption(txt);
+    if (e.key==OIS::KC_RETURN)
+    {
+      cout << "NEW RECORD TO SAVE" << endl;
+        //records::getInstance()->add_record(txt,get_score());
+        records::getInstance()->add_record(txt,9000);
+        records::getInstance()->saveFile(NULL);
+        sounds::getInstance()->play_effect("eat_ghost");
+        user_name_txt->setVisible(false);
+        popState();
+    }
   }
   return true;
+
 }
 
 bool PlayState::keyReleased(const OIS::KeyEvent &e)
@@ -227,9 +254,14 @@ void PlayState::createScene()
    high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
    score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("score");
    lives_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("lives");
+   user_name_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("user_name");
    message_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("message");
+   message_wall = MyGUI::Gui::getInstance().findWidget<MyGUI::ImageBox>("message_wall");
    message_txt->setCaption("");
    message_txt->setVisible(false);
+   message_wall->setVisible(false);
+   user_name_txt->setCaption("");
+   user_name_txt->setVisible(false);
 
    records::getInstance()->getBest(name,points);
    sprintf(points_str,"%d",points);
@@ -284,7 +316,7 @@ void PlayState::createLevel(){
   TriangleMeshCollisionShape *trackTrimesh = trimeshConverter->createTrimesh();
   RigidBody *rigidLevel = new  RigidBody("level", _world);
   rigidLevel->setStaticShape(trackTrimesh, 0.0, 0.0, Vector3::ZERO, Quaternion::IDENTITY);
-  std::string fileName = "/home/flush/CEDV/pacman/pacman/blender/level1.xml";
+  std::string fileName = "./blender/level1.xml";
   graphLevel = new graphml_boost();
   graphLevel->cargaGrafo(fileName);
   
@@ -338,6 +370,7 @@ void PlayState::createFloor() {
 void PlayState::win()
 {
   message_txt->setVisible(true);
+  message_wall->setVisible(true);
   message_txt->setCaption("YOU WIN!!");
   sounds::getInstance()->play_effect("intermission");
 }
@@ -345,8 +378,12 @@ void PlayState::game_over()
 {
   set_lives(0);
   message_txt->setVisible(true);
+  message_wall->setVisible(true);
   message_txt->setCaption("GAME OVER");
   sounds::getInstance()->play_effect("pacman_death");
+  user_name_txt->setCaption("");
+  user_name_txt->setVisible(true);
+  MyGUI::InputManager::getInstance().setKeyFocusWidget(user_name_txt);
 }
 void PlayState::set_lives (int lives)
 {
