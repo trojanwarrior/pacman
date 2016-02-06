@@ -316,7 +316,7 @@ graphml_boost::ruta_t graphml_boost::getRuta(size_t idOrigen, size_t idDestino)
 
 graphml_boost::nodo_props graphml_boost::getNodoAleatorio()
 {
-    graphml_boost::nodo_props nodo {"0","0","0","0",""};
+  graphml_boost::nodo_props nodo{"0","0","0","0","0",-1};
     if (boost::num_vertices(_grafo))
     {
         std::random_device rd;      //non-deterministic uniform random number generator COMO MOLA :D
