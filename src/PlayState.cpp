@@ -295,7 +295,11 @@ void PlayState::createPhantoms(){
 
 void PlayState::createFruits()
 {
-  FruitFactory::getInstance().createAllFruits(_world);
+    std::vector<Fruit>* frutas;
+  frutas = FruitFactory::getInstance().createAllFruits(_world);
+    for (size_t i=0; i< frutas->size(); i++)
+        cout << frutas->at(i).getPosition();
+
 }
 
 void PlayState::createPacman(){

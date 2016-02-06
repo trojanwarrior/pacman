@@ -12,21 +12,24 @@ using namespace OgreBulletDynamics;
 using namespace OgreBulletCollisions;
 
 
-Fruit::Fruit(DynamicsWorld* _world,Ogre::Vector3 position, const std::string &name)
+Fruit::Fruit(DynamicsWorld* world,Ogre::Vector3 position, const std::string &name)
 {
+    cout << "creando fruta\n";
     _name = name;
+    _world = world;
+    _position = position;
 
     SceneManager* _sceneMgr = Root::getSingleton().getSceneManager("SceneManager");
 
-    Entity *frutaEnt = _sceneMgr->createEntity(name+"Ent", name+".mesh");
+    _frutaEnt = _sceneMgr->createEntity(name+"Ent", name+".mesh");
 
     SceneNode *nodeFruit = _sceneMgr->createSceneNode("nodeFruit"+name);
-    nodeFruit->attachObject(frutaEnt);
+    nodeFruit->attachObject(_frutaEnt);
     nodeFruit->scale(0.2, 0.2, 0.2);
     _sceneMgr->getRootSceneNode()->addChild(nodeFruit);
 
     body = new  RigidBody(_name, _world);
-    shape = new BoxCollisionShape(*(frutaEnt->getBoundingBox().getAllCorners()));
+    shape = new BoxCollisionShape(*(_frutaEnt->getBoundingBox().getAllCorners()));
 
 
     body->setShape(nodeFruit,
@@ -47,22 +50,49 @@ Fruit::Fruit(DynamicsWorld* _world,Ogre::Vector3 position, const std::string &na
 
 Fruit::~Fruit()
 {
-    delete body;
-    delete shape;
+//    delete body;
+//    delete shape;
+//    body = nullptr;
+//    shape = nullptr;
+    cout << "destruyendo fruta \n";
 }
 
 Fruit::Fruit(const Fruit &fruit)
 {
     this->_anim = fruit._anim;
     this->_name = fruit._name;
-    this->body = fruit.body;
-    this->shape = fruit.shape;
+    this->_frutaEnt = fruit._frutaEnt;
+//    Ogre::AxisAlignedBox aab = this->_frutaEnt->getBoundingBox();
+//    aab.getSize();
+    this->body = new  RigidBody(fruit._name,fruit._world);
+    this->shape = new BoxCollisionShape(fruit._frutaEnt->getBoundingBox().getSize());
+    //this->shape = new BoxCollisionShape(Ogre::Vector3(1,1,1));
+    *this->body = *fruit.body;
+    *this->shape = *fruit.shape;
+    cout << "construyendo copia fruta \n";
+
 }
 
-Fruit::Fruit(Fruit&&)
+Fruit& Fruit::operator=(const Fruit & fruit)
 {
-    cout << "a ver que hace";
+    this->_anim = fruit._anim; //shallow copy, no hay problema.
+    this->_name = fruit._name; //shallow copy, no hay problema.
+
+    if (this->body)  delete body; // Si el objeto que recibe la asignación ya tenía memoria reservada deberemos resetearla.
+    if (this->shape) delete shape;// Si el objeto que recibe la asignación ya tenía memoria reservada deberemos resetearla.
+
+    this->body = new  RigidBody(fruit._name,fruit._world); // reservamos memoria nueva
+    this->shape = new BoxCollisionShape(*(fruit._frutaEnt->getBoundingBox().getAllCorners()));// reservamos memoria nueva
+    *this->body = *fruit.body;      // Ahora viene lo gracioso: el menda que hizo las clases de body y shape, ¿se curró los correspondientes
+    *this->shape = *fruit.shape;    // constructores de asignación y copia???? Por que si no es así ya puedo hacer yo el pino con las orejas que es paná!
+    cout << "constructor asignación fruta\n";
+    return *this;
 }
+
+//Fruit::Fruit(Fruit&&)
+//{
+//    cout << "a ver que hace";
+//}
 
 void Fruit::animaFruta(Fruit::tipoAnim tipo,Ogre::Real deltaT)
 {

@@ -27,6 +27,9 @@ private :
 
     RigidBody* body;
     BoxCollisionShape* shape;
+    DynamicsWorld* _world;
+    Entity *_frutaEnt;
+    Ogre::Vector3 _position;
 
     Ogre::AnimationState *_anim; // Con un puntero vale. Pues la idea es que solo haya una animación en marcha.
                                  // Meneo sería la animación en standby y Reclamo, pues eso, un toque de atención: "Eo! que estoy aquí!! Ven a por mi!!
@@ -37,9 +40,10 @@ public :
 
     const Ogre::Vector3& getPosition();
     explicit Fruit(DynamicsWorld* _world,Vector3 position,const string &name);
-    Fruit(Fruit&&);
+//    Fruit(Fruit&&); //constructor move
     ~Fruit();
-    Fruit(const Fruit &fruit);
+    Fruit& operator=(const Fruit & fruit); // constructor de asignacion
+    Fruit(const Fruit &fruit); //constructor de copia
     void animaFruta(tipoAnim tipo,Ogre::Real deltaT);
     void cambiaAnimacion(tipoAnim tipo, Ogre::Real deltaT);
 

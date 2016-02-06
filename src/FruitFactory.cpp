@@ -19,7 +19,7 @@ std::vector<Fruit>* FruitFactory::createAllFruits(DynamicsWorld* _world)
     for(size_t type=0; type < names->size();type++)
     {
         Fruit fruta(_world, v,names[type]);
-        fruits->push_back(move(fruta));
+        fruits->push_back(fruta);
     }
     return fruits;
 }

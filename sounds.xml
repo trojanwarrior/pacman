@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sounds_library>
 
-    <base_path>./lwav</base_path>
+    <base_path>./wav</base_path>
     <effects>
       <sound>
         <id>begin</id>

@@ -3,6 +3,9 @@ project(pacman)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftrack-macro-expansion=0 -std=c++11")
 
+add_custom_target(pacman2 COMMAND make -C ${pacman_SOURCE_DIR}
+        CLION_EXE_DIR=${PROJECT_BINARY_DIR})
+
 ######################## AÑADIDO POR MI: varias variables de entorno para pasarle al compilador/linkador
 set(MYGUI_SOURCE_DIR "/home/twsh/desarrollo/mygui")
 set(MYGUI_INSTALL "/home/twsh/desarrollo/mygui")
@@ -72,7 +75,7 @@ set(SOURCE_FILES
         include/records.h
         include/phantom.h
         include/phantomFactory.h
-        include/ogreUtil.h
+        include/OgreUtil.h
         include/pill.h
         include/FruitFactory.h
         include/Fruit.h
