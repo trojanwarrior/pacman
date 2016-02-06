@@ -91,6 +91,8 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   Pacman *_pacman;
   std::vector<Phantom> _phantoms;
   std::vector<Pill>_pills;
+  std::vector<Fruit>* _frutas;
+
 
   int _pacmanDir;
   DynamicsWorld* _world;

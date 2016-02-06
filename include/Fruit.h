@@ -10,6 +10,7 @@
 #include "OgreBulletDynamicsWorld.h"
 #include <string>
 #include <Shapes/OgreBulletCollisionsBoxShape.h>
+#include <boost/shared_ptr.hpp>
 
 using namespace std;
 using namespace Ogre;
@@ -23,12 +24,14 @@ class Fruit
 private :
     string _name;
     const string nombreAnim[2] = {"reclamo","meneo"};
-
+    
 
     RigidBody* body;
     BoxCollisionShape* shape;
+    
     DynamicsWorld* _world;
     Entity *_frutaEnt;
+    SceneNode *_nodeFruit;
     Ogre::Vector3 _position;
 
     Ogre::AnimationState *_anim; // Con un puntero vale. Pues la idea es que solo haya una animación en marcha.
@@ -37,7 +40,6 @@ private :
 
 public :
     enum tipoAnim {RECLAMO,MENEO};
-
     const Ogre::Vector3& getPosition();
     explicit Fruit(DynamicsWorld* _world,Vector3 position,const string &name);
 //    Fruit(Fruit&&); //constructor move
@@ -46,6 +48,9 @@ public :
     Fruit(const Fruit &fruit); //constructor de copia
     void animaFruta(tipoAnim tipo,Ogre::Real deltaT);
     void cambiaAnimacion(tipoAnim tipo, Ogre::Real deltaT);
+    void setPosition(Ogre::Vector3 posicion);
+    void aparece(Ogre::Vector3 donde);
+    void desaparece();
 
 };
 

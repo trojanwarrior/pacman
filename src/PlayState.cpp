@@ -95,6 +95,13 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
   if(_pacman){
     _pacman->updateAnim(evt.timeSinceLastFrame);
   }
+  
+
+    
+  if (_frutas)
+      _frutas->at(fruta_aleatoria).animaFruta(Fruit::RECLAMO,evt.timeSinceLastFrame);
+  
+  
   return true;
 }
 
@@ -295,10 +302,16 @@ void PlayState::createPhantoms(){
 
 void PlayState::createFruits()
 {
-    std::vector<Fruit>* frutas;
-  frutas = FruitFactory::getInstance().createAllFruits(_world);
-    for (size_t i=0; i< frutas->size(); i++)
-        cout << frutas->at(i).getPosition();
+  _frutas = FruitFactory::getInstance().createAllFruits(_world);
+    for (size_t i=0; i< _frutas->size(); i++)
+        cout << "posicion frutas " << _frutas->at(i).getPosition() << endl;
+
+  graphml_boost::nodo_props nodo = graphLevel->getNodoAleatorio();
+  Ogre::Vector3 donde(atof(nodo.x.c_str()),
+                      atof(nodo.y.c_str()),
+                      atof(nodo.z.c_str()));
+  cout << "VA A APARECER UNA FRUTA EN " << donde << endl;
+  _frutas->at(0).aparece(donde);
 
 }
 
