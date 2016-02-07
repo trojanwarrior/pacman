@@ -155,7 +155,7 @@ void graphml_boost::rutaMasCortaBFS(int idNodoOrigen)
 
 
 
-    boost::print_graph(_grafo); // Pinto el grafo pq mola
+    //    boost::print_graph(_grafo); // Pinto el grafo pq mola
     /*
     std::cout << "distances: ";
     for (size_t i=0; i<num_vertices(_grafo);i++)

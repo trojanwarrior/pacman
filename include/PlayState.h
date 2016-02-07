@@ -46,6 +46,19 @@
 #define REGULAR_NODE "regular"
 
 
+enum collisiontypes {
+    COL_NOTHING = 0, //<Collide with nothing
+    COL_PACMAN = 2, //<Collide with PACMAN
+    COL_PHANTOM =4, //<Collide with PHANTOM
+    COL_PILL = 8, //<Collide with PILLS
+    COL_WALL = 16 // COLLIDE WITH WALLS
+};
+
+
+
+
+
+
 using namespace std;
 using namespace Ogre;
 using namespace OgreBulletDynamics;

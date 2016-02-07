@@ -47,7 +47,7 @@ Pacman::Pacman(DynamicsWorld *_world, Vector3 position,int idNodeStart) {
   anim->setTimePosition(0.0);
 
 
-  body = new  RigidBody("pacman", _world);
+  body = new  RigidBody("pacman", _world, COL_PACMAN,COL_WALL);
   shape = new SphereCollisionShape(0.2);
   body->setShape(this->node,
                         shape,
@@ -65,6 +65,7 @@ Pacman::Pacman(DynamicsWorld *_world, Vector3 position,int idNodeStart) {
   transform.setIdentity(); //This function put the variable of the object to default. The ctor of btTransform doesnt do it.
   transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(position)); //Set the new position/origin
   body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body
+  body->getBulletRigidBody()->forceActivationState(DISABLE_DEACTIVATION );
   body->getBulletRigidBody()->setCollisionFlags(body->getBulletRigidBody()->getCollisionFlags() |
   btCollisionObject::CF_CUSTOM_MATERIAL_CALLBACK);
 

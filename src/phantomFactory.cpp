@@ -8,7 +8,7 @@
 std::vector<Phantom>* PhantomFactory::createAllPhantoms(DynamicsWorld* _world,graphml_boost::ruta_t phantomZone){
   std::vector<Phantom>* phantoms = new std::vector<Phantom>();
   
-  for(int type = 0; type< 1;type++){
+  for(int type = 0; type< 4;type++){
     
     int positionIndex=  rand() % phantomZone.size();
     std::cout <<   positionIndex << endl;

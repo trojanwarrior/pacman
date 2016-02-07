@@ -8,6 +8,7 @@
 #include "Shapes/OgreBulletCollisionsTrimeshShape.h"
 #include "Shapes/OgreBulletCollisionsStaticPlaneShape.h"
 #include "Shapes/OgreBulletCollisionsSphereShape.h"
+#include "OgreBulletDynamicsWorld.h"
 #include "graphml_boost.h"
 #include <string>
 #include <vector>
@@ -95,6 +96,7 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
   if(_pacman){
     _pacman->updateAnim(evt.timeSinceLastFrame);
   }
+  set_score((int)(_root->getRenderSystem()->getRenderTargetIterator().getNext()->getLastFPS())); 
 
 
   for (std::vector<Phantom>::iterator it = _phantoms->begin();
@@ -304,7 +306,7 @@ void PlayState::createLight() {
 
 
 void PlayState::createPhantoms(){
-   graphml_boost::ruta_t phantomZone = graphLevel->getVertices(PHANTOM_START_NODE);
+  graphml_boost::ruta_t phantomZone = graphLevel->getVertices(REGULAR_NODE);
    _phantoms = PhantomFactory::getInstance().createAllPhantoms(_world,phantomZone);
 }
 
@@ -348,10 +350,10 @@ void PlayState::createLevel(){
   
   StaticMeshToShapeConverter *trimeshConverter = new StaticMeshToShapeConverter(entLevel);
   TriangleMeshCollisionShape *trackTrimesh = trimeshConverter->createTrimesh();
-  RigidBody *rigidLevel = new  RigidBody("level", _world);
+  RigidBody *rigidLevel = new  RigidBody("level", _world,COL_WALL,COL_PILL | COL_PACMAN);
   rigidLevel->setStaticShape(trackTrimesh, 0.0, 0.0, Vector3::ZERO, Quaternion::IDENTITY);
   std::string fileName = "./blender/level1.xml";
-  //std::string fileName = "/home/twsh/pruebas/level1_1.xml";
+
   graphLevel = new graphml_boost();
   graphLevel->cargaGrafo(fileName);
   
@@ -397,7 +399,7 @@ void PlayState::createFloor() {
   _sceneMgr->getRootSceneNode()->addChild(floorNode);
   CollisionShape *shape = new StaticPlaneCollisionShape (
       Ogre::Vector3(0, 1, 0), 0);
-  RigidBody *rigidBodyPlane = new RigidBody("rigidBodyPlane", _world);
+  RigidBody *rigidBodyPlane = new RigidBody("rigidBodyPlane", _world,COL_WALL,COL_PILL|COL_PACMAN);
   rigidBodyPlane->setStaticShape(shape, 0.1, 0);
 
 }

@@ -33,6 +33,7 @@ class Phantom{
   RigidBody* body;
   CollisionShape* shape;
   void calculateNewDestiny();
+  Vector3  getBulletPosition();
 
 
  public :

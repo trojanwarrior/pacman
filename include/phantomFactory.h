@@ -20,7 +20,7 @@ class PhantomFactory {
   const string names[4] = {"clyde","blinky","inky","pinky"};
   const float smarts[4] = {70,80,90,100};
   const string materials[4] = {"materialClydeNaranja","materialBlinkyRojo","materialInkyCian","materialPinkyRosa"};
-  const float speeds[4] = {1,2,1.5,1.8} ;
+  const float speeds[4] = {3,2,2.5,2} ;
 
     PhantomFactory() {
 
