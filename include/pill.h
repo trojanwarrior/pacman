@@ -19,9 +19,10 @@ class Pill{
   RigidBody* _body;
   CollisionShape* _shape;
   int _id;
+  int _idNode;
 
  public :
-  explicit Pill(DynamicsWorld* _world,Vector3 position, bool big, int id);
+  explicit Pill(DynamicsWorld* _world,Vector3 position, bool big, int id,int idNode);
   //~Pill();
   //  Pill(Pill& pill);
   //  Pill& operator =(const Pill& pill);
@@ -29,6 +30,8 @@ class Pill{
   inline int getId(){return _id;};
   btRigidBody* getBtRigidBody();
   inline SceneNode* getSceneNode(){return _node;};
+  inline int getIdNode(){return _idNode;};
+
 };
 
 #endif 

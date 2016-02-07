@@ -23,19 +23,26 @@ class Phantom{
   float speed;
   float smart;
   int idOrigin;
+  int startNode;
+  int idDestiny;
+  double distanceToDestiny;
+
 
   string name;
 
   RigidBody* body;
   CollisionShape* shape;
+  void calculateNewDestiny();
 
 
  public :
   const Ogre::Vector3& getPosition();
   explicit Phantom(DynamicsWorld* _world,Vector3 position,string _name, float _speed, float _smart,string material,int origin);
+  inline RigidBody* getBody(){return body;};
+  void checkMove();
   //  ~Phantom();
   //Phantom(const Phantom &phantom);
-  void move(int direction);
+
 
 };
 

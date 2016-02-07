@@ -81,13 +81,16 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   void  game_over ();
   void  win ();
   void handleCollision(btCollisionObject *body0, btCollisionObject *body1);
+  inline graphml_boost::nodo_props getGraphNode(int idNode){return graphLevel->getGraphNode(idNode);};
+  inline graphml_boost::ruta_t calculateRoute(int idOrg, int idDest){graphLevel->rutaMasCortaBFS(idOrg);return graphLevel->getRuta(idOrg,idDest);};
+  inline Pacman* getPacman(){return _pacman;};
  protected:
   Ogre::Root* _root;
   Ogre::SceneManager* _sceneMgr;
   Ogre::Viewport* _viewport;
   Ogre::Camera* _camera;
   Pacman *_pacman;
-  std::vector<Phantom> _phantoms;
+  std::vector<Phantom>* _phantoms;
   std::vector<Pill>_pills;
 
   int _pacmanDir;

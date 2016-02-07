@@ -95,6 +95,14 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
   if(_pacman){
     _pacman->updateAnim(evt.timeSinceLastFrame);
   }
+
+  for (std::vector<Phantom>::iterator it = _phantoms->begin();
+         
+      it != _phantoms->end(); ++it) {
+    (*it).checkMove();
+  }
+
+  
   return true;
 }
 
@@ -289,7 +297,7 @@ void PlayState::createLight() {
 
 void PlayState::createPhantoms(){
    graphml_boost::ruta_t phantomZone = graphLevel->getVertices(PHANTOM_START_NODE);
-   PhantomFactory::getInstance().createAllPhantoms(_world,phantomZone);
+   _phantoms = PhantomFactory::getInstance().createAllPhantoms(_world,phantomZone);
 }
 
 void PlayState::createPacman(){
@@ -298,7 +306,7 @@ void PlayState::createPacman(){
   Vector3 position = Vector3(atof(nodePacmanStart.x.c_str()),
                                    atof(nodePacmanStart.y.c_str()),
                                    atof(nodePacmanStart.z.c_str()));
-  _pacman = new Pacman(_world, position);
+  _pacman = new Pacman(_world, position, nodePacmanStart.idBoost);
 }
 /*
  * Create Pacman Level
@@ -335,7 +343,7 @@ void PlayState::paintPills(bool bigpill){
     Vector3 position = Vector3(atof(node.x.c_str()),
                                    atof(node.y.c_str()),
                                    atof(node.z.c_str()));
-    Pill pill = Pill(_world, position, bigpill, atoi(node.id.c_str()));
+    Pill pill = Pill(_world, position, bigpill, atoi(node.id.c_str()),node.idBoost);
     _pills.push_back(pill);
 
   }
@@ -432,7 +440,8 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
       if ( pill.getBtRigidBody() == otherObject) {
 
 
-
+        std::cout << "Nodo IdNode "<< pill.getIdNode() << std::endl;
+        _pacman->setCurrentNode(pill.getIdNode());
         int points = pill.isBig()? 50 : 10;
         _world->getBulletDynamicsWorld()->removeCollisionObject(pill.getBtRigidBody());
                 it = _pills.erase(it);

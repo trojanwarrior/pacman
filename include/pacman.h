@@ -33,16 +33,19 @@ class Pacman{
   void createLevel();
   void createLight();
   int oldDir;
+  int currentNode;
 
  public :
   const Ogre::Vector3& getPosition();
-  explicit Pacman(DynamicsWorld* _world,Vector3 position);
+  explicit Pacman(DynamicsWorld* _world,Vector3 position, int idNodeStart);
   ~Pacman();
   void move(int direction  , double deltaTime);
   int kill();
   int getLifes();
   btRigidBody* getBtRigidBody();
   void updateAnim(Ogre::Real deltaT);
+  inline int getCurrentNode(){return currentNode;};
+  inline void setCurrentNode(int idCurrentNode){currentNode = idCurrentNode;};
 };
 
 #endif 

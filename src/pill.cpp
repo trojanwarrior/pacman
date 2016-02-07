@@ -11,9 +11,10 @@ using namespace OgreBulletCollisions;
 /*
  *Constructor
  */
-Pill::Pill(DynamicsWorld *_world, Vector3 position,bool big,int id) {
+Pill::Pill(DynamicsWorld *_world, Vector3 position,bool big,int id,int idNode) {
   _big = big;
   _id = id;
+  _idNode = idNode;
   SceneManager* _sceneMgr = Root::getSingleton().
                             getSceneManager("SceneManager");
   std::stringstream str;

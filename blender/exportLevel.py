@@ -56,9 +56,9 @@ def exportToGraphMl():
         
         if isVertexInGroup(edge.vertices[0],idRoadsGroup) == True and isVertexInGroup(edge.vertices[1],idRoadsGroup) == True:
             f.write('<edge id="e'+str(idxe)+'" source="'+ str(edge.vertices[0])+'" target="'+str(edge.vertices[1])+'" >\n')
-            f.write('<data id="keyIdArista">'+str(idxe)+'</data>\n')
-            f.write('<data id="keySource">'+str(edge.vertices[0])+'</data>\n')
-            f.write('<data id="keyTarget">'+str(edge.vertices[1])+'</data>\n')
+            f.write('<data key="keyIdArista">e'+str(idxe)+'</data>\n')
+            f.write('<data key="keySource">'+str(edge.vertices[0])+'</data>\n')
+            f.write('<data key="keyTarget">'+str(edge.vertices[1])+'</data>\n')
             f.write('</edge>')
 
     f.write('</graph>\n')

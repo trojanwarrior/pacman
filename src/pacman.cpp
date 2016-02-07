@@ -24,7 +24,10 @@ extern ContactProcessedCallback gContactProcessedCallback = (ContactProcessedCal
  *Constructor
  * Set lifes to 3 and speed to 1. also create Scene Node for pacman if it doesn't exists.
  */
-Pacman::Pacman(DynamicsWorld *_world, Vector3 position) {
+Pacman::Pacman(DynamicsWorld *_world, Vector3 position,int idNodeStart) {
+
+
+  std::cout << "Nodo Start Pacman "<< idNodeStart << std::endl;
   SceneManager* _sceneMgr = Root::getSingleton().
                             getSceneManager("SceneManager");
   try  {
@@ -54,6 +57,7 @@ Pacman::Pacman(DynamicsWorld *_world, Vector3 position) {
                         Vector3::ZERO,
                         Quaternion::IDENTITY);
   body->enableActiveState();
+  currentNode = idNodeStart;
 
 
 

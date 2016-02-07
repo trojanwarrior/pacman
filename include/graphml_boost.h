@@ -85,7 +85,10 @@ class graphml_boost
                                                            // Cada vez que hagamos una búsqueda, del tipo que sea, necesitaremos llamar a este método para
                                                            // obtener una lista de nodos nueva. El vector que nos devuelva no será válido en el momento que nuestro
                                                            // idOrigen haya cambiado, momento en el que deberemos volver a llamar a los algoritmos de búsqueda.
-        ruta_t getVertices(std::string type);
+
+  ruta_t getVertices(std::string type);
+  inline nodo_props getGraphNode(int idNode){return _grafo[idNode];};
+  
 
 
 
