@@ -20,7 +20,7 @@ void PauseState::enter ()
   // Nuevo background colour.
   _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 1.0, 0.0));
 
-  mostrarPausa();
+  //mostrarPausa();
 
   _exitGame = false;
 }

@@ -32,18 +32,29 @@ Fruit::Fruit(DynamicsWorld* world,Ogre::Vector3 position, const std::string &nam
 
     body = new  RigidBody(_name, _world);
     //shape = new BoxCollisionShape(_frutaEnt->getBoundingBox().getSize());
-    shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.2));
+    shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.1));
+    
     body->showDebugShape(true);
 
+
+//    body->setShape(_nodeFruit,
+//                   shape,
+//                   0.0,
+//                   0.0,
+//                   10,
+//                   Vector3::ZERO,
+//                   Quaternion::IDENTITY);
 
     body->setShape(_nodeFruit,
                    shape,
                    0.0,
-                   0.0,
-                   10,
+                   1000.0,
+                   100,
                    Vector3::ZERO,
                    Quaternion::IDENTITY);
-
+    
+    body->setGravity(1,1,1);
+    
     body->enableActiveState();
 
     btTransform transform; //Declaration of the btTransform

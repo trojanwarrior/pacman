@@ -341,6 +341,7 @@ void PlayState::createLevel(){
   RigidBody *rigidLevel = new  RigidBody("level", _world);
   rigidLevel->setStaticShape(trackTrimesh, 0.0, 0.0, Vector3::ZERO, Quaternion::IDENTITY);
   std::string fileName = "./blender/level1.xml";
+  //std::string fileName = "/home/twsh/pruebas/level1_1.xml";
   graphLevel = new graphml_boost();
   graphLevel->cargaGrafo(fileName);
   
