@@ -44,7 +44,7 @@ void PlayState::enter ()
                     createChildSceneNode("debugNode", Vector3::ZERO);
   node->attachObject(static_cast<SimpleRenderable*>(_debugDrawer));
   _world->setDebugDrawer (_debugDrawer);
-  // _world->setShowDebugShapes (true);  
+  // _world->setShowDebugShapes (true);
 
   _exitGame = false;
 
@@ -96,11 +96,18 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
     _pacman->updateAnim(evt.timeSinceLastFrame);
   }
 
+
   for (std::vector<Phantom>::iterator it = _phantoms->begin();
          
       it != _phantoms->end(); ++it) {
     (*it).checkMove();
   }
+
+
+  
+  if (_frutas)
+      _frutas->at(_fruta_aleatoria).animaFruta(Fruit::RECLAMO,evt.timeSinceLastFrame);
+  
 
   
   return true;
@@ -253,6 +260,7 @@ void PlayState::createScene()
   createLight();
   createLevel();
   createFloor();
+  createFruits();
 
    string name="";
    char points_str [32];
@@ -300,6 +308,24 @@ void PlayState::createPhantoms(){
    _phantoms = PhantomFactory::getInstance().createAllPhantoms(_world,phantomZone);
 }
 
+void PlayState::createFruits()
+{
+  _frutas = FruitFactory::getInstance().createAllFruits(_world);
+    for (size_t i=0; i< _frutas->size(); i++)
+        cout << "posicion frutas " << _frutas->at(i).getPosition() << endl;
+
+  graphml_boost::nodo_props nodo = graphLevel->getNodoAleatorio();
+  Ogre::Vector3 donde(atof(nodo.x.c_str()),
+                      atof(nodo.y.c_str()),
+                      atof(nodo.z.c_str()));
+  cout << "VA A APARECER UNA FRUTA EN " << donde << endl;
+  
+  //_fruta_aleatoria = rand() % _frutas->size();
+  _fruta_aleatoria = 1;
+  _frutas->at(_fruta_aleatoria).aparece(donde);
+
+}
+
 void PlayState::createPacman(){
   _pacmanDir = 0;
   graphml_boost::nodo_props  nodePacmanStart = *(graphLevel->getVertices(PACMAN_START_NODE).begin());
@@ -325,6 +351,7 @@ void PlayState::createLevel(){
   RigidBody *rigidLevel = new  RigidBody("level", _world);
   rigidLevel->setStaticShape(trackTrimesh, 0.0, 0.0, Vector3::ZERO, Quaternion::IDENTITY);
   std::string fileName = "./blender/level1.xml";
+  //std::string fileName = "/home/twsh/pruebas/level1_1.xml";
   graphLevel = new graphml_boost();
   graphLevel->cargaGrafo(fileName);
   

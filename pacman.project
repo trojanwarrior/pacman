@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="pacman" InternalType="Console">
-  <Reconciliation>
-    <Regexes/>
-    <Excludepaths/>
-    <Ignorefiles/>
-    <Extensions>
-      <![CDATA[cpp;c;h;hpp;xrc;wxcp;fbp]]>
-    </Extensions>
-    <Topleveldir>../pacman</Topleveldir>
-  </Reconciliation>
   <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
     <Plugin Name="CMakePlugin">
       <![CDATA[[{
   "name": "Debug",
@@ -22,10 +16,16 @@
   "parentProject": ""
  }]]]>
     </Plugin>
-    <Plugin Name="qmake">
-      <![CDATA[00010001N0005Debug000000000000]]>
-    </Plugin>
   </Plugins>
+  <Reconciliation>
+    <Regexes/>
+    <Excludepaths/>
+    <Ignorefiles/>
+    <Extensions>
+      <![CDATA[cpp;c;h;hpp;xrc;wxcp;fbp]]>
+    </Extensions>
+    <Topleveldir>../pacman</Topleveldir>
+  </Reconciliation>
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
@@ -35,6 +35,20 @@
     <File Name="src/main.cpp"/>
     <File Name="src/PauseState.cpp"/>
     <File Name="src/PlayState.cpp"/>
+    <File Name="src/ControlsState.cpp"/>
+    <File Name="src/Fruit.cpp"/>
+    <File Name="src/FruitFactory.cpp"/>
+    <File Name="src/#graphml_boost.cpp#"/>
+    <File Name="src/graphml_boost.cpp"/>
+    <File Name="src/MenuState.cpp"/>
+    <File Name="src/ogreUtil.cpp"/>
+    <File Name="src/pacman.cpp"/>
+    <File Name="src/phantom.cpp"/>
+    <File Name="src/phantomFactory.cpp"/>
+    <File Name="src/pill.cpp"/>
+    <File Name="src/records.cpp"/>
+    <File Name="src/RecordsState.cpp"/>
+    <File Name="src/sounds.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
     <File Name="include/GameManager.h"/>
@@ -43,6 +57,22 @@
     <File Name="include/IntroState.h"/>
     <File Name="include/PauseState.h"/>
     <File Name="include/PlayState.h"/>
+    <File Name="include/ControlsState.h"/>
+    <File Name="include/Fruit.h"/>
+    <File Name="include/FruitFactory.h"/>
+    <File Name="include/graphml_boost.h"/>
+    <File Name="include/InputManager_.h"/>
+    <File Name="include/#IntroState.h#"/>
+    <File Name="include/MenuState.h"/>
+    <File Name="include/OgreUtil.h"/>
+    <File Name="include/pacman.h"/>
+    <File Name="include/#pacman.h#"/>
+    <File Name="include/phantom.h"/>
+    <File Name="include/phantomFactory.h"/>
+    <File Name="include/pill.h"/>
+    <File Name="include/records.h"/>
+    <File Name="include/RecordsState.h"/>
+    <File Name="include/sounds.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
@@ -60,7 +90,7 @@
       </Compiler>
       <Linker Options="" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>
-      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
         <![CDATA[]]>
       </Environment>

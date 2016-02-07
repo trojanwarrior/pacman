@@ -1,8 +1,8 @@
-<scene exported_by="twsh" formatVersion="1.0.1" previous_export_time="1453904423.7061841" export_time="1453904443.9070027" >
+<scene export_time="1454801798.985972" previous_export_time="1453904443.9070027" exported_by="twsh" formatVersion="1.0.1" >
   <nodes >
     <node name="Armature" >
       <position z="-0.000000" x="0.000000" y="0.000000" />
-      <rotation qy="0.000000" qz="-0.000000" qx="0.000000" qw="1.000000" />
+      <rotation qw="1.000000" qy="0.000000" qz="-0.000000" qx="0.000000" />
       <scale z="1.000000" x="1.000000" y="1.000000" />
       <game >
         <sensors />
@@ -10,52 +10,48 @@
       </game>
       <node name="Fresa" >
         <position z="-0.000000" x="0.000000" y="0.000000" />
-        <rotation qy="0.000000" qz="-0.000000" qx="0.000000" qw="1.000000" />
+        <rotation qw="1.000000" qy="0.000000" qz="-0.000000" qx="0.000000" />
         <scale z="1.000000" x="1.000000" y="1.000000" />
         <game >
           <sensors />
           <actuators />
         </game>
-        <entity friction_z="1.0" mass="1.0" friction_x="1.0" damping_rot="0.10000000149011612" inertia_tensor="0.4000000059604645" actor="False" anisotropic_friction="False" mass_radius="1.0" name="Fresa" lock_trans_y="False" friction_y="1.0" lock_trans_z="False" ghost="False" velocity_max="0.0" velocity_min="0.0" physics_type="STATIC" lock_rot_x="False" lock_trans_x="False" lock_rot_y="False" lock_rot_z="False" meshFile="Fresa.mesh" damping_trans="0.03999999910593033" />
+        <entity velocity_min="0.0" lock_rot_x="False" velocity_max="0.0" lock_trans_x="False" ghost="False" inertia_tensor="0.4000000059604645" damping_rot="0.10000000149011612" name="Fresa" meshFile="Fresa.mesh" mass_radius="1.0" mass="1.0" friction_x="1.0" anisotropic_friction="False" lock_rot_y="False" friction_y="1.0" lock_trans_z="False" lock_rot_z="False" lock_trans_y="False" physics_type="STATIC" damping_trans="0.03999999910593033" friction_z="1.0" actor="False" />
       </node>
     </node>
     <node name="Lamp" >
       <position z="2.969748" x="1.222653" y="0.331151" />
-      <rotation qy="0.755880" qz="-0.272171" qx="0.169076" qw="0.570947" />
+      <rotation qw="0.570947" qy="0.755880" qz="-0.272171" qx="0.169076" />
       <scale z="1.000000" x="1.000000" y="1.000000" />
       <game >
         <sensors />
         <actuators />
       </game>
-      <light shadow="true" name="Lamp" type="point" powerScale="1.0" >
+      <light type="point" name="Lamp" shadow="true" powerScale="1.0" >
         <position z="2.969748" x="1.222653" y="0.331151" />
-        <lightAttenuation linear="0.03333335240683057" constant="1.0" range="5000" quadratic="0.0" />
-        <colourDiffuse r="1.0" b="1.0" g="1.0" />
-        <colourSpecular r="1.0" b="1.0" g="1.0" />
-        <colourShadow r="1.0" b="1.0" g="1.0" />
+        <lightAttenuation quadratic="0.0" range="5000" linear="0.03333335240683057" constant="1.0" />
+        <colourDiffuse g="1.0" r="1.0" b="1.0" />
+        <colourSpecular g="1.0" r="1.0" b="1.0" />
+        <colourShadow g="1.0" r="1.0" b="1.0" />
       </light>
     </node>
     <node name="Camera" >
       <position z="6.507640" x="7.481132" y="5.343665" />
-      <rotation qy="0.334251" qz="-0.212922" qx="0.481707" qw="0.781600" />
+      <rotation qw="0.781600" qy="0.334251" qz="-0.212922" qx="0.481707" />
       <scale z="1.000000" x="1.000000" y="1.000000" />
       <game >
         <sensors />
         <actuators />
       </game>
-      <camera projectionType="perspective" name="Camera" fov="0.5033799435163735" >
-        <clipping far="100.0" farPlaneDist="100.0" nearPlaneDist="0.10000000149011612" near="0.10000000149011612" />
+      <camera fov="0.5033799435163735" name="Camera" projectionType="perspective" >
+        <clipping farPlaneDist="100.0" near="0.10000000149011612" nearPlaneDist="0.10000000149011612" far="100.0" />
       </camera>
     </node>
   </nodes>
-  <externals >
-    <item type="material" >
-      <file name="/home/twsh/desarrollo/clion/pacman/media/MaterialFresa.material" />
-    </item>
-  </externals>
+  <externals />
   <environment >
-    <colourBackground r="0.05087608844041824" b="0.05087608844041824" g="0.05087608844041824" />
-    <colourDiffuse r="0.05087608844041824" b="0.05087608844041824" g="0.05087608844041824" />
-    <colourAmbient r="0.0" b="0.0" g="0.0" />
+    <colourDiffuse g="0.05087608844041824" r="0.05087608844041824" b="0.05087608844041824" />
+    <colourBackground g="0.05087608844041824" r="0.05087608844041824" b="0.05087608844041824" />
+    <colourAmbient g="0.0" r="0.0" b="0.0" />
   </environment>
 </scene>

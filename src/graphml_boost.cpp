@@ -58,9 +58,9 @@ bool graphml_boost::cargaGrafo(string nombreFichero)
         limpiaGrafo();
         if (_ifstream.is_open()) // Si el manejador del fichero estaba abierto lo cerramos
             _ifstream.close();
-
+ 
         _ifstream.open(nombreFichero.c_str(), std::ifstream::in); // Abrimos el fichero para pasárselo a read_graphml
-
+ 
         // Configuración de las propiedades de los nodos y las aristas.
         // Coincide exactamente con la definición del archivo xml con el grafo en formato graphml.
         _dp.property("x",boost::get(&nodo_props::x,_grafo));
@@ -72,7 +72,7 @@ bool graphml_boost::cargaGrafo(string nombreFichero)
         _dp.property("source",boost::get(&arista_props::source,_grafo));
         _dp.property("target",boost::get(&arista_props::target,_grafo));
         _dp.property("weight",boost::get(&arista_props::weight,_grafo));
-
+  
         boost::read_graphml(_ifstream, _grafo, _dp);  // Procedemos a la lectura del archivo y lo cargamos en nuestro grafo
         cout << "Nº de nodos " << boost::num_vertices(_grafo) << "\n";
         cout << "Nº de aristas " << boost::num_edges(_grafo) << "\n";
@@ -316,7 +316,8 @@ graphml_boost::ruta_t graphml_boost::getRuta(size_t idOrigen, size_t idDestino)
 
 graphml_boost::nodo_props graphml_boost::getNodoAleatorio()
 {
-  graphml_boost::nodo_props nodo{"0","0","0","0","0",-1};
+    graphml_boost::nodo_props nodo{"0","0","0","0","0",-1};
+  
     if (boost::num_vertices(_grafo))
     {
         std::random_device rd;      //non-deterministic uniform random number generator COMO MOLA :D

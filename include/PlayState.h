@@ -35,6 +35,8 @@
 #include "graphml_boost.h"
 #include "phantom.h"
 #include "phantomFactory.h"
+#include "Fruit.h"
+#include "FruitFactory.h"
 #include <vector>
 #include "pill.h"
 
@@ -92,6 +94,9 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   Pacman *_pacman;
   std::vector<Phantom>* _phantoms;
   std::vector<Pill>_pills;
+  std::vector<Fruit>* _frutas;
+  int _fruta_aleatoria; // id de una fruta del vector _frutas. Será la que aparezca.
+
 
   int _pacmanDir;
   DynamicsWorld* _world;
@@ -118,6 +123,7 @@ private:
   void paintPills(bool bigpill);
   void createPacman();
   void createPhantoms();
+  void createFruits();
 
 };
 
