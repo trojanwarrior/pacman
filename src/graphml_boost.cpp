@@ -156,12 +156,12 @@ void graphml_boost::rutaMasCortaBFS(int idNodoOrigen)
 
 
     boost::print_graph(_grafo); // Pinto el grafo pq mola
-
+    /*
     std::cout << "distances: ";
     for (size_t i=0; i<num_vertices(_grafo);i++)
         cout << d[i] << " ";
     cout << endl;
-
+    */
 
     // boost::vertices devuelve un pair, o sea, un tipo de dato formado por una pareja de datos. Esa pareja de datos
     // son dos iteradores del tipo boost::adjacency_list::vertex_iterator. Uno apunta al principio (vertices.first)
@@ -176,9 +176,9 @@ void graphml_boost::rutaMasCortaBFS(int idNodoOrigen)
     // es el siguiente elemento del vector que tenemos que mirar para saber cual es el siguiente vértice al que llegar. Así hasta llegar
     // a la posición 0 del vector que aloja el indice del nodo de salida. Es decir, hay que recorrer el vector del revés para hacer
     // el recorrido en el orden que realmente queremos. Ole ole, ahora es cuando el entendimiento se rinde y se echa un trago (Terry Pratchet - Mundodisco).
-    std::for_each(boost::vertices(_grafo).first, boost::vertices(_grafo).second,
+    /*    std::for_each(boost::vertices(_grafo).first, boost::vertices(_grafo).second,
                   print_parent<Piter>(&_p[0]));
-
+    */
     return;
 
 }

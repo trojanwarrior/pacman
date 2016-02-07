@@ -2,6 +2,7 @@
 #include "Shapes/OgreBulletCollisionsSphereShape.h"
 #include <string>
 #include "pacman.h"
+#include "PlayState.h"
 
 
 using namespace Ogre;
@@ -28,7 +29,9 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
   name = _name;
   speed = _speed;
   idOrigin = origin;
-  std::cout << "Nodo origen Fantasma = " << origin << std::endl;
+  startNode = origin;
+
+
   SceneManager* _sceneMgr = Root::getSingleton().
                             getSceneManager("SceneManager");
 
@@ -56,14 +59,31 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
                         Vector3::ZERO,
                         Quaternion::IDENTITY);
   body->enableActiveState();
-  std::cout << position << "," <<_name << "," << speed << "," <<_smart << "," << material << std::endl;  
+
   btTransform transform; //Declaration of the btTransform
   transform.setIdentity(); //This function put the variable of the object to default. The ctor of btTransform doesnt do it.
   transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(position)); //Set the new position/origin
   body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body*/
+  calculateNewDestiny();
 
-
+ 
   
+}
+
+void Phantom::calculateNewDestiny(){
+  int idPacmanNode = PlayState::getSingleton().getPacman()->getCurrentNode();
+  graphml_boost::ruta_t route = PlayState::getSingleton().calculateRoute(idOrigin, idPacmanNode);
+  graphml_boost::nodo_props nodeDestiny = route.back();
+  idDestiny = route.back().idBoost;
+  
+  Vector3 positionDestiny = Vector3(atof(nodeDestiny.x.c_str()),
+                                   atof(nodeDestiny.y.c_str()),
+                                   atof(nodeDestiny.z.c_str()));
+
+  Ogre::Vector3 direction = positionDestiny - body->getSceneNode()->getPosition();
+  distanceToDestiny = direction.squaredLength();  
+  body->setLinearVelocity(direction);
+  std::cout << " distancia "<< idDestiny << "-" << distanceToDestiny << std::endl;
 }
 
 
@@ -85,23 +105,27 @@ const Vector3& Phantom::getPosition() {
 /*
  * Move phantom in one direction
  */
-void Phantom::move(int direction) {
-  float x = 0,  z = 0;
-  float spaceTranslated = this->speed;
-  switch (direction) {
-    case UP_DIR: z+= spaceTranslated;
-      break;
-    case DOWN_DIR: z-= spaceTranslated;
-      break;
-    case LEFT_DIR: x+= spaceTranslated;
-      break;
-    case RIGHT_DIR: x-= spaceTranslated;
-      break;
+void Phantom::checkMove() {
+
+  graphml_boost::nodo_props nodeDestiny = PlayState::getSingleton().getGraphNode(idDestiny);
+  Vector3 positionDestiny = Vector3(atof(nodeDestiny.x.c_str()),
+                                   atof(nodeDestiny.y.c_str()),
+                                   atof(nodeDestiny.z.c_str()));
+
+  Ogre::Vector3 direction = positionDestiny - body->getSceneNode()->getPosition();
+  float newDistance = direction.squaredLength();
+  //std::cout << " distancia" << distanceToDestiny << std::endl;  
+  if(newDistance < 0.1){
+    idOrigin = idDestiny;
+    std::cout << "cambiando de destino" << std::endl;
+    calculateNewDestiny();
+  }
+  else{
+    //std::cout << "sigue destino"<< std::endl;
+    distanceToDestiny = newDistance;
   }
 
 
-
-  body->setLinearVelocity( Ogre::Vector3(x,0,z ));
 
 }
 
