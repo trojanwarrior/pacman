@@ -68,7 +68,7 @@ bool PauseState::keyReleased(const OIS::KeyEvent &e)
         //si volvemos al PlayState nos cargaríamos la escena del juego en marcha.
         _sceneMgr->clearScene(); 
         _root->getAutoCreatedWindow()->removeAllViewports();
-        changeState(IntroState::getSingletonPtr());
+        changeState(MenuState::getSingletonPtr());
         
     }
   return true;
