@@ -55,6 +55,12 @@ void PlayState::enter ()
 
 void PlayState::exit ()
 {
+  
+  message_txt->setVisible(false);
+  message_wall->setVisible(false);
+  message_txt->setCaption("");
+  paused=false;
+  
   _sceneMgr->clearScene();
   _root->getAutoCreatedWindow()->removeAllViewports();
   delete _pacman;
@@ -63,20 +69,24 @@ void PlayState::exit ()
 
 void PlayState::pause()
 {
-  if (paused)
-  {
-    message_txt->setVisible(false);
-    message_wall->setVisible(false);
-    message_txt->setCaption("");
-    paused=false;
-  }
-  else
-  { 
+    //SI ENTRAMOS AQUÍ ES POR QUE HAN APILADO UN ESTADO ENCIMA DE ESTE, LUEGO EL GAMEMANAGER
+    //SERÁ EL QUE LLAME A ESTE MÉTODO. POR LO QUE NO ES NECESARIO SIQUIERA PREGUNTAR SI ESTAMOS
+    //EN PAUSA. 
+    
+//  if (paused)
+//  {
+//    message_txt->setVisible(false);
+//    message_wall->setVisible(false);
+//    message_txt->setCaption("");
+//    paused=false;
+//  }
+//  else
+//  { 
     message_txt->setVisible(true);
     message_wall->setVisible(true);
     message_txt->setCaption("PAUSE");
     paused=true;
-  }
+//  }
   sounds::getInstance()->play_effect("eat_fruit");
 }
 
@@ -84,6 +94,15 @@ void PlayState::resume()
 {
   // Se restaura el background colour.
   _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 1.0));
+  
+    //SI ENTRAMOS AQUÍ ES QUE ESTE ESTADO ESTABA EN LA PILA Y AHORA
+    //ES EL QUE ESTÁ EN EL TOP DE LA PILA, LUEGO RETOMA EL CONTROL.
+  
+    message_txt->setVisible(false);
+    message_wall->setVisible(false);
+    message_txt->setCaption("");
+    paused=false;
+
 }
 
 bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
@@ -128,38 +147,40 @@ bool PlayState::keyPressed(const OIS::KeyEvent &e)
 {
   if (!user_name_txt->getVisible())
   {
-    if (paused) pause();
-    else
-    {
-      if (e.key == OIS::KC_P) {
-        pause();
-      }
-      else if (e.key == OIS::KC_G) {
-        game_over();
-      }
-      else if (e.key == OIS::KC_W) {
-        win();
-     }
-     else if (e.key == OIS::KC_UP)
-     {
-       _pacmanDir = UP_DIR;
-     }
-     else if (e.key == OIS::KC_DOWN) {
-       _pacmanDir = DOWN_DIR;
-     }
-     else if (e.key == OIS::KC_LEFT) {
-       _pacmanDir = LEFT_DIR;
-     }
-     else if (e.key == OIS::KC_RIGHT) {
-       _pacmanDir = RIGHT_DIR;
-     }
-     else if (e.key == OIS::KC_ESCAPE) {
-       popState();
-       pushState(IntroState::getSingletonPtr());
-     }
-   }
- }
-   else
+//        if (paused) pause(); // ESTO NO ES NECESARIO. AL HACER UN PUSHSTATE EL GAMEMANAGER LLAMARÁ A PAUSE() AUTOMATICAMENTE
+//        else
+        if (!paused)
+        {
+              if (e.key == OIS::KC_P) {
+                paused = true;
+                pushState(PauseState::getSingletonPtr());
+              }
+              else if (e.key == OIS::KC_G) {
+                game_over();
+              }
+              else if (e.key == OIS::KC_W) {
+                win();
+             }
+             else if (e.key == OIS::KC_UP)
+             {
+               _pacmanDir = UP_DIR;
+             }
+             else if (e.key == OIS::KC_DOWN) {
+               _pacmanDir = DOWN_DIR;
+             }
+             else if (e.key == OIS::KC_LEFT) {
+               _pacmanDir = LEFT_DIR;
+             }
+             else if (e.key == OIS::KC_RIGHT) {
+               _pacmanDir = RIGHT_DIR;
+             }
+//             else if (e.key == OIS::KC_ESCAPE) {              
+//               popState();
+//               pushState(IntroState::getSingletonPtr());
+//             }
+        }
+  }
+  else
   {
     sounds::getInstance()->play_effect("eat_fruit");
     cout << (int)e.key<<endl;
@@ -190,16 +211,10 @@ bool PlayState::keyPressed(const OIS::KeyEvent &e)
 
 bool PlayState::keyReleased(const OIS::KeyEvent &e)
 {
-  if (e.key == OIS::KC_ESCAPE) 
-  {
-    // Cambiamos de estado apilando el estado PauseState.
-    // Cuando salgamos de PauseState (se desapile el estado PauseState)
-    // habrá que controlar lo que se necesite en el método
-    // resume.
+/*  if (e.key == OIS::KC_ESCAPE) 
     pushState(PauseState::getSingletonPtr());
 
-  }
-  else if (e.key == OIS::KC_DOWN ||  e.key == OIS::KC_UP
+  else */if (e.key == OIS::KC_DOWN ||  e.key == OIS::KC_UP
            || e.key == OIS::KC_LEFT || e.key == OIS::KC_RIGHT) {
     _pacmanDir = 0;
   }
