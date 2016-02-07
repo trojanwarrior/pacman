@@ -67,13 +67,7 @@ bool MenuState::frameEnded(const Ogre::FrameEvent& evt)
 bool MenuState::keyPressed(const OIS::KeyEvent &e)
 {
   cout << __FUNCTION__ << endl;
-  // Tecla p --> PauseState.
-/*
-  if (e.key == OIS::KC_P) {
-    pushState(PauseState::getSingletonPtr());
-  }
-  else 
-*/
+
   if (e.key == OIS::KC_S) {
     MyGUI::LayoutManager::getInstance().unloadLayout(layout);
     pushState(PlayState::getSingletonPtr());
@@ -89,18 +83,18 @@ bool MenuState::keyPressed(const OIS::KeyEvent &e)
   else if (e.key == OIS::KC_ESCAPE) 
   {
     sounds::getInstance()->play_effect("eat_ghost");
-    ::exit(0);
+    _exitGame = true;
   }
   return true;
 }
 
 bool MenuState::keyReleased(const OIS::KeyEvent &e)
 {
-  if (e.key == OIS::KC_ESCAPE) 
-  {
-    // Fin del juego, salimos.
-    _exitGame = true;
-  }
+//  if (e.key == OIS::KC_ESCAPE) 
+//  {
+//    // Fin del juego, salimos.
+//    _exitGame = true;
+//  }
   return true;
 }
 
@@ -121,7 +115,7 @@ bool MenuState::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 
 MenuState* MenuState::getSingletonPtr()
 {
-cout << __FUNCTION__<<endl;
+    cout << __FUNCTION__<<endl;
     return msSingleton;
 }
 
