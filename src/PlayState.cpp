@@ -61,6 +61,7 @@ void PlayState::exit ()
   message_wall->setVisible(false);
   message_txt->setCaption("");
   paused=false;
+  cout << "SI SALE EL CARTEL ME CORTO LOS...." << endl;
   
   _sceneMgr->clearScene();
   _root->getAutoCreatedWindow()->removeAllViewports();
@@ -88,7 +89,7 @@ void PlayState::pause()
     message_txt->setCaption("PAUSE");
     paused=true;
 //  }
-  sounds::getInstance()->play_effect("eat_fruit");
+    sounds::getInstance()->play_effect("eat_fruit");
 }
 
 void PlayState::resume()
@@ -214,9 +215,18 @@ bool PlayState::keyPressed(const OIS::KeyEvent &e)
 bool PlayState::keyReleased(const OIS::KeyEvent &e)
 {
 /*  if (e.key == OIS::KC_ESCAPE) 
-    pushState(PauseState::getSingletonPtr());
-
-  else */if (e.key == OIS::KC_DOWN ||  e.key == OIS::KC_UP
+  {  
+    if (paused)
+    {
+        message_txt->setVisible(false);
+        message_wall->setVisible(false);
+        message_txt->setCaption("");
+        paused=false;
+        //changeState(MenuState::getSingletonPtr());
+        popState();
+    }
+  }
+  else*/ if (e.key == OIS::KC_DOWN ||  e.key == OIS::KC_UP
            || e.key == OIS::KC_LEFT || e.key == OIS::KC_RIGHT) {
     _pacmanDir = 0;
   }
@@ -426,6 +436,7 @@ void PlayState::win()
   message_txt->setCaption("YOU WIN!!");
   sounds::getInstance()->play_effect("intermission");
 }
+
 void PlayState::game_over()
 {
   set_lives(0);
@@ -437,6 +448,7 @@ void PlayState::game_over()
   user_name_txt->setVisible(true);
   MyGUI::InputManager::getInstance().setKeyFocusWidget(user_name_txt);
 }
+
 void PlayState::set_lives (int lives)
 {
   char tmp [64];
@@ -493,7 +505,6 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
         set_score(score+points);
         break;
 
-
       }
     }
     //Check Phantom Collision
@@ -535,5 +546,9 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
 
 
 
+}
+void PlayState::unloadLayout()
+{
+  MyGUI::LayoutManager::getInstance().unloadLayout(layout);
 }
 

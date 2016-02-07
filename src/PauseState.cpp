@@ -1,6 +1,7 @@
 #include "PauseState.h"
 #include "IntroState.h"
 #include "MenuState.h"
+#include "PlayState.h"
 
 #include <OgreOverlaySystem.h>
 #include <OgreOverlayElement.h>
@@ -57,6 +58,7 @@ bool PauseState::keyPressed(const OIS::KeyEvent &e)
   {
     popState();
   }
+  
   return true;
 }
 
@@ -68,6 +70,7 @@ bool PauseState::keyReleased(const OIS::KeyEvent &e)
         //si volvemos al PlayState nos cargaríamos la escena del juego en marcha.
         _sceneMgr->clearScene(); 
         _root->getAutoCreatedWindow()->removeAllViewports();
+        PlayState::getSingletonPtr()->unloadLayout();
         changeState(MenuState::getSingletonPtr());
         
     }
