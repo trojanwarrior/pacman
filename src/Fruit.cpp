@@ -31,7 +31,9 @@ Fruit::Fruit(DynamicsWorld* world,Ogre::Vector3 position, const std::string &nam
     _nodeFruit->setVisible(false);
 
     body = new  RigidBody(_name, _world);
-    shape = new BoxCollisionShape(_frutaEnt->getBoundingBox().getSize());
+    //shape = new BoxCollisionShape(_frutaEnt->getBoundingBox().getSize());
+    shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.2));
+    body->showDebugShape(true);
 
 
     body->setShape(_nodeFruit,
@@ -70,10 +72,11 @@ Fruit::Fruit(const Fruit &fruit)
 //    Ogre::AxisAlignedBox aab = this->_frutaEnt->getBoundingBox();
 //    aab.getSize();
     this->body = new  RigidBody(fruit._name,fruit._world);
-    this->shape = new BoxCollisionShape(fruit._frutaEnt->getBoundingBox().getSize());
-    //this->shape = new BoxCollisionShape(Ogre::Vector3(1,1,1));
+    //this->shape = new BoxCollisionShape(fruit._frutaEnt->getBoundingBox().getSize());
+    this->shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.001));
     *this->body = *fruit.body;
     *this->shape = *fruit.shape;
+    this->body->showDebugShape(true);
     cout << "construyendo copia fruta \n";
 
 }
@@ -89,7 +92,8 @@ Fruit& Fruit::operator=(const Fruit & fruit)
     if (this->shape) delete shape;// Si el objeto que recibe la asignación ya tenía memoria reservada deberemos resetearla.
  
     this->body = new  RigidBody(fruit._name,fruit._world); // reservamos memoria nueva
-    this->shape = new BoxCollisionShape(fruit._frutaEnt->getBoundingBox().getSize());// reservamos memoria nueva
+    //this->shape = new BoxCollisionShape(fruit._frutaEnt->getBoundingBox().getSize());// reservamos memoria nueva
+    this->shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.2));// reservamos memoria nueva
     *this->body = *fruit.body;      // Ahora viene lo gracioso: el menda que hizo las clases de body y shape, ¿se curró los correspondientes
     *this->shape = *fruit.shape;    // constructores de asignación y copia???? Por que si no es así ya puedo hacer yo el pino con las orejas que es paná!
     cout << "constructor asignación fruta\n";

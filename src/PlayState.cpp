@@ -96,10 +96,8 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
     _pacman->updateAnim(evt.timeSinceLastFrame);
   }
   
-
-    
   if (_frutas)
-      _frutas->at(fruta_aleatoria).animaFruta(Fruit::RECLAMO,evt.timeSinceLastFrame);
+      _frutas->at(_fruta_aleatoria).animaFruta(Fruit::RECLAMO,evt.timeSinceLastFrame);
   
   
   return true;
@@ -311,7 +309,10 @@ void PlayState::createFruits()
                       atof(nodo.y.c_str()),
                       atof(nodo.z.c_str()));
   cout << "VA A APARECER UNA FRUTA EN " << donde << endl;
-  _frutas->at(0).aparece(donde);
+  
+  //_fruta_aleatoria = rand() % _frutas->size();
+  _fruta_aleatoria = 1;
+  _frutas->at(_fruta_aleatoria).aparece(donde);
 
 }
 
