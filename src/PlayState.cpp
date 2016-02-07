@@ -518,4 +518,8 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
 
 
 }
+void PlayState::unloadLayout()
+{
+  MyGUI::LayoutManager::getInstance().unloadLayout(layout);
+}
 

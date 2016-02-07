@@ -99,6 +99,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   inline graphml_boost::nodo_props getGraphNode(int idNode){return graphLevel->getGraphNode(idNode);};
   inline graphml_boost::ruta_t calculateRoute(int idOrg, int idDest){graphLevel->rutaMasCortaBFS(idOrg);return graphLevel->getRuta(idOrg,idDest);};
   inline Pacman* getPacman(){return _pacman;};
+  void unloadLayout();
  protected:
   Ogre::Root* _root;
   Ogre::SceneManager* _sceneMgr;
