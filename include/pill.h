@@ -10,7 +10,7 @@
 using namespace Ogre;
 using namespace OgreBulletDynamics;
 using namespace OgreBulletCollisions;
-
+/*
 enum collisiontypes {
     COL_NOTHING = 0, //<Collide with nothing
     COL_PACMAN = 2, //<Collide with PACMAN
@@ -18,7 +18,7 @@ enum collisiontypes {
     COL_PILL = 8, //<Collide with PILLS
     COL_WALL = 16 // COLLIDE WITH WALLS
 };
-
+*/
 
 class Pill{
  private :

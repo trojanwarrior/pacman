@@ -34,6 +34,7 @@ class Pacman{
   void createLight();
   int oldDir;
   int currentNode;
+  int startNode;
 
  public :
   const Ogre::Vector3& getPosition();
@@ -46,6 +47,7 @@ class Pacman{
   void updateAnim(Ogre::Real deltaT);
   inline int getCurrentNode(){return currentNode;};
   inline void setCurrentNode(int idCurrentNode){currentNode = idCurrentNode;};
+  void reset();
 };
 
 #endif 

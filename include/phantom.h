@@ -40,7 +40,9 @@ class Phantom{
   const Ogre::Vector3& getPosition();
   explicit Phantom(DynamicsWorld* _world,Vector3 position,string _name, float _speed, float _smart,string material,int origin);
   inline RigidBody* getBody(){return body;};
+  inline btRigidBody* getBtRigidBody(){return body->getBulletRigidBody();};
   void checkMove();
+  void reset();
   //  ~Phantom();
   //Phantom(const Phantom &phantom);
 

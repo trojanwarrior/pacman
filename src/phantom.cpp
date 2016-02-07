@@ -3,6 +3,7 @@
 #include <string>
 #include "pacman.h"
 #include "PlayState.h"
+#include "OgreUtil.h"
 
 
 using namespace Ogre;
@@ -49,7 +50,7 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
   nodeGhost->addChild(nodeOjos);
   nodeOjos->setInheritOrientation(false);
 
-  body = new  RigidBody(_name, _world,COL_PHANTOM,COL_PACMAN);
+  body = new  RigidBody(_name, _world,COL_PHANTOM,COL_PACMAN | COL_WALL);
   shape = new SphereCollisionShape(0.2);
   body->setShape(nodeGhost,
                         shape,
@@ -84,13 +85,8 @@ void Phantom::calculateNewDestiny(){
 
   int idPacmanNode = PlayState::getSingleton().getPacman()->getCurrentNode();
   graphml_boost::ruta_t route = PlayState::getSingleton().calculateRoute(idOrigin, idPacmanNode);
-  if(idOrigin == startNode){
-    for(int i = route.size()-1; i>=0;i-- ){
-      //std::cout << route[i].idBoost << ","<< std::endl;
-      
-    }
-  }
-  graphml_boost::nodo_props nodeDestiny = route[(route.size()-2)];
+
+  graphml_boost::nodo_props nodeDestiny = (route.size()>1)? route[(route.size()-2)] :route[0];
   //std::cout << idOrigin << "-" << getBulletPosition() << std::endl;
 
   idDestiny = nodeDestiny.idBoost;
@@ -161,6 +157,25 @@ void Phantom::checkMove() {
 
     distanceToDestiny = newDistance;
   }
+
+}
+
+void Phantom::reset(){
+
+  idOrigin = startNode;
+  graphml_boost::nodo_props startNode_prop = PlayState::getSingleton().getGraphNode(startNode);
+
+  Vector3 position = Vector3(atof(startNode_prop.x.c_str()),
+                                   atof(startNode_prop.y.c_str()),
+                                   atof(startNode_prop.z.c_str()));
+  btTransform transform; //Declaration of the btTransform
+  transform.setIdentity(); //This function put the variable of the object to default. The ctor of btTransform doesnt do it.
+
+
+  transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(position)); //Set the new position/origin
+  body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body*/
+  calculateNewDestiny();
+
 
 
 

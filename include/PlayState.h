@@ -39,20 +39,13 @@
 #include "FruitFactory.h"
 #include <vector>
 #include "pill.h"
+#include "OgreUtil.h"
 
 #define PACMAN_START_NODE "pacmanstart"
 #define PHANTOM_START_NODE "phantomstart"
 #define BIGPILL_NODE "bigpill"
 #define REGULAR_NODE "regular"
 
-
-enum collisiontypes {
-    COL_NOTHING = 0, //<Collide with nothing
-    COL_PACMAN = 2, //<Collide with PACMAN
-    COL_PHANTOM =4, //<Collide with PHANTOM
-    COL_PILL = 8, //<Collide with PILLS
-    COL_WALL = 16 // COLLIDE WITH WALLS
-};
 
 
 

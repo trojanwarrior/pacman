@@ -115,7 +115,7 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
   if(_pacman){
     _pacman->updateAnim(evt.timeSinceLastFrame);
   }
-  set_score((int)(_root->getRenderSystem()->getRenderTargetIterator().getNext()->getLastFPS())); 
+  // set_score((int)(_root->getRenderSystem()->getRenderTargetIterator().getNext()->getLastFPS())); 
 
 
   for (std::vector<Phantom>::iterator it = _phantoms->begin();
@@ -303,7 +303,7 @@ void PlayState::createScene()
    set_lives(3);
 
 }
-/*
+/*pp
  *createLights
  */
 void PlayState::createLight() {
@@ -414,7 +414,7 @@ void PlayState::createFloor() {
   _sceneMgr->getRootSceneNode()->addChild(floorNode);
   CollisionShape *shape = new StaticPlaneCollisionShape (
       Ogre::Vector3(0, 1, 0), 0);
-  RigidBody *rigidBodyPlane = new RigidBody("rigidBodyPlane", _world,COL_WALL,COL_PILL|COL_PACMAN);
+  RigidBody *rigidBodyPlane = new RigidBody("rigidBodyPlane", _world,COL_WALL,COL_PILL|COL_PACMAN | COL_PHANTOM);
   rigidBodyPlane->setStaticShape(shape, 0.1, 0);
 
 }
@@ -496,6 +496,35 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
 
       }
     }
+    //Check Phantom Collision
+    for (std::vector<Phantom>::iterator it = _phantoms->begin();
+         
+      it != _phantoms->end(); ++it) {
+      Phantom phantom = *it;
+
+
+      if ( phantom.getBtRigidBody() == otherObject) {
+        set_lives(get_lives()-1);
+        if(get_lives() == 0){
+          game_over();
+          
+          
+        }
+        else{
+          _pacman->reset();
+              for (std::vector<Phantom>::iterator it2 = _phantoms->begin();
+                            it2 != _phantoms->end(); ++it2) {
+
+                Phantom phantom2 = *it2;
+                phantom2.reset();
+              }
+        }
+        break;
+
+
+      }
+    }
+
 
 
 

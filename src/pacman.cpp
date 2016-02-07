@@ -1,6 +1,7 @@
 #include "pacman.h"
 #include "Shapes/OgreBulletCollisionsSphereShape.h"
 #include "PlayState.h"
+#include "OgreUtil.h"
 #define PACMAN_EAT_ANIM "pakupaku"
 
 
@@ -27,6 +28,7 @@ extern ContactProcessedCallback gContactProcessedCallback = (ContactProcessedCal
 Pacman::Pacman(DynamicsWorld *_world, Vector3 position,int idNodeStart) {
 
 
+  startNode = idNodeStart;
   std::cout << "Nodo Start Pacman "<< idNodeStart << std::endl;
   SceneManager* _sceneMgr = Root::getSingleton().
                             getSceneManager("SceneManager");
@@ -47,7 +49,7 @@ Pacman::Pacman(DynamicsWorld *_world, Vector3 position,int idNodeStart) {
   anim->setTimePosition(0.0);
 
 
-  body = new  RigidBody("pacman", _world, COL_PACMAN,COL_WALL);
+  body = new  RigidBody("pacman", _world, COL_PACMAN,COL_WALL | COL_PILL | COL_PHANTOM);
   shape = new SphereCollisionShape(0.2);
   body->setShape(this->node,
                         shape,
@@ -154,3 +156,22 @@ int Pacman::getLifes() {
   return this->lifes;
 }
 
+
+void Pacman::reset(){
+
+
+  graphml_boost::nodo_props startNode_prop = PlayState::getSingleton().getGraphNode(startNode);
+
+  Vector3 position = Vector3(atof(startNode_prop.x.c_str()),
+                                   atof(startNode_prop.y.c_str()),
+                                   atof(startNode_prop.z.c_str()));
+  btTransform transform; //Declaration of the btTransform
+  transform.setIdentity(); //This function put the variable of the object to default. The ctor of btTransform doesnt do it.
+
+
+  transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(position)); //Set the new position/origin
+  body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body*/
+
+
+
+}
