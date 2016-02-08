@@ -91,7 +91,7 @@ void Pacman::updateAnim(Ogre::Real deltaT){
  * Destructor
  */
 Pacman::~Pacman() {
-  delete body;
+  //delete body; // MEMORY LAKE CONOCIDO, PENDIENTE DE REVISAR
   delete shape;
 }
 

@@ -222,8 +222,7 @@ bool PlayState::keyPressed(const OIS::KeyEvent &e)
     if (e.key==OIS::KC_RETURN)
     {
       cout << "NEW RECORD TO SAVE" << endl;
-        //records::getInstance()->add_record(txt,get_score());
-        records::getInstance()->add_record(txt,9000);
+        records::getInstance()->add_record(txt,get_score());
         records::getInstance()->saveFile(NULL);
         sounds::getInstance()->play_effect("eat_ghost");
         user_name_txt->setVisible(false);
@@ -466,7 +465,7 @@ void PlayState::win()
 
 void PlayState::game_over()
 {
-  set_lives(0);
+  //set_lives(0);
   message_txt->setVisible(true);
   message_wall->setVisible(true);
   message_txt->setCaption("GAME OVER");
@@ -478,6 +477,7 @@ void PlayState::game_over()
 
 void PlayState::set_lives (int lives)
 {
+  if (lives <0) lives =0;
   char tmp [64];
   this->lives = lives;
   sprintf(tmp,"%d",lives);
