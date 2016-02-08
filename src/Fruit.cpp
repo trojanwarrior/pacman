@@ -32,7 +32,7 @@ Fruit::Fruit(DynamicsWorld* world,Ogre::Vector3 position, const std::string &nam
 
     body = new  RigidBody(_name, _world);
     //shape = new BoxCollisionShape(_frutaEnt->getBoundingBox().getSize());
-    shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.1));
+    shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.001));
     
     body->showDebugShape(true);
 
@@ -61,6 +61,8 @@ Fruit::Fruit(DynamicsWorld* world,Ogre::Vector3 position, const std::string &nam
     transform.setIdentity(); //This function put the variable of the object to default. The ctor of btTransform doesnt do it.
     transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(position)); //Set the new position/origin
     body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body*/
+    //body->setActivationState(0);
+    //rigidBody->setActivationState(0);
 }
 
 Fruit::~Fruit()
@@ -104,7 +106,7 @@ Fruit& Fruit::operator=(const Fruit & fruit)
  
     this->body = new  RigidBody(fruit._name,fruit._world); // reservamos memoria nueva
     //this->shape = new BoxCollisionShape(fruit._frutaEnt->getBoundingBox().getSize());// reservamos memoria nueva
-    this->shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.2));// reservamos memoria nueva
+    this->shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.001));// reservamos memoria nueva
     *this->body = *fruit.body;      // Ahora viene lo gracioso: el menda que hizo las clases de body y shape, ¿se curró los correspondientes
     *this->shape = *fruit.shape;    // constructores de asignación y copia???? Por que si no es así ya puedo hacer yo el pino con las orejas que es paná!
     cout << "constructor asignación fruta\n";
@@ -153,8 +155,19 @@ void Fruit::aparece(Ogre::Vector3 donde)
 {
     SceneManager* _sceneMgr = Root::getSingleton().getSceneManager("SceneManager");
     _sceneMgr->getRootSceneNode()->addChild(_nodeFruit);
-    _nodeFruit->setPosition(donde);
+    //_nodeFruit->setPosition(donde);
+    _nodeFruit->pitch(Ogre::Degree(90)); // Aplico rotación al nodo antes de Bullet tome el control
     _nodeFruit->setVisible(true);
+
+    Ogre::Quaternion quat = _nodeFruit->getOrientation();       //Saco un cuaternio con la orientación del nodo para pasárselo a Bullet
+    
+
+    btTransform transform; //Declaration of the btTransform
+    transform.setIdentity(); //This function put the variable of the object to default. The ctor of btTransform doesnt do it.
+    transform.setRotation(btQuaternion(quat.x, quat.y, quat.z, quat.w)); // Con el cuaternio de antes le aplico la rotación al nodo
+    transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(donde)); //Set the new position/origin
+    body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body*/
+    
     //Se delega la activación de las animaciones fuera de esta clase.
 }
 
@@ -162,5 +175,10 @@ void Fruit::desaparece()
 {
     _nodeFruit->setVisible(false);  // Ocultamos la fruta
     _nodeFruit->getParentSceneNode()->removeChild(_nodeFruit); // nos independizamos :D
+}
+
+btRigidBody* Fruit::getBtRigidBody()
+{
+    return body->getBulletRigidBody();
 }
 
