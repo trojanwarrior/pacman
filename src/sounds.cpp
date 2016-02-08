@@ -99,6 +99,12 @@ int sounds::halt_music()
    cout << __FUNCTION__ << endl;
   return Mix_HaltMusic();
 }
+
+int sounds::halt_effect()
+{
+    return Mix_HaltChannel(-1);
+}
+
 sounds::sounds()
 {
   init();

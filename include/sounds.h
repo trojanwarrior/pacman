@@ -40,6 +40,7 @@ class sounds {
     int paused_music();
     void resume_music();
     int halt_music();
+    int halt_effect();
     void print();
 
 };
