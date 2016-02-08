@@ -1,0 +1,19 @@
+// MatPill genrated by blender2ogre 0.6.0
+
+material MatPillTranspa 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass MatPillTranspa
+        {
+            ambient 0.47698974609375 0.47698974609375 0.47698974609375 0
+            diffuse 0.3209743423940381 0.3209743423940381 0.3209743423940381 0
+            specular 1.0 1.0 1.0 1.0 0
+            emissive 0.0 0.0 0.0 0
+	    scene_blend alpha_blend 
+
+        }
+    }
+}

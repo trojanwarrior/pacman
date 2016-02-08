@@ -12,6 +12,7 @@ using namespace OgreBulletCollisions;
  *Constructor
  */
 Pill::Pill(DynamicsWorld *_world, Vector3 position,bool big,int id,int idNode) {
+  _eaten = false;
   _big = big;
   _id = id;
   _idNode = idNode;
@@ -21,7 +22,7 @@ Pill::Pill(DynamicsWorld *_world, Vector3 position,bool big,int id,int idNode) {
    str <<(_big ? "bigpill":"pill")<< (id);
   _node = _sceneMgr->createSceneNode(str.str());
   _sceneMgr->getRootSceneNode()->addChild(_node);
-  Entity* pillEnt = _sceneMgr->createEntity("pill.mesh");
+  Entity* pillEnt = _sceneMgr->createEntity(str.str(),"pill.mesh");
   pillEnt->setCastShadows(true);
   _node->attachObject(pillEnt);
   if (_big == true) {

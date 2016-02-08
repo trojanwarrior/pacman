@@ -29,6 +29,7 @@ class Pill{
   CollisionShape* _shape;
   int _id;
   int _idNode;
+  bool _eaten;
 
  public :
   explicit Pill(DynamicsWorld* _world,Vector3 position, bool big, int id,int idNode);
@@ -40,6 +41,8 @@ class Pill{
   btRigidBody* getBtRigidBody();
   inline SceneNode* getSceneNode(){return _node;};
   inline int getIdNode(){return _idNode;};
+  inline bool isEaten(){return _eaten;};
+  inline void eat(){_eaten = true;};
 
 };
 

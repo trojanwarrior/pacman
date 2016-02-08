@@ -1,54 +1,54 @@
-18:50:15  |  Platform  |  Info  |  * Initialise: DataManager  |  /home/twsh/desarrollo/mygui/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreDataManager.cpp  |  27
-18:50:15  |  Platform  |  Info  |  DataManager successfully initialized  |  /home/twsh/desarrollo/mygui/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreDataManager.cpp  |  35
-18:50:15  |  Platform  |  Info  |  * Initialise: RenderManager  |  /home/twsh/desarrollo/mygui/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreRenderManager.cpp  |  43
-18:50:15  |  Platform  |  Info  |  RenderManager successfully initialized  |  /home/twsh/desarrollo/mygui/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreRenderManager.cpp  |  71
-18:50:15  |  Core  |  Info  |  * Initialise: Gui  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_Gui.cpp  |  61
-18:50:15  |  Core  |  Info  |  * MyGUI version 3.2.3  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_Gui.cpp  |  66
-18:50:15  |  Core  |  Info  |  * Initialise: ResourceManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  32
-18:50:15  |  Core  |  Info  |  ResourceManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  40
-18:50:15  |  Core  |  Info  |  * Initialise: LayerManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_LayerManager.cpp  |  33
-18:50:15  |  Core  |  Info  |  LayerManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_LayerManager.cpp  |  41
-18:50:15  |  Core  |  Info  |  * Initialise: WidgetManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_WidgetManager.cpp  |  53
-18:50:15  |  Core  |  Info  |  WidgetManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_WidgetManager.cpp  |  84
-18:50:15  |  Core  |  Info  |  * Initialise: InputManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_InputManager.cpp  |  46
-18:50:15  |  Core  |  Info  |  InputManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_InputManager.cpp  |  66
-18:50:15  |  Core  |  Info  |  * Initialise: SubWidgetManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_SubWidgetManager.cpp  |  36
-18:50:15  |  Core  |  Info  |  SubWidgetManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_SubWidgetManager.cpp  |  56
-18:50:15  |  Core  |  Info  |  * Initialise: SkinManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_SkinManager.cpp  |  36
-18:50:15  |  Core  |  Info  |  SkinManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_SkinManager.cpp  |  46
-18:50:15  |  Core  |  Info  |  * Initialise: FontManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_FontManager.cpp  |  32
-18:50:15  |  Core  |  Info  |  FontManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_FontManager.cpp  |  42
-18:50:15  |  Core  |  Info  |  * Initialise: ControllerManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ControllerManager.cpp  |  33
-18:50:15  |  Core  |  Info  |  ControllerManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ControllerManager.cpp  |  42
-18:50:15  |  Core  |  Info  |  * Initialise: PointerManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_PointerManager.cpp  |  43
-18:50:15  |  Core  |  Info  |  PointerManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_PointerManager.cpp  |  62
-18:50:15  |  Core  |  Info  |  * Initialise: ClipboardManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ClipboardManager.cpp  |  32
-18:50:15  |  Core  |  Info  |  ClipboardManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ClipboardManager.cpp  |  39
-18:50:15  |  Core  |  Info  |  * Initialise: LayoutManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_LayoutManager.cpp  |  28
-18:50:15  |  Core  |  Info  |  LayoutManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_LayoutManager.cpp  |  35
-18:50:15  |  Core  |  Info  |  * Initialise: DynLibManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_DynLibManager.cpp  |  26
-18:50:15  |  Core  |  Info  |  DynLibManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_DynLibManager.cpp  |  30
-18:50:15  |  Core  |  Info  |  * Initialise: PluginManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_PluginManager.cpp  |  30
-18:50:15  |  Core  |  Info  |  PluginManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_PluginManager.cpp  |  34
-18:50:15  |  Core  |  Info  |  * Initialise: LanguageManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_LanguageManager.cpp  |  30
-18:50:15  |  Core  |  Info  |  LanguageManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_LanguageManager.cpp  |  34
-18:50:15  |  Core  |  Info  |  * Initialise: FactoryManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_FactoryManager.cpp  |  25
-18:50:15  |  Core  |  Info  |  FactoryManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_FactoryManager.cpp  |  27
-18:50:15  |  Core  |  Info  |  * Initialise: ToolTipManager  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ToolTipManager.cpp  |  33
-18:50:15  |  Core  |  Info  |  ToolTipManager successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ToolTipManager.cpp  |  45
-18:50:15  |  Core  |  Info  |  Load ini file 'MyGUI_GeneratedFonts.xml'  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-18:50:15  |  Core  |  Info  |  Load ini file 'MyGUI_Fonts.xml'  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-18:50:15  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'DejaVuSansFont_15' using texture size 128 x 256.  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  787
-18:50:15  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'DejaVuSansFont_15' using real height 15 pixels.  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  788
-18:50:15  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'PressStart2P' using texture size 256 x 128.  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  787
-18:50:15  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'PressStart2P' using real height 13 pixels.  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  788
-18:50:15  |  Core  |  Info  |  Load ini file 'MyGUI_CommonSkins.xml'  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-18:50:15  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteTheme.xml'  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-18:50:15  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteImages.xml'  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-18:50:15  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteSkins.xml'  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-18:50:15  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteTemplates.xml'  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-18:50:15  |  Core  |  Info  |  Load ini file 'MyGUI_PointerImages.xml'  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-18:50:15  |  Core  |  Info  |  Load ini file 'MyGUI_Pointers.xml'  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-18:50:15  |  Core  |  Info  |  Load ini file 'MyGUI_Layers.xml'  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-18:50:15  |  Core  |  Info  |  Load ini file 'MyGUI_Settings.xml'  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-18:50:15  |  Core  |  Info  |  Gui successfully initialized  |  /home/twsh/desarrollo/mygui/MyGUIEngine/src/MyGUI_Gui.cpp  |  111
+21:32:17  |  Platform  |  Info  |  * Initialise: DataManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreDataManager.cpp  |  27
+21:32:17  |  Platform  |  Info  |  DataManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreDataManager.cpp  |  35
+21:32:17  |  Platform  |  Info  |  * Initialise: RenderManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreRenderManager.cpp  |  43
+21:32:17  |  Platform  |  Info  |  RenderManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreRenderManager.cpp  |  71
+21:32:17  |  Core  |  Info  |  * Initialise: Gui  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_Gui.cpp  |  61
+21:32:17  |  Core  |  Info  |  * MyGUI version 3.2.3  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_Gui.cpp  |  66
+21:32:17  |  Core  |  Info  |  * Initialise: ResourceManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  32
+21:32:17  |  Core  |  Info  |  ResourceManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  40
+21:32:17  |  Core  |  Info  |  * Initialise: LayerManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_LayerManager.cpp  |  33
+21:32:17  |  Core  |  Info  |  LayerManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_LayerManager.cpp  |  41
+21:32:17  |  Core  |  Info  |  * Initialise: WidgetManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_WidgetManager.cpp  |  53
+21:32:17  |  Core  |  Info  |  WidgetManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_WidgetManager.cpp  |  84
+21:32:17  |  Core  |  Info  |  * Initialise: InputManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_InputManager.cpp  |  46
+21:32:17  |  Core  |  Info  |  InputManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_InputManager.cpp  |  66
+21:32:17  |  Core  |  Info  |  * Initialise: SubWidgetManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_SubWidgetManager.cpp  |  36
+21:32:17  |  Core  |  Info  |  SubWidgetManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_SubWidgetManager.cpp  |  56
+21:32:17  |  Core  |  Info  |  * Initialise: SkinManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_SkinManager.cpp  |  36
+21:32:17  |  Core  |  Info  |  SkinManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_SkinManager.cpp  |  46
+21:32:17  |  Core  |  Info  |  * Initialise: FontManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_FontManager.cpp  |  32
+21:32:17  |  Core  |  Info  |  FontManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_FontManager.cpp  |  42
+21:32:17  |  Core  |  Info  |  * Initialise: ControllerManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ControllerManager.cpp  |  33
+21:32:17  |  Core  |  Info  |  ControllerManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ControllerManager.cpp  |  42
+21:32:17  |  Core  |  Info  |  * Initialise: PointerManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_PointerManager.cpp  |  43
+21:32:17  |  Core  |  Info  |  PointerManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_PointerManager.cpp  |  62
+21:32:17  |  Core  |  Info  |  * Initialise: ClipboardManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ClipboardManager.cpp  |  32
+21:32:17  |  Core  |  Info  |  ClipboardManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ClipboardManager.cpp  |  39
+21:32:17  |  Core  |  Info  |  * Initialise: LayoutManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_LayoutManager.cpp  |  28
+21:32:17  |  Core  |  Info  |  LayoutManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_LayoutManager.cpp  |  35
+21:32:17  |  Core  |  Info  |  * Initialise: DynLibManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_DynLibManager.cpp  |  26
+21:32:17  |  Core  |  Info  |  DynLibManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_DynLibManager.cpp  |  30
+21:32:17  |  Core  |  Info  |  * Initialise: PluginManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_PluginManager.cpp  |  30
+21:32:17  |  Core  |  Info  |  PluginManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_PluginManager.cpp  |  34
+21:32:17  |  Core  |  Info  |  * Initialise: LanguageManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_LanguageManager.cpp  |  30
+21:32:17  |  Core  |  Info  |  LanguageManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_LanguageManager.cpp  |  34
+21:32:17  |  Core  |  Info  |  * Initialise: FactoryManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_FactoryManager.cpp  |  25
+21:32:17  |  Core  |  Info  |  FactoryManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_FactoryManager.cpp  |  27
+21:32:17  |  Core  |  Info  |  * Initialise: ToolTipManager  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ToolTipManager.cpp  |  33
+21:32:17  |  Core  |  Info  |  ToolTipManager successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ToolTipManager.cpp  |  45
+21:32:17  |  Core  |  Info  |  Load ini file 'MyGUI_GeneratedFonts.xml'  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+21:32:17  |  Core  |  Info  |  Load ini file 'MyGUI_Fonts.xml'  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+21:32:17  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'DejaVuSansFont_15' using texture size 128 x 256.  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  787
+21:32:17  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'DejaVuSansFont_15' using real height 15 pixels.  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  788
+21:32:17  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'PressStart2P' using texture size 256 x 128.  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  787
+21:32:17  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'PressStart2P' using real height 13 pixels.  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  788
+21:32:17  |  Core  |  Info  |  Load ini file 'MyGUI_CommonSkins.xml'  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+21:32:17  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteTheme.xml'  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+21:32:17  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteImages.xml'  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+21:32:17  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteSkins.xml'  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+21:32:17  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteTemplates.xml'  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+21:32:17  |  Core  |  Info  |  Load ini file 'MyGUI_PointerImages.xml'  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+21:32:17  |  Core  |  Info  |  Load ini file 'MyGUI_Pointers.xml'  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+21:32:17  |  Core  |  Info  |  Load ini file 'MyGUI_Layers.xml'  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+21:32:17  |  Core  |  Info  |  Load ini file 'MyGUI_Settings.xml'  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+21:32:17  |  Core  |  Info  |  Gui successfully initialized  |  /tmp/yaourt-tmp-flush/aur-mygui-git/src/mygui/MyGUIEngine/src/MyGUI_Gui.cpp  |  111

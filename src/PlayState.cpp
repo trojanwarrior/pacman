@@ -115,13 +115,15 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
   _world->stepSimulation(evt.timeSinceLastFrame);
   if (_pacmanDir != 0) {
     _pacman->move(_pacmanDir, evt.timeSinceLastFrame);
+ 
+
   }
   if(_pacman){
+     _pacman->setCurrentNode(getPacmanNode());
     _pacman->updateAnim(evt.timeSinceLastFrame);
    Vector3 pacPos =  _pacman->getPosition();
    _camera->setPosition (Vector3 (pacPos.x,5,pacPos.z-8));
    _camera->lookAt (pacPos);
-   
  
   }
 
@@ -360,7 +362,7 @@ void PlayState::createPhantoms(){
 
 void PlayState::createFruits()
 {
-  _frutas = FruitFactory::getInstance().createAllFruits(_world);
+ _frutas = FruitFactory::getInstance().createAllFruits(_world);
     for (size_t i=0; i< _frutas->size(); i++)
         cout << "posicion frutas " << _frutas->at(i).getPosition() << endl;
 
@@ -561,6 +563,31 @@ void PlayState::setPhantomsAfraid(bool afraid)
 
   
 }
+ int PlayState::getPacmanNode(){
+
+  Ogre::Real distance = 10000;
+  int idPacmanNode = -1;
+  graphml_boost::ruta_t nodes  = graphLevel->getVertices(REGULAR_NODE);
+  Vector3 positionPacman =   _pacman->getPosition();
+
+
+   for (graphml_boost::ruta_t::iterator it = nodes.begin();
+        it != nodes.end(); ++it) {
+     Vector3 positionNode = Vector3(atof((*it).x.c_str()),
+                                    atof((*it).y.c_str()),
+                                    atof((*it).z.c_str()));
+        Ogre::Real nodeDistance = positionNode.squaredDistance(positionPacman);
+        if(nodeDistance < distance){
+          distance = nodeDistance;
+          idPacmanNode = (*it).idBoost;
+        }
+        
+  }
+   return idPacmanNode;
+
+
+  
+}
 /**
  * Manage collisions with Pacman
  */
@@ -575,20 +602,32 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
     for (std::vector<Pill>::iterator it = _pills.begin();
          
       it != _pills.end(); ++it) {
-      Pill pill = *it;
+     
 
 
-      if ( pill.getBtRigidBody() == otherObject) {
+      if ( (*it).getBtRigidBody() == otherObject) {
 
-        _pacman->setCurrentNode(pill.getIdNode());
-        int points = pill.isBig()? 50 : 10;
-        _world->getBulletDynamicsWorld()->removeCollisionObject(pill.getBtRigidBody());
-                it = _pills.erase(it);
-        OgreUtil::destroySceneNode(pill.getSceneNode());
-        set_score(score+points);
-        if(pill.isBig()){
+
+
+        if(!(*it).isEaten()){
+          int points = (*it).isBig()? 50 : 10;
+          (*it).eat();
+          _world->getBulletDynamicsWorld()->removeCollisionObject((*it).getBtRigidBody());
+                OgreUtil::destroySceneNode((*it).getSceneNode());
+
+
+          
+                set_score(score+points);
+                if((*it).isBig()){
                     setPhantomsAfraid(true);
+
+                }
+                it = _pills.erase(it);
         }
+
+
+          
+
         break;
 
       }
