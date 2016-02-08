@@ -5,6 +5,7 @@
 #include "Fruit.h"
 #include "Shapes/OgreBulletCollisionsSphereShape.h"
 #include "Shapes/OgreBulletCollisionsBoxShape.h"
+#include "OgreUtil.h"
 
 using namespace Ogre;
 using namespace std;
@@ -30,11 +31,11 @@ Fruit::Fruit(DynamicsWorld* world,Ogre::Vector3 position, const std::string &nam
     //_sceneMgr->getRootSceneNode()->addChild(_nodeFruit);
     _nodeFruit->setVisible(false);
 
-    body = new  RigidBody(_name, _world);
+    body = new  RigidBody(_name, _world,COL_FRUIT,COL_PACMAN);
     //shape = new BoxCollisionShape(_frutaEnt->getBoundingBox().getSize());
     shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.001));
     
-    body->showDebugShape(true);
+    //body->showDebugShape(true);
 
 
 //    body->setShape(_nodeFruit,
@@ -84,12 +85,12 @@ Fruit::Fruit(const Fruit &fruit)
     this->_nodeFruit = fruit._nodeFruit;
 //    Ogre::AxisAlignedBox aab = this->_frutaEnt->getBoundingBox();
 //    aab.getSize();
-    this->body = new  RigidBody(fruit._name,fruit._world);
+    this->body = new  RigidBody(fruit._name,fruit._world,COL_FRUIT,COL_PACMAN);
     //this->shape = new BoxCollisionShape(fruit._frutaEnt->getBoundingBox().getSize());
     this->shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.001));
     *this->body = *fruit.body;
     *this->shape = *fruit.shape;
-    this->body->showDebugShape(true);
+    //this->body->showDebugShape(true);
     cout << "construyendo copia fruta \n";
 
 }
@@ -104,7 +105,7 @@ Fruit& Fruit::operator=(const Fruit & fruit)
     if (this->body)  delete body; // Si el objeto que recibe la asignación ya tenía memoria reservada deberemos resetearla.
     if (this->shape) delete shape;// Si el objeto que recibe la asignación ya tenía memoria reservada deberemos resetearla.
  
-    this->body = new  RigidBody(fruit._name,fruit._world); // reservamos memoria nueva
+    this->body = new  RigidBody(fruit._name,fruit._world,COL_FRUIT,COL_PACMAN); // reservamos memoria nueva
     //this->shape = new BoxCollisionShape(fruit._frutaEnt->getBoundingBox().getSize());// reservamos memoria nueva
     this->shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.001));// reservamos memoria nueva
     *this->body = *fruit.body;      // Ahora viene lo gracioso: el menda que hizo las clases de body y shape, ¿se curró los correspondientes

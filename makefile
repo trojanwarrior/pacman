@@ -7,10 +7,12 @@ EXEC := pacman
 DIRSRC := src/
 DIROBJ := obj/
 DIRHEA := include/
+
 DIROGREBULLET_DIN := /usr/include/OgreBullet/Dynamics
 DIROGREBULLET_COL := /usr/include/OgreBullet/Collisions
 DIROGREBULLET_DIN2 := /usr/local/include/OgreBullet/Dynamics
 DIROGREBULLET_COL2 := /usr/local/include/OgreBullet/Collisions
+
 
 CXX := g++
 

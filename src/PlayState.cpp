@@ -603,6 +603,15 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
 
       }
     }
+    
+    // Check for fruit collision
+        if (_frutas->at(_fruta_aleatoria).getBtRigidBody() == otherObject)
+        {
+            _world->getBulletDynamicsWorld()->removeCollisionObject(_frutas->at(_fruta_aleatoria).getBtRigidBody());
+            _frutas->at(_fruta_aleatoria).desaparece();
+            set_score(score + 100); // de momento puntua 100, tengo que poner un enum con puntuaciones por frutas
+        }
+            
 
 
     }
