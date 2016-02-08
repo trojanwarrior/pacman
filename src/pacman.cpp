@@ -91,7 +91,7 @@ void Pacman::updateAnim(Ogre::Real deltaT){
  * Destructor
  */
 Pacman::~Pacman() {
-  delete body;
+  //delete body; // MEMORY LAKE CONOCIDO, PENDIENTE DE REVISAR
   delete shape;
 }
 
@@ -105,6 +105,11 @@ const Vector3& Pacman::getPosition() {
 /*
  * Move pacman in one direction
  */
+void Pacman::stop()
+{
+  if (body!=NULL) body->setLinearVelocity( Ogre::Vector3(0,0,0 ));
+}
+
 void Pacman::move(int direction  , double deltaTime) {
   float x = 0,  z = 0;
   float spaceTranslated = this->speed;
@@ -126,13 +131,13 @@ void Pacman::move(int direction  , double deltaTime) {
     oldDir = direction;
   }
 
-    Ogre::Quaternion quat = node->getOrientation();       //Saco un cuaternio con la orientación del nodo para pasárselo a Bullet
-    btTransform trans = body->getCenterOfMassTransform();
-    btQuaternion transRot = trans.getRotation();
-    btQuaternion rotQuat(quat.x,quat.y,quat.z,quat.w);
-    transRot = rotQuat * transRot;
-    trans.setRotation(transRot);
-    body->getBulletRigidBody()->setWorldTransform(trans); //Apply the btTransform to the body*/
+//    Ogre::Quaternion quat = node->getOrientation();       //Saco un cuaternio con la orientación del nodo para pasárselo a Bullet
+//    btTransform trans = body->getCenterOfMassTransform();
+//    btQuaternion transRot = trans.getRotation();
+//    btQuaternion rotQuat(quat.x,quat.y,quat.z,quat.w);
+//    transRot = rotQuat * transRot;
+//    trans.setRotation(transRot);
+//    body->getBulletRigidBody()->setWorldTransform(trans); //Apply the btTransform to the body*/
     //body->setOrientation(transRot);
 
 

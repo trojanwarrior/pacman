@@ -222,8 +222,7 @@ bool PlayState::keyPressed(const OIS::KeyEvent &e)
     if (e.key==OIS::KC_RETURN)
     {
       cout << "NEW RECORD TO SAVE" << endl;
-        //records::getInstance()->add_record(txt,get_score());
-        records::getInstance()->add_record(txt,9000);
+        records::getInstance()->add_record(txt,get_score());
         records::getInstance()->saveFile(NULL);
         sounds::getInstance()->play_effect("eat_ghost");
         user_name_txt->setVisible(false);
@@ -466,7 +465,7 @@ void PlayState::win()
 
 void PlayState::game_over()
 {
-  set_lives(0);
+  //set_lives(0);
   message_txt->setVisible(true);
   message_wall->setVisible(true);
   message_txt->setCaption("GAME OVER");
@@ -478,6 +477,7 @@ void PlayState::game_over()
 
 void PlayState::set_lives (int lives)
 {
+  if (lives <0) lives =0;
   char tmp [64];
   this->lives = lives;
   sprintf(tmp,"%d",lives);
@@ -616,6 +616,7 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
 
 
         if(!(*it).isEaten()){
+          sounds::getInstance()->play_effect("chomp2");
           int points = (*it).isBig()? 50 : 10;
           (*it).eat();
           _world->getBulletDynamicsWorld()->removeCollisionObject((*it).getBtRigidBody());
@@ -625,6 +626,7 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
           
                 set_score(score+points);
                 if((*it).isBig()){
+                    sounds::getInstance()->play_effect("energizer");
                     setPhantomsAfraid(true);
 
                 }
@@ -651,8 +653,15 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
             switch ((*it).getEstado())
             {
                 case estadoPhantom::NORMAL:
+                            sounds::getInstance()->halt_music();
+                            sounds::getInstance()->play_effect("pacman_death");
+                            
                             set_lives(get_lives()-1);
-                            if(get_lives() == 0) game_over();
+                            if(get_lives() == 0) 
+                            {
+                              _pacman->stop();
+                              game_over();
+                            }
                             else
                             {
                               _pacman->reset();
@@ -677,6 +686,7 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
     // Check for fruit collision
         if (_frutas->at(_fruta_aleatoria).getBtRigidBody() == otherObject)
         {
+            sounds::getInstance()->play_effect("eat_fruit");
             _world->getBulletDynamicsWorld()->removeCollisionObject(_frutas->at(_fruta_aleatoria).getBtRigidBody());
             _frutas->at(_fruta_aleatoria).desaparece();
             set_score(score + 100); // de momento puntua 100, tengo que poner un enum con puntuaciones por frutas
