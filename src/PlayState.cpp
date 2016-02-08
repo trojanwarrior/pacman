@@ -651,7 +651,11 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
                             sounds::getInstance()->play_effect("pacman_death");
                             
                             set_lives(get_lives()-1);
-                            if(get_lives() == 0) game_over();
+                            if(get_lives() == 0) 
+                            {
+                              _pacman->stop();
+                              game_over();
+                            }
                             else
                             {
                               _pacman->reset();

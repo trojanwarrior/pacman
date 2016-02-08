@@ -105,6 +105,11 @@ const Vector3& Pacman::getPosition() {
 /*
  * Move pacman in one direction
  */
+void Pacman::stop()
+{
+  if (body!=NULL) body->setLinearVelocity( Ogre::Vector3(0,0,0 ));
+}
+
 void Pacman::move(int direction  , double deltaTime) {
   float x = 0,  z = 0;
   float spaceTranslated = this->speed;
