@@ -347,7 +347,7 @@ void PlayState::createLight() {
 
 
 void PlayState::createPhantoms(){
-  graphml_boost::ruta_t phantomZone = graphLevel->getVertices(REGULAR_NODE);
+  graphml_boost::ruta_t phantomZone = graphLevel->getVertices(PHANTOM_START_NODE);
    _phantoms = PhantomFactory::getInstance().createAllPhantoms(_world,phantomZone);
 }
 
@@ -532,10 +532,7 @@ void PlayState::setPhantomsAfraid(bool afraid){
    return idFarNode;
 
 
-
-
   
-
 }
 /**
  * Manage collisions with Pacman
