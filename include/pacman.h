@@ -43,6 +43,7 @@ class Pacman{
   explicit Pacman(DynamicsWorld* _world,Vector3 position, int idNodeStart);
   ~Pacman();
   void move(int direction  , double deltaTime);
+  void stop();
   int kill();
   int getLifes();
   btRigidBody* getBtRigidBody();
