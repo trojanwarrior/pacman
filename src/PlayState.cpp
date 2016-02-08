@@ -27,6 +27,7 @@ using namespace OgreBulletCollisions;
 
 void PlayState::enter ()
 {
+  stopWorld =false;
 
   _root = Ogre::Root::getSingletonPtr();
 
@@ -112,6 +113,7 @@ void PlayState::resume()
 
 bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
 {
+  if(!stopWorld){
   _world->stepSimulation(evt.timeSinceLastFrame);
   if (_pacmanDir != 0) {
     _pacman->move(_pacmanDir, evt.timeSinceLastFrame);
@@ -153,13 +155,13 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
       
   }
 
-  
+  }
   return true;
 }
 
 bool PlayState::frameEnded(const Ogre::FrameEvent& evt)
 {
-  //  if (_exitGame)
+  //  if (_exitGame) 
   //    return false;
   
   return true;
@@ -181,6 +183,7 @@ bool PlayState::keyPressed(const OIS::KeyEvent &e)
                 pushState(PauseState::getSingletonPtr());
               }
               else if (e.key == OIS::KC_G) {
+                paused = true;
                 game_over();
               }
               else if (e.key == OIS::KC_W) {
@@ -227,6 +230,7 @@ bool PlayState::keyPressed(const OIS::KeyEvent &e)
         sounds::getInstance()->play_effect("eat_ghost");
         user_name_txt->setVisible(false);
         popState();
+        stopWorld = false;
     }
   }
   return true;
@@ -465,6 +469,7 @@ void PlayState::win()
 
 void PlayState::game_over()
 {
+  stopWorld = true;
   //set_lives(0);
   message_txt->setVisible(true);
   message_wall->setVisible(true);

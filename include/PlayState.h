@@ -105,6 +105,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   std::vector<Phantom>* _phantoms;
   std::vector<Pill>_pills;
   std::vector<Fruit>* _frutas;
+  bool stopWorld;
   int _fruta_aleatoria; // id de una fruta del vector _frutas. Será la que aparezca.
 
 
