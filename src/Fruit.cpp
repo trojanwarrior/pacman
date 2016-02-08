@@ -160,12 +160,12 @@ void Fruit::aparece(Ogre::Vector3 donde)
     _nodeFruit->pitch(Ogre::Degree(90)); // Aplico rotación al nodo antes de Bullet tome el control
     _nodeFruit->setVisible(true);
 
-    Ogre::Quaternion quat = _nodeFruit->getOrientation();       //Saco un cuaternio con la orientación del nodo para pasárselo a Bullet
-    
-
+//    Ogre::Quaternion quat = _nodeFruit->getOrientation();       //Saco un cuaternio con la orientación del nodo para pasárselo a Bullet
+//    
+//
     btTransform transform; //Declaration of the btTransform
     transform.setIdentity(); //This function put the variable of the object to default. The ctor of btTransform doesnt do it.
-    transform.setRotation(btQuaternion(quat.x, quat.y, quat.z, quat.w)); // Con el cuaternio de antes le aplico la rotación al nodo
+//    transform.setRotation(btQuaternion(quat.x, quat.y, quat.z, quat.w)); // Con el cuaternio de antes le aplico la rotación al nodo
     transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(donde)); //Set the new position/origin
     body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body*/
     

@@ -1,348 +1,372 @@
-21:32:16: Creating resource group General
-21:32:16: Creating resource group Internal
-21:32:16: Creating resource group Autodetect
-21:32:16: SceneManagerFactory for type 'DefaultSceneManager' registered.
-21:32:16: Registering ResourceManager for type Material
-21:32:16: Registering ResourceManager for type Mesh
-21:32:16: Registering ResourceManager for type Skeleton
-21:32:16: MovableObjectFactory for type 'ParticleSystem' registered.
-21:32:16: ArchiveFactory for archive type FileSystem registered.
-21:32:16: ArchiveFactory for archive type Zip registered.
-21:32:16: ArchiveFactory for archive type EmbeddedZip registered.
-21:32:16: DDS codec registering
-21:32:16: FreeImage version: 3.17.0
-21:32:16: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
-21:32:16: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,rgb,rgba,bw,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti,x3f,webp,jxr,wdp,hdp
-21:32:16: Registering ResourceManager for type HighLevelGpuProgram
-21:32:16: Registering ResourceManager for type Compositor
-21:32:16: MovableObjectFactory for type 'Entity' registered.
-21:32:16: MovableObjectFactory for type 'Light' registered.
-21:32:16: MovableObjectFactory for type 'BillboardSet' registered.
-21:32:16: MovableObjectFactory for type 'ManualObject' registered.
-21:32:16: MovableObjectFactory for type 'BillboardChain' registered.
-21:32:16: MovableObjectFactory for type 'RibbonTrail' registered.
-21:32:16: Loading library /usr/lib64/OGRE/RenderSystem_GL
-21:32:16: Installing plugin: GL RenderSystem
-21:32:16: OpenGL Rendering Subsystem created.
-21:32:16: Plugin successfully installed
-21:32:16: *-*-* OGRE Initialising
-21:32:16: *-*-* Version 1.9.0 (Ghadamon)
-21:32:16: Added resource location 'media' of type 'FileSystem' to resource group 'General'
-21:32:16: Added resource location 'media/backgrounds' of type 'FileSystem' to resource group 'General'
-21:32:16: Added resource location 'mygui/Media/MyGUI_Media' of type 'FileSystem' to resource group 'General'
-21:32:16: Added resource location 'mygui/Media/PACMAN' of type 'FileSystem' to resource group 'General'
-21:32:16: CPU Identifier & Features
-21:32:16: -------------------------
-21:32:16:  *   CPU ID: AuthenticAMD: AMD Athlon(tm) 64 X2 Dual Core Processor 6000+
-21:32:16:  *      SSE: yes
-21:32:16:  *     SSE2: yes
-21:32:16:  *     SSE3: yes
-21:32:16:  *      MMX: yes
-21:32:16:  *   MMXEXT: yes
-21:32:16:  *    3DNOW: yes
-21:32:16:  * 3DNOWEXT: yes
-21:32:16:  *     CMOV: yes
-21:32:16:  *      TSC: yes
-21:32:16:  *      FPU: yes
-21:32:16:  *      PRO: yes
-21:32:16:  *       HT: no
-21:32:16: -------------------------
-21:32:16: ******************************
+21:51:46: Creating resource group General
+21:51:46: Creating resource group Internal
+21:51:46: Creating resource group Autodetect
+21:51:46: SceneManagerFactory for type 'DefaultSceneManager' registered.
+21:51:46: Registering ResourceManager for type Material
+21:51:46: Registering ResourceManager for type Mesh
+21:51:46: Registering ResourceManager for type Skeleton
+21:51:46: MovableObjectFactory for type 'ParticleSystem' registered.
+21:51:46: ArchiveFactory for archive type FileSystem registered.
+21:51:46: ArchiveFactory for archive type Zip registered.
+21:51:46: ArchiveFactory for archive type EmbeddedZip registered.
+21:51:46: DDS codec registering
+21:51:46: FreeImage version: 3.10.0
+21:51:46: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+21:51:46: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,sgi,exr,j2k,j2c,jp2
+21:51:46: Registering ResourceManager for type HighLevelGpuProgram
+21:51:46: Registering ResourceManager for type Compositor
+21:51:46: MovableObjectFactory for type 'Entity' registered.
+21:51:46: MovableObjectFactory for type 'Light' registered.
+21:51:46: MovableObjectFactory for type 'BillboardSet' registered.
+21:51:46: MovableObjectFactory for type 'ManualObject' registered.
+21:51:46: MovableObjectFactory for type 'BillboardChain' registered.
+21:51:46: MovableObjectFactory for type 'RibbonTrail' registered.
+21:51:46: Loading library /usr/lib64/OGRE/RenderSystem_GL
+21:51:46: Installing plugin: GL RenderSystem
+21:51:46: OpenGL Rendering Subsystem created.
+21:51:46: Plugin successfully installed
+21:51:46: *-*-* OGRE Initialising
+21:51:46: *-*-* Version 1.9.0 (Ghadamon)
+21:51:46: Added resource location 'media' of type 'FileSystem' to resource group 'General'
+21:51:46: Added resource location 'media/backgrounds' of type 'FileSystem' to resource group 'General'
+21:51:46: Added resource location 'mygui/Media/MyGUI_Media' of type 'FileSystem' to resource group 'General'
+21:51:46: Added resource location 'mygui/Media/PACMAN' of type 'FileSystem' to resource group 'General'
+21:51:46: CPU Identifier & Features
+21:51:46: -------------------------
+21:51:46:  *   CPU ID: GenuineIntel: Intel(R) Core(TM) i7 CPU         920  @ 2.67GHz
+21:51:46:  *      SSE: yes
+21:51:46:  *     SSE2: yes
+21:51:46:  *     SSE3: yes
+21:51:46:  *      MMX: yes
+21:51:46:  *   MMXEXT: yes
+21:51:46:  *    3DNOW: no
+21:51:46:  * 3DNOWEXT: no
+21:51:46:  *     CMOV: yes
+21:51:46:  *      TSC: yes
+21:51:46:  *      FPU: yes
+21:51:46:  *      PRO: yes
+21:51:46:  *       HT: no
+21:51:46: -------------------------
+21:51:46: ******************************
 *** Starting GLX Subsystem ***
 ******************************
-21:32:16: Registering ResourceManager for type Texture
-21:32:16: GLRenderSystem::_createRenderWindow "Pacman", 1024x768 windowed  miscParams: FSAA=2 displayFrequency=60 Hz gamma=No vsync=No 
-21:32:16: GLXWindow::create used FBConfigID = 360
-21:32:16: GL_VERSION = 3.0 Mesa 11.0.5
-21:32:16: GL_VENDOR = X.Org
-21:32:16: GL_RENDERER = Gallium 0.4 on AMD CAICOS (DRM 2.43.0, LLVM 3.7.0)
-21:32:16: GL_EXTENSIONS = GL_ARB_multisample GL_EXT_abgr GL_EXT_bgra GL_EXT_blend_color GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_copy_texture GL_EXT_polygon_offset GL_EXT_subtexture GL_EXT_texture_object GL_EXT_vertex_array GL_EXT_compiled_vertex_array GL_EXT_texture GL_EXT_texture3D GL_IBM_rasterpos_clip GL_ARB_point_parameters GL_EXT_draw_range_elements GL_EXT_packed_pixels GL_EXT_point_parameters GL_EXT_rescale_normal GL_EXT_separate_specular_color GL_EXT_texture_edge_clamp GL_SGIS_generate_mipmap GL_SGIS_texture_border_clamp GL_SGIS_texture_edge_clamp GL_SGIS_texture_lod GL_ARB_framebuffer_sRGB GL_ARB_multitexture GL_EXT_framebuffer_sRGB GL_IBM_multimode_draw_arrays GL_IBM_texture_mirrored_repeat GL_ARB_texture_cube_map GL_ARB_texture_env_add GL_ARB_transpose_matrix GL_EXT_blend_func_separate GL_EXT_fog_coord GL_EXT_multi_draw_arrays GL_EXT_secondary_color GL_EXT_texture_env_add GL_EXT_texture_filter_anisotropic GL_EXT_texture_lod_bias GL_INGR_blend_func_separate GL_NV_blend_square GL_NV_light_max_exponent GL_NV_texgen_reflection GL_NV_texture_env_combine4 GL_S3_s3tc GL_SUN_multi_draw_arrays GL_ARB_texture_border_clamp GL_ARB_texture_compression GL_EXT_framebuffer_object GL_EXT_texture_compression_s3tc GL_EXT_texture_env_combine GL_EXT_texture_env_dot3 GL_MESA_window_pos GL_NV_packed_depth_stencil GL_NV_texture_rectangle GL_ARB_depth_texture GL_ARB_occlusion_query GL_ARB_shadow GL_ARB_texture_env_combine GL_ARB_texture_env_crossbar GL_ARB_texture_env_dot3 GL_ARB_texture_mirrored_repeat GL_ARB_window_pos GL_EXT_stencil_two_side GL_EXT_texture_cube_map GL_NV_depth_clamp GL_NV_fog_distance GL_APPLE_packed_pixels GL_APPLE_vertex_array_object GL_ARB_draw_buffers GL_ARB_fragment_program GL_ARB_fragment_shader GL_ARB_shader_objects GL_ARB_vertex_program GL_ARB_vertex_shader GL_ATI_draw_buffers GL_ATI_texture_env_combine3 GL_ATI_texture_float GL_EXT_shadow_funcs GL_EXT_stencil_wrap GL_MESA_pack_invert GL_NV_primitive_restart GL_ARB_depth_clamp GL_ARB_fragment_program_shadow GL_ARB_half_float_pixel GL_ARB_occlusion_query2 GL_ARB_point_sprite GL_ARB_shading_language_100 GL_ARB_sync GL_ARB_texture_non_power_of_two GL_ARB_vertex_buffer_object GL_ATI_blend_equation_separate GL_EXT_blend_equation_separate GL_OES_read_format GL_ARB_color_buffer_float GL_ARB_pixel_buffer_object GL_ARB_texture_compression_rgtc GL_ARB_texture_float GL_ARB_texture_rectangle GL_ATI_texture_compression_3dc GL_EXT_packed_float GL_EXT_pixel_buffer_object GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_mirror_clamp GL_EXT_texture_rectangle GL_EXT_texture_sRGB GL_EXT_texture_shared_exponent GL_ARB_framebuffer_object GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_packed_depth_stencil GL_ARB_vertex_array_object GL_ATI_separate_stencil GL_ATI_texture_mirror_once GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_gpu_program_parameters GL_EXT_texture_array GL_EXT_texture_compression_latc GL_EXT_texture_integer GL_EXT_texture_sRGB_decode GL_EXT_timer_query GL_OES_EGL_image GL_ARB_copy_buffer GL_ARB_depth_buffer_float GL_ARB_draw_instanced GL_ARB_half_float_vertex GL_ARB_instanced_arrays GL_ARB_map_buffer_range GL_ARB_texture_rg GL_ARB_texture_swizzle GL_ARB_vertex_array_bgra GL_EXT_texture_swizzle GL_EXT_vertex_array_bgra GL_NV_conditional_render GL_AMD_conservative_depth GL_AMD_draw_buffers_blend GL_AMD_seamless_cubemap_per_texture GL_AMD_shader_stencil_export GL_ARB_ES2_compatibility GL_ARB_blend_func_extended GL_ARB_debug_output GL_ARB_draw_buffers_blend GL_ARB_draw_elements_base_vertex GL_ARB_explicit_attrib_location GL_ARB_fragment_coord_conventions GL_ARB_provoking_vertex GL_ARB_sample_shading GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_shader_stencil_export GL_ARB_shader_texture_lod GL_ARB_texture_cube_map_array GL_ARB_texture_gather GL_ARB_texture_multisample GL_ARB_texture_query_lod GL_ARB_texture_rgb10_a2ui GL_ARB_uniform_buffer_object GL_ARB_vertex_type_2_10_10_10_rev GL_EXT_provoking_vertex GL_EXT_texture_snorm GL_MESA_texture_signed_rgba GL_NV_texture_barrier GL_ARB_get_program_binary GL_ARB_robustness GL_ARB_separate_shader_objects GL_ARB_shader_bit_encoding GL_ARB_texture_compression_bptc GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_NV_vdpau_interop GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ARB_base_instance GL_ARB_compressed_texture_pixel_storage GL_ARB_conservative_depth GL_ARB_internalformat_query GL_ARB_map_buffer_alignment GL_ARB_shading_language_420pack GL_ARB_shading_language_packing GL_ARB_texture_storage GL_ARB_transform_feedback_instanced GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_transform_feedback GL_AMD_shader_trinary_minmax GL_ARB_ES3_compatibility GL_ARB_clear_buffer_object GL_ARB_explicit_uniform_location GL_ARB_invalidate_subdata GL_ARB_program_interface_query GL_ARB_stencil_texturing GL_ARB_texture_query_levels GL_ARB_texture_storage_multisample GL_ARB_vertex_attrib_binding GL_KHR_debug GL_AMD_pinned_memory GL_ARB_buffer_storage GL_ARB_multi_bind GL_ARB_seamless_cubemap_per_texture GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_stencil8 GL_ARB_vertex_type_10f_11f_11f_rev GL_EXT_shader_integer_mix GL_ARB_clip_control GL_ARB_conditional_render_inverted GL_ARB_derivative_control GL_ARB_get_texture_sub_image GL_ARB_pipeline_statistics_query GL_ARB_texture_barrier GL_EXT_polygon_offset_clamp GL_KHR_context_flush_control 
-21:32:16: Supported GLX extensions: GLX_ARB_create_context GLX_ARB_create_context_profile GLX_ARB_create_context_robustness GLX_ARB_fbconfig_float GLX_ARB_framebuffer_sRGB GLX_ARB_get_proc_address GLX_ARB_multisample GLX_EXT_import_context GLX_EXT_visual_info GLX_EXT_visual_rating GLX_EXT_framebuffer_sRGB GLX_EXT_create_context_es2_profile GLX_MESA_copy_sub_buffer GLX_MESA_multithread_makecurrent GLX_MESA_query_renderer GLX_MESA_swap_control GLX_OML_swap_method GLX_OML_sync_control GLX_SGI_make_current_read GLX_SGI_swap_control GLX_SGI_video_sync GLX_SGIS_multisample GLX_SGIX_fbconfig GLX_SGIX_pbuffer GLX_SGIX_visual_select_group GLX_EXT_texture_from_pixmap GLX_INTEL_swap_event 
-21:32:16: ***************************
-21:32:16: *** GL Renderer Started ***
-21:32:16: ***************************
-21:32:16: Registering ResourceManager for type GpuProgram
-21:32:16: GLSL support detected
-21:32:16: GL: Using GL_EXT_framebuffer_object for rendering to textures (best)
-21:32:16: FBO PF_UNKNOWN depth/stencil support: D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_L8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_L16 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_A8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_BYTE_LA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_R5G6B5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_B5G6R5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_A4R4G4B4 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_A1R5G5B5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_B8G8R8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_A8R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_B8G8R8A8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_A2R10G10B10 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_A2B10G10R10 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_FLOAT16_RGB depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_FLOAT16_RGBA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_FLOAT32_RGB depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_FLOAT32_RGBA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_X8R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_X8B8G8R8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_SHORT_RGBA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_R3G3B2 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:16: FBO PF_FLOAT16_R depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:17: FBO PF_FLOAT32_R depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:17: FBO PF_SHORT_GR depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:17: FBO PF_FLOAT16_GR depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:17: FBO PF_FLOAT32_GR depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:17: FBO PF_SHORT_RGB depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D24S0 D32S0 Packed-D24S8 
-21:32:17: [GL] : Valid FBO targets PF_UNKNOWN PF_L8 PF_L16 PF_A8 PF_BYTE_LA PF_R5G6B5 PF_B5G6R5 PF_A4R4G4B4 PF_A1R5G5B5 PF_R8G8B8 PF_B8G8R8 PF_A8R8G8B8 PF_B8G8R8A8 PF_A2R10G10B10 PF_A2B10G10R10 PF_FLOAT16_RGB PF_FLOAT16_RGBA PF_FLOAT32_RGB PF_FLOAT32_RGBA PF_X8R8G8B8 PF_X8B8G8R8 PF_SHORT_RGBA PF_R3G3B2 PF_FLOAT16_R PF_FLOAT32_R PF_SHORT_GR PF_FLOAT16_GR PF_FLOAT32_GR PF_SHORT_RGB 
-21:32:17: RenderSystem capabilities
-21:32:17: -------------------------
-21:32:17: RenderSystem Name: OpenGL Rendering Subsystem
-21:32:17: GPU Vendor: unknown
-21:32:17: Device Name: Gallium 0.4 on AMD CAICOS (DRM 2.43.0, LLVM 3.7.0)
-21:32:17: Driver Version: 3.0.0.0
-21:32:17:  * Fixed function pipeline: yes
-21:32:17:  * Hardware generation of mipmaps: yes
-21:32:17:  * Texture blending: yes
-21:32:17:  * Anisotropic texture filtering: yes
-21:32:17:  * Dot product texture operation: yes
-21:32:17:  * Cube mapping: yes
-21:32:17:  * Hardware stencil buffer: yes
-21:32:17:    - Stencil depth: 8
-21:32:17:    - Two sided stencil support: yes
-21:32:17:    - Wrap stencil values: yes
-21:32:17:  * Hardware vertex / index buffers: yes
-21:32:17:  * Vertex programs: yes
-21:32:17:  * Number of floating-point constants for vertex programs: 4096
-21:32:17:  * Number of integer constants for vertex programs: 0
-21:32:17:  * Number of boolean constants for vertex programs: 0
-21:32:17:  * Fragment programs: yes
-21:32:17:  * Number of floating-point constants for fragment programs: 4096
-21:32:17:  * Number of integer constants for fragment programs: 0
-21:32:17:  * Number of boolean constants for fragment programs: 0
-21:32:17:  * Geometry programs: no
-21:32:17:  * Number of floating-point constants for geometry programs: 0
-21:32:17:  * Number of integer constants for geometry programs: 0
-21:32:17:  * Number of boolean constants for geometry programs: 0
-21:32:17:  * Tesselation Hull programs: no
-21:32:17:  * Number of floating-point constants for tesselation hull programs: 0
-21:32:17:  * Number of integer constants for tesselation hull programs: 0
-21:32:17:  * Number of boolean constants for tesselation hull programs: 0
-21:32:17:  * Tesselation Domain programs: no
-21:32:17:  * Number of floating-point constants for tesselation domain programs: 0
-21:32:17:  * Number of integer constants for tesselation domain programs: 0
-21:32:17:  * Number of boolean constants for tesselation domain programs: 0
-21:32:17:  * Compute programs: no
-21:32:17:  * Number of floating-point constants for compute programs: 0
-21:32:17:  * Number of integer constants for compute programs: 0
-21:32:17:  * Number of boolean constants for compute programs: 0
-21:32:17:  * Supported Shader Profiles: arbfp1 arbvp1 glsl
-21:32:17:  * Texture Compression: yes
-21:32:17:    - DXT: yes
-21:32:17:    - VTC: no
-21:32:17:    - PVRTC: no
-21:32:17:    - ATC: no
-21:32:17:    - ETC1: no
-21:32:17:    - ETC2: no
-21:32:17:    - BC4/BC5: no
-21:32:17:    - BC6H/BC7: no
-21:32:17:  * Scissor Rectangle: yes
-21:32:17:  * Hardware Occlusion Query: yes
-21:32:17:  * User clip planes: yes
-21:32:17:  * VET_UBYTE4 vertex element type: yes
-21:32:17:  * Infinite far plane projection: yes
-21:32:17:  * Hardware render-to-texture: yes
-21:32:17:  * Floating point textures: yes
-21:32:17:  * Non-power-of-two textures: yes
-21:32:17:  * 1d textures: yes
-21:32:17:  * Volume textures: yes
-21:32:17:  * Multiple Render Targets: 8
-21:32:17:    - With different bit depths: yes
-21:32:17:  * Point Sprites: yes
-21:32:17:  * Extended point parameters: yes
-21:32:17:  * Max Point Size: 16384
-21:32:17:  * Vertex texture fetch: yes
-21:32:17:  * Number of world matrices: 0
-21:32:17:  * Number of texture units: 16
-21:32:17:  * Stencil buffer depth: 8
-21:32:17:  * Number of vertex blend matrices: 0
-21:32:17:    - Max vertex textures: 16
-21:32:17:    - Vertex textures shared: yes
-21:32:17:  * Render to Vertex Buffer : no
-21:32:17:  * Hardware Atomic Counters: no
-21:32:17:  * GL 1.5 without VBO workaround: no
-21:32:17:  * Frame Buffer objects: yes
-21:32:17:  * Frame Buffer objects (ARB extension): no
-21:32:17:  * Frame Buffer objects (ATI extension): no
-21:32:17:  * PBuffer support: yes
-21:32:17:  * GL 1.5 without HW-occlusion workaround: no
-21:32:17:  * Vertex Array Objects: no
-21:32:17:  * Separate shader objects: no
-21:32:17: Using FSAA from GL_ARB_multisample extension.
-21:32:17: DefaultWorkQueue('Root') initialising on thread 7f00ea91b780.
-21:32:17: DefaultWorkQueue('Root')::WorkerFunc - thread 7f00c61a3700 starting.
-21:32:17: Particle Renderer Type 'billboard' registered
-21:32:17: Parsing scripts for resource group Autodetect
-21:32:17: Finished parsing scripts for resource group Autodetect
-21:32:17: Creating resources for group Autodetect
-21:32:17: All done
-21:32:17: Parsing scripts for resource group General
-21:32:17: Parsing script materialClydeNaranja.material
-21:32:17: Parsing script materialPacman.material
-21:32:17: Parsing script MaterialCereza.material
-21:32:17: Parsing script MaterialFresa.material
-21:32:17: Parsing script MaterialLlave.material
-21:32:17: Parsing script materialPinkyRosa.material
-21:32:17: Parsing script MaterialGalaxian.material
-21:32:17: Parsing script MaterialNaranja.material
-21:32:17: Parsing script Material.material
-21:32:17: Parsing script MaterialManzana.material
-21:32:17: Parsing script materialOjoGhost.material
-21:32:17: Parsing script materialInkyCian.material
-21:32:17: Parsing script materialBocaPacman.material
-21:32:17: Parsing script matPausa.material
-21:32:17: Parsing script MatPill.material
-21:32:17: Parsing script MaterialUvas.material
-21:32:17: Parsing script floor.material
-21:32:17: Parsing script materialBocaGhost.material
-21:32:17: DefaultWorkQueue('Root')::WorkerFunc - thread 7f00c59a2700 starting.
-21:32:17: Parsing script materialPupilaGhost.material
-21:32:17: Parsing script MatLevel.material
-21:32:17: Parsing script MatPillTranspa.material
-21:32:17: Parsing script materialBlinkyRojo.material
-21:32:17: Parsing script testMat.material
-21:32:17: Parsing script materialCagaosAzul.material
-21:32:17: Parsing script MaterialCampana.material
-21:32:17: Finished parsing scripts for resource group General
-21:32:17: Creating resources for group General
-21:32:17: All done
-21:32:17: Parsing scripts for resource group Internal
-21:32:17: Finished parsing scripts for resource group Internal
-21:32:17: Creating resources for group Internal
-21:32:17: All done
-21:32:17: OGRE EXCEPTION(5:ItemIdentityException): SceneManager instance with name 'SceneManager' not found. in SceneManagerEnumerator::getSceneManager at /build/ogre/src/ogre/OgreMain/src/OgreSceneManagerEnumerator.cpp (line 274)
-21:32:17: OGRE EXCEPTION(5:ItemIdentityException): Cannot find Camera with name IntroCamera in SceneManager::getCamera at /build/ogre/src/ogre/OgreMain/src/OgreSceneManager.cpp (line 312)
-21:32:17: Texture: DejaVuSansFontGenerated_15.png: Loading 1 faces(PF_A8R8G8B8,128x256x1) Internal format is PF_A8R8G8B8,128x256x1.
-21:32:17: Texture: MyGUI_BlueWhiteSkins.png: Loading 1 faces(PF_A8R8G8B8,512x256x1) Internal format is PF_A8R8G8B8,512x256x1.
-21:32:17: Texture: MyGUI_Pointers.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
-21:32:17: Mesh: Loading pacman.mesh.
-21:32:17: Skeleton: Loading pacman.skeleton
-21:32:17: Texture: textOjosPacman.png: Loading 1 faces(PF_A8R8G8B8,512x512x1) with 9 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,512x512x1.
-21:32:17: Texture: textbocapacman.png: Loading 1 faces(PF_A8R8G8B8,1024x1024x1) with 10 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,1024x1024x1.
-21:32:17: Mesh: Loading ghost.mesh.
-21:32:17: Skeleton: Loading ghost.skeleton
-21:32:17: Mesh: Loading ojosGhost.mesh.
-21:32:17: Skeleton: Loading ojosGhost.skeleton
-21:32:17: Mesh: Loading bocaGhost.mesh.
-21:32:17: Skeleton: Loading bocaGhost.skeleton
-21:32:17: Texture: spot_shadow_fade.png: Loading 1 faces(PF_R8G8B8,128x128x1) with 7 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,128x128x1.
-21:32:18: Texture: start_screen4.png: Loading 1 faces(PF_A8R8G8B8,1024x768x1) Internal format is PF_A8R8G8B8,1024x768x1.
-21:32:18: Mesh: Loading level1.mesh.
-21:32:18: Mesh: Loading pill.mesh.
-21:32:18: OGRE EXCEPTION(5:ItemIdentityException): SceneNode 'pacman' not found. in SceneManager::getSceneNode at /build/ogre/src/ogre/OgreMain/src/OgreSceneManager.cpp (line 920)
-21:32:18: Mesh: Loading Campana.mesh.
-21:32:18: Skeleton: Loading Campana.skeleton
-21:32:18: Texture: campana.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
-21:32:18: Mesh: Loading Cereza.mesh.
-21:32:18: Skeleton: Loading Cereza.skeleton
-21:32:18: Texture: cereza.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
-21:32:18: Mesh: Loading Fresa.mesh.
-21:32:18: Skeleton: Loading Fresa.skeleton
-21:32:18: Texture: fresa.png: Loading 1 faces(PF_A8R8G8B8,128x141x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x141x1.
-21:32:18: Mesh: Loading Galaxian.mesh.
-21:32:18: Skeleton: Loading Galaxian.skeleton
-21:32:18: Texture: galaxian.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
-21:32:18: Mesh: Loading Llave.mesh.
-21:32:18: Skeleton: Loading Llave.skeleton
-21:32:18: Texture: llave.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
-21:32:18: Mesh: Loading Manzana.mesh.
-21:32:18: Skeleton: Loading Manzana.skeleton
-21:32:18: Texture: manzana.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
-21:32:18: Mesh: Loading Naranja.mesh.
-21:32:18: Skeleton: Loading Naranja.skeleton
-21:32:18: Texture: naranja.png: Loading 1 faces(PF_A8R8G8B8,128x141x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x141x1.
-21:32:18: Texture: play_screen4.png: Loading 1 faces(PF_A8R8G8B8,1024x768x1) Internal format is PF_A8R8G8B8,1024x768x1.
-21:32:18: Texture: fondo_mensaje.png: Loading 1 faces(PF_A8R8G8B8,400x400x1) Internal format is PF_A8R8G8B8,400x400x1.
-21:32:18: Creating resource group OgreBulletCollisions
-21:32:22: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:22: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:22: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:22: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:22: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:23: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:23: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:23: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:23: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:23: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:23: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:24: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:24: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:24: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:25: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:25: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:25: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:25: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:26: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:26: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:26: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:26: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:26: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:27: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:27: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:27: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:27: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:27: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:27: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:28: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:38: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:38: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:38: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:38: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:38: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:39: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:39: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:39: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:40: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:40: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:40: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:40: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:40: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:41: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:41: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:41: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:41: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:41: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:42: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:42: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:42: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:42: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:42: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:43: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:43: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:43: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:43: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:43: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:43: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:44: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:44: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:44: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:44: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:44: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:44: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:45: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:45: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:45: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:46: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:53: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:53: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:53: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:53: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:53: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:54: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:54: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:54: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:55: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:55: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:55: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:55: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:55: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
-21:32:55: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /build/ogre/src/ogre/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:46: Registering ResourceManager for type Texture
+21:51:46: GLRenderSystem::_createRenderWindow "Pacman", 1024x768 windowed  miscParams: FSAA=2 displayFrequency=60 Hz gamma=No vsync=No 
+21:51:46: GLXWindow::create used FBConfigID = 205
+21:51:46: GL_VERSION = 4.5.0 NVIDIA 352.63
+21:51:46: GL_VENDOR = NVIDIA Corporation
+21:51:46: GL_RENDERER = GeForce GTX 960/PCIe/SSE2
+21:51:46: GL_EXTENSIONS = GL_AMD_multi_draw_indirect GL_AMD_seamless_cubemap_per_texture GL_AMD_vertex_shader_viewport_index GL_AMD_vertex_shader_layer GL_ARB_arrays_of_arrays GL_ARB_base_instance GL_ARB_bindless_texture GL_ARB_blend_func_extended GL_ARB_buffer_storage GL_ARB_clear_buffer_object GL_ARB_clear_texture GL_ARB_clip_control GL_ARB_color_buffer_float GL_ARB_compatibility GL_ARB_compressed_texture_pixel_storage GL_ARB_conservative_depth GL_ARB_compute_shader GL_ARB_compute_variable_group_size GL_ARB_conditional_render_inverted GL_ARB_copy_buffer GL_ARB_copy_image GL_ARB_cull_distance GL_ARB_debug_output GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_depth_texture GL_ARB_derivative_control GL_ARB_direct_state_access GL_ARB_draw_buffers GL_ARB_draw_buffers_blend GL_ARB_draw_indirect GL_ARB_draw_elements_base_vertex GL_ARB_draw_instanced GL_ARB_enhanced_layouts GL_ARB_ES2_compatibility GL_ARB_ES3_compatibility GL_ARB_ES3_1_compatibility GL_ARB_explicit_attrib_location GL_ARB_explicit_uniform_location GL_ARB_fragment_coord_conventions GL_ARB_fragment_layer_viewport GL_ARB_fragment_program GL_ARB_fragment_program_shadow GL_ARB_fragment_shader GL_ARB_framebuffer_no_attachments GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_geometry_shader4 GL_ARB_get_program_binary GL_ARB_get_texture_sub_image GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_imaging GL_ARB_indirect_parameters GL_ARB_instanced_arrays GL_ARB_internalformat_query GL_ARB_internalformat_query2 GL_NV_internalformat_sample_query GL_ARB_invalidate_subdata GL_ARB_map_buffer_alignment GL_ARB_map_buffer_range GL_ARB_multi_bind GL_ARB_multi_draw_indirect GL_ARB_multisample GL_ARB_multitexture GL_ARB_occlusion_query GL_ARB_occlusion_query2 GL_ARB_pipeline_statistics_query GL_ARB_pixel_buffer_object GL_ARB_point_parameters GL_ARB_point_sprite GL_ARB_program_interface_query GL_ARB_provoking_vertex GL_ARB_robust_buffer_access_behavior GL_ARB_robustness GL_ARB_sample_shading GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_seamless_cubemap_per_texture GL_ARB_separate_shader_objects GL_ARB_shader_atomic_counters GL_ARB_shader_bit_encoding GL_ARB_shader_draw_parameters GL_ARB_shader_group_vote GL_ARB_shader_image_load_store GL_ARB_shader_image_size GL_ARB_shader_objects GL_ARB_shader_precision GL_ARB_query_buffer_object GL_ARB_shader_storage_buffer_object GL_ARB_shader_subroutine GL_ARB_shader_texture_image_samples GL_ARB_shader_texture_lod GL_ARB_shading_language_100 GL_ARB_shading_language_420pack GL_ARB_shading_language_include GL_ARB_shading_language_packing GL_ARB_shadow GL_ARB_sparse_buffer GL_ARB_sparse_texture GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_texture_barrier GL_ARB_texture_border_clamp GL_ARB_texture_buffer_object GL_ARB_texture_buffer_object_rgb32 GL_ARB_texture_buffer_range GL_ARB_texture_compression GL_ARB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map GL_ARB_texture_cube_map_array GL_ARB_texture_env_add GL_ARB_texture_env_combine GL_ARB_texture_env_crossbar GL_ARB_texture_env_dot3 GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_mirrored_repeat GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_transpose_matrix GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_program GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ARB_window_pos GL_ATI_draw_buffers GL_ATI_texture_float GL_ATI_texture_mirror_once GL_S3_s3tc GL_EXT_texture_env_add GL_EXT_abgr GL_EXT_bgra GL_EXT_bindable_uniform GL_EXT_blend_color GL_EXT_blend_equation_separate GL_EXT_blend_func_separate GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_compiled_vertex_array GL_EXT_Cg_shader GL_EXT_depth_bounds_test GL_EXT_direct_state_access GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_draw_range_elements GL_EXT_fog_coord GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXTX_framebuffer_mixed_formats GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_geometry_shader4 GL_EXT_gpu_program_parameters GL_EXT_gpu_shader4 GL_EXT_multi_draw_arrays GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_packed_pixels GL_EXT_pixel_buffer_object GL_EXT_point_parameters GL_EXT_polygon_offset_clamp GL_EXT_post_depth_coverage GL_EXT_provoking_vertex GL_EXT_raster_multisample GL_EXT_rescale_normal GL_EXT_secondary_color GL_EXT_separate_shader_objects GL_EXT_separate_specular_color GL_EXT_shader_image_load_formatted GL_EXT_shader_image_load_store GL_EXT_shader_integer_mix GL_EXT_shadow_funcs GL_EXT_sparse_texture2 GL_EXT_stencil_two_side GL_EXT_stencil_wrap GL_EXT_texture3D GL_EXT_texture_array GL_EXT_texture_buffer_object GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_latc GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_cube_map GL_EXT_texture_edge_clamp GL_EXT_texture_env_combine GL_EXT_texture_env_dot3 GL_EXT_texture_filter_anisotropic GL_EXT_texture_filter_minmax GL_EXT_texture_integer GL_EXT_texture_lod GL_EXT_texture_lod_bias GL_EXT_texture_mirror_clamp GL_EXT_texture_object GL_EXT_texture_shared_exponent GL_EXT_texture_sRGB GL_EXT_texture_sRGB_decode GL_EXT_texture_storage GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback2 GL_EXT_vertex_array GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_EXT_x11_sync_object GL_EXT_import_sync_object GL_IBM_rasterpos_clip GL_IBM_texture_mirrored_repeat GL_KHR_context_flush_control GL_KHR_debug GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KTX_buffer_region GL_NV_bindless_multi_draw_indirect GL_NV_bindless_multi_draw_indirect_count GL_NV_bindless_texture GL_NV_blend_equation_advanced GL_NV_blend_equation_advanced_coherent GL_NV_blend_square GL_NV_command_list GL_NV_compute_program5 GL_NV_conditional_render GL_NV_conservative_raster GL_NV_conservative_raster_dilate GL_NV_copy_depth_to_color GL_NV_copy_image GL_NV_depth_buffer_float GL_NV_depth_clamp GL_NV_draw_texture GL_NV_ES1_1_compatibility GL_NV_ES3_1_compatibility GL_NV_explicit_multisample GL_NV_fence GL_NV_fill_rectangle GL_NV_float_buffer GL_NV_fog_distance GL_NV_fragment_coverage_to_color GL_NV_fragment_program GL_NV_fragment_program_option GL_NV_fragment_program2 GL_NV_fragment_shader_interlock GL_NV_framebuffer_mixed_samples GL_NV_framebuffer_multisample_coverage GL_NV_geometry_shader4 GL_NV_geometry_shader_passthrough GL_NV_gpu_program4 GL_NV_gpu_program4_1 GL_NV_gpu_program5 GL_NV_gpu_program5_mem_extended GL_NV_gpu_program_fp64 GL_NV_gpu_shader5 GL_NV_half_float GL_NV_light_max_exponent GL_NV_multisample_coverage GL_NV_multisample_filter_hint GL_NV_occlusion_query GL_NV_packed_depth_stencil GL_NV_parameter_buffer_object GL_NV_parameter_buffer_object2 GL_NV_path_rendering GL_NV_path_rendering_shared_edge GL_NV_pixel_data_range GL_NV_point_sprite GL_NV_primitive_restart GL_NV_register_combiners GL_NV_register_combiners2 GL_NV_sample_locations GL_NV_sample_mask_override_coverage GL_NV_shader_atomic_counters GL_NV_shader_atomic_float GL_NV_shader_atomic_fp16_vector GL_NV_shader_atomic_int64 GL_NV_shader_buffer_load GL_NV_shader_storage_buffer_object GL_NV_texgen_reflection GL_NV_texture_barrier GL_NV_texture_compression_vtc GL_NV_texture_env_combine4 GL_NV_texture_multisample GL_NV_texture_rectangle GL_NV_texture_shader GL_NV_texture_shader2 GL_NV_texture_shader3 GL_NV_transform_feedback GL_NV_transform_feedback2 GL_NV_uniform_buffer_unified_memory GL_NV_vdpau_interop GL_NV_vertex_array_range GL_NV_vertex_array_range2 GL_NV_vertex_attrib_integer_64bit GL_NV_vertex_buffer_unified_memory GL_NV_vertex_program GL_NV_vertex_program1_1 GL_NV_vertex_program2 GL_NV_vertex_program2_option GL_NV_vertex_program3 GL_NV_viewport_array2 GL_NVX_conditional_render GL_NVX_gpu_memory_info GL_NVX_nvenc_interop GL_NV_shader_thread_group GL_NV_shader_thread_shuffle GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_SGIS_generate_mipmap GL_SGIS_texture_lod GL_SGIX_depth_texture GL_SGIX_shadow GL_SUN_slice_accum 
+21:51:46: Supported GLX extensions: GLX_EXT_visual_info GLX_EXT_visual_rating GLX_SGIX_fbconfig GLX_SGIX_pbuffer GLX_SGI_video_sync GLX_SGI_swap_control GLX_EXT_swap_control GLX_EXT_swap_control_tear GLX_EXT_texture_from_pixmap GLX_EXT_buffer_age GLX_ARB_create_context GLX_ARB_create_context_profile GLX_EXT_create_context_es_profile GLX_EXT_create_context_es2_profile GLX_ARB_create_context_robustness GLX_NV_delay_before_swap GLX_EXT_stereo_tree GLX_ARB_context_flush_control GLX_ARB_multisample GLX_NV_float_buffer GLX_ARB_fbconfig_float GLX_EXT_framebuffer_sRGB GLX_NV_copy_image GLX_ARB_get_proc_address 
+21:51:46: ***************************
+21:51:46: *** GL Renderer Started ***
+21:51:46: ***************************
+21:51:46: Registering ResourceManager for type GpuProgram
+21:51:46: GLSL support detected
+21:51:46: GL: Using GL_EXT_framebuffer_object for rendering to textures (best)
+21:51:47: FBO PF_UNKNOWN depth/stencil support: D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_L8 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_A8 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_A4L4 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_BYTE_LA depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_R5G6B5 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_B5G6R5 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_A4R4G4B4 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_A1R5G5B5 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_R8G8B8 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_B8G8R8 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_A8R8G8B8 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_B8G8R8A8 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_A2R10G10B10 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_A2B10G10R10 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_FLOAT16_RGB depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_FLOAT16_RGBA depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_FLOAT32_RGB depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_FLOAT32_RGBA depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_X8R8G8B8 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_X8B8G8R8 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_SHORT_RGBA depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_R3G3B2 depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_FLOAT16_R depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_FLOAT32_R depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_FLOAT16_GR depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_FLOAT32_GR depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: FBO PF_SHORT_RGB depth/stencil support: D0S0 D0S8 D16S0 D24S0 D32S0 Packed-D24S8 
+21:51:47: [GL] : Valid FBO targets PF_UNKNOWN PF_L8 PF_A8 PF_A4L4 PF_BYTE_LA PF_R5G6B5 PF_B5G6R5 PF_A4R4G4B4 PF_A1R5G5B5 PF_R8G8B8 PF_B8G8R8 PF_A8R8G8B8 PF_B8G8R8A8 PF_A2R10G10B10 PF_A2B10G10R10 PF_FLOAT16_RGB PF_FLOAT16_RGBA PF_FLOAT32_RGB PF_FLOAT32_RGBA PF_X8R8G8B8 PF_X8B8G8R8 PF_SHORT_RGBA PF_R3G3B2 PF_FLOAT16_R PF_FLOAT32_R PF_FLOAT16_GR PF_FLOAT32_GR PF_SHORT_RGB 
+21:51:47: RenderSystem capabilities
+21:51:47: -------------------------
+21:51:47: RenderSystem Name: OpenGL Rendering Subsystem
+21:51:47: GPU Vendor: nvidia
+21:51:47: Device Name: GeForce GTX 960/PCIe/SSE2
+21:51:47: Driver Version: 4.5.0.0
+21:51:47:  * Fixed function pipeline: yes
+21:51:47:  * Hardware generation of mipmaps: yes
+21:51:47:  * Texture blending: yes
+21:51:47:  * Anisotropic texture filtering: yes
+21:51:47:  * Dot product texture operation: yes
+21:51:47:  * Cube mapping: yes
+21:51:47:  * Hardware stencil buffer: yes
+21:51:47:    - Stencil depth: 8
+21:51:47:    - Two sided stencil support: yes
+21:51:47:    - Wrap stencil values: yes
+21:51:47:  * Hardware vertex / index buffers: yes
+21:51:47:  * Vertex programs: yes
+21:51:47:  * Number of floating-point constants for vertex programs: 1024
+21:51:47:  * Number of integer constants for vertex programs: 0
+21:51:47:  * Number of boolean constants for vertex programs: 0
+21:51:47:  * Fragment programs: yes
+21:51:47:  * Number of floating-point constants for fragment programs: 512
+21:51:47:  * Number of integer constants for fragment programs: 0
+21:51:47:  * Number of boolean constants for fragment programs: 0
+21:51:47:  * Geometry programs: yes
+21:51:47:  * Number of floating-point constants for geometry programs: 2048
+21:51:47:  * Number of integer constants for geometry programs: 0
+21:51:47:  * Number of boolean constants for geometry programs: 0
+21:51:47:  * Tesselation Hull programs: no
+21:51:47:  * Number of floating-point constants for tesselation hull programs: 0
+21:51:47:  * Number of integer constants for tesselation hull programs: 0
+21:51:47:  * Number of boolean constants for tesselation hull programs: 0
+21:51:47:  * Tesselation Domain programs: no
+21:51:47:  * Number of floating-point constants for tesselation domain programs: 0
+21:51:47:  * Number of integer constants for tesselation domain programs: 0
+21:51:47:  * Number of boolean constants for tesselation domain programs: 0
+21:51:47:  * Compute programs: no
+21:51:47:  * Number of floating-point constants for compute programs: 0
+21:51:47:  * Number of integer constants for compute programs: 0
+21:51:47:  * Number of boolean constants for compute programs: 0
+21:51:47:  * Supported Shader Profiles: arbfp1 arbvp1 fp20 fp30 fp40 glsl gp4fp gp4gp gp4vp gpu_fp gpu_gp gpu_vp nvgp4 vp30 vp40
+21:51:47:  * Texture Compression: yes
+21:51:47:    - DXT: yes
+21:51:47:    - VTC: yes
+21:51:47:    - PVRTC: no
+21:51:47:    - ATC: no
+21:51:47:    - ETC1: no
+21:51:47:    - ETC2: no
+21:51:47:    - BC4/BC5: no
+21:51:47:    - BC6H/BC7: no
+21:51:47:  * Scissor Rectangle: yes
+21:51:47:  * Hardware Occlusion Query: yes
+21:51:47:  * User clip planes: yes
+21:51:47:  * VET_UBYTE4 vertex element type: yes
+21:51:47:  * Infinite far plane projection: yes
+21:51:47:  * Hardware render-to-texture: yes
+21:51:47:  * Floating point textures: yes
+21:51:47:  * Non-power-of-two textures: yes
+21:51:47:  * 1d textures: yes
+21:51:47:  * Volume textures: yes
+21:51:47:  * Multiple Render Targets: 8
+21:51:47:    - With different bit depths: yes
+21:51:47:  * Point Sprites: yes
+21:51:47:  * Extended point parameters: yes
+21:51:47:  * Max Point Size: 2047
+21:51:47:  * Vertex texture fetch: yes
+21:51:47:  * Number of world matrices: 0
+21:51:47:  * Number of texture units: 16
+21:51:47:  * Stencil buffer depth: 8
+21:51:47:  * Number of vertex blend matrices: 0
+21:51:47:    - Max vertex textures: 32
+21:51:47:    - Vertex textures shared: yes
+21:51:47:  * Render to Vertex Buffer : yes
+21:51:47:  * Hardware Atomic Counters: no
+21:51:47:  * GL 1.5 without VBO workaround: no
+21:51:47:  * Frame Buffer objects: yes
+21:51:47:  * Frame Buffer objects (ARB extension): no
+21:51:47:  * Frame Buffer objects (ATI extension): no
+21:51:47:  * PBuffer support: yes
+21:51:47:  * GL 1.5 without HW-occlusion workaround: no
+21:51:47:  * Vertex Array Objects: no
+21:51:47:  * Separate shader objects: no
+21:51:47: Using FSAA from GL_ARB_multisample extension.
+21:51:47: DefaultWorkQueue('Root') initialising on thread 7f0cc88977c0.
+21:51:47: DefaultWorkQueue('Root')::WorkerFunc - thread 7f0c9f27d700 starting.
+21:51:47: DefaultWorkQueue('Root')::WorkerFunc - thread 7f0c9fa7e700 starting.
+21:51:47: DefaultWorkQueue('Root')::WorkerFunc - thread 7f0c9ea7c700 starting.
+21:51:47: DefaultWorkQueue('Root')::WorkerFunc - thread 7f0c96a7c700 starting.
+21:51:47: DefaultWorkQueue('Root')::WorkerFunc - thread 7f0c9e27b700 starting.
+21:51:47: DefaultWorkQueue('Root')::WorkerFunc - thread 7f0c9da7a700 starting.
+21:51:47: DefaultWorkQueue('Root')::WorkerFunc - thread 7f0c9d279700 starting.
+21:51:47: DefaultWorkQueue('Root')::WorkerFunc - thread 7f0c9ca78700 starting.
+21:51:47: Particle Renderer Type 'billboard' registered
+21:51:47: Parsing scripts for resource group Autodetect
+21:51:47: Finished parsing scripts for resource group Autodetect
+21:51:47: Creating resources for group Autodetect
+21:51:47: All done
+21:51:47: Parsing scripts for resource group General
+21:51:47: Parsing script MaterialCereza.material
+21:51:47: Parsing script MatPill.material
+21:51:47: Parsing script MaterialGalaxian.material
+21:51:47: Parsing script MaterialManzana.material
+21:51:47: Parsing script Material.material
+21:51:47: Parsing script materialInkyCian.material
+21:51:47: Parsing script floor.material
+21:51:47: Parsing script MaterialFresa.material
+21:51:47: Parsing script MaterialUvas.material
+21:51:47: Parsing script MatPillTranspa.material
+21:51:47: Parsing script MatLevel.material
+21:51:47: Parsing script materialClydeNaranja.material
+21:51:47: Parsing script matPausa.material
+21:51:47: Parsing script materialBlinkyRojo.material
+21:51:47: Parsing script materialBocaGhost.material
+21:51:47: Parsing script materialBocaPacman.material
+21:51:47: Parsing script MaterialCampana.material
+21:51:47: Parsing script materialOjoGhost.material
+21:51:47: Parsing script materialCagaosAzul.material
+21:51:47: Parsing script testMat.material
+21:51:47: Parsing script MaterialNaranja.material
+21:51:47: Parsing script materialPinkyRosa.material
+21:51:47: Parsing script materialPupilaGhost.material
+21:51:47: Parsing script MaterialLlave.material
+21:51:47: Parsing script materialPacman.material
+21:51:47: Finished parsing scripts for resource group General
+21:51:47: Creating resources for group General
+21:51:47: All done
+21:51:47: Parsing scripts for resource group Internal
+21:51:47: Finished parsing scripts for resource group Internal
+21:51:47: Creating resources for group Internal
+21:51:47: All done
+21:51:47: OGRE EXCEPTION(5:ItemIdentityException): SceneManager instance with name 'SceneManager' not found. in SceneManagerEnumerator::getSceneManager at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreSceneManagerEnumerator.cpp (line 274)
+21:51:47: OGRE EXCEPTION(5:ItemIdentityException): Cannot find Camera with name IntroCamera in SceneManager::getCamera at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreSceneManager.cpp (line 312)
+21:51:47: Texture: DejaVuSansFontGenerated_15.png: Loading 1 faces(PF_A8R8G8B8,128x256x1) Internal format is PF_A8R8G8B8,128x256x1.
+21:51:47: Texture: MyGUI_BlueWhiteSkins.png: Loading 1 faces(PF_A8R8G8B8,512x256x1) Internal format is PF_A8R8G8B8,512x256x1.
+21:51:47: Texture: MyGUI_Pointers.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
+21:51:47: Mesh: Loading pacman.mesh.
+21:51:47: Skeleton: Loading pacman.skeleton
+21:51:47: Texture: textOjosPacman.png: Loading 1 faces(PF_A8R8G8B8,512x512x1) with 9 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,512x512x1.
+21:51:47: Texture: textbocapacman.png: Loading 1 faces(PF_A8R8G8B8,1024x1024x1) with 10 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,1024x1024x1.
+21:51:47: Mesh: Loading ghost.mesh.
+21:51:47: Skeleton: Loading ghost.skeleton
+21:51:47: Mesh: Loading ojosGhost.mesh.
+21:51:47: Skeleton: Loading ojosGhost.skeleton
+21:51:47: Mesh: Loading bocaGhost.mesh.
+21:51:47: Skeleton: Loading bocaGhost.skeleton
+21:51:47: Texture: spot_shadow_fade.png: Loading 1 faces(PF_R8G8B8,128x128x1) with 7 hardware generated mipmaps from Image. Internal format is PF_X8R8G8B8,128x128x1.
+21:51:48: Texture: start_screen4.png: Loading 1 faces(PF_A8R8G8B8,1024x768x1) Internal format is PF_A8R8G8B8,1024x768x1.
+21:51:52: Mesh: Loading level1.mesh.
+21:51:52: Mesh: Loading pill.mesh.
+21:51:52: OGRE EXCEPTION(5:ItemIdentityException): SceneNode 'pacman' not found. in SceneManager::getSceneNode at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreSceneManager.cpp (line 920)
+21:51:52: Mesh: Loading Campana.mesh.
+21:51:52: Skeleton: Loading Campana.skeleton
+21:51:52: Texture: campana.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
+21:51:52: Mesh: Loading Cereza.mesh.
+21:51:52: Skeleton: Loading Cereza.skeleton
+21:51:52: Texture: cereza.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
+21:51:52: Mesh: Loading Fresa.mesh.
+21:51:52: Skeleton: Loading Fresa.skeleton
+21:51:52: Texture: fresa.png: Loading 1 faces(PF_A8R8G8B8,128x141x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x141x1.
+21:51:52: Mesh: Loading Galaxian.mesh.
+21:51:52: Skeleton: Loading Galaxian.skeleton
+21:51:52: Texture: galaxian.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
+21:51:52: Mesh: Loading Llave.mesh.
+21:51:52: Skeleton: Loading Llave.skeleton
+21:51:52: Texture: llave.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
+21:51:52: Mesh: Loading Manzana.mesh.
+21:51:52: Skeleton: Loading Manzana.skeleton
+21:51:52: Texture: manzana.png: Loading 1 faces(PF_A8R8G8B8,128x128x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x128x1.
+21:51:52: Mesh: Loading Naranja.mesh.
+21:51:52: Skeleton: Loading Naranja.skeleton
+21:51:52: Texture: naranja.png: Loading 1 faces(PF_A8R8G8B8,128x141x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x141x1.
+21:51:52: Texture: play_screen4.png: Loading 1 faces(PF_A8R8G8B8,1024x768x1) Internal format is PF_A8R8G8B8,1024x768x1.
+21:51:52: Texture: fondo_mensaje.png: Loading 1 faces(PF_A8R8G8B8,400x400x1) Internal format is PF_A8R8G8B8,400x400x1.
+21:51:52: Creating resource group OgreBulletCollisions
+21:51:54: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:54: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:54: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:54: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:54: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:54: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:55: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:57: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:57: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:57: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:57: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:57: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:57: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:58: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:58: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:58: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:58: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:58: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:58: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:58: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:58: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:59: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:59: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:59: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:59: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:59: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:59: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:59: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:59: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:51:59: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:00: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:00: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:00: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:00: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:00: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:02: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:02: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:02: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:02: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:02: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:02: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:03: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:03: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:03: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:03: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:03: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:04: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:04: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:04: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:04: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:04: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:04: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:04: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:04: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:05: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:05: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:05: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:05: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:05: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:05: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:06: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:06: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:06: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:06: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:06: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:06: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:06: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:07: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:07: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:07: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:07: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:07: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:07: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:07: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:07: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:08: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:08: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:08: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:08: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:08: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:08: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:09: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:10: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:10: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:10: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:13: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:13: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:13: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:13: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:14: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:14: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:14: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:14: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:14: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:14: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:14: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:14: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:15: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:15: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:15: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:16: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
+21:52:16: OGRE EXCEPTION(5:ItemIdentityException): MovableObjectFactory of type OgreBullet::Object does not exist in Root::getMovableObjectFactory at /builddir/build/BUILD/ogre-1.9.0/OgreMain/src/OgreRoot.cpp (line 1486)
