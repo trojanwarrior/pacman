@@ -542,6 +542,7 @@ void PlayState::setPhantomsAfraid(bool afraid)
                     if ((*it).getEstado() != estadoPhantom::MUERTO){
             (*it).changeStatePhantom(estadoPhantom::NORMAL);
             timeAfraid=-1;
+            
                     }
                     }
 }
@@ -621,6 +622,7 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
 
 
         if(!(*it).isEaten()){
+          sounds::getInstance()->halt_effect();
           sounds::getInstance()->play_effect("chomp2");
           int points = (*it).isBig()? 50 : 10;
           (*it).eat();
@@ -658,9 +660,12 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
             switch ((*it).getEstado())
             {
                 case estadoPhantom::NORMAL:
-                            sounds::getInstance()->halt_music();
-                            sounds::getInstance()->play_effect("pacman_death");
-                            
+                            if (get_lives() > 0)
+                            {
+                                sounds::getInstance()->halt_effect();
+                                sounds::getInstance()->play_effect("pacman_death");
+                                cout << get_lives() << endl;
+                            }
                             set_lives(get_lives()-1);
                             if(get_lives() == 0) 
                             {
