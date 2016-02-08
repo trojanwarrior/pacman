@@ -120,19 +120,19 @@ void Phantom::calculateNewDestiny(){
 
   switch (estado)
   {
-      case estadoPhantom::NORMAL:      destiny = PlayState::getSingleton().getPacman()->getCurrentNode(); std::cout << "normal"<< std::endl;break;
-      case estadoPhantom::ACOJONADO:   destiny = PlayState::getSingleton().getFarNode(); std::cout << "acojonadoooo"<< std::endl;break;
-    case estadoPhantom::MUERTO:      destiny = startNode; std::cout << "muertooo"<< std::endl;
+      case estadoPhantom::NORMAL:      destiny = PlayState::getSingleton().getPacman()->getCurrentNode(); break;
+      case estadoPhantom::ACOJONADO:   destiny = PlayState::getSingleton().getFarNode(); break;
+    case estadoPhantom::MUERTO:      destiny = startNode; 
   }
 
-  std::cout << " nodo " << idOrigin<<"->"<< destiny << std::endl; 
+  //  std::cout << " nodo " << idOrigin<<"->"<< destiny << std::endl; 
   graphml_boost::ruta_t route = PlayState::getSingleton().calculateRoute(idOrigin, destiny);
 
   graphml_boost::nodo_props nodeDestiny = (route.size()>1)? route[(route.size()-2)] :route[0];
-  std::cout << idOrigin << "-" << getBulletPosition() << std::endl;
+  //  std::cout << idOrigin << "-" << getBulletPosition() << std::endl;
 
   idDestiny = nodeDestiny.idBoost;
-  std::cout << "ruta "<< idOrigin << "->"<<idDestiny << "("<< nodeDestiny.id<< ")"<< std::endl;
+  //  std::cout << "ruta "<< idOrigin << "->"<<idDestiny << "("<< nodeDestiny.id<< ")"<< std::endl;
   
   
   Vector3 positionDestiny = Vector3(atof(nodeDestiny.x.c_str()),
@@ -149,7 +149,7 @@ void Phantom::calculateNewDestiny(){
   distanceToDestiny = direction.length();
   direction.normalise();
   direction = direction*speed;
-   std::cout << "velocidad" << direction << std::endl;
+  //   std::cout << "velocidad" << direction << std::endl;
   body->setLinearVelocity(direction);
   //std::cout << " distancia "<< idDestiny << "-" << distanceToDestiny << std::endl;
 
@@ -193,7 +193,7 @@ void Phantom::checkMove(Ogre::Real deltaT) {
   Ogre::Vector3 direction = positionDestiny - origin;
   float newDistance = direction.length();
 
-  std::cout << "mojonooo "<< newDistance << "-" << origin << "-" << positionDestiny << std::endl;
+  //  std::cout << "mojonooo "<< newDistance << "-" << origin << "-" << positionDestiny << std::endl;
 
   
   if(newDistance < 0.1 )
@@ -235,7 +235,7 @@ void Phantom::reset(){
                                    atof(startNode_prop.y.c_str()),
                                    atof(startNode_prop.z.c_str()));
 
-  std::cout << "Posicion muerte" << position << std::endl;
+  //  std::cout << "Posicion muerte" << position << std::endl;
   btTransform transform; //Declaration of the btTransform
   transform.setIdentity(); //This function put the variable of the object to default. The ctor of btTransform doesnt do it.
 
@@ -285,7 +285,7 @@ void Phantom::setAfraid()
     SceneManager* _sceneMgr = Root::getSingleton().getSceneManager("SceneManager");
 
     afraid = true;
-    std::cout << "AfraidSet " << afraid  << std::endl;
+    //    std::cout << "AfraidSet " << afraid  << std::endl;
     //Asignamos nuevo material, o sea, los vestimos de acojonaos
     _sceneMgr->getEntity(name)->setMaterialName("materialCagaosAzul");
     //Mostramos la bocacha de acojone

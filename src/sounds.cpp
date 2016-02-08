@@ -46,6 +46,10 @@ void sounds::clean_up()
     SDL_Quit();
 };
 
+int sounds::halt_effects()
+{
+  return Mix_HaltChannel(-1);
+}
 int sounds::play_effect(string id)
 {
    Mix_Chunk * e = NULL;

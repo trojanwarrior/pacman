@@ -3,7 +3,10 @@
 #include "PlayState.h"
 #include "OgreUtil.h"
 #define PACMAN_EAT_ANIM "pakupaku"
-
+#define ROTATE_LEFT 0
+#define ROTATE_RIGHT 180
+#define ROTATE_UP -90
+#define ROTATE_DOWN 90
 
 
 using namespace Ogre;
@@ -51,7 +54,7 @@ Pacman::Pacman(DynamicsWorld *_world, Vector3 position,int idNodeStart) {
 
 
   body = new  RigidBody("pacman", _world, COL_PACMAN,COL_WALL | COL_PILL | COL_PHANTOM | COL_FLOOR);
-  shape = new SphereCollisionShape(0.1);
+  shape = new SphereCollisionShape(0.2);
   body->setShape(this->node,
                         shape,
                         0.0,
@@ -113,21 +116,55 @@ void Pacman::stop()
 void Pacman::move(int direction  , double deltaTime) {
   float x = 0,  z = 0;
   float spaceTranslated = this->speed;
+  int rotate;
   switch (direction) {
     case UP_DIR: z+= spaceTranslated;
+      rotate = ROTATE_UP;
       break;
     case DOWN_DIR: z-= spaceTranslated;
+      rotate = ROTATE_DOWN;
       break;
     case LEFT_DIR: x+= spaceTranslated;
+      rotate = ROTATE_LEFT;
       break;
     case RIGHT_DIR: x-= spaceTranslated;
+      rotate = ROTATE_RIGHT;
       break;
   }
+  int unrotate;
   //Change Direction, rotate Pacman
   if (direction != oldDir) {
-    int degrees = (direction - oldDir) *90;
-    std::cout << " degrees " << degrees << " " << oldDir << "->"<<direction << std::endl;
-    node->yaw(Ogre::Radian(Ogre::Degree(degrees)),Ogre::Node::TS_LOCAL);
+      switch (oldDir) {
+    case UP_DIR: unrotate = -ROTATE_UP;
+      break;
+    case DOWN_DIR: unrotate = -ROTATE_DOWN;
+      break;
+        case  LEFT_DIR :unrotate = -ROTATE_LEFT;
+      break;
+        case RIGHT_DIR :unrotate = -ROTATE_RIGHT;
+      break;
+      }
+
+
+    
+
+      std::cout << " degrees " << rotate << "-" << unrotate << "->"<<direction << std::endl;
+
+    btTransform trans = body->getCenterOfMassTransform();
+    btQuaternion quat;
+    quat.setEuler(0,Radian(Ogre::Degree(unrotate)).valueRadians(),0);
+    trans.setRotation(quat);
+
+    body->getBulletRigidBody()->setWorldTransform(trans); //Apply the btTransform to the body*/
+    trans = body->getCenterOfMassTransform();
+    
+    quat.setEuler(Radian(Ogre::Degree(rotate)).valueRadians(),0,0);
+    trans.setRotation(quat);
+
+    body->getBulletRigidBody()->setWorldTransform(trans); //Apply the btTransform to the body*/
+
+    //body->setOrientation(transRot);
+
     oldDir = direction;
   }
 
