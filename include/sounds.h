@@ -33,6 +33,7 @@ class sounds {
     bool load_files();
 
     int play_effect(string id);
+    int halt_effects();
 
     int playing_music();
     int play_music(string id);
