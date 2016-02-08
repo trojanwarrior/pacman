@@ -128,8 +128,13 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
 
   
   if (_frutas)
+  { 
+      //Animamos la fruta
       _frutas->at(_fruta_aleatoria).animaFruta(Fruit::RECLAMO,evt.timeSinceLastFrame);
-  
+      //Le establecemos una velocidad nula, para que se esté quietecita :D
+      _frutas->at(_fruta_aleatoria).getBtRigidBody()->setLinearVelocity(btVector3(0,0,0));
+      
+  }
 
   
   return true;
@@ -347,8 +352,8 @@ void PlayState::createFruits()
                       atof(nodo.z.c_str()));
   cout << "VA A APARECER UNA FRUTA EN " << donde << endl;
   
-  //_fruta_aleatoria = rand() % _frutas->size();
-  _fruta_aleatoria = 1;
+  _fruta_aleatoria = rand() % _frutas->size();
+  //_fruta_aleatoria = 1;
   _frutas->at(_fruta_aleatoria).aparece(donde);
 
 }

@@ -10,7 +10,7 @@
 #include "OgreBulletDynamicsWorld.h"
 #include <string>
 #include <Shapes/OgreBulletCollisionsBoxShape.h>
-#include <boost/shared_ptr.hpp>
+
 
 using namespace std;
 using namespace Ogre;
@@ -51,6 +51,7 @@ public :
     void setPosition(Ogre::Vector3 posicion);
     void aparece(Ogre::Vector3 donde);
     void desaparece();
+    btRigidBody* getBtRigidBody();
 
 };
 
