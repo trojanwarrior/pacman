@@ -26,6 +26,8 @@ class Phantom{
   int startNode;
   int idDestiny;
   double distanceToDestiny;
+  bool afraid;
+  string orgMaterial;
 
 
   string name;
@@ -41,8 +43,10 @@ class Phantom{
   explicit Phantom(DynamicsWorld* _world,Vector3 position,string _name, float _speed, float _smart,string material,int origin);
   inline RigidBody* getBody(){return body;};
   inline btRigidBody* getBtRigidBody(){return body->getBulletRigidBody();};
-  void checkMove();
+  void checkMove(Ogre::Real deltaT);
   void reset();
+  inline bool isAfraid(){return afraid;};
+  void setAfraid(bool _afraid);
   //  ~Phantom();
   //Phantom(const Phantom &phantom);
 

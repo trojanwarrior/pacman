@@ -5,7 +5,9 @@
 #include "PlayState.h"
 #include "OgreUtil.h"
 
-
+#define GHOST_MOVE_ANIM "mareo2"
+#define GHOST_EYE_AFRAID "cagaos"
+#define GHOST_EYE_NORMAL "piupiu"
 using namespace Ogre;
 using namespace std;
 using namespace OgreBulletDynamics;
@@ -25,12 +27,14 @@ using namespace OgreBulletCollisions;
  *Constructor
  */
 Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _speed,float _smart,string material,int origin) {
-  
+
+  afraid = false;
   smart = _smart;
   name = _name;
   speed = _speed;
   idOrigin = origin;
   startNode = origin;
+  orgMaterial = material;
 
 
   SceneManager* _sceneMgr = Root::getSingleton().
@@ -39,16 +43,31 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
   Entity *ghostEnt = _sceneMgr->createEntity(name, "ghost.mesh");
   ghostEnt->setMaterialName(material);
   ghostEnt->setCastShadows(true);
+
+   AnimationState*  anim = ghostEnt->getAnimationState(GHOST_MOVE_ANIM);
+  anim->setEnabled(true);
+  anim->setLoop(true);
+  
   
   SceneNode *nodeGhost = _sceneMgr->createSceneNode("nodeGhost"+name);
   nodeGhost->attachObject(ghostEnt);
   nodeGhost->scale(0.2, 0.2, 0.2);
   _sceneMgr->getRootSceneNode()->addChild(nodeGhost);
+  
   Entity *ojosEnt = _sceneMgr->createEntity("ojo"+name, "ojosGhost.mesh");
   SceneNode *nodeOjos = _sceneMgr->createSceneNode("nodeOjos"+name);
   nodeOjos->attachObject(ojosEnt);
   nodeGhost->addChild(nodeOjos);
   nodeOjos->setInheritOrientation(false);
+  
+  Entity *entBoca = _sceneMgr->createEntity("boca"+name,"bocaGhost.mesh");
+  SceneNode *nodeBoca = _sceneMgr->createSceneNode("nodeBoca"+name);
+  nodeBoca->attachObject(entBoca);
+  nodeBoca->setVisible(false);
+  nodeGhost->addChild(nodeBoca);
+  nodeBoca->setInheritOrientation(false);
+  
+
 
   body = new  RigidBody(_name, _world,COL_PHANTOM,COL_PACMAN | COL_WALL);
   shape = new SphereCollisionShape(0.2);
@@ -64,10 +83,12 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
   btTransform transform; //Declaration of the btTransform
   transform.setIdentity(); //This function put the variable of the object to default. The ctor of btTransform doesnt do it.
 
-  std::cout << "creando fantasma en " <<position;
+
   transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(position)); //Set the new position/origin
   body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body*/
+  setAfraid(afraid); 
   calculateNewDestiny();
+
 
  
   
@@ -82,9 +103,18 @@ Vector3  Phantom::getBulletPosition(){
 
 void Phantom::calculateNewDestiny(){
 
+  std::cout << "Afradi " << afraid  << std::endl;
+  int destiny;
+  if (afraid == true) {
+    destiny = PlayState::getSingleton().getFarNode();
+    std::cout << "Afraid " << destiny << std::endl;
+  }
+  else{
+      destiny = PlayState::getSingleton().getPacman()->getCurrentNode();
+      std::cout << "NO Afraid " << destiny << std::endl;
+  }
 
-  int idPacmanNode = PlayState::getSingleton().getPacman()->getCurrentNode();
-  graphml_boost::ruta_t route = PlayState::getSingleton().calculateRoute(idOrigin, idPacmanNode);
+  graphml_boost::ruta_t route = PlayState::getSingleton().calculateRoute(idOrigin, destiny);
 
   graphml_boost::nodo_props nodeDestiny = (route.size()>1)? route[(route.size()-2)] :route[0];
   //std::cout << idOrigin << "-" << getBulletPosition() << std::endl;
@@ -132,7 +162,9 @@ const Vector3& Phantom::getPosition() {
 /*
  * Move phantom in one direction
  */
-void Phantom::checkMove() {
+void Phantom::checkMove(Ogre::Real deltaT) {
+   SceneManager* _sceneMgr = Root::getSingleton().
+     getSceneManager("SceneManager");
 
   graphml_boost::nodo_props nodeDestiny = PlayState::getSingleton().getGraphNode(idDestiny);
   Vector3 positionDestiny = Vector3(atof(nodeDestiny.x.c_str()),
@@ -157,17 +189,25 @@ void Phantom::checkMove() {
 
     distanceToDestiny = newDistance;
   }
+  
+  _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_AFRAID)->addTime(deltaT);
+  _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_NORMAL)->addTime(deltaT);
+  _sceneMgr->getEntity(name)->getAnimationState(GHOST_MOVE_ANIM)->addTime(deltaT);
+  
 
 }
 
 void Phantom::reset(){
 
   idOrigin = startNode;
+  
   graphml_boost::nodo_props startNode_prop = PlayState::getSingleton().getGraphNode(startNode);
 
   Vector3 position = Vector3(atof(startNode_prop.x.c_str()),
                                    atof(startNode_prop.y.c_str()),
                                    atof(startNode_prop.z.c_str()));
+
+  std::cout << "Posicion muerte" << position << std::endl;
   btTransform transform; //Declaration of the btTransform
   transform.setIdentity(); //This function put the variable of the object to default. The ctor of btTransform doesnt do it.
 
@@ -180,5 +220,39 @@ void Phantom::reset(){
 
 
 }
+void Phantom::setAfraid(bool _afraid){
+    SceneManager* _sceneMgr = Root::getSingleton().
+                            getSceneManager("SceneManager");
 
+  afraid = _afraid;
+  std::cout << "AfradiSet " << afraid  << std::endl;
+  if(afraid == true){
+     _sceneMgr->getEntity(name)->setMaterialName("materialCagaosAzul");
+     _sceneMgr->getSceneNode("nodeBoca"+name)->setVisible(true);    
+
+     AnimationState*  anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_AFRAID);
+     anim->setEnabled(true);
+     anim->setLoop(true);
+      anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_NORMAL);
+      anim->setEnabled(false);
+
+                    
+  }
+  else{
+    _sceneMgr->getEntity(name)->setMaterialName(orgMaterial);
+     _sceneMgr->getSceneNode("nodeBoca"+name)->setVisible(false);    
+     AnimationState*  anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_NORMAL);
+     anim->setEnabled(true);
+     anim->setLoop(true);
+     anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_AFRAID);
+     anim->setEnabled(false);
+  }
+
+  
+
+
+
+
+
+}
 

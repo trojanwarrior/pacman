@@ -14,7 +14,9 @@
 #include <vector>
 #include "records.h"
 #include "OgreUtil.h"
+#include <ctime>
 
+#define TIME_AFRAID  10
 //http://www.cplusplus.com/doc/tutorial/templates/          <--------Visita esta página para entender la linea justo debajo de esta
 template<> PlayState* Ogre::Singleton<PlayState>::msSingleton = 0;
 
@@ -25,6 +27,7 @@ using namespace OgreBulletCollisions;
 
 void PlayState::enter ()
 {
+
   _root = Ogre::Root::getSingletonPtr();
 
   // Se recupera el gestor de escena y la cámara.
@@ -51,7 +54,7 @@ void PlayState::enter ()
 
   sounds::getInstance()->play_effect("intermission");
   paused=false;
-
+  timeAfraid =-1;
 }
 
 void PlayState::exit ()
@@ -116,16 +119,24 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
   if(_pacman){
     _pacman->updateAnim(evt.timeSinceLastFrame);
   }
-  // set_score((int)(_root->getRenderSystem()->getRenderTargetIterator().getNext()->getLastFPS())); 
+
 
 
   for (std::vector<Phantom>::iterator it = _phantoms->begin();
          
       it != _phantoms->end(); ++it) {
-    (*it).checkMove();
+     (*it).checkMove(evt.timeSinceLastFrame);
+  }
+    long int now = time(NULL);
+
+
+  if ( timeAfraid>0 && (now - timeAfraid) >= TIME_AFRAID){
+    setPhantomsAfraid(false);
+
+
   }
 
-
+  
   
   if (_frutas)
       _frutas->at(_fruta_aleatoria).animaFruta(Fruit::RECLAMO,evt.timeSinceLastFrame);
@@ -186,7 +197,7 @@ bool PlayState::keyPressed(const OIS::KeyEvent &e)
   else
   {
     sounds::getInstance()->play_effect("eat_fruit");
-    cout << (int)e.key<<endl;
+
     MyGUI::UString txt = user_name_txt->getCaption();
     if ((int)e.key==14 && txt.size()>0) txt.resize(txt.size()-1);
     else
@@ -476,6 +487,51 @@ int PlayState::get_score ()
 
 }
 
+void PlayState::setPhantomsAfraid(bool afraid){
+         for (std::vector<Phantom>::iterator it = _phantoms->begin();
+               it != _phantoms->end(); ++it) {
+           (*it).setAfraid(afraid);
+         
+          }
+         if(afraid){
+           timeAfraid = static_cast<long int> (time(NULL));
+         }
+         else{
+           timeAfraid=-1;
+         }
+}
+
+
+ int PlayState::getFarNode(){
+
+  Ogre::Real distance = 0;
+  int idFarNode = -1;
+  graphml_boost::ruta_t nodes  = graphLevel->getVertices(REGULAR_NODE);
+  graphml_boost::nodo_props  pacNode= graphLevel->getGraphNode(_pacman->getCurrentNode());
+   Vector3 positionPacman = Vector3(atof(pacNode.x.c_str()),
+                                   atof(pacNode.y.c_str()),
+                                   atof(pacNode.z.c_str()));
+
+   for (graphml_boost::ruta_t::iterator it = nodes.begin();
+        it != nodes.end(); ++it) {
+     Vector3 positionNode = Vector3(atof((*it).x.c_str()),
+                                    atof((*it).y.c_str()),
+                                    atof((*it).z.c_str()));
+        Ogre::Real nodeDistance = positionNode.squaredDistance(positionPacman);
+        if(nodeDistance > distance){
+          distance = nodeDistance;
+          idFarNode = (*it).idBoost;
+        }
+        
+  }
+   return idFarNode;
+
+
+
+
+  
+
+}
 /**
  * Manage collisions with Pacman
  */
@@ -495,14 +551,15 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
 
       if ( pill.getBtRigidBody() == otherObject) {
 
-
-        std::cout << "Nodo IdNode "<< pill.getIdNode() << std::endl;
         _pacman->setCurrentNode(pill.getIdNode());
         int points = pill.isBig()? 50 : 10;
         _world->getBulletDynamicsWorld()->removeCollisionObject(pill.getBtRigidBody());
                 it = _pills.erase(it);
         OgreUtil::destroySceneNode(pill.getSceneNode());
         set_score(score+points);
+        if(pill.isBig()){
+                    setPhantomsAfraid(true);
+        }
         break;
 
       }
@@ -535,10 +592,6 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
 
       }
     }
-
-
-
-
 
 
     }

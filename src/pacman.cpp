@@ -28,6 +28,7 @@ extern ContactProcessedCallback gContactProcessedCallback = (ContactProcessedCal
 Pacman::Pacman(DynamicsWorld *_world, Vector3 position,int idNodeStart) {
 
 
+  power = false;
   startNode = idNodeStart;
   std::cout << "Nodo Start Pacman "<< idNodeStart << std::endl;
   SceneManager* _sceneMgr = Root::getSingleton().

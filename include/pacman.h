@@ -35,6 +35,8 @@ class Pacman{
   int oldDir;
   int currentNode;
   int startNode;
+  bool power;
+
 
  public :
   const Ogre::Vector3& getPosition();
@@ -48,6 +50,8 @@ class Pacman{
   inline int getCurrentNode(){return currentNode;};
   inline void setCurrentNode(int idCurrentNode){currentNode = idCurrentNode;};
   void reset();
+  inline bool isPowered(){return power;};
+  inline void setPowered(bool powered){power = powered;};
 };
 
 #endif 

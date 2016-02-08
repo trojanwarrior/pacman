@@ -93,6 +93,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   inline graphml_boost::nodo_props getGraphNode(int idNode){return graphLevel->getGraphNode(idNode);};
   inline graphml_boost::ruta_t calculateRoute(int idOrg, int idDest){graphLevel->rutaMasCortaBFS(idOrg);return graphLevel->getRuta(idOrg,idDest);};
   inline Pacman* getPacman(){return _pacman;};
+  int getFarNode();
   void unloadLayout();
  protected:
   Ogre::Root* _root;
@@ -121,7 +122,8 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   MyGUI::ImageBox* message_wall;
   int lives;
   int score;
-  bool paused;  
+  bool paused;
+  long int timeAfraid;
 private:
 
   void createScene();
@@ -132,6 +134,7 @@ private:
   void createPacman();
   void createPhantoms();
   void createFruits();
+  void setPhantomsAfraid(bool afraid);
 
 };
 
