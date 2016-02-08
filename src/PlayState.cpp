@@ -492,16 +492,32 @@ int PlayState::get_score ()
 
 }
 
-void PlayState::setPhantomsAfraid(bool afraid){
-         for (std::vector<Phantom>::iterator it = _phantoms->begin();
-               it != _phantoms->end(); ++it) {
-           (*it).setAfraid(afraid);
-         
-          }
+//void PlayState::setPhantomsAfraid(bool afraid){
+//         for (std::vector<Phantom>::iterator it = _phantoms->begin();
+//               it != _phantoms->end(); ++it) {
+//           (*it).setAfraid(afraid);
+//           
+//         
+//          }
+//         if(afraid){
+//           timeAfraid = static_cast<long int> (time(NULL));
+//         }
+//         else{
+//           timeAfraid=-1;
+//         }
+//}
+
+void PlayState::setPhantomsAfraid(bool afraid)
+{
+
          if(afraid){
+           for (std::vector<Phantom>::iterator it = _phantoms->begin(); it != _phantoms->end(); ++it) 
+                (*it).changeStatePhantom(Phantom::ACOJONADO);
            timeAfraid = static_cast<long int> (time(NULL));
          }
          else{
+           for (std::vector<Phantom>::iterator it = _phantoms->begin(); it != _phantoms->end(); ++it) 
+                (*it).changeStatePhantom(Phantom::ACOJONADO);
            timeAfraid=-1;
          }
 }

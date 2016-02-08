@@ -35,6 +35,7 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
   idOrigin = origin;
   startNode = origin;
   orgMaterial = material;
+  estado = NORMAL;
 
 
   SceneManager* _sceneMgr = Root::getSingleton().
@@ -86,7 +87,8 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
 
   transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(position)); //Set the new position/origin
   body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body*/
-  setAfraid(afraid); 
+  //setAfraid(afraid); 
+  changeStatePhantom(NORMAL);
   calculateNewDestiny();
 
 
@@ -105,13 +107,21 @@ void Phantom::calculateNewDestiny(){
 
   std::cout << "Afradi " << afraid  << std::endl;
   int destiny;
-  if (afraid == true) {
-    destiny = PlayState::getSingleton().getFarNode();
-    std::cout << "Afraid " << destiny << std::endl;
-  }
-  else{
-      destiny = PlayState::getSingleton().getPacman()->getCurrentNode();
-      std::cout << "NO Afraid " << destiny << std::endl;
+
+//  if (afraid == true) {
+//    destiny = PlayState::getSingleton().getFarNode();
+//    std::cout << "Afraid " << destiny << std::endl;
+//  }
+//  else{
+//      destiny = PlayState::getSingleton().getPacman()->getCurrentNode();
+//      std::cout << "NO Afraid " << destiny << std::endl;
+//  }
+
+  switch (estado)
+  {
+      case NORMAL:      destiny = PlayState::getSingleton().getPacman()->getCurrentNode(); break;
+      case ACOJONADO:   destiny = PlayState::getSingleton().getFarNode(); break;
+      case MUERTO:      destiny = startNode; 
   }
 
   graphml_boost::ruta_t route = PlayState::getSingleton().calculateRoute(idOrigin, destiny);
@@ -181,6 +191,11 @@ void Phantom::checkMove(Ogre::Real deltaT) {
 
   
   if(newDistance < 0.05 ){
+    
+    //Si llego a mi destino y estaba muerto, establecemos estado a NORMAL  
+    //de modo que al hacer calculateNewDestiny() volvamos a buscar a Pacman.
+    if (estado == MUERTO) setNormal(); 
+        
     idOrigin = idDestiny;
     //    std::cout << "cambiando de destino" << std::endl;
     calculateNewDestiny();
@@ -211,7 +226,7 @@ void Phantom::reset(){
   btTransform transform; //Declaration of the btTransform
   transform.setIdentity(); //This function put the variable of the object to default. The ctor of btTransform doesnt do it.
 
-
+ 
   transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(position)); //Set the new position/origin
   body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body*/
   calculateNewDestiny();
@@ -220,39 +235,106 @@ void Phantom::reset(){
 
 
 }
-void Phantom::setAfraid(bool _afraid){
-    SceneManager* _sceneMgr = Root::getSingleton().
-                            getSceneManager("SceneManager");
 
-  afraid = _afraid;
-  std::cout << "AfradiSet " << afraid  << std::endl;
-  if(afraid == true){
-     _sceneMgr->getEntity(name)->setMaterialName("materialCagaosAzul");
-     _sceneMgr->getSceneNode("nodeBoca"+name)->setVisible(true);    
+//void Phantom::setAfraid(bool _afraid){
+//    SceneManager* _sceneMgr = Root::getSingleton().
+//                            getSceneManager("SceneManager");
+//
+//  afraid = _afraid;
+//  std::cout << "AfradiSet " << afraid  << std::endl;
+//  if(afraid == true){
+//     _sceneMgr->getEntity(name)->setMaterialName("materialCagaosAzul");
+//     _sceneMgr->getSceneNode("nodeBoca"+name)->setVisible(true);    
+//
+//     AnimationState*  anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_AFRAID);
+//     anim->setEnabled(true);
+//     anim->setLoop(true);
+//      anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_NORMAL);
+//      anim->setEnabled(false);
+//
+//                    
+//  }
+//  else{
+//    _sceneMgr->getEntity(name)->setMaterialName(orgMaterial);
+//     _sceneMgr->getSceneNode("nodeBoca"+name)->setVisible(false);    
+//     AnimationState*  anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_NORMAL);
+//     anim->setEnabled(true);
+//     anim->setLoop(true);
+//     anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_AFRAID);
+//     anim->setEnabled(false); 
+//  }
+//
+//}
 
-     AnimationState*  anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_AFRAID);
-     anim->setEnabled(true);
-     anim->setLoop(true);
-      anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_NORMAL);
-      anim->setEnabled(false);
+void Phantom::setAfraid()
+{
+    SceneManager* _sceneMgr = Root::getSingleton().getSceneManager("SceneManager");
 
-                    
-  }
-  else{
+    afraid = true;
+    std::cout << "AfraidSet " << afraid  << std::endl;
+    //Asignamos nuevo material, o sea, los vestimos de acojonaos
+    _sceneMgr->getEntity(name)->setMaterialName("materialCagaosAzul");
+    //Mostramos la bocacha de acojone
+    _sceneMgr->getSceneNode("nodeBoca"+name)->setVisible(true);    
+
+    //Activamos animación de los ojos de acojone
+    AnimationState*  anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_AFRAID);
+    anim->setEnabled(true);
+    anim->setLoop(true);
+    //Desactivamos la animación de cuando está en modo normal.
+    anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_NORMAL);
+    anim->setEnabled(false);
+    
+    estado = ACOJONADO;
+}
+
+void Phantom::setNormal()
+{
+    SceneManager* _sceneMgr = Root::getSingleton().getSceneManager("SceneManager");
+    
+    //Asignamos el material de modo normal, el color propio del fantasma
     _sceneMgr->getEntity(name)->setMaterialName(orgMaterial);
-     _sceneMgr->getSceneNode("nodeBoca"+name)->setVisible(false);    
-     AnimationState*  anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_NORMAL);
-     anim->setEnabled(true);
-     anim->setLoop(true);
-     anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_AFRAID);
-     anim->setEnabled(false);
+    //Escondemos la boca de acojone
+    _sceneMgr->getSceneNode("nodeBoca"+name)->setVisible(false);    
+    //Activamos la animación de los ojos en modo normal
+    AnimationState*  anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_NORMAL);
+    anim->setEnabled(true);
+    anim->setLoop(true);
+    //Desactivamos animación de ojos de acojone
+    anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_AFRAID);
+    anim->setEnabled(false); 
+    
+    estado = NORMAL;
+    
+}
+
+void Phantom::setMuerto()
+{
+   SceneManager* _sceneMgr = Root::getSingleton().getSceneManager("SceneManager");
+   
+   // Ocultamos el cuerpo del fantasma. False para ocultarlo,
+   //                                   False para que no lo hereden sus nodos hijo (los ojos en este caso)
+   _sceneMgr->getSceneNode(name)->setVisible(false,false); 
+   
+   estado = MUERTO;
+   // Y en principio nada más. Cuando llegué a su destino habrá que llamar
+   // otra vez a setNormal() y vuelta al ataque.
+
+}
+
+void Phantom::changeStatePhantom(estadoPhantom _estado)
+{
+  switch(_estado)
+  {
+     case NORMAL:       setNormal(); break;
+     case ACOJONADO:    setAfraid(); break;
+     case MUERTO:       setMuerto(); break;
   }
+}
 
   
 
 
 
 
-
-}
 

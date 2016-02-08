@@ -28,17 +28,21 @@ class Phantom{
   double distanceToDestiny;
   bool afraid;
   string orgMaterial;
-
-
+  int estado;
   string name;
 
   RigidBody* body;
   CollisionShape* shape;
   void calculateNewDestiny();
   Vector3  getBulletPosition();
+  
+  void setNormal();
+  void setMuerto();
+  void setAfraid();
 
 
- public :
+public :
+  enum estadoPhantom {NORMAL,ACOJONADO,MUERTO};
   const Ogre::Vector3& getPosition();
   explicit Phantom(DynamicsWorld* _world,Vector3 position,string _name, float _speed, float _smart,string material,int origin);
   inline RigidBody* getBody(){return body;};
@@ -46,7 +50,8 @@ class Phantom{
   void checkMove(Ogre::Real deltaT);
   void reset();
   inline bool isAfraid(){return afraid;};
-  void setAfraid(bool _afraid);
+  //void setAfraid(bool _afraid);
+  void changeStatePhantom(estadoPhantom estado);
   //  ~Phantom();
   //Phantom(const Phantom &phantom);
 
