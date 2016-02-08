@@ -35,7 +35,7 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
   idOrigin = origin;
   startNode = origin;
   orgMaterial = material;
-  estado = NORMAL;
+  estado = estadoPhantom::NORMAL;
 
 
   SceneManager* _sceneMgr = Root::getSingleton().
@@ -88,7 +88,7 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
   transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(position)); //Set the new position/origin
   body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body*/
   //setAfraid(afraid); 
-  changeStatePhantom(NORMAL);
+  changeStatePhantom(estadoPhantom::NORMAL);
   calculateNewDestiny();
 
 
@@ -105,7 +105,7 @@ Vector3  Phantom::getBulletPosition(){
 
 void Phantom::calculateNewDestiny(){
 
-  std::cout << "Afradi " << afraid  << std::endl;
+  //std::cout << "Afraid " << afraid  << std::endl;
   int destiny;
 
 //  if (afraid == true) {
@@ -119,9 +119,9 @@ void Phantom::calculateNewDestiny(){
 
   switch (estado)
   {
-      case NORMAL:      destiny = PlayState::getSingleton().getPacman()->getCurrentNode(); break;
-      case ACOJONADO:   destiny = PlayState::getSingleton().getFarNode(); break;
-      case MUERTO:      destiny = startNode; 
+      case estadoPhantom::NORMAL:      destiny = PlayState::getSingleton().getPacman()->getCurrentNode(); break;
+      case estadoPhantom::ACOJONADO:   destiny = PlayState::getSingleton().getFarNode(); break;
+      case estadoPhantom::MUERTO:      destiny = startNode; 
   }
 
   graphml_boost::ruta_t route = PlayState::getSingleton().calculateRoute(idOrigin, destiny);
@@ -130,7 +130,7 @@ void Phantom::calculateNewDestiny(){
   //std::cout << idOrigin << "-" << getBulletPosition() << std::endl;
 
   idDestiny = nodeDestiny.idBoost;
-  //  std::cout << "ruta "<< idOrigin << "->"<<idDestiny << "("<< nodeDestiny.id<< ")"<< std::endl;
+  //std::cout << "ruta "<< idOrigin << "->"<<idDestiny << "("<< nodeDestiny.id<< ")"<< std::endl;
   
   
   Vector3 positionDestiny = Vector3(atof(nodeDestiny.x.c_str()),
@@ -143,13 +143,13 @@ void Phantom::calculateNewDestiny(){
 
    positionOrigin.y = 0;
 
-   Ogre::Vector3 direction = positionDestiny - positionOrigin;
+  Ogre::Vector3 direction = positionDestiny - positionOrigin;
   distanceToDestiny = direction.length();
   direction.normalise();
   direction = direction*speed;
   //  std::cout << "velocidad" << direction << std::endl;
   body->setLinearVelocity(direction);
-  //  std::cout << " distancia "<< idDestiny << "-" << distanceToDestiny << std::endl;
+  //std::cout << " distancia "<< idDestiny << "-" << distanceToDestiny << std::endl;
 
 }
 
@@ -167,14 +167,16 @@ void Phantom::calculateNewDestiny(){
  */
 const Vector3& Phantom::getPosition() {
   return this->body->getSceneNode()->getPosition();
-}
+} 
 
 /*
  * Move phantom in one direction
  */
 void Phantom::checkMove(Ogre::Real deltaT) {
-   SceneManager* _sceneMgr = Root::getSingleton().
-     getSceneManager("SceneManager");
+   
+  SceneManager* _sceneMgr = Root::getSingleton().getSceneManager("SceneManager");
+  
+  //if (estado == estadoPhantom::MUERTO) idDestiny = startNode;
 
   graphml_boost::nodo_props nodeDestiny = PlayState::getSingleton().getGraphNode(idDestiny);
   Vector3 positionDestiny = Vector3(atof(nodeDestiny.x.c_str()),
@@ -183,21 +185,24 @@ void Phantom::checkMove(Ogre::Real deltaT) {
 
   Vector3 origin = getBulletPosition();
   origin.y = 0;
-  //  std::cout << getBulletPosition() << "->" << positionDestiny << std::endl;
+  //std::cout << getBulletPosition() << "->" << positionDestiny << std::endl;
   Ogre::Vector3 direction = positionDestiny - origin;
   float newDistance = direction.length();
 
-   std::cout << newDistance << "-" << getBulletPosition() << "-" << positionDestiny << std::endl;
+  //std::cout << newDistance << "-" << getBulletPosition() << "-" << positionDestiny << std::endl;
 
   
-  if(newDistance < 0.05 ){
-    
-    //Si llego a mi destino y estaba muerto, establecemos estado a NORMAL  
-    //de modo que al hacer calculateNewDestiny() volvamos a buscar a Pacman.
-    if (estado == MUERTO) setNormal(); 
+  if(newDistance < 0.05 )
+  {
         
     idOrigin = idDestiny;
-    //    std::cout << "cambiando de destino" << std::endl;
+    //std::cout << "cambiando de destino" << std::endl;
+
+    //Si llego a mi destino y estaba muerto, establecemos estado a NORMAL  
+    //de modo que al hacer calculateNewDestiny() volvamos a buscar a Pacman.
+    if (estado == estadoPhantom::MUERTO)
+       setNormal(); 
+
     calculateNewDestiny();
   }
   else{
@@ -268,6 +273,7 @@ void Phantom::reset(){
 
 void Phantom::setAfraid()
 {
+    body->setQueryFlags(COL_PACMAN | COL_FLOOR);
     SceneManager* _sceneMgr = Root::getSingleton().getSceneManager("SceneManager");
 
     afraid = true;
@@ -285,11 +291,12 @@ void Phantom::setAfraid()
     anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_NORMAL);
     anim->setEnabled(false);
     
-    estado = ACOJONADO;
+    estado = estadoPhantom::ACOJONADO;
 }
 
 void Phantom::setNormal()
 {
+    body->setQueryFlags(COL_PACMAN | COL_FLOOR);
     SceneManager* _sceneMgr = Root::getSingleton().getSceneManager("SceneManager");
     
     //Asignamos el material de modo normal, el color propio del fantasma
@@ -304,19 +311,23 @@ void Phantom::setNormal()
     anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_AFRAID);
     anim->setEnabled(false); 
     
-    estado = NORMAL;
+    estado = estadoPhantom::NORMAL; 
     
 }
 
 void Phantom::setMuerto()
 {
+   
+   //body->setDefaultQueryFlags()
+    body->setQueryFlags(COL_FLOOR);
+   
    SceneManager* _sceneMgr = Root::getSingleton().getSceneManager("SceneManager");
    
    // Ocultamos el cuerpo del fantasma. False para ocultarlo,
    //                                   False para que no lo hereden sus nodos hijo (los ojos en este caso)
-   _sceneMgr->getSceneNode(name)->setVisible(false,false); 
+   _sceneMgr->getSceneNode("nodeGhost" + name)->setVisible(false,false); 
    
-   estado = MUERTO;
+   estado = estadoPhantom::MUERTO;
    // Y en principio nada más. Cuando llegué a su destino habrá que llamar
    // otra vez a setNormal() y vuelta al ataque.
 
@@ -326,10 +337,15 @@ void Phantom::changeStatePhantom(estadoPhantom _estado)
 {
   switch(_estado)
   {
-     case NORMAL:       setNormal(); break;
-     case ACOJONADO:    setAfraid(); break;
-     case MUERTO:       setMuerto(); break;
+     case estadoPhantom::NORMAL:       setNormal(); break;
+     case estadoPhantom::ACOJONADO:    setAfraid(); break;
+     case estadoPhantom::MUERTO:       setMuerto(); break;
   }
+}
+
+estadoPhantom Phantom::getEstado()
+{
+    return static_cast<estadoPhantom>(estado);
 }
 
   

@@ -17,7 +17,10 @@ using namespace Ogre;
 using namespace OgreBulletDynamics;
 using namespace OgreBulletCollisions;
 
+enum class estadoPhantom : int {NORMAL,ACOJONADO,MUERTO};
+
 class Phantom{
+
  private :
 
   float speed;
@@ -28,7 +31,7 @@ class Phantom{
   double distanceToDestiny;
   bool afraid;
   string orgMaterial;
-  int estado;
+  estadoPhantom estado;
   string name;
 
   RigidBody* body;
@@ -40,9 +43,7 @@ class Phantom{
   void setMuerto();
   void setAfraid();
 
-
 public :
-  enum estadoPhantom {NORMAL,ACOJONADO,MUERTO};
   const Ogre::Vector3& getPosition();
   explicit Phantom(DynamicsWorld* _world,Vector3 position,string _name, float _speed, float _smart,string material,int origin);
   inline RigidBody* getBody(){return body;};
@@ -52,9 +53,9 @@ public :
   inline bool isAfraid(){return afraid;};
   //void setAfraid(bool _afraid);
   void changeStatePhantom(estadoPhantom estado);
+  estadoPhantom getEstado();
   //  ~Phantom();
   //Phantom(const Phantom &phantom);
-
 
 };
 

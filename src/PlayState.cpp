@@ -60,11 +60,11 @@ void PlayState::enter ()
 void PlayState::exit ()
 {
   
-  message_txt->setVisible(false);
-  message_wall->setVisible(false);
-  message_txt->setCaption("");
-  paused=false;
-  cout << "SI SALE EL CARTEL ME CORTO LOS...." << endl;
+//  message_txt->setVisible(false);
+//  message_wall->setVisible(false);
+//  message_txt->setCaption("");
+//  paused=false;
+//  cout << "SI SALE EL CARTEL ME CORTO LOS...." << endl;
   
   _sceneMgr->clearScene();
   _root->getAutoCreatedWindow()->removeAllViewports();
@@ -132,13 +132,12 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
       it != _phantoms->end(); ++it) {
      (*it).checkMove(evt.timeSinceLastFrame);
   }
+  
     long int now = time(NULL);
 
-
+    
   if ( timeAfraid>0 && (now - timeAfraid) >= TIME_AFRAID){
     setPhantomsAfraid(false);
-
-
   }
 
   
@@ -356,6 +355,7 @@ void PlayState::createLight() {
 void PlayState::createPhantoms(){
   graphml_boost::ruta_t phantomZone = graphLevel->getVertices(PHANTOM_START_NODE);
    _phantoms = PhantomFactory::getInstance().createAllPhantoms(_world,phantomZone);
+   cout << "Creados " << _phantoms->size() << " fantasmas\n";
 }
 
 void PlayState::createFruits()
@@ -518,17 +518,19 @@ int PlayState::get_score ()
 
 void PlayState::setPhantomsAfraid(bool afraid)
 {
-
-         if(afraid){
-           for (std::vector<Phantom>::iterator it = _phantoms->begin(); it != _phantoms->end(); ++it) 
-                (*it).changeStatePhantom(Phantom::ACOJONADO);
-           timeAfraid = static_cast<long int> (time(NULL));
-         }
-         else{
-           for (std::vector<Phantom>::iterator it = _phantoms->begin(); it != _phantoms->end(); ++it) 
-                (*it).changeStatePhantom(Phantom::ACOJONADO);
-           timeAfraid=-1;
-         }
+    if(afraid)
+    {
+        for (std::vector<Phantom>::iterator it = _phantoms->begin(); it != _phantoms->end(); ++it) 
+            if ((*it).getEstado() != estadoPhantom::MUERTO)
+                (*it).changeStatePhantom(estadoPhantom::ACOJONADO);
+        timeAfraid = static_cast<long int> (time(NULL));
+    }
+    else
+    {
+        for (std::vector<Phantom>::iterator it = _phantoms->begin(); it != _phantoms->end(); ++it) 
+            (*it).changeStatePhantom(estadoPhantom::NORMAL);
+        timeAfraid=-1;
+    }
 }
 
 
@@ -591,33 +593,40 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
 
       }
     }
+
     //Check Phantom Collision
-    for (std::vector<Phantom>::iterator it = _phantoms->begin();
-         
-      it != _phantoms->end(); ++it) {
-      Phantom phantom = *it;
+    for (std::vector<Phantom>::iterator it = _phantoms->begin();it != _phantoms->end(); ++it) 
+    {
+        //Phantom phantom = *it;
 
-
-      if ( phantom.getBtRigidBody() == otherObject) {
-        set_lives(get_lives()-1);
-        if(get_lives() == 0){
-          game_over();
-          
-          
+        //if ( phantom.getBtRigidBody() == otherObject) 
+        if ( (*it).getBtRigidBody() == otherObject) 
+        {
+            //switch (phantom.getEstado())
+            switch ((*it).getEstado())
+            {
+                case estadoPhantom::NORMAL:
+                            set_lives(get_lives()-1);
+                            if(get_lives() == 0) game_over();
+                            else
+                            {
+                              _pacman->reset();
+                              for (std::vector<Phantom>::iterator it2 = _phantoms->begin(); it2 != _phantoms->end(); ++it2) 
+                              {
+                                   //Phantom phantom2 = *it2;
+                                   //phantom2.reset();
+                                   (*it2).reset();
+                              }
+                            }
+                            break;
+                case estadoPhantom::ACOJONADO: 
+                            //phantom.changeStatePhantom(estadoPhantom::MUERTO); 
+                            (*it).changeStatePhantom(estadoPhantom::MUERTO); 
+                case estadoPhantom::MUERTO:; // Si esta muerto déjalo estar :D
+            }
+            
+            break;
         }
-        else{
-          _pacman->reset();
-              for (std::vector<Phantom>::iterator it2 = _phantoms->begin();
-                            it2 != _phantoms->end(); ++it2) {
-
-                Phantom phantom2 = *it2;
-                phantom2.reset();
-              }
-        }
-        break;
-
-
-      }
     }
     
     // Check for fruit collision
