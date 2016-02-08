@@ -523,16 +523,22 @@ void PlayState::setPhantomsAfraid(bool afraid)
     if(afraid)
     {
         for (std::vector<Phantom>::iterator it = _phantoms->begin(); it != _phantoms->end(); ++it) 
-            if ((*it).getEstado() != estadoPhantom::MUERTO)
+          if ((*it).getEstado() != estadoPhantom::MUERTO){
                 (*it).changeStatePhantom(estadoPhantom::ACOJONADO);
-        timeAfraid = static_cast<long int> (time(NULL));
+                timeAfraid = static_cast<long int> (time(NULL));
+          }
     }
+    
     else
     {
-        for (std::vector<Phantom>::iterator it = _phantoms->begin(); it != _phantoms->end(); ++it) 
+        for (std::vector<Phantom>::iterator it = _phantoms->begin(); it != _phantoms->end(); ++it)
+        
+        
+                    if ((*it).getEstado() != estadoPhantom::MUERTO){
             (*it).changeStatePhantom(estadoPhantom::NORMAL);
-        timeAfraid=-1;
-    }
+            timeAfraid=-1;
+                    }
+                    }
 }
 
 

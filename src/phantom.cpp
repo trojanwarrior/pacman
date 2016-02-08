@@ -23,6 +23,8 @@ using namespace OgreBulletCollisions;
 
 
   }*/
+
+
 /*
  *Constructor
  */
@@ -76,7 +78,7 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
                         shape,
                         0.0,
                         0.0,
-                        10,
+                        0.1,
                         Vector3::ZERO,
                         Quaternion::IDENTITY);
   body->enableActiveState();
@@ -87,7 +89,6 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
 
   transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(position)); //Set the new position/origin
   body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body*/
-  //setAfraid(afraid); 
   changeStatePhantom(estadoPhantom::NORMAL);
   calculateNewDestiny();
 
@@ -119,18 +120,19 @@ void Phantom::calculateNewDestiny(){
 
   switch (estado)
   {
-      case estadoPhantom::NORMAL:      destiny = PlayState::getSingleton().getPacman()->getCurrentNode(); break;
-      case estadoPhantom::ACOJONADO:   destiny = PlayState::getSingleton().getFarNode(); break;
-      case estadoPhantom::MUERTO:      destiny = startNode; 
+      case estadoPhantom::NORMAL:      destiny = PlayState::getSingleton().getPacman()->getCurrentNode(); std::cout << "normal"<< std::endl;break;
+      case estadoPhantom::ACOJONADO:   destiny = PlayState::getSingleton().getFarNode(); std::cout << "acojonadoooo"<< std::endl;break;
+    case estadoPhantom::MUERTO:      destiny = startNode; std::cout << "muertooo"<< std::endl;
   }
 
+  std::cout << " nodo " << idOrigin<<"->"<< destiny << std::endl; 
   graphml_boost::ruta_t route = PlayState::getSingleton().calculateRoute(idOrigin, destiny);
 
   graphml_boost::nodo_props nodeDestiny = (route.size()>1)? route[(route.size()-2)] :route[0];
-  //std::cout << idOrigin << "-" << getBulletPosition() << std::endl;
+  std::cout << idOrigin << "-" << getBulletPosition() << std::endl;
 
   idDestiny = nodeDestiny.idBoost;
-  //std::cout << "ruta "<< idOrigin << "->"<<idDestiny << "("<< nodeDestiny.id<< ")"<< std::endl;
+  std::cout << "ruta "<< idOrigin << "->"<<idDestiny << "("<< nodeDestiny.id<< ")"<< std::endl;
   
   
   Vector3 positionDestiny = Vector3(atof(nodeDestiny.x.c_str()),
@@ -147,7 +149,7 @@ void Phantom::calculateNewDestiny(){
   distanceToDestiny = direction.length();
   direction.normalise();
   direction = direction*speed;
-  //  std::cout << "velocidad" << direction << std::endl;
+   std::cout << "velocidad" << direction << std::endl;
   body->setLinearVelocity(direction);
   //std::cout << " distancia "<< idDestiny << "-" << distanceToDestiny << std::endl;
 
@@ -173,7 +175,9 @@ const Vector3& Phantom::getPosition() {
  * Move phantom in one direction
  */
 void Phantom::checkMove(Ogre::Real deltaT) {
-   
+
+
+  
   SceneManager* _sceneMgr = Root::getSingleton().getSceneManager("SceneManager");
   
   //if (estado == estadoPhantom::MUERTO) idDestiny = startNode;
@@ -189,10 +193,10 @@ void Phantom::checkMove(Ogre::Real deltaT) {
   Ogre::Vector3 direction = positionDestiny - origin;
   float newDistance = direction.length();
 
-  //std::cout << newDistance << "-" << getBulletPosition() << "-" << positionDestiny << std::endl;
+  std::cout << "mojonooo "<< newDistance << "-" << origin << "-" << positionDestiny << std::endl;
 
   
-  if(newDistance < 0.05 )
+  if(newDistance < 0.1 )
   {
         
     idOrigin = idDestiny;
@@ -200,7 +204,7 @@ void Phantom::checkMove(Ogre::Real deltaT) {
 
     //Si llego a mi destino y estaba muerto, establecemos estado a NORMAL  
     //de modo que al hacer calculateNewDestiny() volvamos a buscar a Pacman.
-    if (estado == estadoPhantom::MUERTO)
+    if (estado == estadoPhantom::MUERTO && idOrigin == startNode)
        setNormal(); 
 
     calculateNewDestiny();
@@ -208,6 +212,10 @@ void Phantom::checkMove(Ogre::Real deltaT) {
   else{
 
     distanceToDestiny = newDistance;
+    direction.normalise();
+    direction = direction*speed;
+  
+    body->setLinearVelocity(direction);
   }
   
   _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_AFRAID)->addTime(deltaT);
@@ -310,8 +318,9 @@ void Phantom::setNormal()
     //Desactivamos animación de ojos de acojone
     anim = _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_AFRAID);
     anim->setEnabled(false); 
-    
-    estado = estadoPhantom::NORMAL; 
+    _sceneMgr->getSceneNode("nodeGhost" + name)->setVisible(true) ;
+    estado = estadoPhantom::NORMAL;
+
     
 }
 
@@ -328,13 +337,15 @@ void Phantom::setMuerto()
    _sceneMgr->getSceneNode("nodeGhost" + name)->setVisible(false,false); 
    
    estado = estadoPhantom::MUERTO;
+    calculateNewDestiny();   
    // Y en principio nada más. Cuando llegué a su destino habrá que llamar
    // otra vez a setNormal() y vuelta al ataque.
 
 }
 
-void Phantom::changeStatePhantom(estadoPhantom _estado)
+void Phantom::changeStatePhantom(estadoPhantom _estado)    
 {
+
   switch(_estado)
   {
      case estadoPhantom::NORMAL:       setNormal(); break;
