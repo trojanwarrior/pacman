@@ -69,13 +69,13 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
   
 
 
-  body = new  RigidBody(_name, _world,COL_PHANTOM,COL_PACMAN | COL_WALL);
+  body = new  RigidBody(_name, _world,COL_PHANTOM,COL_PACMAN | COL_FLOOR);
   shape = new SphereCollisionShape(0.2);
   body->setShape(nodeGhost,
                         shape,
                         0.0,
                         0.0,
-                        0.01,
+                        10,
                         Vector3::ZERO,
                         Quaternion::IDENTITY);
   body->enableActiveState();
@@ -177,7 +177,7 @@ void Phantom::checkMove(Ogre::Real deltaT) {
   Ogre::Vector3 direction = positionDestiny - origin;
   float newDistance = direction.length();
 
-  // std::cout << newDistance << "-" << getBulletPosition() << "-" << positionDestiny << std::endl;
+   std::cout << newDistance << "-" << getBulletPosition() << "-" << positionDestiny << std::endl;
 
   
   if(newDistance < 0.05 ){

@@ -118,9 +118,14 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
   }
   if(_pacman){
     _pacman->updateAnim(evt.timeSinceLastFrame);
+   Vector3 pacPos =  _pacman->getPosition();
+   _camera->setPosition (Vector3 (pacPos.x,5,pacPos.z-8));
+   _camera->lookAt (pacPos);
+   
+ 
   }
 
-
+  
 
   for (std::vector<Phantom>::iterator it = _phantoms->begin();
          
@@ -292,17 +297,19 @@ PlayState::~PlayState()
 void PlayState::createScene()
 {
 
-    _camera->setPosition (Vector3 (0,15,0));
+  //    _camera->setPosition (Vector3 (0,15,0));
+   _camera->setPosition (Vector3 (0,5,-10));
   _camera->lookAt (Vector3 (0,0,0.1));
 
-      _camera->setProjectionType(Ogre::PT_ORTHOGRAPHIC);
-        _camera->setOrthoWindowHeight(15);
+  //     _camera->setProjectionType(Ogre::PT_ORTHOGRAPHIC);
+  //    _camera->setOrthoWindowHeight(15);
   _sceneMgr->setAmbientLight(Ogre::ColourValue(0.5, 0.5, 0.5));
   _sceneMgr->setShadowTechnique(SHADOWTYPE_STENCIL_MODULATIVE);
   _sceneMgr->setShadowColour(ColourValue(0.5, 0.5, 0.5));
   createLight();
-  createLevel();
   createFloor();
+  createLevel();
+  
   createFruits();
 
    string name="";
@@ -382,7 +389,7 @@ void PlayState::createPacman(){
  *
  */
 void PlayState::createLevel(){
-  StaticGeometry* stage =   _sceneMgr->createStaticGeometry("SG");
+   StaticGeometry* stage =   _sceneMgr->createStaticGeometry("SG");
   Entity* entLevel = _sceneMgr->  createEntity("level1.mesh");
   
   entLevel->setCastShadows(true);
@@ -436,11 +443,13 @@ void PlayState::createFloor() {
   Entity* entFloor = _sceneMgr->createEntity("floor", "FloorPlane");
   entFloor->setCastShadows(false);
   entFloor->setMaterialName("floor");
+  
   floorNode->attachObject(entFloor);
   _sceneMgr->getRootSceneNode()->addChild(floorNode);
+  floorNode->setPosition(Vector3(0,2,0));
   CollisionShape *shape = new StaticPlaneCollisionShape (
       Ogre::Vector3(0, 1, 0), 0);
-  RigidBody *rigidBodyPlane = new RigidBody("rigidBodyPlane", _world,COL_WALL,COL_PILL|COL_PACMAN | COL_PHANTOM);
+  RigidBody *rigidBodyPlane = new RigidBody("rigidBodyPlane", _world,COL_FLOOR,COL_PILL|COL_PACMAN | COL_PHANTOM);
   rigidBodyPlane->setStaticShape(shape, 0.1, 0);
 
 }

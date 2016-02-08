@@ -12,7 +12,8 @@ enum collisiontypes {
     COL_PACMAN = 2, //<Collide with PACMAN
     COL_PHANTOM =4, //<Collide with PHANTOM
     COL_PILL = 8, //<Collide with PILLS
-    COL_WALL = 16 // COLLIDE WITH WALLS
+    COL_WALL = 16, // COLLIDE WITH WALLS
+    COL_FLOOR = 32
 };
 
 
