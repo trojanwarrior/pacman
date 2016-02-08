@@ -7,13 +7,17 @@ EXEC := pacman
 DIRSRC := src/
 DIROBJ := obj/
 DIRHEA := include/
-DIROGREBULLET_DIN := /usr/local/include/OgreBullet/Dynamics
-DIROGREBULLET_COL := /usr/local/include/OgreBullet/Collisions
+
+DIROGREBULLET_DIN := /usr/include/OgreBullet/Dynamics
+DIROGREBULLET_COL := /usr/include/OgreBullet/Collisions
+DIROGREBULLET_DIN2 := /usr/local/include/OgreBullet/Dynamics
+DIROGREBULLET_COL2 := /usr/local/include/OgreBullet/Collisions
+
 
 CXX := g++
 
 CC=g++
-CFLAGS=-c  -Wall -Wno-deprecated-declarations -Wno-unused-variable -I$(DIRHEA) -I$(DIROGREBULLET_DIN) -I$(DIROGREBULLET_COL) `pkg-config --cflags OGRE OGRE-Overlay MYGUI mxml bullet `  `sdl-config --cflags` --std=c++11
+CFLAGS=-c  -Wall -Wno-deprecated-declarations -Wno-unused-variable -I$(DIRHEA)  -I$(DIROGREBULLET_DIN) -I$(DIROGREBULLET_COL) -I$(DIROGREBULLET_DIN2) -I$(DIROGREBULLET_COL2) `pkg-config --cflags OGRE OGRE-Overlay MYGUI mxml bullet `  `sdl-config --cflags` --std=c++11
 CPP_FILES := $(wildcard ./src/*.cpp)
 OBJ_FILES := $(addprefix ./obj/,$(notdir $(CPP_FILES:.cpp=.o)))
 LDLIBS= `pkg-config --libs-only-l OGRE OGRE-Overlay MYGUI mxml bullet` `sdl-config --libs` -lOgreBulletCollisions -lOgreBulletDynamics -lSDL_mixer -lboost_system -lboost_graph -lOIS -lGL -lstdc++   -lMyGUI.OgrePlatform

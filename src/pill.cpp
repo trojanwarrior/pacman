@@ -27,7 +27,7 @@ Pill::Pill(DynamicsWorld *_world, Vector3 position,bool big,int id,int idNode) {
   if (_big == true) {
     _node->scale(1.5, 1.5, 1.5);
   }
-  _body = new  RigidBody(str.str(), _world, COL_PILL,COL_PACMAN | COL_WALL);
+  _body = new  RigidBody(str.str(), _world, COL_PILL,COL_PACMAN | COL_FLOOR);
   _shape = new SphereCollisionShape(big ? 0.3 :0.1);
   _body->setShape(_node,
                  _shape,

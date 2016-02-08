@@ -13,7 +13,9 @@ enum collisiontypes {
     COL_PHANTOM =4, //<Collide with PHANTOM
     COL_PILL = 8, //<Collide with PILLS
     COL_WALL = 16, // COLLIDE WITH WALLS
-    COL_FRUIT = 32 // COLLLIDE WITH FRUITS
+    COL_FLOOR = 32,
+    COL_FRUIT = 64 // COLLLIDE WITH FRUITS
+
 };
 
 
