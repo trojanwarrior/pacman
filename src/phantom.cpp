@@ -217,10 +217,10 @@ void Phantom::checkMove(Ogre::Real deltaT) {
   
     body->setLinearVelocity(direction);
   }
-  
+  /*
   _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_AFRAID)->addTime(deltaT);
   _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_NORMAL)->addTime(deltaT);
-  _sceneMgr->getEntity(name)->getAnimationState(GHOST_MOVE_ANIM)->addTime(deltaT);
+  _sceneMgr->getEntity(name)->getAnimationState(GHOST_MOVE_ANIM)->addTime(deltaT);*/
   
 
 }

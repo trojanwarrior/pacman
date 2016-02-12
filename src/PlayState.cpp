@@ -124,11 +124,11 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
      _pacman->setCurrentNode(getPacmanNode());
     _pacman->updateAnim(evt.timeSinceLastFrame);
    Vector3 pacPos =  _pacman->getPosition();
-   _camera->setPosition (Vector3 (pacPos.x,5,pacPos.z-8));
+   _camera->setPosition (Vector3 (pacPos.x,5,pacPos.z-4));
    _camera->lookAt (pacPos);
  
   }
-
+  set_score((int)(_root->getRenderSystem()->getRenderTargetIterator().getNext()->getAverageFPS()));
   
 
   for (std::vector<Phantom>::iterator it = _phantoms->begin();
@@ -344,16 +344,26 @@ void PlayState::createScene()
  *createLights
  */
 void PlayState::createLight() {
-  _sceneMgr->setShadowTextureCount(1);
+  _sceneMgr->setShadowTextureCount(2);
   _sceneMgr->setShadowTextureSize(512);
   Light* light = _sceneMgr->createLight("Light1");
-  light->setPosition(-5, 12, 2);
+  light->setPosition(0, 12, 0);
   light->setType(Light::LT_SPOTLIGHT);
-  light->setDirection(Vector3(1, -1, 0));
-  light->setSpotlightInnerAngle(Degree(25.0f));
-  light->setSpotlightOuterAngle(Degree(60.0f));
+  light->setDirection(Vector3(0, -1, 0));
+  light->setSpotlightInnerAngle(Degree(60.0f));
+  light->setSpotlightOuterAngle(Degree(80.0f));
   light->setSpotlightFalloff(0.0f);
   light->setCastShadows(true);
+  /*
+  Light* light2 = _sceneMgr->createLight("Light2");
+  light2->setPosition(5, 12, 2);
+  light2->setType(Light::LT_SPOTLIGHT);
+  light2->setDirection(Vector3(-1, -1, 0));
+  light2->setSpotlightInnerAngle(Degree(25.0f));
+  light2->setSpotlightOuterAngle(Degree(60.0f));
+  light2->setSpotlightFalloff(0.0f);
+  light2->setCastShadows(true);
+  */
 }
 
 
@@ -394,7 +404,7 @@ void PlayState::createPacman(){
  *
  */
 void PlayState::createLevel(){
-   StaticGeometry* stage =   _sceneMgr->createStaticGeometry("SG");
+  StaticGeometry* stage =   _sceneMgr->createStaticGeometry("SG");
   Entity* entLevel = _sceneMgr->  createEntity("level1.mesh");
   
   entLevel->setCastShadows(true);
@@ -405,15 +415,16 @@ void PlayState::createLevel(){
   TriangleMeshCollisionShape *trackTrimesh = trimeshConverter->createTrimesh();
   RigidBody *rigidLevel = new  RigidBody("level", _world,COL_WALL,COL_PILL | COL_PACMAN);
   rigidLevel->setStaticShape(trackTrimesh, 0.0, 0.0, Vector3::ZERO, Quaternion::IDENTITY);
+  
   std::string fileName = "./blender/level1.xml";
-
+  
   graphLevel = new graphml_boost();
   graphLevel->cargaGrafo(fileName);
   
    paintPills(false);
    paintPills(true);  
-  
-  createPacman();
+    
+   createPacman();
   createPhantoms();
 }
 
@@ -631,7 +642,7 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
 
 
           
-                set_score(score+points);
+                //set_score(score+points);
                 if((*it).isBig()){
                     sounds::getInstance()->play_effect("energizer");
                     setPhantomsAfraid(true);
@@ -699,7 +710,7 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
             sounds::getInstance()->play_effect("eat_fruit");
             _world->getBulletDynamicsWorld()->removeCollisionObject(_frutas->at(_fruta_aleatoria).getBtRigidBody());
             _frutas->at(_fruta_aleatoria).desaparece();
-            set_score(score + 100); // de momento puntua 100, tengo que poner un enum con puntuaciones por frutas
+            //set_score(score + 100); // de momento puntua 100, tengo que poner un enum con puntuaciones por frutas
         }
             
 
