@@ -43,8 +43,8 @@ public :
     const Ogre::Vector3& getPosition();
     explicit Fruit(DynamicsWorld* _world,Vector3 position,const string &name);
 //    Fruit(Fruit&&); //constructor move
-    ~Fruit();
-    Fruit& operator=(const Fruit & fruit); // constructor de asignacion
+//    ~Fruit();
+//    Fruit& operator=(const Fruit & fruit); // constructor de asignacion
     Fruit(const Fruit &fruit); //constructor de copia
     void animaFruta(tipoAnim tipo,Ogre::Real deltaT);
     void cambiaAnimacion(tipoAnim tipo, Ogre::Real deltaT);

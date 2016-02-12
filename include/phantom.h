@@ -55,7 +55,7 @@ public :
   void changeStatePhantom(estadoPhantom estado);
   estadoPhantom getEstado();
   //  ~Phantom();
-  //Phantom(const Phantom &phantom);
+//  Phantom(const Phantom &phantom);
 
 };
 

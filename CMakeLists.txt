@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.3)
 project(pacman)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftrack-macro-expansion=0 -std=c++11")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftrack-macro-expansion=0 -std=c++11")
 
-add_custom_target(pacman2 COMMAND make -C ${pacman_SOURCE_DIR}
-        CLION_EXE_DIR=${PROJECT_BINARY_DIR})
+#add_custom_target(pacman2 COMMAND make -C ${pacman_SOURCE_DIR}
+#        CLION_EXE_DIR=${PROJECT_BINARY_DIR})
 
 ######################## AÑADIDO POR MI: varias variables de entorno para pasarle al compilador/linkador
 set(MYGUI_SOURCE_DIR "/home/twsh/desarrollo/mygui")
@@ -47,8 +47,13 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -D_DEBUG -std=c++11 -pthr
 #    -lboost_graph -lSDL -lSDL_mixer -lmxml -lpthread \
 #    -L/usr/local/lib/ -lOgreMain -L${MYGUI_INSTALL}/lib -lCommon -lX11 -lMyGUIEngine -lMyGUI.OgrePlatform ")
 
-set(LDLIBS "-lOgreOverlay -lOgreMain -lpthread -lboost_system -lMyGUIEngine -lmxml -lSDL -lpthread -lSDL_mixer -lboost_system \
-            -lboost_graph -lOIS -lGL -lstdc++ -lMyGUI.OgrePlatform -lBulletSoftBody -lBulletDynamics -lBulletCollision -lLinearMath -lOgreBulletCollisions -lOgreBulletDynamics")
+#set(LDLIBS "-lOgreOverlay -lOgreMain -lpthread -lboost_system -lMyGUIEngine -lmxml -lSDL -lpthread -lSDL_mixer -lboost_system \
+#-lboost_graph -lOIS -lGL -lstdc++ -lMyGUI.OgrePlatform -lBulletSoftBody -lBulletDynamics -lBulletCollision -lLinearMath \
+#-lOgreBulletCollisions -lOgreBulletDynamics")
+
+set(LDLIBS "-lOgreOverlay -lOgreMain -lpthread -lboost_system -lMyGUIEngine -lmxml -lSDL -lpthread -lSDL_mixer \
+            -lboost_system -lboost_graph -lOIS -lGL -lMyGUI.OgrePlatform  -lBulletSoftBody -lBulletDynamics -lBulletCollision \
+            -lLinearMath -lOgreBulletCollisions -lOgreBulletDynamics")
 
 set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${LDLIBS}")
 set(CMAKE_EXE_LINKER_FLAGS "${LDLIBS}")

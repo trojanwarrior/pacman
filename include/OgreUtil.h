@@ -15,7 +15,6 @@ enum collisiontypes {
     COL_WALL = 16, // COLLIDE WITH WALLS
     COL_FLOOR = 32,
     COL_FRUIT = 64 // COLLLIDE WITH FRUITS
-
 };
 
 

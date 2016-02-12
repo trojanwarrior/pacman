@@ -96,6 +96,8 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   int getFarNode();
   int getPacmanNode();
   void unloadLayout();
+  bool getResucitando();
+
  protected:
   Ogre::Root* _root;
   Ogre::SceneManager* _sceneMgr;
@@ -126,6 +128,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   int score;
   bool paused;
   long int timeAfraid;
+  bool _resucitando;
 private:
 
   void createScene();

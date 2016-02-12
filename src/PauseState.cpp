@@ -7,6 +7,8 @@
 #include <OgreOverlayElement.h>
 #include <OgreOverlayManager.h>
 
+#define TIME_RESUCITANDO 3
+
 template<> PauseState* Ogre::Singleton<PauseState>::msSingleton = 0;
 
 void PauseState::enter ()
@@ -22,6 +24,9 @@ void PauseState::enter ()
   _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 1.0, 0.0));
 
   //mostrarPausa();
+
+  _pausaResucitando = PlayState::getSingletonPtr()->getResucitando();
+  _timeResucitando = _pausaResucitando ? static_cast<long int> (time(NULL)) : -1;
 
   _exitGame = false;
 }
@@ -40,6 +45,17 @@ void PauseState::resume()
 
 bool PauseState::frameStarted(const Ogre::FrameEvent& evt)
 {
+  if (_pausaResucitando)
+  {
+      long int now = time(NULL);
+
+      if ( _timeResucitando > 0 && (now - _timeResucitando) >= TIME_RESUCITANDO)
+      {
+          _pausaResucitando = false;
+          popState();
+      }
+  }
+
   return true;
 }
 
@@ -54,10 +70,11 @@ bool PauseState::frameEnded(const Ogre::FrameEvent& evt)
 bool PauseState::keyPressed(const OIS::KeyEvent &e) 
 {
   // Tecla p --> Estado anterior.
-  if (e.key == OIS::KC_P)  // Con  P otra vez reanudamos el PlayState
-  {
-    popState();
-  }
+  if (!_pausaResucitando)
+      if (e.key == OIS::KC_P)  // Con  P otra vez reanudamos el PlayState
+      {
+        popState();
+      }
   
   return true;
 }

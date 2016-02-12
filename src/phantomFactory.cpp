@@ -18,6 +18,7 @@ std::vector<Phantom>* PhantomFactory::createAllPhantoms(DynamicsWorld* _world,gr
                                    atof(startNode.z.c_str()));
     phantoms->push_back(Phantom(_world, position,names[type], speeds[type],smarts[type],materials[type],startNode.idBoost));
     std::cout << phantoms->at(0).getBody()->getSceneNode() << std::endl;
+    std::cout << phantoms->at(0).getBody()->getCenterOfMassOrientation() << endl;
   }
   return phantoms;
 }

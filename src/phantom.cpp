@@ -14,15 +14,23 @@ using namespace OgreBulletDynamics;
 using namespace OgreBulletCollisions;
 
 
-/*Phantom::Phantom(const Phantom& phantom){
-  name = phantom.name;
-  speed = phantom.speed;
-  smart = phantom.smart;
-  body = phantom.body;
-  shape = phantom.shape;
-
-
-  }*/
+//Phantom::Phantom(const Phantom& phantom){
+//
+//  name = phantom.name;
+//  speed = phantom.speed;
+//  smart = phantom.smart;
+//  body = phantom.body;
+//  shape = phantom.shape;
+//  afraid = phantom.afraid;
+//  idOrigin = phantom.idOrigin;
+//  startNode = phantom.startNode;
+//  orgMaterial = phantom.orgMaterial;
+//  estado = phantom.estado;
+//
+//  changeStatePhantom(estado);
+//  calculateNewDestiny();
+//
+//}
 
 
 /*
@@ -70,7 +78,8 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
   nodeGhost->addChild(nodeBoca);
   nodeBoca->setInheritOrientation(false);
   
-
+  nodeGhost->yaw(Ogre::Degree(180));
+  Ogre::Quaternion quat = nodeGhost->getOrientation();
 
   body = new  RigidBody(_name, _world,COL_PHANTOM,COL_PACMAN | COL_FLOOR);
   shape = new SphereCollisionShape(0.2);
@@ -88,14 +97,17 @@ Phantom::Phantom(DynamicsWorld *_world, Vector3 position,string _name, float _sp
 
 
   transform.setOrigin(OgreBulletCollisions::OgreBtConverter::to(position)); //Set the new position/origin
+
+  transform.setRotation(btQuaternion(quat.x, quat.y, quat.z, quat.w));
+
+    cout << "ORIENTACION EN CONSTRUCTOR " << quat << endl;
+
   body->getBulletRigidBody()->setWorldTransform(transform); //Apply the btTransform to the body*/
   changeStatePhantom(estadoPhantom::NORMAL);
   calculateNewDestiny();
-
-
- 
-  
 }
+
+
 Vector3  Phantom::getBulletPosition(){
   btVector3 btPos = body->getBulletRigidBody()->getCenterOfMassPosition();
   return Vector3(btPos.getX(),btPos.getY(),btPos.getZ());
@@ -217,10 +229,10 @@ void Phantom::checkMove(Ogre::Real deltaT) {
   
     body->setLinearVelocity(direction);
   }
-  
+  /*
   _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_AFRAID)->addTime(deltaT);
   _sceneMgr->getEntity("ojo"+name)->getAnimationState(GHOST_EYE_NORMAL)->addTime(deltaT);
-  _sceneMgr->getEntity(name)->getAnimationState(GHOST_MOVE_ANIM)->addTime(deltaT);
+  _sceneMgr->getEntity(name)->getAnimationState(GHOST_MOVE_ANIM)->addTime(deltaT);*/
   
 
 }

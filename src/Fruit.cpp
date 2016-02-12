@@ -27,24 +27,15 @@ Fruit::Fruit(DynamicsWorld* world,Ogre::Vector3 position, const std::string &nam
 
     _nodeFruit = _sceneMgr->createSceneNode("nodeFruit"+name);
     _nodeFruit->attachObject(_frutaEnt);
-    _nodeFruit->scale(0.2, 0.2, 0.2);
+    _nodeFruit->scale(0.4, 0.4, 0.4);
     //_sceneMgr->getRootSceneNode()->addChild(_nodeFruit);
     _nodeFruit->setVisible(false);
 
     body = new  RigidBody(_name, _world,COL_FRUIT,COL_PACMAN);
     //shape = new BoxCollisionShape(_frutaEnt->getBoundingBox().getSize());
-    shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.001));
+    shape = new BoxCollisionShape(Ogre::Vector3(0.4,0.4,0.04));
     
     //body->showDebugShape(true);
-
-
-//    body->setShape(_nodeFruit,
-//                   shape,
-//                   0.0,
-//                   0.0,
-//                   10,
-//                   Vector3::ZERO,
-//                   Quaternion::IDENTITY);
 
     body->setShape(_nodeFruit,
                    shape,
@@ -66,28 +57,28 @@ Fruit::Fruit(DynamicsWorld* world,Ogre::Vector3 position, const std::string &nam
     //rigidBody->setActivationState(0);
 }
 
-Fruit::~Fruit()
-{
-/*    if (body)
-        delete body;
-    if (shape)
-        delete shape;
-    body = nullptr;
-    shape = nullptr;*/
-    cout << "destruyendo fruta \n";
-}
+//Fruit::~Fruit()
+//{
+///*    if (body)
+//        delete body;
+//    if (shape)
+//        delete shape;
+//    body = nullptr;
+//    shape = nullptr;*/
+//    cout << "destruyendo fruta \n";
+//}
 
 Fruit::Fruit(const Fruit &fruit)
 {
     this->_anim = fruit._anim;
-    this->_name = fruit._name; 
+    this->_name = fruit._name;
     this->_frutaEnt = fruit._frutaEnt;
     this->_nodeFruit = fruit._nodeFruit;
-//    Ogre::AxisAlignedBox aab = this->_frutaEnt->getBoundingBox();
-//    aab.getSize();
+    Ogre::AxisAlignedBox aab = this->_frutaEnt->getBoundingBox();
+    aab.getSize();
     this->body = new  RigidBody(fruit._name,fruit._world,COL_FRUIT,COL_PACMAN);
-    //this->shape = new BoxCollisionShape(fruit._frutaEnt->getBoundingBox().getSize());
-    this->shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.001));
+    this->shape = new BoxCollisionShape(fruit._frutaEnt->getBoundingBox().getSize());
+    //this->shape = new BoxCollisionShape(Ogre::Vector3(0.4,0.4,0.04));
     *this->body = *fruit.body;
     *this->shape = *fruit.shape;
     //this->body->showDebugShape(true);
@@ -95,24 +86,24 @@ Fruit::Fruit(const Fruit &fruit)
 
 }
 
-Fruit& Fruit::operator=(const Fruit & fruit)
-{
-    this->_anim = fruit._anim; //shallow copy, no hay problema.
-    this->_name = fruit._name; //shallow copy, no hay problema.
-    this->_frutaEnt = fruit._frutaEnt;
-    this->_nodeFruit = fruit._nodeFruit;
-
-    if (this->body)  delete body; // Si el objeto que recibe la asignación ya tenía memoria reservada deberemos resetearla.
-    if (this->shape) delete shape;// Si el objeto que recibe la asignación ya tenía memoria reservada deberemos resetearla.
- 
-    this->body = new  RigidBody(fruit._name,fruit._world,COL_FRUIT,COL_PACMAN); // reservamos memoria nueva
-    //this->shape = new BoxCollisionShape(fruit._frutaEnt->getBoundingBox().getSize());// reservamos memoria nueva
-    this->shape = new BoxCollisionShape(Ogre::Vector3(0.2,0.2,0.001));// reservamos memoria nueva
-    *this->body = *fruit.body;      // Ahora viene lo gracioso: el menda que hizo las clases de body y shape, ¿se curró los correspondientes
-    *this->shape = *fruit.shape;    // constructores de asignación y copia???? Por que si no es así ya puedo hacer yo el pino con las orejas que es paná!
-    cout << "constructor asignación fruta\n";
-    return *this;
-}
+//Fruit& Fruit::operator=(const Fruit & fruit)
+//{
+//    this->_anim = fruit._anim; //shallow copy, no hay problema.
+//    this->_name = fruit._name; //shallow copy, no hay problema.
+//    this->_frutaEnt = fruit._frutaEnt;
+//    this->_nodeFruit = fruit._nodeFruit;
+//
+//    if (this->body)  delete body; // Si el objeto que recibe la asignación ya tenía memoria reservada deberemos resetearla.
+//    if (this->shape) delete shape;// Si el objeto que recibe la asignación ya tenía memoria reservada deberemos resetearla.
+//
+//    this->body = new  RigidBody(fruit._name,fruit._world,COL_FRUIT,COL_PACMAN); // reservamos memoria nueva
+//    //this->shape = new BoxCollisionShape(fruit._frutaEnt->getBoundingBox().getSize());// reservamos memoria nueva
+//    this->shape = new BoxCollisionShape(Ogre::Vector3(0.4,0.4,0.04));// reservamos memoria nueva
+//    *this->body = *fruit.body;      // Ahora viene lo gracioso: el menda que hizo las clases de body y shape, ¿se curró los correspondientes
+//    *this->shape = *fruit.shape;    // constructores de asignación y copia???? Por que si no es así ya puedo hacer yo el pino con las orejas que es paná!
+//    cout << "constructor asignación fruta\n";
+//    return *this;
+//}
 
 //Fruit::Fruit(Fruit&&)
 //{

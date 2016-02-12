@@ -23,8 +23,9 @@
 
 #include <Ogre.h>
 #include <OIS/OIS.h>
-
+#include <ctime>
 #include "GameState.h"
+
 
 using namespace std;
 using namespace Ogre;
@@ -60,6 +61,8 @@ class PauseState : public Ogre::Singleton<PauseState>, public GameState
   Ogre::Camera* _camera;
 
   bool _exitGame;
+  long int _timeResucitando;
+  bool _pausaResucitando;
   
  private:
   void mostrarPausa();

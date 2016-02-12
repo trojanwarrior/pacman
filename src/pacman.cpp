@@ -53,7 +53,7 @@ Pacman::Pacman(DynamicsWorld *_world, Vector3 position,int idNodeStart) {
   anim->setTimePosition(0.0);
 
 
-  body = new  RigidBody("pacman", _world, COL_PACMAN,COL_WALL | COL_PILL | COL_PHANTOM | COL_FLOOR);
+  body = new  RigidBody("pacman", _world, COL_PACMAN,COL_WALL | COL_PILL | COL_PHANTOM | COL_FLOOR | COL_FRUIT);
   shape = new SphereCollisionShape(0.2);
   body->setShape(this->node,
                         shape,
