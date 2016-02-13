@@ -132,6 +132,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   bool _resucitando;
 private:
 
+  void createMyGui();
   void createScene();
   void createFloor();
   void createLevel();

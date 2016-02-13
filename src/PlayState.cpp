@@ -132,7 +132,7 @@ bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
    _camera->lookAt (pacPos);
  
   }
-  set_score((int)(_root->getRenderSystem()->getRenderTargetIterator().getNext()->getAverageFPS()));
+  //set_score((int)(_root->getRenderSystem()->getRenderTargetIterator().getNext()->getAverageFPS()));
   
 
   for (std::vector<Phantom>::iterator it = _phantoms->begin();
@@ -319,7 +319,11 @@ void PlayState::createScene()
   createLevel();
   
   createFruits();
+  createMyGui();
+}
 
+void PlayState::createMyGui()
+{
    string name="";
    char points_str [32];
    int points=0;
@@ -342,8 +346,8 @@ void PlayState::createScene()
    high_score_txt->setCaption(points_str);
    set_score(0);
    set_lives(3);
-
 }
+
 /*pp
  *createLights
  */
@@ -656,7 +660,7 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
 
 
           
-                //set_score(score+points);
+                set_score(score+points);
                 if((*it).isBig()){
                     sounds::getInstance()->play_effect("energizer");
                     setPhantomsAfraid(true);
