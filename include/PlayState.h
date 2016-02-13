@@ -97,6 +97,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   int getPacmanNode();
   void unloadLayout();
   bool getResucitando();
+  void message (string msg);
 
  protected:
   Ogre::Root* _root;

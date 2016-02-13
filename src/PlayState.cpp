@@ -52,7 +52,6 @@ void PlayState::enter ()
   // _world->setShowDebugShapes (true);
 
   _exitGame = false;
-
   sounds::getInstance()->play_effect("intermission");
   paused=false;
   timeAfraid =-1;
@@ -91,9 +90,7 @@ void PlayState::pause()
 //  {
     if (!_resucitando)
     {
-        message_txt->setVisible(true);
-        message_wall->setVisible(true);
-        message_txt->setCaption("PAUSE");
+        message("PAUSE");
         paused = true;
 //  }
         sounds::getInstance()->play_effect("eat_fruit");
@@ -107,10 +104,7 @@ void PlayState::resume()
   
     //SI ENTRAMOS AQUÍ ES QUE ESTE ESTADO ESTABA EN LA PILA Y AHORA
     //ES EL QUE ESTÁ EN EL TOP DE LA PILA, LUEGO RETOMA EL CONTROL.
-  
-    message_txt->setVisible(false);
-    message_wall->setVisible(false);
-    message_txt->setCaption("");
+    message (""); 
     paused=false;
 
     if (_resucitando)
@@ -483,19 +477,29 @@ void PlayState::createFloor() {
 
 void PlayState::win()
 {
-  message_txt->setVisible(true);
-  message_wall->setVisible(true);
-  message_txt->setCaption("YOU WIN!!");
+  message ("YOU WIN!!");
   sounds::getInstance()->play_effect("intermission");
 }
-
+void PlayState::message(string msg)
+{
+  if (msg.length()>0)
+  {
+    message_txt->setVisible(true);
+    message_wall->setVisible(true);
+    message_txt->setCaption(msg);
+  }
+  else
+  {
+    message_txt->setVisible(false);
+    message_wall->setVisible(false);
+    message_txt->setCaption("");
+  }
+}
 void PlayState::game_over()
 {
   stopWorld = true;
   //set_lives(0);
-  message_txt->setVisible(true);
-  message_wall->setVisible(true);
-  message_txt->setCaption("GAME OVER");
+  message ("GAME OVER");
   sounds::getInstance()->play_effect("pacman_death");
   user_name_txt->setCaption("");
   user_name_txt->setVisible(true);
