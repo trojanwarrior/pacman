@@ -27,7 +27,6 @@ void RecordsState::enter ()
   createScene();
   loadRecords();
   _exitGame = false;
-   sounds::getInstance()->play_effect("eat_ghost");
 }
 
 void RecordsState::loadRecords()
@@ -200,17 +199,21 @@ void RecordsState::mostrarFondo()
 
 void RecordsState::createScene()
 {
-                string name="";
-                char points_str [32];
-                int points=0;
-                layout = MyGUI::LayoutManager::getInstance().loadLayout("pacman_records.layout");
-                high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
-                score_positions_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::TextBox>("score_positions");
-                score_points_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::TextBox>("score_points");
-                score_names_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::TextBox>("score_names");
-                records::getInstance()->getBest(name,points);
-                sprintf(points_str,"%d",points);
-                high_score_txt->setCaption(points_str);
-
+  createMyGui();
+  sounds::getInstance()->play_effect("eat_ghost");
 }
 
+void RecordsState::createMyGui()
+{
+  string name="";
+  char points_str [32];
+  int points=0;
+  layout = MyGUI::LayoutManager::getInstance().loadLayout("pacman_records.layout");
+  high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
+  score_positions_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::TextBox>("score_positions");
+  score_points_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::TextBox>("score_points");
+  score_names_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::TextBox>("score_names");
+  records::getInstance()->getBest(name,points);
+  sprintf(points_str,"%d",points);
+  high_score_txt->setCaption(points_str);
+}

@@ -78,6 +78,7 @@ private:
   void mostrarFondo();
   Ogre::TextureUnitState* CreateTextureFromImgWithoutStretch(const String& texName, Real texSize, const String& imgName);
   void createScene();
+  void createMyGui();
   void loadRecords();
   
 };

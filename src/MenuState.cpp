@@ -28,7 +28,6 @@ void MenuState::enter ()
   createScene();
 
   _exitGame = false;
- sounds::getInstance()->play_effect("eat_ghost");
 }
 
 void MenuState::exit ()
@@ -198,18 +197,21 @@ void MenuState::mostrarFondo()
      
 }
 
+void MenuState::createMyGui()
+{
+  string name="";
+  char points_str [32];
+  int points=0;
+  layout = MyGUI::LayoutManager::getInstance().loadLayout("pacman_start.layout");
+  high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
+  records::getInstance()->getBest(name,points);
+  sprintf(points_str,"%d",points);
+  high_score_txt->setCaption(points_str);
+}
 void MenuState::createScene()
 {
-                string name="";
-                char points_str [32];
-                int points=0;
-                layout = MyGUI::LayoutManager::getInstance().loadLayout("pacman_start.layout");
-                high_score_txt = MyGUI::Gui::getInstance().findWidget<MyGUI::EditBox>("high_score");
-                records::getInstance()->getBest(name,points);
-                sprintf(points_str,"%d",points);
-                high_score_txt->setCaption(points_str);
-
-
+ createMyGui();
+ sounds::getInstance()->play_effect("eat_ghost");
 }
 
 MenuState::MenuState()
