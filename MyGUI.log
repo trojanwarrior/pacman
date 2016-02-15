@@ -1,54 +1,54 @@
-02:07:07  |  Platform  |  Info  |  * Initialise: DataManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreDataManager.cpp  |  27
-02:07:07  |  Platform  |  Info  |  DataManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreDataManager.cpp  |  35
-02:07:07  |  Platform  |  Info  |  * Initialise: RenderManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreRenderManager.cpp  |  43
-02:07:07  |  Platform  |  Info  |  RenderManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreRenderManager.cpp  |  71
-02:07:07  |  Core  |  Info  |  * Initialise: Gui  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_Gui.cpp  |  61
-02:07:07  |  Core  |  Info  |  * MyGUI version 3.2.1  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_Gui.cpp  |  73
-02:07:07  |  Core  |  Info  |  * Initialise: ResourceManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  32
-02:07:07  |  Core  |  Info  |  ResourceManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  40
-02:07:07  |  Core  |  Info  |  * Initialise: LayerManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_LayerManager.cpp  |  33
-02:07:07  |  Core  |  Info  |  LayerManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_LayerManager.cpp  |  41
-02:07:07  |  Core  |  Info  |  * Initialise: WidgetManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_WidgetManager.cpp  |  53
-02:07:07  |  Core  |  Info  |  WidgetManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_WidgetManager.cpp  |  84
-02:07:07  |  Core  |  Info  |  * Initialise: InputManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_InputManager.cpp  |  46
-02:07:07  |  Core  |  Info  |  InputManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_InputManager.cpp  |  66
-02:07:07  |  Core  |  Info  |  * Initialise: SubWidgetManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_SubWidgetManager.cpp  |  36
-02:07:07  |  Core  |  Info  |  SubWidgetManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_SubWidgetManager.cpp  |  56
-02:07:07  |  Core  |  Info  |  * Initialise: SkinManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_SkinManager.cpp  |  36
-02:07:07  |  Core  |  Info  |  SkinManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_SkinManager.cpp  |  46
-02:07:07  |  Core  |  Info  |  * Initialise: FontManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_FontManager.cpp  |  32
-02:07:07  |  Core  |  Info  |  FontManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_FontManager.cpp  |  42
-02:07:07  |  Core  |  Info  |  * Initialise: ControllerManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ControllerManager.cpp  |  32
-02:07:07  |  Core  |  Info  |  ControllerManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ControllerManager.cpp  |  40
-02:07:07  |  Core  |  Info  |  * Initialise: PointerManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_PointerManager.cpp  |  43
-02:07:07  |  Core  |  Info  |  PointerManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_PointerManager.cpp  |  62
-02:07:07  |  Core  |  Info  |  * Initialise: ClipboardManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ClipboardManager.cpp  |  32
-02:07:07  |  Core  |  Info  |  ClipboardManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ClipboardManager.cpp  |  39
-02:07:07  |  Core  |  Info  |  * Initialise: LayoutManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_LayoutManager.cpp  |  28
-02:07:07  |  Core  |  Info  |  LayoutManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_LayoutManager.cpp  |  35
-02:07:07  |  Core  |  Info  |  * Initialise: DynLibManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_DynLibManager.cpp  |  26
-02:07:07  |  Core  |  Info  |  DynLibManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_DynLibManager.cpp  |  30
-02:07:07  |  Core  |  Info  |  * Initialise: PluginManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_PluginManager.cpp  |  30
-02:07:07  |  Core  |  Info  |  PluginManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_PluginManager.cpp  |  34
-02:07:07  |  Core  |  Info  |  * Initialise: LanguageManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_LanguageManager.cpp  |  30
-02:07:07  |  Core  |  Info  |  LanguageManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_LanguageManager.cpp  |  34
-02:07:07  |  Core  |  Info  |  * Initialise: FactoryManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_FactoryManager.cpp  |  25
-02:07:07  |  Core  |  Info  |  FactoryManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_FactoryManager.cpp  |  27
-02:07:07  |  Core  |  Info  |  * Initialise: ToolTipManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ToolTipManager.cpp  |  33
-02:07:07  |  Core  |  Info  |  ToolTipManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ToolTipManager.cpp  |  45
-02:07:07  |  Core  |  Info  |  Load ini file 'MyGUI_GeneratedFonts.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-02:07:07  |  Core  |  Info  |  Load ini file 'MyGUI_Fonts.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-02:07:07  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'DejaVuSansFont_15' using texture size 128 x 256.  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  769
-02:07:07  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'DejaVuSansFont_15' using real height 15 pixels.  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  770
-02:07:07  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'PressStart2P' using texture size 256 x 128.  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  769
-02:07:07  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'PressStart2P' using real height 13 pixels.  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  770
-02:07:07  |  Core  |  Info  |  Load ini file 'MyGUI_CommonSkins.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-02:07:07  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteTheme.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-02:07:07  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteImages.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-02:07:07  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteSkins.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-02:07:07  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteTemplates.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-02:07:07  |  Core  |  Info  |  Load ini file 'MyGUI_PointerImages.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-02:07:07  |  Core  |  Info  |  Load ini file 'MyGUI_Pointers.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-02:07:07  |  Core  |  Info  |  Load ini file 'MyGUI_Layers.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-02:07:07  |  Core  |  Info  |  Load ini file 'MyGUI_Settings.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
-02:07:07  |  Core  |  Info  |  Gui successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_Gui.cpp  |  119
+12:38:55  |  Platform  |  Info  |  * Initialise: DataManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreDataManager.cpp  |  27
+12:38:55  |  Platform  |  Info  |  DataManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreDataManager.cpp  |  35
+12:38:55  |  Platform  |  Info  |  * Initialise: RenderManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreRenderManager.cpp  |  43
+12:38:55  |  Platform  |  Info  |  RenderManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/Platforms/Ogre/OgrePlatform/src/MyGUI_OgreRenderManager.cpp  |  71
+12:38:55  |  Core  |  Info  |  * Initialise: Gui  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_Gui.cpp  |  61
+12:38:55  |  Core  |  Info  |  * MyGUI version 3.2.1  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_Gui.cpp  |  73
+12:38:55  |  Core  |  Info  |  * Initialise: ResourceManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  32
+12:38:55  |  Core  |  Info  |  ResourceManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  40
+12:38:55  |  Core  |  Info  |  * Initialise: LayerManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_LayerManager.cpp  |  33
+12:38:55  |  Core  |  Info  |  LayerManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_LayerManager.cpp  |  41
+12:38:55  |  Core  |  Info  |  * Initialise: WidgetManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_WidgetManager.cpp  |  53
+12:38:55  |  Core  |  Info  |  WidgetManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_WidgetManager.cpp  |  84
+12:38:55  |  Core  |  Info  |  * Initialise: InputManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_InputManager.cpp  |  46
+12:38:55  |  Core  |  Info  |  InputManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_InputManager.cpp  |  66
+12:38:55  |  Core  |  Info  |  * Initialise: SubWidgetManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_SubWidgetManager.cpp  |  36
+12:38:55  |  Core  |  Info  |  SubWidgetManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_SubWidgetManager.cpp  |  56
+12:38:55  |  Core  |  Info  |  * Initialise: SkinManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_SkinManager.cpp  |  36
+12:38:55  |  Core  |  Info  |  SkinManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_SkinManager.cpp  |  46
+12:38:55  |  Core  |  Info  |  * Initialise: FontManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_FontManager.cpp  |  32
+12:38:55  |  Core  |  Info  |  FontManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_FontManager.cpp  |  42
+12:38:55  |  Core  |  Info  |  * Initialise: ControllerManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ControllerManager.cpp  |  32
+12:38:55  |  Core  |  Info  |  ControllerManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ControllerManager.cpp  |  40
+12:38:55  |  Core  |  Info  |  * Initialise: PointerManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_PointerManager.cpp  |  43
+12:38:55  |  Core  |  Info  |  PointerManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_PointerManager.cpp  |  62
+12:38:55  |  Core  |  Info  |  * Initialise: ClipboardManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ClipboardManager.cpp  |  32
+12:38:55  |  Core  |  Info  |  ClipboardManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ClipboardManager.cpp  |  39
+12:38:55  |  Core  |  Info  |  * Initialise: LayoutManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_LayoutManager.cpp  |  28
+12:38:55  |  Core  |  Info  |  LayoutManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_LayoutManager.cpp  |  35
+12:38:55  |  Core  |  Info  |  * Initialise: DynLibManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_DynLibManager.cpp  |  26
+12:38:55  |  Core  |  Info  |  DynLibManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_DynLibManager.cpp  |  30
+12:38:55  |  Core  |  Info  |  * Initialise: PluginManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_PluginManager.cpp  |  30
+12:38:55  |  Core  |  Info  |  PluginManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_PluginManager.cpp  |  34
+12:38:55  |  Core  |  Info  |  * Initialise: LanguageManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_LanguageManager.cpp  |  30
+12:38:55  |  Core  |  Info  |  LanguageManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_LanguageManager.cpp  |  34
+12:38:55  |  Core  |  Info  |  * Initialise: FactoryManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_FactoryManager.cpp  |  25
+12:38:55  |  Core  |  Info  |  FactoryManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_FactoryManager.cpp  |  27
+12:38:55  |  Core  |  Info  |  * Initialise: ToolTipManager  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ToolTipManager.cpp  |  33
+12:38:55  |  Core  |  Info  |  ToolTipManager successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ToolTipManager.cpp  |  45
+12:38:55  |  Core  |  Info  |  Load ini file 'MyGUI_GeneratedFonts.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+12:38:55  |  Core  |  Info  |  Load ini file 'MyGUI_Fonts.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+12:38:55  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'DejaVuSansFont_15' using texture size 128 x 256.  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  769
+12:38:55  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'DejaVuSansFont_15' using real height 15 pixels.  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  770
+12:38:55  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'PressStart2P' using texture size 256 x 128.  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  769
+12:38:55  |  Core  |  Info  |  ResourceTrueTypeFont: Font 'PressStart2P' using real height 13 pixels.  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceTrueTypeFont.cpp  |  770
+12:38:55  |  Core  |  Info  |  Load ini file 'MyGUI_CommonSkins.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+12:38:55  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteTheme.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+12:38:55  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteImages.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+12:38:55  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteSkins.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+12:38:55  |  Core  |  Info  |  Load ini file 'MyGUI_BlueWhiteTemplates.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+12:38:55  |  Core  |  Info  |  Load ini file 'MyGUI_PointerImages.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+12:38:55  |  Core  |  Info  |  Load ini file 'MyGUI_Pointers.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+12:38:55  |  Core  |  Info  |  Load ini file 'MyGUI_Layers.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+12:38:55  |  Core  |  Info  |  Load ini file 'MyGUI_Settings.xml'  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_ResourceManager.cpp  |  114
+12:38:55  |  Core  |  Info  |  Gui successfully initialized  |  /builddir/build/BUILD/mygui-375d52bee3b8f9f67dd6cd8e07547fa3e344c979/MyGUIEngine/src/MyGUI_Gui.cpp  |  119

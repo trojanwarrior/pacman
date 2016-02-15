@@ -56,6 +56,7 @@ void PlayState::enter ()
   paused=false;
   timeAfraid =-1;
   _resucitando = false;
+  _deltaT = 0;
 }
 
 void PlayState::exit ()
@@ -117,48 +118,60 @@ void PlayState::resume()
 
 bool PlayState::frameStarted(const Ogre::FrameEvent& evt)
 {
-  if(!stopWorld){
-  _world->stepSimulation(evt.timeSinceLastFrame);
-  if (_pacmanDir != 0) {
-    _pacman->move(_pacmanDir, evt.timeSinceLastFrame);
- 
+  _deltaT = evt.timeSinceLastFrame;
+  if(!stopWorld)
+  {
+      _world->stepSimulation(evt.timeSinceLastFrame);
+      if (_pacmanDir != 0) {
+        _pacman->move(_pacmanDir, evt.timeSinceLastFrame);
+      }
 
-  }
-  if(_pacman){
-     _pacman->setCurrentNode(getPacmanNode());
-    _pacman->updateAnim(evt.timeSinceLastFrame);
-   Vector3 pacPos =  _pacman->getPosition();
-   _camera->setPosition (Vector3 (pacPos.x,5,pacPos.z-4));
-   _camera->lookAt (pacPos);
- 
-  }
-  //set_score((int)(_root->getRenderSystem()->getRenderTargetIterator().getNext()->getAverageFPS()));
-  
+      if(_pacman)
+      {
+        if (!_pacman->getEstoyMuriendo()) // Si no me estoy muriendo pues como siempre, a zampar
+        {
+            _pacman->setCurrentNode(getPacmanNode());
+            _pacman->updateAnim(evt.timeSinceLastFrame);
+            Vector3 pacPos = _pacman->getPosition();
+            _camera->setPosition(Vector3(pacPos.x, 5, pacPos.z - 4));
+            _camera->lookAt(pacPos);
+        }
+        else // Pero si me estoy muriendo....
+        {
+            cout << "ME ESTOY MURIENDO!!!!!!!\n";
+            if (!_pacman->heMuertoDelTodo())  // Si no me he muerto del todo, me sigo muriendo, cansino.
+            {
+                _pacman->animaMuerte(evt.timeSinceLastFrame);
+            }
+            else // Y si finalmente me muero del todo pues resucito cual YisusCrais :D
+            {
+                reseteaPersonajes();
+//                _resucitando = true;
+//                stopWorld = true;
+//                pushState(PauseState::getSingletonPtr());
+            }
+        }
+      }
+      //set_score((int)(_root->getRenderSystem()->getRenderTargetIterator().getNext()->getAverageFPS()));
 
-  for (std::vector<Phantom>::iterator it = _phantoms->begin();
-         
-      it != _phantoms->end(); ++it) {
-     (*it).checkMove(evt.timeSinceLastFrame);
-  }
-  
-    long int now = time(NULL);
 
-    
-  if ( timeAfraid>0 && (now - timeAfraid) >= TIME_AFRAID){
-    setPhantomsAfraid(false);
-  }
+      for (std::vector<Phantom>::iterator it = _phantoms->begin();
+          it != _phantoms->end(); ++it) {
+         (*it).checkMove(evt.timeSinceLastFrame);
+      }
 
-  
-  
-  if (_frutas)
-  { 
-      //Animamos la fruta
-      _frutas->at(_fruta_aleatoria).animaFruta(Fruit::RECLAMO,evt.timeSinceLastFrame);
-      //Le establecemos una velocidad nula, para que se esté quietecita :D
-      _frutas->at(_fruta_aleatoria).getBtRigidBody()->setLinearVelocity(btVector3(0,0,0));
-      
-  }
+      long int now = time(NULL);
+      if ( timeAfraid>0 && (now - timeAfraid) >= TIME_AFRAID){
+        setPhantomsAfraid(false);
+      }
 
+      if (_frutas)
+      {
+          //Animamos la fruta
+          _frutas->at(_fruta_aleatoria).animaFruta(Fruit::RECLAMO,evt.timeSinceLastFrame);
+          //Le establecemos una velocidad nula, para que se esté quietecita :D
+          _frutas->at(_fruta_aleatoria).getBtRigidBody()->setLinearVelocity(btVector3(0,0,0));
+      }
   }
   return true;
 }
@@ -689,31 +702,31 @@ void PlayState::handleCollision(btCollisionObject *body0, btCollisionObject *bod
             switch ((*it).getEstado())
             {
                 case estadoPhantom::NORMAL:
-                            if (get_lives() > 0)
-                            {
-                                sounds::getInstance()->halt_effect();
-                                sounds::getInstance()->play_effect("pacman_death");
-                                cout << get_lives() << endl;
-                            }
-                            set_lives(get_lives()-1);
-                            if(get_lives() == 0) 
-                            {
-                              _pacman->stop();
-                              game_over();
-                            }
-                            else
-                            {
-                              _pacman->reset();
-                              for (std::vector<Phantom>::iterator it2 = _phantoms->begin(); it2 != _phantoms->end(); ++it2) 
-                              {
-                                   //Phantom phantom2 = *it2;
-                                   //phantom2.reset();
-                                   (*it2).reset();
-                              }
-                              _resucitando = true;
-                              stopWorld = true;
-                              pushState(PauseState::getSingletonPtr());
-                            }
+                             // Hay que preguntar si ya se estaba muriendo, de lo contrario, los fantasmas se ensañan y mientras se está
+                             // muriendo la primera vez, le siguen dando y se acumulan las muertes :D
+                             if (!_pacman->getEstoyMuriendo())
+                             {
+                                    if (get_lives() > 0)
+                                    {
+                                        sounds::getInstance()->halt_effect();
+                                        sounds::getInstance()->play_effect("pacman_death");
+                                        cout << get_lives() << endl;
+                                    }
+                                    set_lives(get_lives()-1);
+                                    if(get_lives() == 0)
+                                    {
+                                      _pacman->stop();
+                                      game_over();
+                                    }
+                                    else
+                                    {
+                                        _pacman->arrancaMuerte(_deltaT);
+        //                              reseteaPersonajes();
+        //                              _resucitando = true;
+        //                              stopWorld = true;
+        //                              pushState(PauseState::getSingletonPtr());
+                                    }
+                             }
                             break;
                 case estadoPhantom::ACOJONADO: 
                             //phantom.changeStatePhantom(estadoPhantom::MUERTO); 
@@ -750,4 +763,17 @@ void PlayState::unloadLayout()
 bool PlayState::getResucitando()
 {
     return _resucitando;
+}
+
+
+void PlayState::reseteaPersonajes()
+{
+    _pacman->reset();
+    for (std::vector<Phantom>::iterator it2 = _phantoms->begin(); it2 != _phantoms->end(); ++it2)
+        (*it2).reset();
+
+//  _resucitando = true;
+//  stopWorld = true;
+//  pushState(PauseState::getSingletonPtr());
+
 }

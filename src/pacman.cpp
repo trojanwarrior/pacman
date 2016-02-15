@@ -3,6 +3,7 @@
 #include "PlayState.h"
 #include "OgreUtil.h"
 #define PACMAN_EAT_ANIM "pakupaku"
+#define PACMAN_DIES "muerte"
 #define ROTATE_LEFT 0
 #define ROTATE_RIGHT 180
 #define ROTATE_UP -90
@@ -80,6 +81,7 @@ Pacman::Pacman(DynamicsWorld *_world, Vector3 position,int idNodeStart) {
   this->lifes = 3;
   this->speed = 4;
   this->oldDir = LEFT_DIR;
+  this->estoyMuriendo = false;
 }
 void Pacman::updateAnim(Ogre::Real deltaT){
   Ogre::Entity* pacmanEnt = static_cast<Ogre::Entity*>( node->getAttachedObject(PACMAN_NODE));
@@ -226,3 +228,41 @@ void Pacman::reset(){
 
 
 }
+
+void Pacman::arrancaMuerte(Ogre::Real deltaT)
+{
+  stop();
+  Ogre::AnimationState *anim;
+  Ogre::Entity* pacmanEnt = static_cast<Ogre::Entity*>( node->getAttachedObject(PACMAN_NODE));
+  anim = pacmanEnt->getAnimationState(PACMAN_EAT_ANIM);
+  anim->setEnabled(false);
+  anim = pacmanEnt->getAnimationState(PACMAN_DIES);
+  anim->addTime(deltaT);
+  anim->setEnabled(true);
+  anim->setLoop(false);
+  anim->setTimePosition(0.0);
+  estoyMuriendo = true;
+
+}
+
+void Pacman::animaMuerte(Ogre::Real deltaT)
+{
+  Ogre::Entity *pacmanEnt = static_cast<Ogre::Entity *>( node->getAttachedObject(PACMAN_NODE));
+  pacmanEnt->getAnimationState(PACMAN_DIES)->addTime(deltaT);
+}
+
+bool Pacman::heMuertoDelTodo() // :D :D
+{
+  Ogre::Entity* pacmanEnt = static_cast<Ogre::Entity*>( node->getAttachedObject(PACMAN_NODE));
+  if (pacmanEnt->getAnimationState(PACMAN_DIES)->hasEnded())
+  {
+    pacmanEnt->getAnimationState(PACMAN_DIES)->setEnabled(false);
+    pacmanEnt->getAnimationState(PACMAN_EAT_ANIM)->setEnabled(true);
+    estoyMuriendo = false;
+    return true;
+  }
+
+  return false;
+}
+
+

@@ -36,6 +36,7 @@ class Pacman{
   int currentNode;
   int startNode;
   bool power;
+  bool estoyMuriendo; // no me siento las piernas... Normal, si no tienes my weapon.
 
 
  public :
@@ -53,6 +54,10 @@ class Pacman{
   void reset();
   inline bool isPowered(){return power;};
   inline void setPowered(bool powered){power = powered;};
+  inline bool getEstoyMuriendo(){return estoyMuriendo;};
+  void animaMuerte(Ogre::Real deltaT);
+  void arrancaMuerte(Ogre::Real deltaT);
+  bool heMuertoDelTodo();
 };
 
 #endif 

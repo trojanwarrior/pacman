@@ -1,7 +1,12 @@
 AAS|2030
 AAS|1900
 aas|1620
+fsd|1150
 AAS|650
 sdf|450
 plk|259
 ppp|221
+sdf|150
+sss|150
+aaa|120
+lol|90

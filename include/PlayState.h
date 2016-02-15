@@ -130,6 +130,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   bool paused;
   long int timeAfraid;
   bool _resucitando;
+  Ogre::Real _deltaT;
 private:
 
   void createMyGui();
@@ -142,6 +143,7 @@ private:
   void createPhantoms();
   void createFruits();
   void setPhantomsAfraid(bool afraid);
+  void reseteaPersonajes();
 
 };
 
